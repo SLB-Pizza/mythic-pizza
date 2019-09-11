@@ -1,6 +1,8 @@
 .landing {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  justify-content: space-evenly;
 }
 
 .intro-text {
@@ -8,12 +10,30 @@
 }
 
 .vertical-text {
+  flex: 2;
+  /* transform: rotate(90deg); */
+}
+
+.right-third {
+  flex-direction: column;
   flex: 1;
-  transform: rotate(90deg);
+  /* align-content: flex-start; */
 }
 
 .contact-text {
   flex: 1;
+  margin-bottom: 1rem;
+}
+
+.address-text {
+  flex: 1;
+}
+
+.inquire {
+  flex: 1;
+  color: black;
+  background: white;
+  margin-bottom: 10rem;
 }
 
 .App {

@@ -1,5 +1,6 @@
 import React from 'react';
 import '../App.css';
+import TextBox from './TextBox.js';
 
 class InputPage extends React.Component {
   constructor(props) {
@@ -58,14 +59,16 @@ class InputPage extends React.Component {
   render() {
     return (
       <div className="input-page">
-        <button
-          className="closeButton"
-          onClick={() => {
-            alert('CLOSE CLICKED');
-          }}
-        >
-          CLOSE
-        </button>
+        <div>
+          <button
+            className="closeButton"
+            onClick={() => {
+              alert('CLOSE CLICKED');
+            }}
+          >
+            CLOSE
+          </button>
+        </div>
         <form
           name="project mercury form"
           onSubmit={this.handleSubmit}
@@ -79,6 +82,7 @@ class InputPage extends React.Component {
                 name="contactName"
                 value={this.state.contactName}
                 onChange={this.handleChange}
+                required={true}
               />
               001. CONTACT NAME*
             </label>
@@ -88,6 +92,7 @@ class InputPage extends React.Component {
                 name="contactRole"
                 value={this.state.contactRole}
                 onChange={this.handleChange}
+                required={true}
               />
               002. CONTACT ROLE*
             </label>
@@ -99,18 +104,65 @@ class InputPage extends React.Component {
                 name="companyName"
                 value={this.state.companyName}
                 onChange={this.handleChange}
+                required={true}
               />
-              003. COMPANY NAME
+              003. COMPANY NAME*
             </label>
           </div>
           <div className="solo-input-container">
             <label className="solo-input">
-              <textarea
-                type="text"
-                name="companyDescription"
-                value={this.state.companyDescription}
+              <TextBox
                 onChange={this.handleChange}
+                value={this.state.companyDescription}
+                name="companyDescription"
               />
+              004. COMPANY DESCRIPTION*
+            </label>
+          </div>
+          <div className="solo-input-container">
+            <label className="solo-input">
+              <input
+                type="text"
+                name="based"
+                value={this.state.based}
+                onChange={this.handleChange}
+                required={true}
+              />
+              005. WHERE ARE YOU BASED?*
+            </label>
+          </div>
+          <div className="solo-input-container">
+            <label className="solo-input">
+              <TextBox
+                onChange={this.handleChange}
+                value={this.state.marketOpportunity}
+                name="marketOpportunity"
+              />
+              006. MARKET OPPORTUNITY*
+            </label>
+          </div>
+          <div className="solo-input-container">
+            <label className="solo-input">
+              <input
+                type="text"
+                name="targetDemo"
+                value={this.state.targetDemo}
+                onChange={this.handleChange}
+                required={true}
+              />
+              007. TARGET DEMO*
+            </label>
+          </div>
+          <div className="solo-input-container">
+            <label className="solo-input">
+              <input
+                type="text"
+                name="competitors"
+                value={this.state.competitors}
+                onChange={this.handleChange}
+                required={true}
+              />
+              008. COMPETITORS*
             </label>
           </div>
           <input type="SUBMIT" />

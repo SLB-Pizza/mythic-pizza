@@ -1,3 +1,34 @@
+.closeButton {
+  /*for close button on InputPage*/
+  flex: 1;
+}
+.sideBySide-input-container {
+  /*for divs that wrap side by side inputs (like inputs 1 & 2)*/
+  flex-direction: row;
+}
+
+.sideBySide-input {
+  /*for the actual sideBySide inputs*/
+}
+
+.solo-input-container {
+  /*for container around inputs that don't have sibling (like input 3*/
+}
+
+.solo-input {
+  /*for input lines that don't have sibling (like input 3*/
+}
+
+.input-form {
+  /*for the <form> itself*/
+  flex-direction: column;
+  flex: 2;
+}
+
+.input-page {
+  display: flex;
+}
+
 .landing {
   display: flex;
   /* flex-direction: row; */

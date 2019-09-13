@@ -1,12 +1,12 @@
-import React from 'react';
-import introText from './introText.json';
-import '../App.css';
+import React from "react";
+import introText from "./introText.json";
+import "../App.css";
 
 function LandingPage() {
   return (
     <div className="landing">
-      <div className="intro-text" style={{ whiteSpace: 'pre-line' }}>
-        {introText.blurbText.split('\n').map((line, idx) => {
+      <div className="intro-text" style={{ whiteSpace: "pre-line" }}>
+        {introText.blurbText.split("\n").map((line, idx) => {
           return <div key={idx}>{line}</div>;
         })}
         >

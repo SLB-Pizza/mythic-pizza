@@ -1,6 +1,7 @@
 import React from 'react';
 import '../App.css';
 import TextBox from './TextBox.js';
+import FileUpload from './FileUpload';
 
 class InputPage extends React.Component {
   constructor(props) {
@@ -14,7 +15,7 @@ class InputPage extends React.Component {
       marketOpportunity: '',
       targetDemo: '',
       competitors: '',
-      uploadFile: '',
+      uploads: [],
       currentTeam: '',
       positions: '',
       capitalRaised: '',
@@ -39,6 +40,7 @@ class InputPage extends React.Component {
 
     this.handleChange.bind(this);
     this.handleSubmit.bind(this);
+    this.handleFile.bind(this);
   }
 
   handleChange = event => {
@@ -46,19 +48,29 @@ class InputPage extends React.Component {
     const stateName = event.target.name;
     console.log('event.target.value:', event.target.value);
     console.log('event.target.name:', event.target.name);
+    console.log('event:', event);
     this.setState({ [stateName]: event.target.value });
     console.log(`this.state[${stateName}]:`, this.state);
   };
 
   handleSubmit = event => {
-    event.preventDefault();
-    alert('SUBMIT ATTEMPTED');
+    console.log('this in handleSubmit: ', this);
+
+    // event.preventDefault();
+    // alert('SUBMIT ATTEMPTED');
+  };
+
+  handleFile = file => {
+    console.log('this in handleFile: ', this);
+    console.log(file);
+    this.setState({ uploads: [...this.state.uploads, file] });
+    console.log('handleFile this.state.uploads: ', this.state.uploads);
   };
 
   render() {
     return (
       <div className="input-page">
-        <div>
+        <div className="closeButtonWrapper">
           <button
             className="closeButton"
             onClick={() => {
@@ -75,8 +87,9 @@ class InputPage extends React.Component {
           className="input-form"
         >
           <div className="sideBySide-input-container">
-            <label className="sideBySide-input">
+            <label>
               <input
+                className="sideBySide-input"
                 type="text"
                 name="contactName"
                 value={this.state.contactName}
@@ -85,8 +98,9 @@ class InputPage extends React.Component {
               />
               001. CONTACT NAME*
             </label>
-            <label className="sideBySide-input">
+            <label>
               <input
+                className="sideBySide-input"
                 type="text"
                 name="contactRole"
                 value={this.state.contactRole}
@@ -97,8 +111,9 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label className="solo-input">
+            <label>
               <input
+                className="solo-input"
                 type="text"
                 name="companyName"
                 value={this.state.companyName}
@@ -166,15 +181,12 @@ class InputPage extends React.Component {
           </div>
           <div className="solo-input-container">
             <label className="solo-input">
-              <input
-                type="file"
+              <FileUpload
                 name="uploadFile"
-                value={this.state.uploadFile}
-                onChange={this.handleChange}
-                required={true}
+                value={this.state.uploads}
+                handleFile={this.handleFile}
+                // required={true}
               />
-              008. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIALS HERE SIZE
-              LIMIT:10MB*
             </label>
           </div>
           <input type="SUBMIT" />

@@ -1,5 +1,26 @@
+.fileUploadWrapper {
+  /*for the div wrapping the words <p> and the fielUpload <div> field*/
+  height: 100%;
+  width: 100%;
+  border: 1px solid grey;
+}
+
+.fileUploadInner {
+  /*for the <p> that says "upload here"*/
+}
+
+.fileUploadField {
+  /*for the drap and drop field itself*/
+  height: 10vh;
+  width: 100%;
+  border: 1px solid red;
+}
+
 .textarea {
-  /*for the textBox component I'm making*/
+  /*for the actual <textarea> input field INSIDE TextBox.js.
+  needs to have invisible border AND fill the entire div around it, allowing
+  for the description text and char counter to be in a row above it*/
+  height: 100%;
 }
 
 .textAreaWrapper {
@@ -12,6 +33,11 @@
   /*for the small xx/500 charcounter inside the TextBox.js*/
 }
 
+.textBoxInner {
+  /*for the small wrapper to align the words and counter into a row above the actual text input field*/
+  justify-content: space-between;
+}
+
 .closeButton {
   /*for close button on InputPage*/
   flex: 1;
@@ -20,26 +46,39 @@
   /*for divs that wrap side by side inputs (like inputs 1 & 2)*/
   flex-direction: row;
   flex: 1;
+  justify-content: space-evenly;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .sideBySide-input {
   /*for the actual sideBySide inputs*/
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 25%;
 }
 
 .solo-input-container {
   /*for container around inputs that don't have sibling (like input 3)
   and that reach across the full width of the input form*/
-  flex-direction: column;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .solo-input {
   /*for input lines that don't have sibling (like input 3*/
-  flex: 1;
+  width: 100%;
 }
 
 .input-form {
   /*for the <form> itself*/
   flex-direction: column;
+  flex: 2;
+  padding-right: 10vw;
+}
+
+.closeButtonWrapper {
+  /*the little div to help space the close button in InputPage.js*/
   flex: 1;
 }
 

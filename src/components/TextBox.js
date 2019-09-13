@@ -4,10 +4,10 @@ import '../App.css';
 export default function TextBox({ onChange, value, name, insideText }) {
   return (
     <div className="textAreaWrapper">
-      <Fragment className="sideBySide-input-container">
-        {insideText ? <text>{insideText}</text> : <Fragment />}
+      <div className="textBoxInner">
+        {insideText ? <p>{insideText}</p> : <Fragment />}
         <p className="charCounter">{`${0 + value.length}/500`}</p>
-      </Fragment>
+      </div>
       <textarea
         className="textarea"
         name={name}

@@ -2,6 +2,16 @@
   /*for the textBox component I'm making*/
 }
 
+.textAreaWrapper {
+  /*for the small wrapper div in TextBox.js*/
+  border: 1px solid grey;
+  flex-direction: row;
+}
+
+.charCounter {
+  /*for the small xx/500 charcounter inside the TextBox.js*/
+}
+
 .closeButton {
   /*for close button on InputPage*/
   flex: 1;
@@ -9,6 +19,7 @@
 .sideBySide-input-container {
   /*for divs that wrap side by side inputs (like inputs 1 & 2)*/
   flex-direction: row;
+  flex: 1;
 }
 
 .sideBySide-input {
@@ -29,7 +40,7 @@
 .input-form {
   /*for the <form> itself*/
   flex-direction: column;
-  flex: 2;
+  flex: 1;
 }
 
 .input-page {

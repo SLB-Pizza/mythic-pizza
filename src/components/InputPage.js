@@ -11,7 +11,6 @@ class InputPage extends React.Component {
       companyName: '',
       companyDescription: '',
       based: '',
-      // '006launchTiming': ['option1', 'option2', 'etc'],
       marketOpportunity: '',
       targetDemo: '',
       competitors: '',
@@ -110,14 +109,13 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label className="solo-input">
+            <div className="solo-input">
               <TextBox
                 onChange={this.handleChange}
                 value={this.state.companyDescription}
                 name="companyDescription"
               />
-              004. COMPANY DESCRIPTION*
-            </label>
+            </div>
           </div>
           <div className="solo-input-container">
             <label className="solo-input">
@@ -163,6 +161,19 @@ class InputPage extends React.Component {
                 required={true}
               />
               008. COMPETITORS*
+            </label>
+          </div>
+          <div className="solo-input-container">
+            <label className="solo-input">
+              <input
+                type="file"
+                name="uploadFile"
+                value={this.state.uploadFile}
+                onChange={this.handleChange}
+                required={true}
+              />
+              008. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIALS HERE SIZE
+              LIMIT:10MB*
             </label>
           </div>
           <input type="SUBMIT" />

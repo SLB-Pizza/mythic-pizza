@@ -2,10 +2,10 @@ import React, { Fragment, useState } from 'react';
 import '../App.css';
 
 export default function TextBox({ onChange, value, name }) {
-  const [charCount, setCharCount] = useState(0);
-
   return (
-    <Fragment>
+    <div className="textAreaWrapper">
+      <text>004. COMPANY DESCRIPTION*</text>
+      <p className="charCounter">{`${0 + value.length}/500`}</p>
       <textarea
         className="textarea"
         name={name}
@@ -15,7 +15,6 @@ export default function TextBox({ onChange, value, name }) {
         required={true}
         style={{ resize: 'none' }}
       ></textarea>
-      <p>{`${0 + value.length}/500`}</p>
-    </Fragment>
+    </div>
   );
 }

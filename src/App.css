@@ -56,19 +56,17 @@
 
 .left-text {
   flex: 1;
-  background-color: aqua;
+  background-color: rgba(0, 255, 255, 0.5);
 }
 
 .vertical-text {
   flex: 2;
-  background-color: pink;
-  /* transform: rotate(90deg); */
+  background-color: rgba(255, 55, 255, 0.5);
 }
 
 .right-third {
   flex: 1;
-  background-color: aqua;
-  /* align-content: flex-start; */
+  background-color: rgba(0, 255, 255, 0.5);
 }
 
 .contact-text {
@@ -88,7 +86,11 @@
 }
 
 .App {
-  text-align: left;
+  text-align: center;
+  background-image: url("./imgs/bg1.jpg");
+  /* This bit underneath needs tweaking */
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 /* .App-logo { */

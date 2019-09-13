@@ -21,6 +21,7 @@
   needs to have invisible border AND fill the entire div around it, allowing
   for the description text and char counter to be in a row above it*/
   height: 100%;
+  width: 100%;
 }
 
 .textAreaWrapper {

@@ -5,7 +5,7 @@ export default function TextBox({ onChange, value, name, insideText }) {
   return (
     <div className="textAreaWrapper">
       <div className="textBoxInner">
-        {insideText ? <p>{insideText}</p> : <Fragment />}
+        <p>{insideText}</p>
         <p className="charCounter">{`${0 + value.length}/500`}</p>
       </div>
       <textarea
@@ -14,6 +14,7 @@ export default function TextBox({ onChange, value, name, insideText }) {
         value={value}
         onChange={onChange}
         maxLength="500"
+        rows="6"
         required={true}
         style={{ resize: 'none' }}
       ></textarea>

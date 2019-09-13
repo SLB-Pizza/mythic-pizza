@@ -134,8 +134,9 @@ class InputPage extends React.Component {
             </div>
           </div>
           <div className="solo-input-container">
-            <label className="solo-input">
+            <label>
               <input
+                className="solo-input"
                 type="text"
                 name="based"
                 value={this.state.based}
@@ -156,8 +157,9 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label className="solo-input">
+            <label>
               <input
+                className="solo-input"
                 type="text"
                 name="targetDemo"
                 value={this.state.targetDemo}
@@ -168,8 +170,9 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label className="solo-input">
+            <label>
               <input
+                className="solo-input"
                 type="text"
                 name="competitors"
                 value={this.state.competitors}
@@ -186,6 +189,49 @@ class InputPage extends React.Component {
                 value={this.state.uploads}
                 handleFile={this.handleFile}
                 // required={true}
+              />
+            </label>
+          </div>
+          <div className="solo-input-container">
+            <label className="solo-input">
+              <TextBox
+                onChange={this.handleChange}
+                value={this.state.currentTeam}
+                name="currentTeam"
+                insideText="010. CURRENT TEAM (INCLUDE CURRENT MANAGEMENT STRUCTURE)*"
+              />
+            </label>
+          </div>
+          <div className="solo-input-container">
+            <label className="solo-input">
+              <TextBox
+                onChange={this.handleChange}
+                value={this.state.positions}
+                name="positions"
+                insideText="011. OPEN/NEEDED POSITIONS*"
+              />
+            </label>
+          </div>
+          <div className="solo-input-container">
+            <label>
+              <input
+                className="solo-input"
+                type="text"
+                name="capitalRaised"
+                value={this.state.capitalRaised}
+                onChange={this.handleChange}
+                required={true}
+              />
+              012. CAPITAL RAISED*
+            </label>
+          </div>
+          <div className="solo-input-container">
+            <label className="solo-input">
+              <TextBox
+                onChange={this.handleChange}
+                value={this.state.capitalNeeded}
+                name="capitalNeeded"
+                insideText="013. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
               />
             </label>
           </div>

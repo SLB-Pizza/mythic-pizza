@@ -114,6 +114,7 @@ class InputPage extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.companyDescription}
                 name="companyDescription"
+                insideText="004. COMPANY DESCRIPTION*"
               />
             </div>
           </div>
@@ -135,8 +136,8 @@ class InputPage extends React.Component {
                 onChange={this.handleChange}
                 value={this.state.marketOpportunity}
                 name="marketOpportunity"
+                insideText="006. MARKET OPPORTUNITY*"
               />
-              006. MARKET OPPORTUNITY*
             </label>
           </div>
           <div className="solo-input-container">

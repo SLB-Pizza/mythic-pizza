@@ -1,11 +1,13 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment } from 'react';
 import '../App.css';
 
-export default function TextBox({ onChange, value, name }) {
+export default function TextBox({ onChange, value, name, insideText }) {
   return (
     <div className="textAreaWrapper">
-      <text>004. COMPANY DESCRIPTION*</text>
-      <p className="charCounter">{`${0 + value.length}/500`}</p>
+      <Fragment className="sideBySide-input-container">
+        {insideText ? <text>{insideText}</text> : <Fragment />}
+        <p className="charCounter">{`${0 + value.length}/500`}</p>
+      </Fragment>
       <textarea
         className="textarea"
         name={name}

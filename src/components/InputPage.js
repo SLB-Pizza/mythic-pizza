@@ -1,40 +1,40 @@
-import React from 'react';
-import '../App.css';
-import TextBox from './TextBox.js';
+import React from "react";
+import "../App.css";
+import TextBox from "./TextBox.js";
 
 class InputPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      contactName: '',
-      contactRole: '',
-      companyName: '',
-      companyDescription: '',
-      based: '',
-      marketOpportunity: '',
-      targetDemo: '',
-      competitors: '',
-      uploadFile: '',
-      currentTeam: '',
-      positions: '',
-      capitalRaised: '',
-      capitalNeeded: '',
+      contactName: "",
+      contactRole: "",
+      companyName: "",
+      companyDescription: "",
+      based: "",
+      marketOpportunity: "",
+      targetDemo: "",
+      competitors: "",
+      uploadFile: "",
+      currentTeam: "",
+      positions: "",
+      capitalRaised: "",
+      capitalNeeded: "",
       launchSchedule: [
-        '3 months',
-        '6 months',
-        '9 months',
-        '1 year',
-        '2 years',
-        '2 years +',
+        "3 months",
+        "6 months",
+        "9 months",
+        "1 year",
+        "2 years",
+        "2 years +"
       ],
       sernicesNeeded: [
-        'Web Development',
-        'Web Design',
-        'Branding',
-        'Strategy',
-        'Fundraising',
+        "Web Development",
+        "Web Design",
+        "Branding",
+        "Strategy",
+        "Fundraising"
       ],
-      termsCheckbox: false,
+      termsCheckbox: false
     };
 
     this.handleChange.bind(this);
@@ -44,15 +44,15 @@ class InputPage extends React.Component {
   handleChange = event => {
     // eslint-disable-next-line no-unused-vars
     const stateName = event.target.name;
-    console.log('event.target.value:', event.target.value);
-    console.log('event.target.name:', event.target.name);
+    console.log("event.target.value:", event.target.value);
+    console.log("event.target.name:", event.target.name);
     this.setState({ [stateName]: event.target.value });
     console.log(`this.state[${stateName}]:`, this.state);
   };
 
   handleSubmit = event => {
     event.preventDefault();
-    alert('SUBMIT ATTEMPTED');
+    alert("SUBMIT ATTEMPTED");
   };
 
   render() {
@@ -62,7 +62,7 @@ class InputPage extends React.Component {
           <button
             className="closeButton"
             onClick={() => {
-              alert('CLOSE CLICKED');
+              alert("CLOSE CLICKED");
             }}
           >
             CLOSE

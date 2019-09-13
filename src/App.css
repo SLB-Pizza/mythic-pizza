@@ -54,18 +54,20 @@
   justify-content: space-evenly;
 }
 
-.intro-text {
+.left-text {
   flex: 1;
+  background-color: aqua;
 }
 
 .vertical-text {
   flex: 2;
+  background-color: pink;
   /* transform: rotate(90deg); */
 }
 
 .right-third {
-  flex-direction: column;
   flex: 1;
+  background-color: aqua;
   /* align-content: flex-start; */
 }
 
@@ -86,7 +88,7 @@
 }
 
 .App {
-  /* text-align: center; */
+  text-align: left;
 }
 
 /* .App-logo { */

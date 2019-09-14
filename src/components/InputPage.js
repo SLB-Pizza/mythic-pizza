@@ -30,7 +30,7 @@ class InputPage extends React.Component {
         { id: 5, timing: '2 years' },
         { id: 6, timing: '2 years +' },
       ],
-      launchSelected: '',
+      launchSelected: '3 months',
       servicesNeeded: [
         { id: 1, service: 'Web Development' },
         { id: 2, service: 'Web Design' },
@@ -39,6 +39,7 @@ class InputPage extends React.Component {
         { id: 5, service: 'Fundraising' },
       ],
       servicesSelected: [],
+      servicesString: '',
       termsCheckbox: false,
       status: '',
     };
@@ -60,12 +61,6 @@ class InputPage extends React.Component {
     console.log(`this.state[${stateName}]:`, this.state);
   };
 
-  //My old dummy submit func during dev
-  // handleSubmit = event => {
-  //   event.preventDefault();
-  //   alert('SUBMIT ATTEMPTED');
-  // };
-
   //this handleSubmit is 100% copied from netlify docs
   //https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-a-stateful-react-form
   handleSubmit = e => {
@@ -85,64 +80,6 @@ class InputPage extends React.Component {
       .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
       .join('&');
   };
-
-  //This following method is from
-  //https://github.com/futuregerald/react-netlify-form-file/blob/master/src/App.js
-  // encode = data => {
-  //   const formData = new FormData();
-  //   Object.keys(data).forEach(k => {
-  //     formData.append(k, data[k]);
-  //   });
-  //   return formData;
-  // };
-
-  // handleSubmit = e => {
-  //   const {
-  //     contactName,
-  //     contactRole,
-  //     companyName,
-  //     companyDescription,
-  //     based,
-  //     marketOpportunity,
-  //     targetDemo,
-  //     competitors,
-  //     uploads,
-  //     currentTeam,
-  //     positions,
-  //     capitalRaised,
-  //     capitalNeeded,
-  //     launchSelected,
-  //     servicesSelected,
-  //   } = { ...this.state };
-  //   const data = {
-  //     'form-name': 'contact',
-  //     contactName,
-  //     contactRole,
-  //     companyName,
-  //     companyDescription,
-  //     based,
-  //     marketOpportunity,
-  //     targetDemo,
-  //     competitors,
-  //     uploads,
-  //     currentTeam,
-  //     positions,
-  //     capitalRaised,
-  //     capitalNeeded,
-  //     launchSelected,
-  //     servicesSelected,
-  //   };
-
-  //   fetch('/', {
-  //     method: 'POST',
-  //     // headers: { 'Content-Type': 'multipart/form-data; boundary=random' },
-  //     body: this.encode(data),
-  //   })
-  //     .then(() => this.setState({ status: 'Form Submission Successful!!' }))
-  //     .catch(error => this.setState({ status: 'Form Submission Failed!' }));
-
-  //   e.preventDefault();
-  // };
 
   handleFile = file => {
     console.log('handleFile in Input.js current file: \n', file);
@@ -175,6 +112,11 @@ class InputPage extends React.Component {
         servicesSelected: filteredServices,
       });
     }
+
+    const stringServices = this.state.servicesSelected
+      .reduce((acc, curr) => acc + ', ' + curr.service, '')
+      .slice(1);
+    console.log('handleServicesSelect stringServices: ', stringServices);
   };
 
   handleTerms = async () => {

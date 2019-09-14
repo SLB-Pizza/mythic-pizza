@@ -34,6 +34,7 @@ export default class CheckboxDropdown extends React.Component {
       'CheckboxDropdown.js selectService func selectedServices: \n',
       this.state.selectedServices
     );
+    this.props.handleSelect(selectedService);
     // this.props.handleSelect(service);
   };
 

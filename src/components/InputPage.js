@@ -336,7 +336,10 @@ class InputPage extends React.Component {
             />
           </div>
           <p>I AGREE TO THE TERMS BELOW</p>
-          <input type="SUBMIT" />
+          <input
+            type="SUBMIT"
+            disabled={this.state.termsCheckbox ? false : true}
+          />
           <p>LEGAL:</p>
           <p>
             Any nonpublic information provided hereunder is confidential, and

@@ -63,6 +63,9 @@ class InputPage extends React.Component {
   //   event.preventDefault();
   //   alert('SUBMIT ATTEMPTED');
   // };
+
+  //this handleSubmit is 100% copied from netlify docs
+  //https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-a-stateful-react-form
   handleSubmit = e => {
     fetch('/', {
       method: 'POST',
@@ -74,7 +77,7 @@ class InputPage extends React.Component {
 
     e.preventDefault();
   };
-
+  //encode func is copied from netlify docs
   encode = data => {
     return Object.keys(data)
       .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
@@ -140,11 +143,13 @@ class InputPage extends React.Component {
           <p className="inputPageContactInfo">NY, New York 11201</p>
         </div>
         <form
-          name="project mercury form"
+          name="contact"
           onSubmit={this.handleSubmit}
-          netlify="true"
+          data-netlify="true"
+          method="POST"
           className="input-form"
         >
+          <input type="hidden" name="form-name" value="contact" />
           <div className="sideBySide-input-container">
             <label>
               <input

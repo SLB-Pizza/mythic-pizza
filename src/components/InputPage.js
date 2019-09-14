@@ -20,7 +20,7 @@ class InputPage extends React.Component {
       uploads: [],
       currentTeam: '',
       positions: '',
-      capitalRaised: 0,
+      capitalRaised: '',
       capitalNeeded: '',
       launchSchedule: [
         { id: 1, timing: '3 months' },
@@ -60,6 +60,7 @@ class InputPage extends React.Component {
     console.log(`this.state[${stateName}]:`, this.state);
   };
 
+  //My old dummy submit func during dev
   // handleSubmit = event => {
   //   event.preventDefault();
   //   alert('SUBMIT ATTEMPTED');
@@ -67,81 +68,81 @@ class InputPage extends React.Component {
 
   //this handleSubmit is 100% copied from netlify docs
   //https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-a-stateful-react-form
-  // handleSubmit = e => {
-  //   fetch('/', {
-  //     method: 'POST',
-  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-  //     body: this.encode({ 'form-name': 'contact', ...this.state }),
-  //   })
-  //     .then(() => alert('Success!'))
-  //     .catch(error => alert(error));
-
-  //   e.preventDefault();
-  // };
-  // //encode func is copied from netlify docs
-  // encode = data => {
-  //   return Object.keys(data)
-  //     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-  //     .join('&');
-  // };
-
-  //This following method is from
-  //https://github.com/futuregerald/react-netlify-form-file/blob/master/src/App.js
-  encode = data => {
-    const formData = new FormData();
-    Object.keys(data).forEach(k => {
-      formData.append(k, data[k]);
-    });
-    return formData;
-  };
-
   handleSubmit = e => {
-    const {
-      contactName,
-      contactRole,
-      companyName,
-      companyDescription,
-      based,
-      marketOpportunity,
-      targetDemo,
-      competitors,
-      uploads,
-      currentTeam,
-      positions,
-      capitalRaised,
-      capitalNeeded,
-      launchSelected,
-      servicesSelected,
-    } = { ...this.state };
-    const data = {
-      'form-name': 'contact',
-      contactName,
-      contactRole,
-      companyName,
-      companyDescription,
-      based,
-      marketOpportunity,
-      targetDemo,
-      competitors,
-      uploads,
-      currentTeam,
-      positions,
-      capitalRaised,
-      capitalNeeded,
-      launchSelected,
-      servicesSelected,
-    };
-
     fetch('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'multipart/form-data; boundary=random' },
-      body: this.encode(data),
+      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+      body: this.encode({ 'form-name': 'contact', ...this.state }),
     })
-      .then(() => this.setState({ status: 'Form Submission Successful!!' }))
-      .catch(error => this.setState({ status: 'Form Submission Failed!' }));
+      .then(() => alert('Success!'))
+      .catch(error => alert(error));
 
     e.preventDefault();
   };
+  //encode func is copied from netlify docs
+  encode = data => {
+    return Object.keys(data)
+      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+      .join('&');
+  };
+
+  //This following method is from
+  //https://github.com/futuregerald/react-netlify-form-file/blob/master/src/App.js
+  // encode = data => {
+  //   const formData = new FormData();
+  //   Object.keys(data).forEach(k => {
+  //     formData.append(k, data[k]);
+  //   });
+  //   return formData;
+  // };
+
+  // handleSubmit = e => {
+  //   const {
+  //     contactName,
+  //     contactRole,
+  //     companyName,
+  //     companyDescription,
+  //     based,
+  //     marketOpportunity,
+  //     targetDemo,
+  //     competitors,
+  //     uploads,
+  //     currentTeam,
+  //     positions,
+  //     capitalRaised,
+  //     capitalNeeded,
+  //     launchSelected,
+  //     servicesSelected,
+  //   } = { ...this.state };
+  //   const data = {
+  //     'form-name': 'contact',
+  //     contactName,
+  //     contactRole,
+  //     companyName,
+  //     companyDescription,
+  //     based,
+  //     marketOpportunity,
+  //     targetDemo,
+  //     competitors,
+  //     uploads,
+  //     currentTeam,
+  //     positions,
+  //     capitalRaised,
+  //     capitalNeeded,
+  //     launchSelected,
+  //     servicesSelected,
+  //   };
+
+  //   fetch('/', {
+  //     method: 'POST',
+  //     // headers: { 'Content-Type': 'multipart/form-data; boundary=random' },
+  //     body: this.encode(data),
+  //   })
+  //     .then(() => this.setState({ status: 'Form Submission Successful!!' }))
+  //     .catch(error => this.setState({ status: 'Form Submission Failed!' }));
+
+  //   e.preventDefault();
+  // };
 
   handleFile = file => {
     console.log('handleFile in Input.js current file: \n', file);
@@ -204,7 +205,7 @@ class InputPage extends React.Component {
         <form
           name="contact"
           onSubmit={this.handleSubmit}
-          // data-netlify="true"
+          netlify
           // data-netlify-honeypot="bot-field"
           className="input-form"
         >
@@ -309,7 +310,7 @@ class InputPage extends React.Component {
           <div className="solo-input-container">
             <label className="solo-input">
               <FileUpload
-                name="uploadFile"
+                name="uploads"
                 value={this.state.uploads}
                 handleFile={this.handleFile}
                 required={true}

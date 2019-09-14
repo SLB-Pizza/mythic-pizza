@@ -1,3 +1,59 @@
+.App {
+  text-align: center;
+  background-image: url("./imgs/bg1.jpg");
+  /* This bit underneath needs tweaking */
+  background-size: cover;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
+
+/*
+██╗      █████╗ ███╗   ██╗██████╗ ██╗███╗   ██╗ ██████╗
+██║     ██╔══██╗████╗  ██║██╔══██╗██║████╗  ██║██╔════╝
+██║     ███████║██╔██╗ ██║██║  ██║██║██╔██╗ ██║██║  ███╗
+██║     ██╔══██║██║╚██╗██║██║  ██║██║██║╚██╗██║██║   ██║
+███████╗██║  ██║██║ ╚████║██████╔╝██║██║ ╚████║╚██████╔╝
+╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝
+*/
+
+.landing {
+  display: flex;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.left-text {
+  flex: 1;
+  background-color: rgba(0, 255, 255, 0.5);
+}
+
+.vertical-text {
+  flex: 2;
+  background-color: rgba(255, 55, 255, 0.5);
+}
+
+.right-third {
+  flex: 1;
+  background-color: rgba(0, 255, 255, 0.5);
+}
+
+.contact-text {
+  margin-bottom: 1rem;
+}
+
+.address-text {
+}
+
+/*
+███████╗ ██████╗ ██████╗ ███╗   ███╗
+██╔════╝██╔═══██╗██╔══██╗████╗ ████║
+█████╗  ██║   ██║██████╔╝██╔████╔██║
+██╔══╝  ██║   ██║██╔══██╗██║╚██╔╝██║
+██║     ╚██████╔╝██║  ██║██║ ╚═╝ ██║
+╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝
+*/
+
 .textarea {
   /*for the textBox component I'm making*/
 }
@@ -47,50 +103,11 @@
   display: flex;
 }
 
-.landing {
-  display: flex;
-  /* flex-direction: row; */
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.left-text {
-  flex: 1;
-  background-color: rgba(0, 255, 255, 0.5);
-}
-
-.vertical-text {
-  flex: 2;
-  background-color: rgba(255, 55, 255, 0.5);
-}
-
-.right-third {
-  flex: 1;
-  background-color: rgba(0, 255, 255, 0.5);
-}
-
-.contact-text {
-  flex: 1;
-  margin-bottom: 1rem;
-}
-
-.address-text {
-  flex: 1;
-}
-
 .inquire {
   flex: 1;
   color: black;
   background: white;
   margin-bottom: 10rem;
-}
-
-.App {
-  text-align: center;
-  background-image: url("./imgs/bg1.jpg");
-  /* This bit underneath needs tweaking */
-  background-size: cover;
-  background-repeat: no-repeat;
 }
 
 /* .App-logo { */

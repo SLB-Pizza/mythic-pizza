@@ -23,7 +23,7 @@ function LandingPage() {
         <p>WITH INDUSTRY-CHANGING IDEAS.</p>
       </div>
 
-      <div classname="vertical-text">
+      <div className="vertical-text">
         <p>projectMERCURY</p>
       </div>
 

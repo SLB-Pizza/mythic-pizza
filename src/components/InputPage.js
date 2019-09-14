@@ -146,10 +146,12 @@ class InputPage extends React.Component {
           name="contact"
           onSubmit={this.handleSubmit}
           data-netlify="true"
+          data-netlify-honeypot="bot-field"
           method="POST"
           className="input-form"
         >
           <input type="hidden" name="form-name" value="contact" />
+          <input type="hidden" name="bot-field" />
           <div className="sideBySide-input-container">
             <label>
               <input

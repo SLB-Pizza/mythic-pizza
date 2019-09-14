@@ -20,7 +20,7 @@ class InputPage extends React.Component {
       uploads: [],
       currentTeam: '',
       positions: '',
-      capitalRaised: '',
+      capitalRaised: 0,
       capitalNeeded: '',
       launchSchedule: [
         { id: 1, timing: '3 months' },
@@ -40,6 +40,7 @@ class InputPage extends React.Component {
       ],
       servicesSelected: [],
       termsCheckbox: false,
+      status: '',
     };
 
     this.handleChange.bind(this);
@@ -66,22 +67,80 @@ class InputPage extends React.Component {
 
   //this handleSubmit is 100% copied from netlify docs
   //https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-a-stateful-react-form
+  // handleSubmit = e => {
+  //   fetch('/', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //     body: this.encode({ 'form-name': 'contact', ...this.state }),
+  //   })
+  //     .then(() => alert('Success!'))
+  //     .catch(error => alert(error));
+
+  //   e.preventDefault();
+  // };
+  // //encode func is copied from netlify docs
+  // encode = data => {
+  //   return Object.keys(data)
+  //     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+  //     .join('&');
+  // };
+
+  //This following method is from
+  //https://github.com/futuregerald/react-netlify-form-file/blob/master/src/App.js
+  encode = data => {
+    const formData = new FormData();
+    Object.keys(data).forEach(k => {
+      formData.append(k, data[k]);
+    });
+    return formData;
+  };
+
   handleSubmit = e => {
+    const {
+      contactName,
+      contactRole,
+      companyName,
+      companyDescription,
+      based,
+      marketOpportunity,
+      targetDemo,
+      competitors,
+      uploads,
+      currentTeam,
+      positions,
+      capitalRaised,
+      capitalNeeded,
+      launchSelected,
+      servicesSelected,
+    } = { ...this.state };
+    const data = {
+      'form-name': 'contact',
+      contactName,
+      contactRole,
+      companyName,
+      companyDescription,
+      based,
+      marketOpportunity,
+      targetDemo,
+      competitors,
+      uploads,
+      currentTeam,
+      positions,
+      capitalRaised,
+      capitalNeeded,
+      launchSelected,
+      servicesSelected,
+    };
+
     fetch('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: this.encode({ 'form-name': 'contact', ...this.state }),
+      headers: { 'Content-Type': 'multipart/form-data; boundary=random' },
+      body: this.encode(data),
     })
-      .then(() => alert('Success!'))
-      .catch(error => alert(error));
+      .then(() => this.setState({ status: 'Form Submission Successful!!' }))
+      .catch(error => this.setState({ status: 'Form Submission Failed!' }));
 
     e.preventDefault();
-  };
-  //encode func is copied from netlify docs
-  encode = data => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&');
   };
 
   handleFile = file => {
@@ -145,13 +204,12 @@ class InputPage extends React.Component {
         <form
           name="contact"
           onSubmit={this.handleSubmit}
-          data-netlify="true"
-          data-netlify-honeypot="bot-field"
-          method="POST"
+          // data-netlify="true"
+          // data-netlify-honeypot="bot-field"
           className="input-form"
         >
-          <input type="hidden" name="form-name" value="contact" />
-          <input type="hidden" name="bot-field" />
+          {/* <input type="hidden" name="form-name" value="contact" /> */}
+          {/* <input type="hidden" name="bot-field" /> */}
           <div className="sideBySide-input-container">
             <label>
               <input
@@ -254,7 +312,7 @@ class InputPage extends React.Component {
                 name="uploadFile"
                 value={this.state.uploads}
                 handleFile={this.handleFile}
-                // required={true}
+                required={true}
               />
             </label>
           </div>
@@ -280,9 +338,10 @@ class InputPage extends React.Component {
           </div>
           <div className="solo-input-container">
             <label>
+              $
               <input
                 className="solo-input"
-                type="text"
+                type="number"
                 name="capitalRaised"
                 value={this.state.capitalRaised}
                 onChange={this.handleChange}

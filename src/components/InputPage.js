@@ -117,6 +117,7 @@ class InputPage extends React.Component {
       .reduce((acc, curr) => acc + ', ' + curr.service, '')
       .slice(1);
     console.log('handleServicesSelect stringServices: ', stringServices);
+    await this.setState({ servicesString: stringServices });
   };
 
   handleTerms = async () => {

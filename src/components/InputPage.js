@@ -319,7 +319,7 @@ class InputPage extends React.Component {
               <CheckboxDropdown
                 handleSelect={this.handleServicesSelect}
                 services={this.state.servicesNeeded}
-                name="servicesSelected"
+                name="servicesString"
                 insideText="015. SERVICES NEEDED*"
               />
               015. SERVICES NEEDED*

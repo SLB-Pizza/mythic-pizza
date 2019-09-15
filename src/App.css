@@ -20,7 +20,8 @@
   display: flex;
   /* flex-direction: row; */
   flex-wrap: wrap;
-  justify-content: space-evenly;
+  /* justify-content: space-evenly; */
+  align-items: stretch;
 }
 
 .left-text {
@@ -29,13 +30,13 @@
 }
 
 .vertical-text {
-  flex: 2;
+  flex: 1;
   background-color: rgba(255, 55, 255, 0.5);
 }
 
 .right-third {
   flex: 1;
-  background-color: rgba(0, 255, 255, 0.5);
+  background-color: rgba(255, 255, 55, 0.5);
 }
 
 .contact-text {

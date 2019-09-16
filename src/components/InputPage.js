@@ -82,8 +82,8 @@ class InputPage extends React.Component {
   };
 
   handleFile = file => {
-    console.log('handleFile in Input.js current file: \n', file);
-    this.setState({ uploads: file });
+    console.log('handleFile in Input.js current file: \n', file[0]);
+    this.setState({ uploads: file[0] });
 
     console.log('handleFile this.state.uploads: ', this.state.uploads);
   };

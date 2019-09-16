@@ -194,7 +194,9 @@
 
 .closeButtonWrapper {
   /*the little div to help space the close button in InputPage.js*/
-  flex: 1;
+  flex: 2;
+  flex-direction: column;
+  align-content: space-around;
 }
 
 .inputPageContactInfo {
@@ -209,8 +211,10 @@
 .inputPageSidewaysText {
   /*div that holds text to be rotated on input page*/
   /*rotating it moves it to the lower right if the  screen?*/
+  /* transform: rotate(0.25turn); */
   /* transform: rotate(90deg); */
   color: white;
+  flex: 2;
 }
 
 .input-page {
@@ -222,7 +226,7 @@
 .input-form {
   /*for the <form> itself*/
   flex-direction: column;
-  flex: 2;
+  flex: 5;
   padding-right: 10vw;
 }
 

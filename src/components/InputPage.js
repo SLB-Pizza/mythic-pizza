@@ -145,6 +145,9 @@ class InputPage extends React.Component {
           <p className="inputPageContactInfo">324 Lafayette Street</p>
           <p className="inputPageContactInfo">NY, New York 11201</p>
         </div>
+        <div className="inputPageSidewaysText" style={{ flex: 1 }}>
+          *denotes required field
+        </div>
         <form
           name="contact"
           onSubmit={this.handleSubmit}

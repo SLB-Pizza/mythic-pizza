@@ -18,6 +18,7 @@ class InputPage extends React.Component {
       targetDemo: '',
       competitors: '',
       uploads: [],
+      file: {},
       currentTeam: '',
       positions: '',
       capitalRaised: '',
@@ -332,13 +333,15 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <div className="solo-input">
+            <div>
+              <input type="file" className="solo-input" name="uploads" />
+              {/* <div className="solo-input">
               <FileUpload
                 name="uploads"
                 value={this.state.uploads}
                 handleFile={this.handleFile}
                 required={true}
-              />
+              /> */}
             </div>
           </div>
           <div className="solo-input-container">

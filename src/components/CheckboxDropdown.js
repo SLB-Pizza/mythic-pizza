@@ -1,5 +1,7 @@
 import React from 'react';
 import '../App.css';
+import downArrow from '../icons/corner-right-down.svg';
+import upArrow from '../icons/corner-right-up.svg';
 
 // props (services, handleSelect, name, insidetext)
 export default class CheckboxDropdown extends React.Component {
@@ -46,15 +48,6 @@ export default class CheckboxDropdown extends React.Component {
               .reduce((acc, curr) => acc + ', ' + curr.service, '')
               .slice(1)
           : ''}
-        <div className="dropDownArrow" onClick={this.dropdown}>
-          <span
-            className={
-              this.state.showServices
-                ? 'selectDropdownArrowUp'
-                : 'selectDropdownArrowDown'
-            }
-          />
-        </div>
         <div style={{ display: this.state.showServices ? 'block' : 'none' }}>
           {this.state.services.map(service => (
             <div
@@ -69,6 +62,13 @@ export default class CheckboxDropdown extends React.Component {
               {service.service}
             </div>
           ))}
+        </div>{' '}
+        <div className="dropDownArrow" onClick={this.dropdown}>
+          {this.state.showServices ? (
+            <img src={upArrow} alt={upArrow} />
+          ) : (
+            <img src={downArrow} alt={downArrow} />
+          )}
         </div>
       </div>
     );

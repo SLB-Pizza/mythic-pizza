@@ -1,5 +1,7 @@
 import React from 'react';
 import '../App.css';
+import downArrow from '../icons/corner-right-down.svg';
+import upArrow from '../icons/corner-right-up.svg';
 
 // props (options, handleSelect, name, insidetext)
 export default class SelectDropdown extends React.Component {
@@ -29,13 +31,11 @@ export default class SelectDropdown extends React.Component {
       <div className="selectDropdownWrapper">
         {this.state.selectedOption.timing || ''}
         <div className="dropDownArrow" onClick={this.dropdown}>
-          <span
-            className={
-              this.state.showOptions
-                ? 'selectDropdownArrowUp'
-                : 'selectDropdownArrowDown'
-            }
-          />
+          {this.state.showOptions ? (
+            <img src={upArrow} alt={upArrow} />
+          ) : (
+            <img src={downArrow} alt={downArrow} />
+          )}
         </div>
         <div style={{ display: this.state.showOptions ? 'block' : 'none' }}>
           {this.state.options.map(option => (

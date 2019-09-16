@@ -57,7 +57,10 @@
   margin: 0;
   padding: 0;
   display: inline-block;
-  background: grey;
+  background: transparent;
+  /* flex-direction: row; */
+  /* display: flex; */
+  justify-content: space-between;
 }
 
 .selectDropdownArrowUp {
@@ -161,13 +164,14 @@
   width: 100%;
   background-color: black;
   /* flex: 1; */
-  border-style: hidden hidden outset hidden;
+  border-color: white;
+  border-style: hidden hidden solid hidden;
   /* border-bottom: 3px solid white; */
 }
 
 .sideBySide-input-container label {
-  padding-left: 1%;
-  padding-right: 1%;
+  /* padding-left: 1%; */
+  padding-right: 2%;
   color: white;
   flex: 1;
   display: flex;
@@ -183,6 +187,28 @@
   padding-top: 1%;
   padding-bottom: 1%;
   /* color: grey; */
+}
+.solo-input-select-dropdown-container {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.solo-input-select-dropdown-container label {
+  color: white;
+}
+
+.solo-input-select-dropdown {
+  /*for TextBox wrapper in inputPage*/
+  width: 100%;
+  background-color: black;
+  border-style: hidden hidden hidden hidden;
+}
+
+.solo-input-textBox {
+  /*for TextBox wrapper in inputPage*/
+  width: 100%;
+  background-color: black;
+  border-style: hidden hidden hidden hidden;
 }
 
 .solo-input {
@@ -212,9 +238,18 @@
   /*div that holds text to be rotated on input page*/
   /*rotating it moves it to the lower right if the  screen?*/
   /* transform: rotate(0.25turn); */
-  /* transform: rotate(90deg); */
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(90deg);
+  transform: 0 0; */
+  background: none;
   color: white;
   flex: 2;
+}
+
+.inputPageSidewaysTextWrapper {
+  display: flex;
 }
 
 .input-page {

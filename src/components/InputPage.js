@@ -129,7 +129,9 @@ class InputPage extends React.Component {
   render() {
     return (
       <div className="input-page">
-        <div className="inputPageSidewaysText">projectMERCURY</div>
+        <div className="inputPageSidewaysTextWrapper">
+          <p className="inputPageSidewaysText">projectMERCURY</p>
+        </div>
         <div className="closeButtonWrapper">
           <button
             className="closeButton"
@@ -145,8 +147,10 @@ class InputPage extends React.Component {
           <p className="inputPageContactInfo">324 Lafayette Street</p>
           <p className="inputPageContactInfo">NY, New York 11201</p>
         </div>
-        <div className="inputPageSidewaysText" style={{ flex: 1 }}>
-          *denotes required field
+        <div className="inputPageSidewaysTextWrapper">
+          <div className="inputPageSidewaysText" style={{ flex: 1 }}>
+            *denotes required field
+          </div>
         </div>
         <form
           name="contact"
@@ -196,7 +200,7 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <div className="solo-input">
+            <div className="solo-input-textBox">
               <TextBox
                 onChange={this.handleChange}
                 value={this.state.companyDescription}
@@ -219,7 +223,7 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label className="solo-input">
+            <label className="solo-input-textBox">
               <TextBox
                 onChange={this.handleChange}
                 value={this.state.marketOpportunity}
@@ -317,8 +321,8 @@ class InputPage extends React.Component {
               />
             </label>
           </div>
-          <div className="solo-input-container">
-            <label className="solo-input">
+          <div className="solo-input-select-dropdown-container">
+            <label className="solo-input-select-dropdown">
               <SelectDropdown
                 handleSelect={this.handleLaunchSelect}
                 options={this.state.launchSchedule}

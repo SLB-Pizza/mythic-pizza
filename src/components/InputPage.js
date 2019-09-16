@@ -155,6 +155,7 @@ class InputPage extends React.Component {
           {/* <input type="hidden" name="form-name" value="contact" /> */}
           {/* <input type="hidden" name="bot-field" /> */}
           <div className="sideBySide-input-container">
+            <p className="text">LET'S GET STARTED</p>
             <label>
               <input
                 className="sideBySide-input"
@@ -336,13 +337,13 @@ class InputPage extends React.Component {
               onClick={this.handleTerms}
             />
           </div>
-          <p>I AGREE TO THE TERMS BELOW</p>
+          <p className="text">I AGREE TO THE TERMS BELOW</p>
           <input
             type="SUBMIT"
             disabled={this.state.termsCheckbox ? false : true}
           />
-          <p>LEGAL:</p>
-          <p>
+          <p className="text">LEGAL:</p>
+          <p className="text">
             Any nonpublic information provided hereunder is confidential, and
             Project Mercury will not disclose the information to third parties
             except for its professional advisors as strictly necessary; and will
@@ -352,7 +353,7 @@ class InputPage extends React.Component {
             company to those of its employees and representatives who have a
             need to know.
           </p>
-          <p>
+          <p className="text">
             The foregoing is intended solely as a basis for further discussions
             and is not intended to be and does not constitute a legally binding
             offer, obligation or commitment on the part of Project Mercury to

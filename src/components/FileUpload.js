@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import '../App.css';
 
 export default function FileUpload({ name, value, handleFile }) {
+  // eslint-disable-next-line no-unused-vars
   const [dragging, setDragging] = useState(false);
   const [dragCounter, setDragCounter] = useState(0);
   const [fileList, setFileList] = useState([]);
@@ -21,6 +22,7 @@ export default function FileUpload({ name, value, handleFile }) {
       refDiv.removeEventListener('dragover', handleDrag);
       refDiv.removeEventListener('drop', handleDrop);
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const handleDrag = e => {
@@ -47,18 +49,18 @@ export default function FileUpload({ name, value, handleFile }) {
     e.stopPropagation();
     setDragging(false);
     let files = [...fileList];
-    if (!files.includes(e.dataTransfer.files)) {
-      files = [...files, ...e.dataTransfer.files];
-      await setFileList(files);
-    }
+    // if (!files.includes(e.dataTransfer.files)) {
+    files = [...files, ...e.dataTransfer.files];
+    await setFileList(files);
     console.log('handleDrop in FileUpload.js files: ', files);
+    // }
     console.log('handleDrop in FileUpload.js fileList: ', fileList);
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       await handleFile(e.dataTransfer.files);
+      console.log(`FileUpload e.dataTransfer.files:`, e.dataTransfer.files);
       e.dataTransfer.clearData();
       setDragCounter(0);
     }
-    console.log(`FileUpload value after upload:`, value);
     // this.props.handleChange(e);
   };
   // return <div ref={this.dropRef}>{this.props.children}</div>;
@@ -71,19 +73,19 @@ export default function FileUpload({ name, value, handleFile }) {
       <div
         ref={dropRef}
         className="fileUploadField"
-        name={name}
+        name="uploads"
         // value={this.props.value}
         // onChange={this.props.onChange}
         // required={true}
         // style={{ resize: 'none' }}
       >
-        {value.map((file, index) => {
+        {/* {value.map((file, index) => {
           return (
             <div className="uploadedFileList" key={index}>
               {file.name}
             </div>
           );
-        })}
+        })} */}
       </div>
     </div>
   );

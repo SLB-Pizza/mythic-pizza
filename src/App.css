@@ -1,3 +1,8 @@
+.text {
+  /*for general text rn*/
+  color: white;
+}
+
 .termsAndCheckboxWrapper {
   /*wrapper div for the agreement checkbox and "I AGREE" text*/
   flex-direction: row;
@@ -108,6 +113,9 @@
   for the description text and char counter to be in a row above it*/
   height: 100%;
   width: 100%;
+  border-style: hidden hidden outset hidden;
+  background-color: black;
+  color: white;
 }
 
 .textAreaWrapper {
@@ -123,6 +131,7 @@
 .textBoxInner {
   /*for the small wrapper to align the words and counter into a row above the actual text input field*/
   justify-content: space-between;
+  color: white;
 }
 
 .closeButton {
@@ -143,6 +152,9 @@
   padding-left: 1%;
   padding-right: 1%;
   width: 25%;
+  background-color: black;
+  border-style: hidden hidden outset hidden;
+  /* border-bottom: 3px solid white; */
 }
 
 .solo-input-container {
@@ -150,6 +162,7 @@
   and that reach across the full width of the input form*/
   padding-top: 1%;
   padding-bottom: 1%;
+  /* color: grey; */
 }
 
 .solo-input {
@@ -164,6 +177,7 @@
 
 .inputPageContactInfo {
   /*<p> that holds the lines of contact info text, each in a separate <p>*/
+  color: white;
 }
 
 .inputPageContactSpacer {
@@ -172,6 +186,9 @@
 
 .inputPageSidewaysText {
   /*div that holds text to be rotated on input page*/
+  /*rotating it moves it to the lower right if the  screen?*/
+  /* transform: rotate(90deg); */
+  color: white;
 }
 
 .input-page {
@@ -198,7 +215,9 @@
 }
 
 .vertical-text {
+  /*projectMERCURY text on LandingPage.js*/
   flex: 2;
+  color: white;
   /* transform: rotate(90deg); */
 }
 
@@ -226,6 +245,7 @@
 
 .App {
   /* text-align: center; */
+  background-color: black;
 }
 
 /* .App-logo { */

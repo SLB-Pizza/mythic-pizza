@@ -129,7 +129,7 @@ class InputPage extends React.Component {
   render() {
     return (
       <div className="input-page">
-        <p className="inputPageSidewaysText">projectMERCURY</p>
+        <div className="inputPageSidewaysText">projectMERCURY</div>
         <div className="closeButtonWrapper">
           <button
             className="closeButton"
@@ -154,8 +154,8 @@ class InputPage extends React.Component {
         >
           {/* <input type="hidden" name="form-name" value="contact" /> */}
           {/* <input type="hidden" name="bot-field" /> */}
+          <p className="text">LET'S GET STARTED</p>
           <div className="sideBySide-input-container">
-            <p className="text">LET'S GET STARTED</p>
             <label>
               <input
                 className="sideBySide-input"
@@ -283,15 +283,24 @@ class InputPage extends React.Component {
           </div>
           <div className="solo-input-container">
             <label>
-              $
-              <input
-                className="solo-input"
-                type="number"
-                name="capitalRaised"
-                value={this.state.capitalRaised}
-                onChange={this.handleChange}
-                required={true}
-              />
+              <label
+                style={{
+                  display: 'flex',
+                  flexDirection: 'row',
+                  color: 'white',
+                }}
+              >
+                $
+                <input
+                  style={{ color: 'white' }}
+                  className="solo-input"
+                  type="number"
+                  name="capitalRaised"
+                  value={this.state.capitalRaised}
+                  onChange={this.handleChange}
+                  required={true}
+                />
+              </label>
               012. CAPITAL RAISED*
             </label>
           </div>

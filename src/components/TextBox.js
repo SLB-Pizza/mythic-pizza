@@ -1,12 +1,14 @@
 import React from 'react';
 import '../App.css';
 
+//<p className="insideText">{`${insideText} ${0 + value.length}/500`}</p>
+
 export default function TextBox({ onChange, value, name, insideText }) {
   return (
     <div className="textAreaWrapper">
       <div className="textBoxInner">
-        <p>{insideText}</p>
-        <p className="charCounter">{`${0 + value.length}/500`}</p>
+        <div className="insideText">{insideText}</div>
+        <div className="charCounter">{`${0 + value.length}/500`}</div>
       </div>
       <textarea
         className="textarea"

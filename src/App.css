@@ -112,10 +112,10 @@
   needs to have invisible border AND fill the entire div around it, allowing
   for the description text and char counter to be in a row above it*/
   height: 100%;
-  width: 100%;
-  border-style: hidden hidden outset hidden;
+  width: 99%;
+  border-style: hidden hidden hidden hidden;
   background-color: black;
-  color: white;
+  color: red;
 }
 
 .textAreaWrapper {
@@ -128,8 +128,14 @@
   /*for the small xx/500 charcounter inside the TextBox.js*/
 }
 
+.insideText {
+  /*for the text right before the charCosunter passed as a prop*/
+}
+
 .textBoxInner {
   /*for the small wrapper to align the words and counter into a row above the actual text input field*/
+  flex-direction: row;
+  display: flex;
   justify-content: space-between;
   color: white;
 }
@@ -141,6 +147,7 @@
 .sideBySide-input-container {
   /*for divs that wrap side by side inputs (like inputs 1 & 2)*/
   flex-direction: row;
+  display: flex;
   flex: 1;
   justify-content: space-evenly;
   padding-top: 1%;
@@ -151,10 +158,23 @@
   /*for the actual sideBySide inputs*/
   padding-left: 1%;
   padding-right: 1%;
-  width: 25%;
+  width: 100%;
   background-color: black;
+  /* flex: 1; */
   border-style: hidden hidden outset hidden;
   /* border-bottom: 3px solid white; */
+}
+
+.sideBySide-input-container label {
+  padding-left: 1%;
+  padding-right: 1%;
+  color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.solo-input-container label {
+  color: white;
 }
 
 .solo-input-container {
@@ -168,6 +188,8 @@
 .solo-input {
   /*for input lines that don't have sibling (like input 3*/
   width: 100%;
+  background-color: black;
+  border-style: hidden hidden outset hidden;
 }
 
 .closeButtonWrapper {
@@ -194,6 +216,7 @@
 .input-page {
   /*wrapper for whole input page*/
   display: flex;
+  flex-wrap: wrap;
 }
 
 .input-form {

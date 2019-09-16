@@ -5,8 +5,14 @@ import '../App.css';
 
 export default function TextBox({ onChange, value, name, insideText }) {
   return (
-    <div className="textAreaWrapper">
-      <div className="textBoxInner">
+    <div
+      className="textAreaWrapper"
+      style={{ borderColor: value.length > 0 ? 'white' : 'grey' }}
+    >
+      <div
+        className="textBoxInner"
+        style={{ color: value.length > 0 ? 'white' : 'grey' }}
+      >
         <div className="insideText">{insideText}</div>
         <div className="charCounter">{`${0 + value.length}/500`}</div>
       </div>

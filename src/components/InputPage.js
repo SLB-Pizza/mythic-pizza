@@ -83,12 +83,19 @@ class InputPage extends React.Component {
 
   handleFile = file => {
     console.log('handleFile in Input.js current file: \n', file);
-    if (!this.state.uploads.includes(file)) {
-      this.setState({ uploads: [...this.state.uploads, file] });
-    }
+    this.setState({ uploads: file });
+
     console.log('handleFile this.state.uploads: ', this.state.uploads);
   };
 
+  //backup of array version
+  // handleFile = file => {
+  //   console.log('handleFile in Input.js current file: \n', file);
+  //   if (!this.state.uploads.includes(file)) {
+  //     this.setState({ uploads: [...this.state.uploads, file] });
+  //   }
+  //   console.log('handleFile this.state.uploads: ', this.state.uploads);
+  // };
   handleLaunchSelect = async option => {
     await this.setState({
       launchSelected: option.timing,
@@ -163,7 +170,13 @@ class InputPage extends React.Component {
           {/* <input type="hidden" name="bot-field" /> */}
           <p className="text">LET'S GET STARTED</p>
           <div className="sideBySide-input-container">
-            <label>
+            <label
+              style={
+                this.state.contactName.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <input
                 className="sideBySide-input"
                 style={
@@ -179,7 +192,13 @@ class InputPage extends React.Component {
               />
               001. CONTACT NAME*
             </label>
-            <label>
+            <label
+              style={
+                this.state.contactRole.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <input
                 className="sideBySide-input"
                 style={
@@ -197,7 +216,13 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.companyName.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <input
                 className="solo-input"
                 style={
@@ -225,7 +250,13 @@ class InputPage extends React.Component {
             </div>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.based.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <input
                 className="solo-input"
                 style={
@@ -253,7 +284,13 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.targetDemo.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <input
                 className="solo-input"
                 style={
@@ -271,7 +308,13 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.competitors.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <input
                 className="solo-input"
                 style={
@@ -289,14 +332,14 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label className="solo-input">
+            <div className="solo-input">
               <FileUpload
                 name="uploads"
                 value={this.state.uploads}
                 handleFile={this.handleFile}
                 required={true}
               />
-            </label>
+            </div>
           </div>
           <div className="solo-input-container">
             <label className="solo-input">
@@ -319,13 +362,29 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.capitalRaised.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <label
-                style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  color: 'white',
-                }}
+                style={
+                  this.state.capitalRaised.length > 0
+                    ? {
+                        borderColor: 'white',
+                        color: 'white',
+                        display: 'flex',
+                        flexDirection: 'row',
+                      }
+                    : {
+                        borderColor: 'grey',
+                        color: 'grey',
+                        display: 'flex',
+                        flexDirection: 'row',
+                      }
+                }
               >
                 $
                 <input
@@ -367,7 +426,14 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label className="solo-input">
+            <label
+              className="solo-input"
+              style={
+                this.state.servicesSelected.length > 0
+                  ? { borderColor: 'transparent', color: 'white' }
+                  : { borderColor: 'transparent', color: 'grey' }
+              }
+            >
               <CheckboxDropdown
                 handleSelect={this.handleServicesSelect}
                 services={this.state.servicesNeeded}
@@ -378,16 +444,18 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="termsAndCheckboxWrapper">
-            <div
-              className={
-                this.state.termsCheckbox
-                  ? 'termsCheckboxAgreed'
-                  : 'termsCheckboxNotAgree'
-              }
-              onClick={this.handleTerms}
-            />
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              <div
+                className={
+                  this.state.termsCheckbox
+                    ? 'termsCheckboxAgreed'
+                    : 'termsCheckboxNotAgree'
+                }
+                onClick={this.handleTerms}
+              />
+            </div>
+            <div className="text">I AGREE TO THE TERMS BELOW</div>
           </div>
-          <p className="text">I AGREE TO THE TERMS BELOW</p>
           <input
             type="SUBMIT"
             disabled={this.state.termsCheckbox ? false : true}

@@ -42,13 +42,23 @@ export default class CheckboxDropdown extends React.Component {
 
   render() {
     return (
-      <div className="checkboxDropdownWrapper">
+      <div
+        className="checkboxDropdownWrapper"
+        style={{
+          borderBottomColor:
+            this.state.selectedServices.length > 0 ? 'white' : 'grey',
+        }}
+      >
         {this.state.selectedServices.length > 0
           ? this.state.selectedServices
               .reduce((acc, curr) => acc + ', ' + curr.service, '')
               .slice(1)
-          : ''}
-        <div style={{ display: this.state.showServices ? 'block' : 'none' }}>
+          : 'PLEASE SELECT AT LEAST ONE SERVICE SERVICE'}
+        <div
+          style={{
+            display: this.state.showServices ? 'block' : 'none',
+          }}
+        >
           {this.state.services.map(service => (
             <div
               className={

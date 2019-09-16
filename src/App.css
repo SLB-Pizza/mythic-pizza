@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .App {
   text-align: center;
   background-image: url("./imgs/bg1.jpg");
@@ -54,9 +55,129 @@
 ██║     ╚██████╔╝██║  ██║██║ ╚═╝ ██║
 ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝
 */
+=======
+.text {
+  /*for general text rn*/
+  color: white;
+}
+
+.termsAndCheckboxWrapper {
+  /*wrapper div for the agreement checkbox and "I AGREE" text*/
+  flex-direction: row;
+}
+
+.termsCheckboxAgreed {
+  /*the little checkbox for terms agreement if checked*/
+  height: 2vh;
+  width: 2vh;
+  border: 2px solid red;
+  background: white;
+}
+
+.termsCheckboxNotAgree {
+  /*the little checkbox for terms agreement if NOT checked*/
+  height: 2vh;
+  width: 2vh;
+  border: 2px solid grey;
+  background: transparent;
+}
+
+.checkboxDropdownWrapper {
+  /*for the wrapper around the services needed checkbox dropdown*/
+}
+
+.selectedService {
+  /*for selected services in CheckbocDropdown.js*/
+}
+
+.unselectedService {
+  /*for unselected services in CheckbocDropdown.js*/
+}
+
+.selectDropdownWrapper {
+  /*the wrapper around the launch timing options in SelectDropdown.js*/
+  border: 1px solid grey;
+}
+
+.selectedOption {
+  /*the currently selected launch timing option in SelectDropdown.js*/
+  background: red;
+}
+
+.unselectedOption {
+  /*the NOT selected launch timing options in SelectDropdown.js*/
+}
+
+.dropDownArrow {
+  /*for the dropdown arrow inside SelectDropdown.js and CheckboxDropdown.js*/
+  width: 30px;
+  height: 30px;
+  margin: 0;
+  padding: 0;
+  display: inline-block;
+  background: transparent;
+  /* flex-direction: row; */
+  /* display: flex; */
+  justify-content: space-between;
+}
+
+.selectDropdownArrowUp {
+  /*to control styling when SelectDropdown.js and CheckboxDropdown.js menu IS showing options
+  I followed a tut on making an arrow as a placeholder, but it's not showing in the right spot, it's up on the upper left? so weird lol*/
+  position: absolute;
+  top: 10px;
+  left: 8px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 10px solid black;
+}
+
+.selectDropdownArrowDown {
+  /*to control styling when SelectDropdown.js and CheckboxDropdown.js menu is NOT showing options*/
+  position: absolute;
+  top: 12px;
+  left: 8px;
+  width: 0;
+  height: 0;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-top: 10px solid black;
+}
+
+.fileUploadWrapper {
+  /*for the div wrapping the words <p> and the fielUpload <div> field*/
+  height: 100%;
+  width: 100%;
+  border: 1px solid grey;
+}
+
+.fileUploadInner {
+  /*for the <p> that says "upload here"*/
+}
+
+.fileUploadField {
+  /*for the drap and drop field itself*/
+  height: 10vh;
+  width: 100%;
+  border: 1px solid red;
+}
+
+.uploadedFileList {
+  /*for the uploaded list of file names that display in upload field*/
+}
+>>>>>>> feat/addFormInputs
 
 .textarea {
-  /*for the textBox component I'm making*/
+  /*for the actual <textarea> input field INSIDE TextBox.js.
+  needs to have invisible border AND fill the entire div around it, allowing
+  for the description text and char counter to be in a row above it*/
+  height: 100%;
+  width: 99%;
+  border-style: hidden hidden hidden hidden;
+  background-color: black;
+  color: red;
 }
 
 .textAreaWrapper {
@@ -69,6 +190,18 @@
   /*for the small xx/500 charcounter inside the TextBox.js*/
 }
 
+.insideText {
+  /*for the text right before the charCosunter passed as a prop*/
+}
+
+.textBoxInner {
+  /*for the small wrapper to align the words and counter into a row above the actual text input field*/
+  flex-direction: row;
+  display: flex;
+  justify-content: space-between;
+  color: white;
+}
+
 .closeButton {
   /*for close button on InputPage*/
   flex: 1;
@@ -76,34 +209,157 @@
 .sideBySide-input-container {
   /*for divs that wrap side by side inputs (like inputs 1 & 2)*/
   flex-direction: row;
+  display: flex;
   flex: 1;
+  justify-content: space-evenly;
+  padding-top: 1%;
+  padding-bottom: 1%;
 }
 
 .sideBySide-input {
   /*for the actual sideBySide inputs*/
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 100%;
+  background-color: black;
+  flex: 1;
+  /* border-color: white; */
+  border-style: hidden hidden solid hidden;
+  /* border-bottom: 3px solid white; */
+}
+
+.sideBySide-input-container label {
+  /* padding-left: 1%; */
+  padding-right: 2%;
+  color: white;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.solo-input-container label {
+  color: white;
 }
 
 .solo-input-container {
   /*for container around inputs that don't have sibling (like input 3)
   and that reach across the full width of the input form*/
-  flex-direction: column;
+  padding-top: 2%;
+  padding-bottom: 2%;
+  /* color: grey; */
+}
+.solo-input-select-dropdown-container {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.solo-input-select-dropdown-container label {
+  color: white;
+}
+
+.solo-input-select-dropdown {
+  /*for TextBox wrapper in inputPage*/
+  width: 100%;
+  background-color: black;
+  border-style: hidden hidden hidden hidden;
+}
+
+.solo-input-textBox {
+  /*for TextBox wrapper in inputPage*/
+  width: 100%;
+  background-color: black;
+  border-style: hidden hidden hidden hidden;
 }
 
 .solo-input {
   /*for input lines that don't have sibling (like input 3*/
-  flex: 1;
+  width: 100%;
+  background-color: black;
+  border-style: hidden hidden solid hidden;
+}
+
+.closeButtonWrapper {
+  /*the little div to help space the close button in InputPage.js*/
+  flex: 2;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+.inputPageContactInfo {
+  /*<p> that holds the lines of contact info text, each in a separate <p>*/
+  color: white;
+}
+
+.inputPageContactSpacer {
+  /*empty spacer to help space contact info text*/
+}
+
+.inputPageSidewaysText {
+  /*div that holds text to be rotated on input page*/
+  /*rotating it moves it to the lower right if the  screen?*/
+  /* transform: rotate(0.25turn); */
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(90deg);
+  transform: 0 0; */
+  background: none;
+  color: white;
+  flex: 2;
+}
+
+.inputPageSidewaysTextWrapper {
+  display: flex;
+}
+
+.input-page {
+  /*wrapper for whole input page*/
+  display: flex;
+  flex-wrap: wrap;
 }
 
 .input-form {
   /*for the <form> itself*/
   flex-direction: column;
+  flex: 5;
+  padding-right: 10vw;
+}
+
+<<<<<<< HEAD
+=======
+.landing {
+  display: flex;
+  /* flex-direction: row; */
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+}
+
+.intro-text {
   flex: 1;
 }
 
-.input-page {
-  display: flex;
+.vertical-text {
+  /*projectMERCURY text on LandingPage.js*/
+  flex: 2;
+  color: white;
+  /* transform: rotate(90deg); */
 }
 
+.right-third {
+  flex-direction: column;
+  flex: 1;
+  /* align-content: flex-start; */
+}
+
+.contact-text {
+  flex: 1;
+  margin-bottom: 1rem;
+}
+
+.address-text {
+  flex: 1;
+}
+
+>>>>>>> feat/addFormInputs
 .inquire {
   flex: 1;
   color: black;
@@ -111,6 +367,14 @@
   margin-bottom: 10rem;
 }
 
+<<<<<<< HEAD
+=======
+.App {
+  /* text-align: center; */
+  background-color: black;
+}
+
+>>>>>>> feat/addFormInputs
 /* .App-logo { */
 /* animation: App-logo-spin infinite 20s linear; */
 /* height: 40vmin; */

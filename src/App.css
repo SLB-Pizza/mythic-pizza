@@ -163,8 +163,8 @@
   padding-right: 1%;
   width: 100%;
   background-color: black;
-  /* flex: 1; */
-  border-color: white;
+  flex: 1;
+  /* border-color: white; */
   border-style: hidden hidden solid hidden;
   /* border-bottom: 3px solid white; */
 }
@@ -184,8 +184,8 @@
 .solo-input-container {
   /*for container around inputs that don't have sibling (like input 3)
   and that reach across the full width of the input form*/
-  padding-top: 1%;
-  padding-bottom: 1%;
+  padding-top: 2%;
+  padding-bottom: 2%;
   /* color: grey; */
 }
 .solo-input-select-dropdown-container {
@@ -215,7 +215,7 @@
   /*for input lines that don't have sibling (like input 3*/
   width: 100%;
   background-color: black;
-  border-style: hidden hidden outset hidden;
+  border-style: hidden hidden solid hidden;
 }
 
 .closeButtonWrapper {

@@ -166,6 +166,11 @@ class InputPage extends React.Component {
             <label>
               <input
                 className="sideBySide-input"
+                style={
+                  this.state.contactName.length > 0
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
+                }
                 type="text"
                 name="contactName"
                 value={this.state.contactName}
@@ -177,6 +182,11 @@ class InputPage extends React.Component {
             <label>
               <input
                 className="sideBySide-input"
+                style={
+                  this.state.contactRole.length > 0
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
+                }
                 type="text"
                 name="contactRole"
                 value={this.state.contactRole}
@@ -190,6 +200,11 @@ class InputPage extends React.Component {
             <label>
               <input
                 className="solo-input"
+                style={
+                  this.state.companyName.length > 0
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
+                }
                 type="text"
                 name="companyName"
                 value={this.state.companyName}
@@ -213,6 +228,11 @@ class InputPage extends React.Component {
             <label>
               <input
                 className="solo-input"
+                style={
+                  this.state.based.length > 0
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
+                }
                 type="text"
                 name="based"
                 value={this.state.based}
@@ -236,6 +256,11 @@ class InputPage extends React.Component {
             <label>
               <input
                 className="solo-input"
+                style={
+                  this.state.targetDemo.length > 0
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
+                }
                 type="text"
                 name="targetDemo"
                 value={this.state.targetDemo}
@@ -249,6 +274,11 @@ class InputPage extends React.Component {
             <label>
               <input
                 className="solo-input"
+                style={
+                  this.state.competitors.length > 0
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
+                }
                 type="text"
                 name="competitors"
                 value={this.state.competitors}
@@ -299,8 +329,12 @@ class InputPage extends React.Component {
               >
                 $
                 <input
-                  style={{ color: 'white' }}
                   className="solo-input"
+                  style={
+                    this.state.capitalRaised.length > 0
+                      ? { borderColor: 'white', color: 'white' }
+                      : { borderColor: 'grey', color: 'grey' }
+                  }
                   type="number"
                   name="capitalRaised"
                   value={this.state.capitalRaised}

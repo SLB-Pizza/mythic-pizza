@@ -1,21 +1,14 @@
-<<<<<<< HEAD
 import React from "react";
 import "../App.css";
 import TextBox from "./TextBox.js";
-=======
-import React from 'react';
-import '../App.css';
-import TextBox from './TextBox.js';
-import FileUpload from './FileUpload';
-import SelectDropdown from './SelectDropdown';
-import CheckboxDropdown from './CheckboxDropdown';
->>>>>>> feat/addFormInputs
+import FileUpload from "./FileUpload";
+import SelectDropdown from "./SelectDropdown";
+import CheckboxDropdown from "./CheckboxDropdown";
 
 class InputPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-<<<<<<< HEAD
       contactName: "",
       contactRole: "",
       companyName: "",
@@ -24,62 +17,31 @@ class InputPage extends React.Component {
       marketOpportunity: "",
       targetDemo: "",
       competitors: "",
-      uploadFile: "",
+      uploads: [],
       currentTeam: "",
       positions: "",
       capitalRaised: "",
       capitalNeeded: "",
       launchSchedule: [
-        "3 months",
-        "6 months",
-        "9 months",
-        "1 year",
-        "2 years",
-        "2 years +"
+        { id: 1, timing: "3 months" },
+        { id: 2, timing: "6 months" },
+        { id: 3, timing: "9 months" },
+        { id: 4, timing: "1 year" },
+        { id: 5, timing: "2 years" },
+        { id: 6, timing: "2 years +" }
       ],
-      sernicesNeeded: [
-        "Web Development",
-        "Web Design",
-        "Branding",
-        "Strategy",
-        "Fundraising"
-      ],
-      termsCheckbox: false
-=======
-      contactName: '',
-      contactRole: '',
-      companyName: '',
-      companyDescription: '',
-      based: '',
-      marketOpportunity: '',
-      targetDemo: '',
-      competitors: '',
-      uploads: [],
-      currentTeam: '',
-      positions: '',
-      capitalRaised: '',
-      capitalNeeded: '',
-      launchSchedule: [
-        { id: 1, timing: '3 months' },
-        { id: 2, timing: '6 months' },
-        { id: 3, timing: '9 months' },
-        { id: 4, timing: '1 year' },
-        { id: 5, timing: '2 years' },
-        { id: 6, timing: '2 years +' },
-      ],
-      launchSelected: '3 months',
+      launchSelected: "3 months",
       servicesNeeded: [
-        { id: 1, service: 'Web Development' },
-        { id: 2, service: 'Web Design' },
-        { id: 3, service: 'Branding' },
-        { id: 4, service: 'Strategy' },
-        { id: 5, service: 'Fundraising' },
+        { id: 1, service: "Web Development" },
+        { id: 2, service: "Web Design" },
+        { id: 3, service: "Branding" },
+        { id: 4, service: "Strategy" },
+        { id: 5, service: "Fundraising" }
       ],
       servicesSelected: [],
-      servicesString: '',
+      servicesString: "",
       termsCheckbox: false,
-      status: '',
->>>>>>> feat/addFormInputs
+      status: ""
     };
 
     this.handleChange.bind(this);
@@ -92,32 +54,22 @@ class InputPage extends React.Component {
   handleChange = event => {
     // eslint-disable-next-line no-unused-vars
     const stateName = event.target.name;
-<<<<<<< HEAD
     console.log("event.target.value:", event.target.value);
     console.log("event.target.name:", event.target.name);
-=======
-    console.log('event.target.value:', event.target.value);
-    console.log('event.target.name:', event.target.name);
-    console.log('event:', event);
->>>>>>> feat/addFormInputs
+    console.log("event:", event);
     this.setState({ [stateName]: event.target.value });
     console.log(`this.state[${stateName}]:`, this.state);
   };
 
-<<<<<<< HEAD
-  handleSubmit = event => {
-    event.preventDefault();
-    alert("SUBMIT ATTEMPTED");
-=======
   //this handleSubmit is 100% copied from netlify docs
   //https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-a-stateful-react-form
   handleSubmit = e => {
-    fetch('/', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: this.encode({ 'form-name': 'contact', ...this.state }),
+    fetch("/", {
+      method: "POST",
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: this.encode({ "form-name": "contact", ...this.state })
     })
-      .then(() => alert('Success!'))
+      .then(() => alert("Success!"))
       .catch(error => alert(error));
 
     e.preventDefault();
@@ -125,24 +77,24 @@ class InputPage extends React.Component {
   //encode func is copied from netlify docs
   encode = data => {
     return Object.keys(data)
-      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&');
+      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
+      .join("&");
   };
 
   handleFile = file => {
-    console.log('handleFile in Input.js current file: \n', file);
+    console.log("handleFile in Input.js current file: \n", file);
     if (!this.state.uploads.includes(file)) {
       this.setState({ uploads: [...this.state.uploads, file] });
     }
-    console.log('handleFile this.state.uploads: ', this.state.uploads);
+    console.log("handleFile this.state.uploads: ", this.state.uploads);
   };
 
   handleLaunchSelect = async option => {
     await this.setState({
-      launchSelected: option.timing,
+      launchSelected: option.timing
     });
     console.log(
-      'InputPage handleSelect selectedTiming: ',
+      "InputPage handleSelect selectedTiming: ",
       this.state.launchSelected
     );
   };
@@ -150,29 +102,28 @@ class InputPage extends React.Component {
   handleServicesSelect = async selectedService => {
     if (!this.state.servicesSelected.includes(selectedService)) {
       await this.setState({
-        servicesSelected: [...this.state.servicesSelected, selectedService],
+        servicesSelected: [...this.state.servicesSelected, selectedService]
       });
     } else {
       const filteredServices = this.state.servicesSelected.filter(
         service => service.id !== selectedService.id
       );
       await this.setState({
-        servicesSelected: filteredServices,
+        servicesSelected: filteredServices
       });
     }
 
     const stringServices = this.state.servicesSelected
-      .reduce((acc, curr) => acc + ', ' + curr.service, '')
+      .reduce((acc, curr) => acc + ", " + curr.service, "")
       .slice(1);
-    console.log('handleServicesSelect stringServices: ', stringServices);
+    console.log("handleServicesSelect stringServices: ", stringServices);
     await this.setState({ servicesString: stringServices });
   };
 
   handleTerms = async () => {
     await this.setState({
-      termsCheckbox: !this.state.termsCheckbox,
+      termsCheckbox: !this.state.termsCheckbox
     });
->>>>>>> feat/addFormInputs
   };
 
   render() {
@@ -217,8 +168,8 @@ class InputPage extends React.Component {
                 className="sideBySide-input"
                 style={
                   this.state.contactName.length > 0
-                    ? { borderColor: 'white', color: 'white' }
-                    : { borderColor: 'grey', color: 'grey' }
+                    ? { borderColor: "white", color: "white" }
+                    : { borderColor: "grey", color: "grey" }
                 }
                 type="text"
                 name="contactName"
@@ -233,8 +184,8 @@ class InputPage extends React.Component {
                 className="sideBySide-input"
                 style={
                   this.state.contactRole.length > 0
-                    ? { borderColor: 'white', color: 'white' }
-                    : { borderColor: 'grey', color: 'grey' }
+                    ? { borderColor: "white", color: "white" }
+                    : { borderColor: "grey", color: "grey" }
                 }
                 type="text"
                 name="contactRole"
@@ -251,8 +202,8 @@ class InputPage extends React.Component {
                 className="solo-input"
                 style={
                   this.state.companyName.length > 0
-                    ? { borderColor: 'white', color: 'white' }
-                    : { borderColor: 'grey', color: 'grey' }
+                    ? { borderColor: "white", color: "white" }
+                    : { borderColor: "grey", color: "grey" }
                 }
                 type="text"
                 name="companyName"
@@ -279,8 +230,8 @@ class InputPage extends React.Component {
                 className="solo-input"
                 style={
                   this.state.based.length > 0
-                    ? { borderColor: 'white', color: 'white' }
-                    : { borderColor: 'grey', color: 'grey' }
+                    ? { borderColor: "white", color: "white" }
+                    : { borderColor: "grey", color: "grey" }
                 }
                 type="text"
                 name="based"
@@ -307,8 +258,8 @@ class InputPage extends React.Component {
                 className="solo-input"
                 style={
                   this.state.targetDemo.length > 0
-                    ? { borderColor: 'white', color: 'white' }
-                    : { borderColor: 'grey', color: 'grey' }
+                    ? { borderColor: "white", color: "white" }
+                    : { borderColor: "grey", color: "grey" }
                 }
                 type="text"
                 name="targetDemo"
@@ -325,8 +276,8 @@ class InputPage extends React.Component {
                 className="solo-input"
                 style={
                   this.state.competitors.length > 0
-                    ? { borderColor: 'white', color: 'white' }
-                    : { borderColor: 'grey', color: 'grey' }
+                    ? { borderColor: "white", color: "white" }
+                    : { borderColor: "grey", color: "grey" }
                 }
                 type="text"
                 name="competitors"
@@ -371,9 +322,9 @@ class InputPage extends React.Component {
             <label>
               <label
                 style={{
-                  display: 'flex',
-                  flexDirection: 'row',
-                  color: 'white',
+                  display: "flex",
+                  flexDirection: "row",
+                  color: "white"
                 }}
               >
                 $
@@ -381,8 +332,8 @@ class InputPage extends React.Component {
                   className="solo-input"
                   style={
                     this.state.capitalRaised.length > 0
-                      ? { borderColor: 'white', color: 'white' }
-                      : { borderColor: 'grey', color: 'grey' }
+                      ? { borderColor: "white", color: "white" }
+                      : { borderColor: "grey", color: "grey" }
                   }
                   type="number"
                   name="capitalRaised"
@@ -430,8 +381,8 @@ class InputPage extends React.Component {
             <div
               className={
                 this.state.termsCheckbox
-                  ? 'termsCheckboxAgreed'
-                  : 'termsCheckboxNotAgree'
+                  ? "termsCheckboxAgreed"
+                  : "termsCheckboxNotAgree"
               }
               onClick={this.handleTerms}
             />

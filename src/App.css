@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 .App {
   text-align: center;
   background-image: url("./imgs/bg1.jpg");
@@ -55,7 +54,6 @@
 ██║     ╚██████╔╝██║  ██║██║ ╚═╝ ██║
 ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝
 */
-=======
 .text {
   /*for general text rn*/
   color: white;
@@ -167,7 +165,6 @@
 .uploadedFileList {
   /*for the uploaded list of file names that display in upload field*/
 }
->>>>>>> feat/addFormInputs
 
 .textarea {
   /*for the actual <textarea> input field INSIDE TextBox.js.
@@ -324,42 +321,6 @@
   padding-right: 10vw;
 }
 
-<<<<<<< HEAD
-=======
-.landing {
-  display: flex;
-  /* flex-direction: row; */
-  flex-wrap: wrap;
-  justify-content: space-evenly;
-}
-
-.intro-text {
-  flex: 1;
-}
-
-.vertical-text {
-  /*projectMERCURY text on LandingPage.js*/
-  flex: 2;
-  color: white;
-  /* transform: rotate(90deg); */
-}
-
-.right-third {
-  flex-direction: column;
-  flex: 1;
-  /* align-content: flex-start; */
-}
-
-.contact-text {
-  flex: 1;
-  margin-bottom: 1rem;
-}
-
-.address-text {
-  flex: 1;
-}
-
->>>>>>> feat/addFormInputs
 .inquire {
   flex: 1;
   color: black;
@@ -367,14 +328,6 @@
   margin-bottom: 10rem;
 }
 
-<<<<<<< HEAD
-=======
-.App {
-  /* text-align: center; */
-  background-color: black;
-}
-
->>>>>>> feat/addFormInputs
 /* .App-logo { */
 /* animation: App-logo-spin infinite 20s linear; */
 /* height: 40vmin; */

@@ -334,7 +334,7 @@ class InputPage extends React.Component {
           </div>
           <div className="solo-input-container">
             <div>
-              <input type="file" className="solo-input" name="uploads" />
+              <input type="file" name="file" />
               {/* <div className="solo-input">
               <FileUpload
                 name="uploads"

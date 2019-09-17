@@ -24,18 +24,19 @@ function LandingPage() {
       </div>
 
       <div className="vertical-text">
-        <p>projectMERCURY</p>
+        <p>
+          PROJECT <span id="mercury-text">MERCURY</span>
+        </p>
       </div>
 
       <div className="right-third">
-        <button className="inquire">INQUIRE</button>
+        <div className="main-button">
+          <button className="inquire">INQUIRE</button>
+        </div>
 
         <div className="contact-text">
           <p>office@projectmercury.com</p>
           <p>T 646 861 2827</p>
-        </div>
-
-        <div className="address-text">
           <p>324 Lafayette Street</p>
           <p>NY, New York 11201</p>
         </div>

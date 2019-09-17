@@ -1,11 +1,11 @@
 import React from "react";
-// import LandingPage from './components/LandingPage';
-import InputPage from "./components/InputPage";
+import LandingPage from "./components/LandingPage";
+// import InputPage from "./components/InputPage";
 function App() {
   return (
     <div className="App">
-      {/* <LandingPage /> */}
-      <InputPage />
+      <LandingPage />
+      {/* <InputPage /> */}
     </div>
   );
 }

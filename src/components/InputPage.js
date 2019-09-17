@@ -51,6 +51,13 @@ class InputPage extends React.Component {
     this.handleServicesSelect.bind(this);
   }
 
+  // ███╗   ███╗███████╗████████╗██╗  ██╗ ██████╗ ██████╗ ███████╗
+  // ████╗ ████║██╔════╝╚══██╔══╝██║  ██║██╔═══██╗██╔══██╗██╔════╝
+  // ██╔████╔██║█████╗     ██║   ███████║██║   ██║██║  ██║███████╗
+  // ██║╚██╔╝██║██╔══╝     ██║   ██╔══██║██║   ██║██║  ██║╚════██║
+  // ██║ ╚═╝ ██║███████╗   ██║   ██║  ██║╚██████╔╝██████╔╝███████║
+  // ╚═╝     ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝
+
   handleChange = event => {
     // eslint-disable-next-line no-unused-vars
     const stateName = event.target.name;
@@ -126,11 +133,34 @@ class InputPage extends React.Component {
     });
   };
 
+  // ██████╗ ███████╗███╗   ██╗██████╗ ███████╗██████╗
+  // ██╔══██╗██╔════╝████╗  ██║██╔══██╗██╔════╝██╔══██╗
+  // ██████╔╝█████╗  ██╔██╗ ██║██║  ██║█████╗  ██████╔╝
+  // ██╔══██╗██╔══╝  ██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗
+  // ██║  ██║███████╗██║ ╚████║██████╔╝███████╗██║  ██║
+  // ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝
+  //
+  // The flex for the four input page columns on desktop is as follows:
+  // - vertical-logo: 1
+  // - button/address: 3
+  // - required-stuff-warning: 1
+  // - inquire-form: 7
+  // 12 columns total - something we may replicate when bulma is added
+
+  // Things to note:
+  // vertical-logo and address remain fixed even as inquire-form scrolls
+  // required-stuff-warning does not seem to scroll as we move down the form
+  // ISSUE: Re-org this page into 4 sub-divs as detailed above under "input-page"
+  //
+  // This should be the foundation for the addition of mobile responsiveness
+
   render() {
     return (
       <div className="input-page">
-        <div className="inputPageSidewaysTextWrapper">
-          <p className="inputPageSidewaysText">projectMERCURY</p>
+        <div className="vertical-text">
+          <p>
+            PROJECT <span id="mercury-text">MERCURY</span>
+          </p>
         </div>
         <div className="closeButtonWrapper">
           <button

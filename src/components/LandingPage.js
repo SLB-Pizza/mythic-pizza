@@ -23,7 +23,7 @@ function LandingPage() {
         <p>WITH INDUSTRY-CHANGING IDEAS.</p>
       </div>
 
-      <div className="vertical-text">
+      <div className="vertical-logo">
         <p>
           PROJECT <span id="mercury-text">MERCURY</span>
         </p>

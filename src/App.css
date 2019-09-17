@@ -40,19 +40,19 @@
 }
 
 /* Second Column */
-.vertical-text {
+.vertical-logo {
   flex: 1;
   background-color: rgba(255, 55, 255, 0.5);
   align-self: center;
 }
 
-.vertical-text p {
-  font-size: 2.25rem;
+.vertical-logo p {
+  font-size: 2.5rem;
   transform: rotate(90deg);
 }
 
 #mercury-text {
-  font-size: 4.5rem;
+  font-size: 4.65rem;
 }
 
 /* Third Column */
@@ -82,6 +82,32 @@
 ██║     ╚██████╔╝██║  ██║██║ ╚═╝ ██║
 ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝
 */
+
+.input-page {
+  /*wrapper for whole input page*/
+  /* .App has a 5vw padding - this is why the landing BG sticks out for now */
+  background-color: black;
+  display: flex;
+}
+
+.inputPageSidewaysTextWrapper {
+  flex: 1;
+}
+
+.inputPageSidewaysText {
+  /*div that holds text to be rotated on input page*/
+  /*rotating it moves it to the lower right if the  screen?*/
+  /* transform: rotate(0.25turn); */
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(90deg);
+  transform: 0 0; */
+  background: none;
+  color: white;
+  flex: 2;
+}
+
 .text {
   /*for general text rn*/
   color: white;
@@ -316,30 +342,6 @@
 
 .inputPageContactSpacer {
   /*empty spacer to help space contact info text*/
-}
-
-.inputPageSidewaysText {
-  /*div that holds text to be rotated on input page*/
-  /*rotating it moves it to the lower right if the  screen?*/
-  /* transform: rotate(0.25turn); */
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  transform: rotate(90deg);
-  transform: 0 0; */
-  background: none;
-  color: white;
-  flex: 2;
-}
-
-.inputPageSidewaysTextWrapper {
-  display: flex;
-}
-
-.input-page {
-  /*wrapper for whole input page*/
-  display: flex;
-  flex-wrap: wrap;
 }
 
 .input-form {

@@ -10,6 +10,7 @@ function App() {
       <div className="App">
         <Route exact path="/" component={LandingPage} />
         <Route path="/form" component={InputPage} />
+        <Route path="/success" component={SuccessPage} />
       </div>
     </Router>
   );

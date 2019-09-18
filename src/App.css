@@ -502,6 +502,7 @@ for the description text and char counter to be in a row above it*/
 /*for TextBox wrapper in inputPage*/
 .solo-input-select-dropdown {
   width: 100%;
+  color: white;
   background-color: black;
   border-style: hidden hidden hidden hidden;
 }

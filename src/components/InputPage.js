@@ -92,11 +92,8 @@ class InputPage extends React.Component {
       body: this.encode(data),
     })
       .then(
-        () =>
-          /*alert('Form Submission Successful!!')*/ console.log(
-            'form submission object: ',
-            data
-          ),
+        () => alert('Form Submission Successful!!'),
+        console.log('form submission object: ', data),
         this.setState({ submitted: true })
       )
       .catch(error => alert('Form Submission Failed!'));
@@ -248,6 +245,7 @@ class InputPage extends React.Component {
           netlify="true"
           // data-netlify-honeypot="bot-field"
           className="input-form"
+          action="/success"
         >
           {/* <input type="hidden" name="form-name" value="contact" /> */}
           {/* <input type="hidden" name="bot-field" /> */}

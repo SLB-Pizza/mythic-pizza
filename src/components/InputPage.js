@@ -549,7 +549,17 @@ class InputPage extends React.Component {
             style={{
               color: 'black',
               border: 'none',
-              backgroundColor: this.state.termsCheckbox ? 'white' : 'grey',
+              backgroundColor:
+                this.state.termsCheckbox &&
+                this.state.companyDescription.length > 0 &&
+                this.state.marketOpportunity.length > 0 &&
+                this.state.currentTeam.length > 0 &&
+                this.state.positions.length > 0 &&
+                this.state.capitalNeeded.length > 0 &&
+                this.state.servicesSelected.length > 0 &&
+                this.state.file.size > 0
+                  ? 'white'
+                  : 'grey',
               width: '100%',
               height: '5vh',
               borderRadius: '2px',

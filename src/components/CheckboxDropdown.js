@@ -53,7 +53,7 @@ export default class CheckboxDropdown extends React.Component {
           ? this.state.selectedServices
               .reduce((acc, curr) => acc + ", " + curr.service, "")
               .slice(1)
-          : "PLEASE SELECT AT LEAST ONE SERVICE SERVICE"}
+          : "PLEASE SELECT AT LEAST ONE SERVICE"}
         <div
           style={{
             display: this.state.showServices ? "block" : "none"

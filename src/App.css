@@ -132,8 +132,8 @@
   height: 2vh;
   width: 2vh;
   border: 2px solid grey;
-  color: grey;
-  background: grey;
+  /* color: grey; */
+  background: transparent;
 }
 
 .checkboxDropdownWrapper {
@@ -208,13 +208,20 @@
 
 .fileUploadWrapper {
   /*for the div wrapping the words <p> and the fielUpload <div> field*/
-  height: 100%;
+  height: 20vh;
   width: 100%;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
+  border-width: 1px;
+  border-style: solid;
+  color: white;
 }
 
 .fileUploadInner {
   /*for the <p> that says "upload here"*/
+  align-self: center;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
 }
 
 .fileUploadField {

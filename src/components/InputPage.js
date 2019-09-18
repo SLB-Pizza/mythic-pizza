@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import Dropzone from "react-dropzone";
 import "../App.css";
 import TextBox from "./TextBox.js";
@@ -18,7 +18,6 @@ class InputPage extends React.Component {
       marketOpportunity: "",
       targetDemo: "",
       competitors: "",
-      uploads: [],
       file: {},
       currentTeam: "",
       positions: "",
@@ -41,27 +40,28 @@ class InputPage extends React.Component {
         { id: 5, service: "Fundraising" }
       ],
       servicesSelected: [],
-      servicesString: "",
-      termsCheckbox: false,
-      status: ""
+      services: "",
+      termsCheckbox: false
+      // status: '',
     };
 
     this.handleChange.bind(this);
     this.handleSubmit.bind(this);
-    this.handleFile.bind(this);
+    // this.handleFile.bind(this);
     this.handleLaunchSelect.bind(this);
     this.handleServicesSelect.bind(this);
   }
 
-  // ███╗   ███╗███████╗████████╗██╗  ██╗ ██████╗ ██████╗ ███████╗
-  // ████╗ ████║██╔════╝╚══██╔══╝██║  ██║██╔═══██╗██╔══██╗██╔════╝
-  // ██╔████╔██║█████╗     ██║   ███████║██║   ██║██║  ██║███████╗
-  // ██║╚██╔╝██║██╔══╝     ██║   ██╔══██║██║   ██║██║  ██║╚════██║
-  // ██║ ╚═╝ ██║███████╗   ██║   ██║  ██║╚██████╔╝██████╔╝███████║
-  // ╚═╝     ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝
-  onDrop = acceptedFiles => {
-    console.log(acceptedFiles);
-    this.setState({ file: acceptedFiles[0] });
+  onDrop = async acceptedFiles => {
+    if (acceptedFiles[0].size <= 10000000) {
+      console.log("acceptdFiles: ", acceptedFiles);
+      await this.setState({ file: acceptedFiles[0] });
+      alert(`${acceptedFiles[0].name} has been uploaded`);
+      console.log("file: ", this.state.file.name);
+    } else {
+      alert("FILE SIZE TOO LARGE\nPLEASE LIMIT ATTACHMENTS TO 10MB");
+    }
+    // console.log('this.state.file post setState: ', this.state.file);
   };
   // const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
@@ -111,18 +111,23 @@ class InputPage extends React.Component {
       // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
       body: this.encode(data)
     })
-      .then(() => alert("Form Submission Successful!!"))
+      .then(() =>
+        /*alert('Form Submission Successful!!')*/ console.log(
+          "form submission object: ",
+          data
+        )
+      )
       .catch(error => alert("Form Submission Failed!"));
 
     e.preventDefault();
   };
 
-  handleFile = file => {
-    console.log("handleFile in Input.js current file: \n", file[0]);
-    this.setState({ uploads: file[0] });
+  // handleFile = file => {
+  //   console.log('handleFile in Input.js current file: \n', file[0]);
+  //   this.setState({ uploads: file[0] });
 
-    console.log("handleFile this.state.uploads: ", this.state.uploads);
-  };
+  //   console.log('handleFile this.state.uploads: ', this.state.uploads);
+  // };
 
   //backup of array version
   // handleFile = file => {
@@ -160,7 +165,7 @@ class InputPage extends React.Component {
       .reduce((acc, curr) => acc + ", " + curr.service, "")
       .slice(1);
     console.log("handleServicesSelect stringServices: ", stringServices);
-    await this.setState({ servicesString: stringServices });
+    await this.setState({ services: stringServices });
   };
 
   handleTerms = async () => {
@@ -229,6 +234,14 @@ class InputPage extends React.Component {
             onClick={() => {
               alert("CLOSE CLICKED");
             }}
+            style={{
+              backgroundColor: "black",
+              borderColor: "white",
+              color: "white",
+              borderWidth: "1px",
+              width: "7vw",
+              height: "5vh"
+            }}
           >
             CLOSE
           </button>
@@ -246,7 +259,7 @@ class InputPage extends React.Component {
         <form
           name="contact"
           onSubmit={this.handleSubmit}
-          netlify
+          netlify="true"
           // data-netlify-honeypot="bot-field"
           className="input-form"
         >
@@ -416,25 +429,40 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <div className="solo-input">
-              {/* <input type="file" name="file" /> */}
-              {/* <div className="solo-input">
-              <FileUpload
-                name="uploads"
-                value={this.state.uploads}
-                handleFile={this.handleFile}
-                required={true}
-              /> */}
-              <Dropzone onDrop={this.onDrop}>
-                {({ getRootProps, getInputProps, isDragActive }) => (
-                  <div {...getRootProps()}>
-                    <input {...getInputProps()} />
-                    {isDragActive
-                      ? "Drop it like it's hot!"
-                      : "Click me or drag a file to upload!"}
-                  </div>
-                )}
-              </Dropzone>
+            <div
+              className="fileUploadWrapper"
+              style={{
+                borderColor:
+                  this.state.file[0] && this.state.file[0].size
+                    ? "white"
+                    : "grey"
+              }}
+            >
+              <div className="fileUploadInner">
+                <Dropzone onDrop={this.onDrop}>
+                  {({ getRootProps, getInputProps, isDragActive }) => (
+                    <div
+                      {...getRootProps()}
+                      style={{
+                        height: "19vh",
+                        width: "100%",
+                        display: "flex",
+                        flexDirection: "column"
+                      }}
+                    >
+                      <input {...getInputProps()} />
+                      {isDragActive
+                        ? "DROP YOUR FILE HERE"
+                        : "009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL SIZE LIMIT:10MB*"}
+                      {this.state.file && this.state.file.name ? (
+                        <div>{this.state.file.name}</div>
+                      ) : (
+                        " "
+                      )}
+                    </div>
+                  )}
+                </Dropzone>
+              </div>
             </div>
           </div>
           <div className="solo-input-container">
@@ -533,13 +561,16 @@ class InputPage extends React.Component {
               <CheckboxDropdown
                 handleSelect={this.handleServicesSelect}
                 services={this.state.servicesNeeded}
-                name="servicesString"
+                name="services"
                 insideText="015. SERVICES NEEDED*"
               />
               015. SERVICES NEEDED*
             </label>
           </div>
-          <div className="termsAndCheckboxWrapper">
+          <div
+            className="termsAndCheckboxWrapper"
+            style={{ paddingBottom: "5%" }}
+          >
             <div style={{ display: "flex", flexDirection: "row" }}>
               <div
                 className={
@@ -555,6 +586,14 @@ class InputPage extends React.Component {
           <input
             type="SUBMIT"
             disabled={this.state.termsCheckbox ? false : true}
+            style={{
+              color: "black",
+              border: "none",
+              backgroundColor: this.state.termsCheckbox ? "white" : "grey",
+              width: "100%",
+              height: "5vh",
+              borderRadius: "2px"
+            }}
           />
           <p className="text">LEGAL:</p>
           <p className="text">

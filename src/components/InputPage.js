@@ -517,8 +517,16 @@ class InputPage extends React.Component {
                     className="solo-input"
                     style={
                       this.state.capitalRaised.length > 0
-                        ? { borderColor: 'white', color: 'white' }
-                        : { borderColor: 'grey', color: 'grey' }
+                        ? {
+                            borderColor: 'white',
+                            color: 'white',
+                            backgroundColor: 'transparent',
+                          }
+                        : {
+                            borderColor: 'grey',
+                            color: 'grey',
+                            backgroundColor: 'transparent',
+                          }
                     }
                     type="number"
                     name="capitalRaised"
@@ -583,7 +591,12 @@ class InputPage extends React.Component {
                   onClick={this.handleTerms}
                 />
               </div>
-              <div className="text">I AGREE TO THE TERMS BELOW</div>
+              <div
+                className="text"
+                style={{ color: 'white', paddingLeft: '2vw' }}
+              >
+                I AGREE TO THE TERMS BELOW
+              </div>
             </div>
             <input
               type="SUBMIT"
@@ -608,7 +621,7 @@ class InputPage extends React.Component {
               }}
             />
             <p className="text">LEGAL:</p>
-            <p className="text">
+            <p className="text" style={{ color: 'white' }}>
               Any nonpublic information provided hereunder is confidential, and
               Project Mercury will not disclose the information to third parties
               except for its professional advisors as strictly necessary; and
@@ -618,7 +631,7 @@ class InputPage extends React.Component {
               information within its company to those of its employees and
               representatives who have a need to know.
             </p>
-            <p className="text">
+            <p className="text" style={{ color: 'white' }}>
               The foregoing is intended solely as a basis for further
               discussions and is not intended to be and does not constitute a
               legally binding offer, obligation or commitment on the part of

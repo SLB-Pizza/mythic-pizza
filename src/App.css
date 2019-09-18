@@ -1,10 +1,10 @@
 * {
-  font-family: "David_Reg";
+  font-family: 'David_Reg';
   color: white;
 }
 
 .App {
-  background-image: url("./imgs/bg1.jpg");
+  background-image: url('./imgs/bg1.jpg');
   /* This bit underneath needs tweaking */
   background-size: cover;
   background-repeat: no-repeat;
@@ -29,8 +29,9 @@
 .left-text {
   flex: 1;
   margin-left: 5vw;
-  background-color: rgba(0, 255, 255, 0.5);
+  /* background-color: rgba(0, 255, 255, 0.5); */
   align-self: center;
+  /* height: 30vh; */
 }
 
 .left-text p {
@@ -43,7 +44,7 @@
 /* Second Column */
 .vertical-logo {
   flex: 1;
-  background-color: rgba(255, 55, 255, 0.5);
+  /* background-color: rgba(255, 55, 255, 0.5); */
   align-self: center;
 }
 
@@ -53,7 +54,19 @@
   white-space: nowrap;
 }
 
+.vertical-logo p text {
+  font-size: 2.5rem;
+  transform: rotate(90deg);
+  white-space: nowrap;
+  /* background-clip: ; */
+  background: linear-gradient(180deg, black 50%, black 50%);
+}
+
 #mercury-text {
+  font-size: 4.65rem;
+}
+
+#mercury-text text {
   font-size: 4.65rem;
 }
 
@@ -68,19 +81,25 @@
 .main-button {
   flex: 5;
   justify-content: center;
-  background-color: rgba(255, 255, 55, 0.5);
+  /* background-color: rgba(255, 255, 55, 0.5); */
 }
 
 .inquire {
   flex: 1;
   color: black;
   background: white;
+  border: none;
+  top: 34vh;
+  width: 7vw;
+  height: 5vh;
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .contact-text {
   flex: 3;
   /* margin-bottom: 1rem; */
-  background-color: rgba(55, 255, 55, 0.5);
+  /* background-color: rgba(55, 255, 55, 0.5); */
 }
 
 /*
@@ -131,6 +150,8 @@ The vertical logo
   position: sticky;
   transform: rotate(90deg);
   white-space: nowrap;
+  /* padding-left: 4%; */
+  /* height: 4vh; */
 }
 
 #mercury-text-input {
@@ -216,12 +237,12 @@ input {
 /* inline style replacements for the grey/white ternaries */
 
 .grey-inactive {
-  border-color: "grey";
-  color: "grey";
+  border-color: 'grey';
+  color: 'grey';
 }
 
 .white-active {
-  border-color: "white";
+  border-color: 'white';
 }
 
 .form-header-text {

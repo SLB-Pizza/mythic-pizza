@@ -18,7 +18,6 @@ class InputPage extends React.Component {
       marketOpportunity: '',
       targetDemo: '',
       competitors: '',
-      uploads: [],
       file: {},
       currentTeam: '',
       positions: '',
@@ -48,13 +47,13 @@ class InputPage extends React.Component {
 
     this.handleChange.bind(this);
     this.handleSubmit.bind(this);
-    this.handleFile.bind(this);
+    // this.handleFile.bind(this);
     this.handleLaunchSelect.bind(this);
     this.handleServicesSelect.bind(this);
   }
 
   onDrop = acceptedFiles => {
-    console.log(acceptedFiles);
+    console.log('acceptdFiles: ', acceptedFiles);
     this.setState({ file: acceptedFiles[0] });
   };
   // const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
@@ -111,12 +110,12 @@ class InputPage extends React.Component {
     e.preventDefault();
   };
 
-  handleFile = file => {
-    console.log('handleFile in Input.js current file: \n', file[0]);
-    this.setState({ uploads: file[0] });
+  // handleFile = file => {
+  //   console.log('handleFile in Input.js current file: \n', file[0]);
+  //   this.setState({ uploads: file[0] });
 
-    console.log('handleFile this.state.uploads: ', this.state.uploads);
-  };
+  //   console.log('handleFile this.state.uploads: ', this.state.uploads);
+  // };
 
   //backup of array version
   // handleFile = file => {
@@ -362,25 +361,37 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <div className="solo-input">
-              {/* <input type="file" name="file" /> */}
-              {/* <div className="solo-input">
-              <FileUpload
-                name="uploads"
-                value={this.state.uploads}
-                handleFile={this.handleFile}
-                required={true}
-              /> */}
-              <Dropzone onDrop={this.onDrop}>
-                {({ getRootProps, getInputProps, isDragActive }) => (
-                  <div {...getRootProps()}>
-                    <input {...getInputProps()} />
-                    {isDragActive
-                      ? "Drop it like it's hot!"
-                      : 'Click me or drag a file to upload!'}
-                  </div>
-                )}
-              </Dropzone>
+            <div
+              className="fileUploadWrapper"
+              style={{
+                borderColor:
+                  this.state.file[0] && this.state.file[0].size
+                    ? 'white'
+                    : 'grey',
+              }}
+            >
+              <div className="fileUploadInner">
+                <Dropzone onDrop={this.onDrop}>
+                  {({ getRootProps, getInputProps, isDragActive }) => (
+                    <div
+                      {...getRootProps()}
+                      style={{ height: '19vh', width: '100%' }}
+                    >
+                      <input {...getInputProps()} />
+                      {isDragActive
+                        ? 'DROP YOUR MATERIALS HERE'
+                        : '009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIALS SIZE LIMIT:10MB*'}
+                      {/* {[...this.state.file].map((file, index) => {
+                        return (
+                          <div className="uploadedFileList" key={index}>
+                            {file.name}
+                          </div>
+                        );
+                      })} */}
+                    </div>
+                  )}
+                </Dropzone>
+              </div>
             </div>
           </div>
           <div className="solo-input-container">

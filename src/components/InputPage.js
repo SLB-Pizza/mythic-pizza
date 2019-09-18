@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React from 'react';
 import Dropzone from 'react-dropzone';
 import '../App.css';
 import TextBox from './TextBox.js';
@@ -40,9 +40,9 @@ class InputPage extends React.Component {
         { id: 5, service: 'Fundraising' },
       ],
       servicesSelected: [],
-      servicesString: '',
+      services: '',
       termsCheckbox: false,
-      status: '',
+      // status: '',
     };
 
     this.handleChange.bind(this);
@@ -106,7 +106,12 @@ class InputPage extends React.Component {
       // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
       body: this.encode(data),
     })
-      .then(() => alert('Form Submission Successful!!'))
+      .then(() =>
+        /*alert('Form Submission Successful!!')*/ console.log(
+          'form submission object: ',
+          data
+        )
+      )
       .catch(error => alert('Form Submission Failed!'));
 
     e.preventDefault();
@@ -155,7 +160,7 @@ class InputPage extends React.Component {
       .reduce((acc, curr) => acc + ', ' + curr.service, '')
       .slice(1);
     console.log('handleServicesSelect stringServices: ', stringServices);
-    await this.setState({ servicesString: stringServices });
+    await this.setState({ services: stringServices });
   };
 
   handleTerms = async () => {
@@ -193,7 +198,7 @@ class InputPage extends React.Component {
         <form
           name="contact"
           onSubmit={this.handleSubmit}
-          netlify
+          netlify="true"
           // data-netlify-honeypot="bot-field"
           className="input-form"
         >
@@ -495,7 +500,7 @@ class InputPage extends React.Component {
               <CheckboxDropdown
                 handleSelect={this.handleServicesSelect}
                 services={this.state.servicesNeeded}
-                name="servicesString"
+                name="services"
                 insideText="015. SERVICES NEEDED*"
               />
               015. SERVICES NEEDED*

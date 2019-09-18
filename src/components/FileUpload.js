@@ -67,7 +67,7 @@ export default function FileUpload({ name, value, handleFile }) {
 
   return (
     <div className="fileUploadWrapper">
-      <p className="fileUploadInner" style={{ color: "white" }}>
+      <p className="fileUploadInner">
         008. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIALS SIZE LIMIT:10MB*
       </p>
       <div

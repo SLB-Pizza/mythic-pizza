@@ -209,7 +209,7 @@ class InputPage extends React.Component {
   // ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝
   //
   // The flex for the four input page columns on desktop is as follows:
-  // - vertical-logo: 1
+  // - vertical-logo-input: 1
   // - button/address: 3
   // - required-stuff-warning: 1
   // - inquire-form: 7
@@ -227,13 +227,13 @@ class InputPage extends React.Component {
       <div className="input-page">
         {/*
           ___    __    _____     __
-        <  /__ / /_  / ___/__  / /_ ____ _  ___
-        / (_-</ __/ / /__/ _ \/ / // /  ' \/ _ \
+         <  /__ / /_  / ___/__  / /_ ____ _  ___
+         / (_-</ __/ / /__/ _ \/ / // /  ' \/ _ \
         /_/___/\__/  \___/\___/_/\_,_/_/_/_/_//_/
         */}
         <div className="vertical-logo-input">
           <p>
-            PROJECT<span id="mercury-text">MERCURY</span>
+            PROJECT<span id="mercury-text-input">MERCURY</span>
           </p>
         </div>
         {/*
@@ -258,11 +258,21 @@ class InputPage extends React.Component {
             <p>NY, New York 11201</p>
           </div>
         </div>
-        <div className="inputPageSidewaysTextWrapper">
-          <div className="inputPageSidewaysText" style={{ flex: 1 }}>
-            *denotes required field
-          </div>
+        {/*
+           ____        __  _____     __
+          |_  /_______/ / / ___/__  / /_ ____ _  ___
+         _/_ </ __/ _  / / /__/ _ \/ / // /  ' \/ _ \
+        /____/_/  \_,_/  \___/\___/_/\_,_/_/_/_/_//_/
+        */}
+        <div className="requiredWrapper">
+          <p>* denotes required field</p>
         </div>
+        {/*
+          ____ __  __     _____     __
+         / / // /_/ /    / ___/__  / /_ ____ _  ___
+        /_  _/ __/ _ \  / /__/ _ \/ / // /  ' \/ _ \
+         /_/ \__/_//_/  \___/\___/_/\_,_/_/_/_/_//_/
+        */}
         <form
           name="contact"
           onSubmit={this.handleSubmit}
@@ -272,9 +282,10 @@ class InputPage extends React.Component {
         >
           {/* <input type="hidden" name="form-name" value="contact" /> */}
           {/* <input type="hidden" name="bot-field" /> */}
-          <p className="text">LET'S GET STARTED</p>
+          <p className="form-header-text">LET'S GET STARTED.</p>
           <div className="sideBySide-input-container">
             <label
+              id="left-sideBySide"
               style={
                 this.state.contactName.length > 0
                   ? { borderColor: "white", color: "white" }
@@ -511,15 +522,16 @@ class InputPage extends React.Component {
                   this.state.capitalRaised.length > 0
                     ? {
                         borderColor: "white",
-                        color: "white",
                         display: "flex",
-                        flexDirection: "row"
+                        flexDirection: "row",
+                        fontSize: "1.5rem"
                       }
                     : {
                         borderColor: "grey",
                         color: "grey",
                         display: "flex",
-                        flexDirection: "row"
+                        flexDirection: "row",
+                        fontSize: "1.5rem"
                       }
                 }
               >
@@ -645,6 +657,10 @@ class InputPage extends React.Component {
             company whose business is similar to or competitive with the
             business or proposed business of the Company or its affiliates.
           </p>
+          <div className="copyright">
+            <p id="copyright-text">COPYRIGHT 2019 PROJECT MERCURY</p>
+            <p id="rights-text">ALL RIGHTS RESERVED</p>
+          </div>
         </form>
       </div>
     );

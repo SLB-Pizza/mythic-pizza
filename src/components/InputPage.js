@@ -53,9 +53,14 @@ class InputPage extends React.Component {
   }
 
   onDrop = async acceptedFiles => {
-    console.log('acceptdFiles: ', acceptedFiles);
-    await this.setState({ file: acceptedFiles[0] });
-    alert(`${acceptedFiles[0].name} has been uploaded`);
+    if (acceptedFiles[0].size <= 10000000) {
+      console.log('acceptdFiles: ', acceptedFiles);
+      await this.setState({ file: acceptedFiles[0] });
+      alert(`${acceptedFiles[0].name} has been uploaded`);
+      console.log('file: ', this.state.file.name);
+    } else {
+      alert('FILE SIZE TOO LARGE\nPLEASE LIMIT ATTACHMENTS TO 10MB');
+    }
     // console.log('this.state.file post setState: ', this.state.file);
   };
   // const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})

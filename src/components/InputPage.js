@@ -52,9 +52,10 @@ class InputPage extends React.Component {
     this.handleServicesSelect.bind(this);
   }
 
-  onDrop = acceptedFiles => {
+  onDrop = async acceptedFiles => {
     console.log('acceptdFiles: ', acceptedFiles);
-    this.setState({ file: acceptedFiles[0] });
+    await this.setState({ file: acceptedFiles });
+    console.log('this.state.file post setState: ', this.state.file);
   };
   // const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 

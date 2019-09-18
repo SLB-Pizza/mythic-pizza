@@ -186,6 +186,14 @@ class InputPage extends React.Component {
             onClick={() => {
               alert('CLOSE CLICKED');
             }}
+            style={{
+              backgroundColor: 'black',
+              borderColor: 'white',
+              color: 'white',
+              borderWidth: '1px',
+              width: '7vw',
+              height: '5vh',
+            }}
           >
             CLOSE
           </button>
@@ -511,7 +519,10 @@ class InputPage extends React.Component {
               015. SERVICES NEEDED*
             </label>
           </div>
-          <div className="termsAndCheckboxWrapper">
+          <div
+            className="termsAndCheckboxWrapper"
+            style={{ paddingBottom: '5%' }}
+          >
             <div style={{ display: 'flex', flexDirection: 'row' }}>
               <div
                 className={
@@ -527,6 +538,13 @@ class InputPage extends React.Component {
           <input
             type="SUBMIT"
             disabled={this.state.termsCheckbox ? false : true}
+            style={{
+              color: 'black',
+              border: 'none',
+              backgroundColor: this.state.termsCheckbox ? 'white' : 'grey',
+              width: '100%',
+              height: '5vh',
+            }}
           />
           <p className="text">LEGAL:</p>
           <p className="text">

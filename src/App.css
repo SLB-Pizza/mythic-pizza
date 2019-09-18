@@ -22,8 +22,8 @@
   height: 2vh;
   width: 2vh;
   border: 2px solid grey;
-  color: grey;
-  background: grey;
+  /* color: grey; */
+  background: transparent;
 }
 
 .checkboxDropdownWrapper {

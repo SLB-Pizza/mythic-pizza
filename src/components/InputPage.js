@@ -385,7 +385,7 @@ class InputPage extends React.Component {
               className="fileUploadWrapper"
               style={{
                 borderColor:
-                  this.state.file[0] && this.state.file[0].size
+                  this.state.file && this.state.file.size > 0
                     ? 'white'
                     : 'grey',
               }}
@@ -400,6 +400,14 @@ class InputPage extends React.Component {
                         width: '100%',
                         display: 'flex',
                         flexDirection: 'column',
+                        borderColor:
+                          this.state.file && this.state.file.size > 0
+                            ? 'white'
+                            : 'grey',
+                        color:
+                          this.state.file && this.state.file.size > 0
+                            ? 'white'
+                            : 'grey',
                       }}
                     >
                       <input {...getInputProps()} />

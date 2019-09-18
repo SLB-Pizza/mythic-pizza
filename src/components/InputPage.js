@@ -225,33 +225,38 @@ class InputPage extends React.Component {
   render() {
     return (
       <div className="input-page">
+        {/*
+          ___    __    _____     __
+        <  /__ / /_  / ___/__  / /_ ____ _  ___
+        / (_-</ __/ / /__/ _ \/ / // /  ' \/ _ \
+        /_/___/\__/  \___/\___/_/\_,_/_/_/_/_//_/
+        */}
         <div className="vertical-logo-input">
           <p>
             PROJECT<span id="mercury-text">MERCURY</span>
           </p>
         </div>
+        {/*
+           ___          __  _____     __
+          |_  |___  ___/ / / ___/__  / /_ ____ _  ___
+         / __// _ \/ _  / / /__/ _ \/ / // /  ' \/ _ \
+        /____/_//_/\_,_/  \___/\___/_/\_,_/_/_/_/_//_/
+        */}
         <div className="closeButtonWrapper">
           <button
             className="closeButton"
             onClick={() => {
               alert("CLOSE CLICKED");
             }}
-            style={{
-              backgroundColor: "black",
-              borderColor: "white",
-              color: "white",
-              borderWidth: "1px",
-              width: "7vw",
-              height: "5vh"
-            }}
           >
             CLOSE
           </button>
-          <p className="inputPageContactInfo">office@projectmercury.com</p>
-          <p className="inputPageContactInfo">T 646 861 2827</p>
-          <div className="inputPageContactSpacer"></div>
-          <p className="inputPageContactInfo">324 Lafayette Street</p>
-          <p className="inputPageContactInfo">NY, New York 11201</p>
+          <div className="inputContactInfo">
+            <p>office@projectmercury.com</p>
+            <p>T 646 861 2827</p>
+            <p>324 Lafayette Street</p>
+            <p>NY, New York 11201</p>
+          </div>
         </div>
         <div className="inputPageSidewaysTextWrapper">
           <div className="inputPageSidewaysText" style={{ flex: 1 }}>

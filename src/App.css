@@ -24,7 +24,6 @@
 .landing {
   display: flex;
   height: 100vh;
-  color: white;
 }
 
 /* First Column */
@@ -88,11 +87,28 @@
 /*  wrapper for whole input page
 .App has a 5vw horizontal padding
 This is why the landing BG sticks out for now */
+
+/*
+THE INPUT FORM'S FOUR MAIN DIVS ARE:
+
+- vertical-logo-input
+- closeButtonWrapper
+- inputPageSidewaysTextWrapper
+- inputForm
+
+*/
 .input-page {
   background-color: black;
   display: flex;
 }
 
+/*
+  ___    __    _____     __
+ <  /__ / /_  / ___/__  / /_ ____ _  ___
+ / (_-</ __/ / /__/ _ \/ / // /  ' \/ _ \
+/_/___/\__/  \___/\___/_/\_,_/_/_/_/_//_/
+
+*/
 .vertical-logo-input {
   flex: 1;
 }
@@ -104,6 +120,52 @@ This is why the landing BG sticks out for now */
   font-size: 2.5rem;
   transform: rotate(90deg);
 }
+
+/*
+   ___          __  _____     __
+  |_  |___  ___/ / / ___/__  / /_ ____ _  ___
+ / __// _ \/ _  / / /__/ _ \/ / // /  ' \/ _ \
+/____/_//_/\_,_/  \___/\___/_/\_,_/_/_/_/_//_/
+
+*/
+
+/*the little div to help space the close button in InputPage.js*/
+.closeButtonWrapper {
+  flex: 3;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+/*for close button on InputPage*/
+.closeButton {
+  background-color: black;
+  border-color: white;
+  border-width: 1px;
+  width: 7vw;
+  height: 5vh;
+  top: 60vh;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+/*<p> that holds the lines of contact info text, each in a separate <p>*/
+.inputContactInfo {
+  top: 77.5vh;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+/*empty spacer to help space contact info text*/
+.inputPageContactSpacer {
+}
+
+/*
+   ____        __  _____     __
+  |_  /_______/ / / ___/__  / /_ ____ _  ___
+ _/_ </ __/ _  / / /__/ _ \/ / // /  ' \/ _ \
+/____/_/  \_,_/  \___/\___/_/\_,_/_/_/_/_//_/
+
+*/
 
 .inputPageSidewaysTextWrapper {
   flex: 1;
@@ -119,13 +181,12 @@ transform: rotate(90deg);
 transform: 0 0; */
 .inputPageSidewaysText {
   background: none;
-  color: white;
 }
 
 /*for general text rn*/
 /* superceded by first rule */
 /* .text {
-  color: white;
+
 } */
 
 /*wrapper div for the agreement checkbox and "I AGREE" text*/
@@ -139,7 +200,6 @@ transform: 0 0; */
   width: 2vh;
   border: 2px solid white;
   background: white;
-  color: white;
 }
 
 /*the little checkbox for terms agreement if NOT checked*/
@@ -228,7 +288,6 @@ I followed a tut on making an arrow as a placeholder, but it's not showing in th
   /* border: 1px solid grey; */
   border-width: 1px;
   border-style: solid;
-  color: white;
 }
 
 /*for the <p> that says "upload here"*/
@@ -258,7 +317,6 @@ for the description text and char counter to be in a row above it*/
   width: 98%;
   border-style: hidden hidden hidden hidden;
   background-color: black;
-  color: white;
 }
 
 /*for the small wrapper div in TextBox.js*/
@@ -281,13 +339,8 @@ for the description text and char counter to be in a row above it*/
   flex-direction: row;
   display: flex;
   justify-content: space-between;
-  color: white;
 }
 
-/*for close button on InputPage*/
-.closeButton {
-  flex: 1;
-}
 /*for divs that wrap side by side inputs (like inputs 1 & 2)*/
 .sideBySide-input-container {
   flex-direction: row;
@@ -305,7 +358,7 @@ for the description text and char counter to be in a row above it*/
   width: 100%;
   background-color: black;
   flex: 1;
-  /* border-color: white; */
+  /* border- */
   border-style: hidden hidden solid hidden;
   border-bottom-width: 1px;
   /* border-bottom: 3px solid white; */
@@ -314,13 +367,13 @@ for the description text and char counter to be in a row above it*/
 .sideBySide-input-container label {
   /* padding-left: 1%; */
   padding-right: 2%;
-  /* color: white; */
+  /*  */
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 .solo-input-container label {
-  /* color: white; */
+  /*  */
 }
 
 /*for container around inputs that don't have sibling (like input 3) and that reach across the full width of the input form*/
@@ -335,7 +388,6 @@ for the description text and char counter to be in a row above it*/
 }
 
 .solo-input-select-dropdown-container label {
-  color: white;
 }
 
 /*for TextBox wrapper in inputPage*/
@@ -360,22 +412,6 @@ for the description text and char counter to be in a row above it*/
   border-bottom-width: 1px;
 }
 
-/*the little div to help space the close button in InputPage.js*/
-.closeButtonWrapper {
-  flex: 2;
-  flex-direction: column;
-  align-content: space-around;
-}
-
-/*<p> that holds the lines of contact info text, each in a separate <p>*/
-.inputPageContactInfo {
-  color: white;
-}
-
-/*empty spacer to help space contact info text*/
-.inputPageContactSpacer {
-}
-
 /*div that holds text to be rotated on input page*/
 /*rotating it moves it to the lower right if the  screen?*/
 .inputPageSidewaysText {
@@ -386,7 +422,7 @@ for the description text and char counter to be in a row above it*/
   transform: rotate(90deg);
   transform: 0 0; */
   background: none;
-  color: white;
+
   flex: 2;
 }
 
@@ -423,7 +459,6 @@ for the description text and char counter to be in a row above it*/
 
 /*<p> that holds the lines of contact info text, each in a separate <p>*/
 .inputPageContactInfo {
-  color: white;
 }
 
 /*empty spacer to help space contact info text*/

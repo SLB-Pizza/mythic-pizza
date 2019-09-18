@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useCallback } from "react";
+import Dropzone from "react-dropzone";
 import "../App.css";
 import TextBox from "./TextBox.js";
-import FileUpload from "./FileUpload";
+// import FileUpload from './FileUpload';
 import SelectDropdown from "./SelectDropdown";
 import CheckboxDropdown from "./CheckboxDropdown";
 
@@ -18,6 +19,7 @@ class InputPage extends React.Component {
       targetDemo: "",
       competitors: "",
       uploads: [],
+      file: {},
       currentTeam: "",
       positions: "",
       capitalRaised: "",
@@ -57,6 +59,11 @@ class InputPage extends React.Component {
   // ██║╚██╔╝██║██╔══╝     ██║   ██╔══██║██║   ██║██║  ██║╚════██║
   // ██║ ╚═╝ ██║███████╗   ██║   ██║  ██║╚██████╔╝██████╔╝███████║
   // ╚═╝     ╚═╝╚══════╝   ╚═╝   ╚═╝  ╚═╝ ╚═════╝ ╚═════╝ ╚══════╝
+  onDrop = acceptedFiles => {
+    console.log(acceptedFiles);
+    this.setState({ file: acceptedFiles[0] });
+  };
+  // const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
   handleChange = event => {
     // eslint-disable-next-line no-unused-vars
@@ -70,32 +77,61 @@ class InputPage extends React.Component {
 
   //this handleSubmit is 100% copied from netlify docs
   //https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-a-stateful-react-form
+  // handleSubmit = e => {
+  //   fetch('/', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //     body: this.encode({ 'form-name': 'contact', ...this.state }),
+  //   })
+  //     .then(() => alert('Success!'))
+  //     .catch(error => alert(error));
+
+  //   e.preventDefault();
+  // };
+  // //encode func is copied from netlify docs
+  // encode = data => {
+  //   return Object.keys(data)
+  //     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+  //     .join('&');
+  // };
+
+  encode = data => {
+    const formData = new FormData();
+    Object.keys(data).forEach(k => {
+      formData.append(k, data[k]);
+    });
+    return formData;
+  };
+
   handleSubmit = e => {
+    const data = { "form-name": "contact", ...this.state };
+
     fetch("/", {
       method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: this.encode({ "form-name": "contact", ...this.state })
+      // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
+      body: this.encode(data)
     })
-      .then(() => alert("Success!"))
-      .catch(error => alert(error));
+      .then(() => alert("Form Submission Successful!!"))
+      .catch(error => alert("Form Submission Failed!"));
 
     e.preventDefault();
   };
-  //encode func is copied from netlify docs
-  encode = data => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
 
   handleFile = file => {
-    console.log("handleFile in Input.js current file: \n", file);
-    if (!this.state.uploads.includes(file)) {
-      this.setState({ uploads: [...this.state.uploads, file] });
-    }
+    console.log("handleFile in Input.js current file: \n", file[0]);
+    this.setState({ uploads: file[0] });
+
     console.log("handleFile this.state.uploads: ", this.state.uploads);
   };
 
+  //backup of array version
+  // handleFile = file => {
+  //   console.log('handleFile in Input.js current file: \n', file);
+  //   if (!this.state.uploads.includes(file)) {
+  //     this.setState({ uploads: [...this.state.uploads, file] });
+  //   }
+  //   console.log('handleFile this.state.uploads: ', this.state.uploads);
+  // };
   handleLaunchSelect = async option => {
     await this.setState({
       launchSelected: option.timing
@@ -104,6 +140,33 @@ class InputPage extends React.Component {
       "InputPage handleSelect selectedTiming: ",
       this.state.launchSelected
     );
+  };
+
+  handleServicesSelect = async selectedService => {
+    if (!this.state.servicesSelected.includes(selectedService)) {
+      await this.setState({
+        servicesSelected: [...this.state.servicesSelected, selectedService]
+      });
+    } else {
+      const filteredServices = this.state.servicesSelected.filter(
+        service => service.id !== selectedService.id
+      );
+      await this.setState({
+        servicesSelected: filteredServices
+      });
+    }
+
+    const stringServices = this.state.servicesSelected
+      .reduce((acc, curr) => acc + ", " + curr.service, "")
+      .slice(1);
+    console.log("handleServicesSelect stringServices: ", stringServices);
+    await this.setState({ servicesString: stringServices });
+  };
+
+  handleTerms = async () => {
+    await this.setState({
+      termsCheckbox: !this.state.termsCheckbox
+    });
   };
 
   handleServicesSelect = async selectedService => {
@@ -157,10 +220,8 @@ class InputPage extends React.Component {
   render() {
     return (
       <div className="input-page">
-        <div className="vertical-text">
-          <p>
-            PROJECT <span id="mercury-text">MERCURY</span>
-          </p>
+        <div className="inputPageSidewaysTextWrapper">
+          <p className="inputPageSidewaysText">projectMERCURY</p>
         </div>
         <div className="closeButtonWrapper">
           <button
@@ -193,7 +254,13 @@ class InputPage extends React.Component {
           {/* <input type="hidden" name="bot-field" /> */}
           <p className="text">LET'S GET STARTED</p>
           <div className="sideBySide-input-container">
-            <label>
+            <label
+              style={
+                this.state.contactName.length > 0
+                  ? { borderColor: "white", color: "white" }
+                  : { borderColor: "grey", color: "grey" }
+              }
+            >
               <input
                 className="sideBySide-input"
                 style={
@@ -209,7 +276,13 @@ class InputPage extends React.Component {
               />
               001. CONTACT NAME*
             </label>
-            <label>
+            <label
+              style={
+                this.state.contactRole.length > 0
+                  ? { borderColor: "white", color: "white" }
+                  : { borderColor: "grey", color: "grey" }
+              }
+            >
               <input
                 className="sideBySide-input"
                 style={
@@ -227,7 +300,13 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.companyName.length > 0
+                  ? { borderColor: "white", color: "white" }
+                  : { borderColor: "grey", color: "grey" }
+              }
+            >
               <input
                 className="solo-input"
                 style={
@@ -255,7 +334,13 @@ class InputPage extends React.Component {
             </div>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.based.length > 0
+                  ? { borderColor: "white", color: "white" }
+                  : { borderColor: "grey", color: "grey" }
+              }
+            >
               <input
                 className="solo-input"
                 style={
@@ -283,7 +368,13 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.targetDemo.length > 0
+                  ? { borderColor: "white", color: "white" }
+                  : { borderColor: "grey", color: "grey" }
+              }
+            >
               <input
                 className="solo-input"
                 style={
@@ -301,7 +392,13 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.competitors.length > 0
+                  ? { borderColor: "white", color: "white" }
+                  : { borderColor: "grey", color: "grey" }
+              }
+            >
               <input
                 className="solo-input"
                 style={
@@ -319,14 +416,26 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label className="solo-input">
+            <div className="solo-input">
+              {/* <input type="file" name="file" /> */}
+              {/* <div className="solo-input">
               <FileUpload
                 name="uploads"
                 value={this.state.uploads}
                 handleFile={this.handleFile}
                 required={true}
-              />
-            </label>
+              /> */}
+              <Dropzone onDrop={this.onDrop}>
+                {({ getRootProps, getInputProps, isDragActive }) => (
+                  <div {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    {isDragActive
+                      ? "Drop it like it's hot!"
+                      : "Click me or drag a file to upload!"}
+                  </div>
+                )}
+              </Dropzone>
+            </div>
           </div>
           <div className="solo-input-container">
             <label className="solo-input">
@@ -349,13 +458,29 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.capitalRaised.length > 0
+                  ? { borderColor: "white", color: "white" }
+                  : { borderColor: "grey", color: "grey" }
+              }
+            >
               <label
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  color: "white"
-                }}
+                style={
+                  this.state.capitalRaised.length > 0
+                    ? {
+                        borderColor: "white",
+                        color: "white",
+                        display: "flex",
+                        flexDirection: "row"
+                      }
+                    : {
+                        borderColor: "grey",
+                        color: "grey",
+                        display: "flex",
+                        flexDirection: "row"
+                      }
+                }
               >
                 $
                 <input
@@ -397,7 +522,14 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label className="solo-input">
+            <label
+              className="solo-input"
+              style={
+                this.state.servicesSelected.length > 0
+                  ? { borderColor: "transparent", color: "white" }
+                  : { borderColor: "transparent", color: "grey" }
+              }
+            >
               <CheckboxDropdown
                 handleSelect={this.handleServicesSelect}
                 services={this.state.servicesNeeded}
@@ -408,16 +540,18 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="termsAndCheckboxWrapper">
-            <div
-              className={
-                this.state.termsCheckbox
-                  ? "termsCheckboxAgreed"
-                  : "termsCheckboxNotAgree"
-              }
-              onClick={this.handleTerms}
-            />
+            <div style={{ display: "flex", flexDirection: "row" }}>
+              <div
+                className={
+                  this.state.termsCheckbox
+                    ? "termsCheckboxAgreed"
+                    : "termsCheckboxNotAgree"
+                }
+                onClick={this.handleTerms}
+              />
+            </div>
+            <div className="text">I AGREE TO THE TERMS BELOW</div>
           </div>
-          <p className="text">I AGREE TO THE TERMS BELOW</p>
           <input
             type="SUBMIT"
             disabled={this.state.termsCheckbox ? false : true}

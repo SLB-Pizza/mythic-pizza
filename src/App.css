@@ -122,8 +122,9 @@
   /*the little checkbox for terms agreement if checked*/
   height: 2vh;
   width: 2vh;
-  border: 2px solid red;
+  border: 2px solid white;
   background: white;
+  color: white;
 }
 
 .termsCheckboxNotAgree {
@@ -131,11 +132,18 @@
   height: 2vh;
   width: 2vh;
   border: 2px solid grey;
-  background: transparent;
+  color: grey;
+  background: grey;
 }
 
 .checkboxDropdownWrapper {
   /*for the wrapper around the services needed checkbox dropdown*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  width: 99%;
 }
 
 .selectedService {
@@ -228,12 +236,13 @@
   width: 99%;
   border-style: hidden hidden hidden hidden;
   background-color: black;
-  color: red;
+  color: white;
 }
 
 .textAreaWrapper {
   /*for the small wrapper div in TextBox.js*/
-  border: 1px solid grey;
+  border-width: 1px;
+  border-style: solid;
   flex-direction: row;
 }
 
@@ -276,19 +285,20 @@
   flex: 1;
   /* border-color: white; */
   border-style: hidden hidden solid hidden;
+  border-bottom-width: 1px;
   /* border-bottom: 3px solid white; */
 }
 
 .sideBySide-input-container label {
   /* padding-left: 1%; */
   padding-right: 2%;
-  color: white;
+  /* color: white; */
   flex: 1;
   display: flex;
   flex-direction: column;
 }
 .solo-input-container label {
-  color: white;
+  /* color: white; */
 }
 
 .solo-input-container {
@@ -326,6 +336,7 @@
   width: 100%;
   background-color: black;
   border-style: hidden hidden solid hidden;
+  border-bottom-width: 1px;
 }
 
 .closeButtonWrapper {
@@ -333,6 +344,60 @@
   flex: 2;
   flex-direction: column;
   align-content: space-around;
+}
+
+.inputPageContactInfo {
+  /*<p> that holds the lines of contact info text, each in a separate <p>*/
+  color: white;
+}
+
+.inputPageContactSpacer {
+  /*empty spacer to help space contact info text*/
+}
+
+.inputPageSidewaysText {
+  /*div that holds text to be rotated on input page*/
+  /*rotating it moves it to the lower right if the  screen?*/
+  /* transform: rotate(0.25turn); */
+  /* position: absolute;
+  top: 0;
+  left: 0;
+  transform: rotate(90deg);
+  transform: 0 0; */
+  background: none;
+  color: white;
+  flex: 2;
+}
+
+.inputPageSidewaysTextWrapper {
+  display: flex;
+}
+
+.input-page {
+  /*wrapper for whole input page*/
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.input-form {
+  /*for the <form> itself*/
+  flex-direction: column;
+  flex: 5;
+  padding-right: 10vw;
+}
+
+.solo-input-textBox {
+  /*for TextBox wrapper in inputPage*/
+  width: 100%;
+  background-color: black;
+  border-style: hidden hidden hidden hidden;
+}
+
+.solo-input {
+  /*for input lines that don't have sibling (like input 3*/
+  width: 100%;
+  background-color: black;
+  border-style: hidden hidden solid hidden;
 }
 
 .inputPageContactInfo {

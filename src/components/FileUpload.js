@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import '../App.css';
+import React, { useState, useEffect } from "react";
+import "../App.css";
 
 export default function FileUpload({ name, value, handleFile }) {
   // eslint-disable-next-line no-unused-vars
@@ -11,16 +11,16 @@ export default function FileUpload({ name, value, handleFile }) {
 
   useEffect(() => {
     let refDiv = dropRef.current;
-    refDiv.addEventListener('dragenter', handleDragIn);
-    refDiv.addEventListener('dragleave', handleDragOut);
-    refDiv.addEventListener('dragover', handleDrag);
-    refDiv.addEventListener('drop', handleDrop);
+    refDiv.addEventListener("dragenter", handleDragIn);
+    refDiv.addEventListener("dragleave", handleDragOut);
+    refDiv.addEventListener("dragover", handleDrag);
+    refDiv.addEventListener("drop", handleDrop);
 
     return refDiv => {
-      refDiv.removeEventListener('dragenter', handleDragIn);
-      refDiv.removeEventListener('dragleave', handleDragOut);
-      refDiv.removeEventListener('dragover', handleDrag);
-      refDiv.removeEventListener('drop', handleDrop);
+      refDiv.removeEventListener("dragenter", handleDragIn);
+      refDiv.removeEventListener("dragleave", handleDragOut);
+      refDiv.removeEventListener("dragover", handleDrag);
+      refDiv.removeEventListener("drop", handleDrop);
     };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
@@ -52,12 +52,12 @@ export default function FileUpload({ name, value, handleFile }) {
     // if (!files.includes(e.dataTransfer.files)) {
     files = [...files, ...e.dataTransfer.files];
     await setFileList(files);
-    console.log('handleDrop in FileUpload.js files: ', files);
+    // console.log('handleDrop in FileUpload.js files: ', files);
     // }
-    console.log('handleDrop in FileUpload.js fileList: ', fileList);
+    // console.log('handleDrop in FileUpload.js fileList: ', fileList);
     if (e.dataTransfer.files && e.dataTransfer.files.length > 0) {
       await handleFile(e.dataTransfer.files);
-      console.log(`FileUpload e.dataTransfer.files:`, e.dataTransfer.files);
+      // console.log(`FileUpload e.dataTransfer.files:`, e.dataTransfer.files);
       e.dataTransfer.clearData();
       setDragCounter(0);
     }
@@ -67,7 +67,7 @@ export default function FileUpload({ name, value, handleFile }) {
 
   return (
     <div className="fileUploadWrapper">
-      <p className="fileUploadInner">
+      <p className="fileUploadInner" style={{ color: "white" }}>
         008. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIALS SIZE LIMIT:10MB*
       </p>
       <div

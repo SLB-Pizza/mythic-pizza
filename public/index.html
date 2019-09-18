@@ -27,7 +27,13 @@
     <title>React App</title>
   </head>
   <body>
-    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+    <form
+      name="contact"
+      netlify
+      enctype="multipart/form-data"
+      netlify-honeypot="bot-field"
+      hidden
+    >
       <input type="text" name="contactName" />
       <input type="text" name="contactRole" />
       <input type="text" name="companyName" />
@@ -36,7 +42,7 @@
       <input type="text" name="marketOpportunity" />
       <input type="text" name="targetDemo" />
       <input type="text" name="competitors" />
-      <input type="file" name="uploads" />
+      <input type="file" name="file" id="file" multiple />
       <input type="text" name="currentTeam" />
       <input type="text" name="positions" />
       <input type="number" name="capitalRaised" />

@@ -22,10 +22,7 @@ function LandingPage() {
 
       <div className="vertical-logo">
         <p>
-          <text>P</text>ROJECT{' '}
-          <span id="mercury-text">
-            MERCUR<text>Y</text>
-          </span>
+          PROJECT <span id="mercury-text">MERCURY</span>
         </p>
       </div>
 

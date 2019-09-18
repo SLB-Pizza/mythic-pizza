@@ -86,11 +86,23 @@
 */
 
 /*  wrapper for whole input page
-    .App has a 5vw horizontal padding
-    This is why the landing BG sticks out for now */
+.App has a 5vw horizontal padding
+This is why the landing BG sticks out for now */
 .input-page {
   background-color: black;
   display: flex;
+}
+
+.vertical-logo-input {
+  flex: 1;
+}
+
+.vertical-logo-input p {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 60vh;
+  font-size: 2.5rem;
+  transform: rotate(90deg);
 }
 
 .inputPageSidewaysTextWrapper {
@@ -111,9 +123,10 @@ transform: 0 0; */
 }
 
 /*for general text rn*/
-.text {
+/* superceded by first rule */
+/* .text {
   color: white;
-}
+} */
 
 /*wrapper div for the agreement checkbox and "I AGREE" text*/
 .termsAndCheckboxWrapper {

@@ -225,7 +225,7 @@ class InputPage extends React.Component {
   render() {
     return (
       <div className="input-page">
-        <div className="vertical-logo">
+        <div className="vertical-logo-input">
           <p>
             PROJECT<span id="mercury-text">MERCURY</span>
           </p>

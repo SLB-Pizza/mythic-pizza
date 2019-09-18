@@ -544,6 +544,7 @@ class InputPage extends React.Component {
               backgroundColor: this.state.termsCheckbox ? 'white' : 'grey',
               width: '100%',
               height: '5vh',
+              borderRadius: '2px',
             }}
           />
           <p className="text">LEGAL:</p>

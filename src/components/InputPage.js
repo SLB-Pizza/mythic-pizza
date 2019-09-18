@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useCallback } from 'react';
+import Dropzone from 'react-dropzone';
 import '../App.css';
 import TextBox from './TextBox.js';
-import FileUpload from './FileUpload';
+// import FileUpload from './FileUpload';
 import SelectDropdown from './SelectDropdown';
 import CheckboxDropdown from './CheckboxDropdown';
 
@@ -52,6 +53,12 @@ class InputPage extends React.Component {
     this.handleServicesSelect.bind(this);
   }
 
+  onDrop = acceptedFiles => {
+    console.log(acceptedFiles);
+    this.setState({ file: acceptedFiles[0] });
+  };
+  // const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
   handleChange = event => {
     // eslint-disable-next-line no-unused-vars
     const stateName = event.target.name;
@@ -64,22 +71,44 @@ class InputPage extends React.Component {
 
   //this handleSubmit is 100% copied from netlify docs
   //https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-a-stateful-react-form
+  // handleSubmit = e => {
+  //   fetch('/', {
+  //     method: 'POST',
+  //     headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+  //     body: this.encode({ 'form-name': 'contact', ...this.state }),
+  //   })
+  //     .then(() => alert('Success!'))
+  //     .catch(error => alert(error));
+
+  //   e.preventDefault();
+  // };
+  // //encode func is copied from netlify docs
+  // encode = data => {
+  //   return Object.keys(data)
+  //     .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
+  //     .join('&');
+  // };
+
+  encode = data => {
+    const formData = new FormData();
+    Object.keys(data).forEach(k => {
+      formData.append(k, data[k]);
+    });
+    return formData;
+  };
+
   handleSubmit = e => {
+    const data = { 'form-name': 'contact', ...this.state };
+
     fetch('/', {
       method: 'POST',
-      headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-      body: this.encode({ 'form-name': 'contact', ...this.state }),
+      // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
+      body: this.encode(data),
     })
-      .then(() => alert('Success!'))
-      .catch(error => alert(error));
+      .then(() => alert('Form Submission Successful!!'))
+      .catch(error => alert('Form Submission Failed!'));
 
     e.preventDefault();
-  };
-  //encode func is copied from netlify docs
-  encode = data => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + '=' + encodeURIComponent(data[key]))
-      .join('&');
   };
 
   handleFile = file => {
@@ -333,8 +362,8 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <div>
-              <input type="file" name="file" />
+            <div className="solo-input">
+              {/* <input type="file" name="file" /> */}
               {/* <div className="solo-input">
               <FileUpload
                 name="uploads"
@@ -342,6 +371,16 @@ class InputPage extends React.Component {
                 handleFile={this.handleFile}
                 required={true}
               /> */}
+              <Dropzone onDrop={this.onDrop}>
+                {({ getRootProps, getInputProps, isDragActive }) => (
+                  <div {...getRootProps()}>
+                    <input {...getInputProps()} />
+                    {isDragActive
+                      ? "Drop it like it's hot!"
+                      : 'Click me or drag a file to upload!'}
+                  </div>
+                )}
+              </Dropzone>
             </div>
           </div>
           <div className="solo-input-container">

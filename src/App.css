@@ -144,8 +144,9 @@ The vertical logo
 }
 
 .vertical-logo-input p {
-  font-size: 3rem;
-  top: 40vh;
+  font-size: 2rem;
+  top: 10%;
+  width: 15vw;
   position: -webkit-sticky;
   position: sticky;
   transform: rotate(90deg);
@@ -168,7 +169,7 @@ The button and address
 
 /*the little div to help space the close button in InputPage.js*/
 .closeButtonWrapper {
-  flex: 3;
+  flex: 2;
   flex-direction: column;
   align-content: space-around;
   /* background-color: orangered; */

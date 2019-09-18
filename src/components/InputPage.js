@@ -54,8 +54,9 @@ class InputPage extends React.Component {
 
   onDrop = async acceptedFiles => {
     console.log('acceptdFiles: ', acceptedFiles);
-    await this.setState({ file: acceptedFiles });
-    console.log('this.state.file post setState: ', this.state.file);
+    await this.setState({ file: acceptedFiles[0] });
+    alert(`${acceptedFiles[0].name} has been uploaded`);
+    // console.log('this.state.file post setState: ', this.state.file);
   };
   // const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
 
@@ -376,19 +377,22 @@ class InputPage extends React.Component {
                   {({ getRootProps, getInputProps, isDragActive }) => (
                     <div
                       {...getRootProps()}
-                      style={{ height: '19vh', width: '100%' }}
+                      style={{
+                        height: '19vh',
+                        width: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                      }}
                     >
                       <input {...getInputProps()} />
                       {isDragActive
-                        ? 'DROP YOUR MATERIALS HERE'
-                        : '009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIALS SIZE LIMIT:10MB*'}
-                      {/* {[...this.state.file].map((file, index) => {
-                        return (
-                          <div className="uploadedFileList" key={index}>
-                            {file.name}
-                          </div>
-                        );
-                      })} */}
+                        ? 'DROP YOUR FILE HERE'
+                        : '009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL SIZE LIMIT:10MB*'}
+                      {this.state.file && this.state.file.name ? (
+                        <div>{this.state.file.name}</div>
+                      ) : (
+                        ' '
+                      )}
                     </div>
                   )}
                 </Dropzone>

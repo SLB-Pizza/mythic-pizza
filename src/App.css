@@ -1,5 +1,6 @@
 * {
   font-family: "David_Reg";
+  color: white;
 }
 
 .App {
@@ -35,8 +36,9 @@
 
 .left-text p {
   text-align: left;
-  font-size: 1.25rem;
-  line-height: 0.45rem;
+  font-size: 1.55rem;
+  line-height: 1.9rem;
+  text-transform: uppercase;
 }
 
 /* Second Column */
@@ -83,9 +85,10 @@
 ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝
 */
 
+/*  wrapper for whole input page
+    .App has a 5vw horizontal padding
+    This is why the landing BG sticks out for now */
 .input-page {
-  /*wrapper for whole input page*/
-  /* .App has a 5vw padding - this is why the landing BG sticks out for now */
   background-color: black;
   display: flex;
 }
@@ -94,32 +97,31 @@
   flex: 1;
 }
 
+/*div that holds text to be rotated on input page*/
+/*rotating it moves it to the lower right if the  screen?*/
+/* transform: rotate(0.25turn); */
+/* position: absolute;
+top: 0;
+left: 0;
+transform: rotate(90deg);
+transform: 0 0; */
 .inputPageSidewaysText {
-  /*div that holds text to be rotated on input page*/
-  /*rotating it moves it to the lower right if the  screen?*/
-  /* transform: rotate(0.25turn); */
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  transform: rotate(90deg);
-  transform: 0 0; */
   background: none;
   color: white;
-  flex: 2;
 }
 
+/*for general text rn*/
 .text {
-  /*for general text rn*/
   color: white;
 }
 
+/*wrapper div for the agreement checkbox and "I AGREE" text*/
 .termsAndCheckboxWrapper {
-  /*wrapper div for the agreement checkbox and "I AGREE" text*/
   flex-direction: row;
 }
 
+/*the little checkbox for terms agreement if checked*/
 .termsCheckboxAgreed {
-  /*the little checkbox for terms agreement if checked*/
   height: 2vh;
   width: 2vh;
   border: 2px solid white;
@@ -127,8 +129,8 @@
   color: white;
 }
 
+/*the little checkbox for terms agreement if NOT checked*/
 .termsCheckboxNotAgree {
-  /*the little checkbox for terms agreement if NOT checked*/
   height: 2vh;
   width: 2vh;
   border: 2px solid grey;
@@ -136,8 +138,8 @@
   background: transparent;
 }
 
+/*for the wrapper around the services needed checkbox dropdown*/
 .checkboxDropdownWrapper {
-  /*for the wrapper around the services needed checkbox dropdown*/
   display: flex;
   flex-direction: row;
   justify-content: space-between;
@@ -146,30 +148,30 @@
   width: 99%;
 }
 
+/*for selected services in CheckbocDropdown.js*/
 .selectedService {
-  /*for selected services in CheckbocDropdown.js*/
 }
 
+/*for unselected services in CheckbocDropdown.js*/
 .unselectedService {
-  /*for unselected services in CheckbocDropdown.js*/
 }
 
+/*the wrapper around the launch timing options in SelectDropdown.js*/
 .selectDropdownWrapper {
-  /*the wrapper around the launch timing options in SelectDropdown.js*/
   border: 1px solid grey;
 }
 
+/*the currently selected launch timing option in SelectDropdown.js*/
 .selectedOption {
-  /*the currently selected launch timing option in SelectDropdown.js*/
   background: red;
 }
 
+/*the NOT selected launch timing options in SelectDropdown.js*/
 .unselectedOption {
-  /*the NOT selected launch timing options in SelectDropdown.js*/
 }
 
+/*for the dropdown arrow inside SelectDropdown.js and CheckboxDropdown.js*/
 .dropDownArrow {
-  /*for the dropdown arrow inside SelectDropdown.js and CheckboxDropdown.js*/
   width: 30px;
   height: 30px;
   margin: 0;
@@ -181,9 +183,9 @@
   justify-content: space-between;
 }
 
+/*to control styling when SelectDropdown.js and CheckboxDropdown.js menu IS showing options
+I followed a tut on making an arrow as a placeholder, but it's not showing in the right spot, it's up on the upper left? so weird lol*/
 .selectDropdownArrowUp {
-  /*to control styling when SelectDropdown.js and CheckboxDropdown.js menu IS showing options
-  I followed a tut on making an arrow as a placeholder, but it's not showing in the right spot, it's up on the upper left? so weird lol*/
   position: absolute;
   top: 10px;
   left: 8px;
@@ -194,8 +196,8 @@
   border-bottom: 10px solid black;
 }
 
+/*to control styling when SelectDropdown.js and CheckboxDropdown.js menu is NOT showing options*/
 .selectDropdownArrowDown {
-  /*to control styling when SelectDropdown.js and CheckboxDropdown.js menu is NOT showing options*/
   position: absolute;
   top: 12px;
   left: 8px;
@@ -206,8 +208,8 @@
   border-top: 10px solid black;
 }
 
+/*for the div wrapping the words <p> and the fielUpload <div> field*/
 .fileUploadWrapper {
-  /*for the div wrapping the words <p> and the fielUpload <div> field*/
   height: 20vh;
   width: 100%;
   /* border: 1px solid grey; */
@@ -216,29 +218,29 @@
   color: white;
 }
 
+/*for the <p> that says "upload here"*/
 .fileUploadInner {
-  /*for the <p> that says "upload here"*/
   align-self: center;
   background-color: transparent;
   width: 100%;
   height: 100%;
 }
 
+/*for the drap and drop field itself*/
 .fileUploadField {
-  /*for the drap and drop field itself*/
   height: 10vh;
   width: 100%;
   border: 1px solid red;
 }
 
+/*for the uploaded list of file names that display in upload field*/
 .uploadedFileList {
-  /*for the uploaded list of file names that display in upload field*/
 }
 
+/*for the actual <textarea> input field INSIDE TextBox.js.
+needs to have invisible border AND fill the entire div around it, allowing
+for the description text and char counter to be in a row above it*/
 .textarea {
-  /*for the actual <textarea> input field INSIDE TextBox.js.
-  needs to have invisible border AND fill the entire div around it, allowing
-  for the description text and char counter to be in a row above it*/
   height: 100%;
   width: 98%;
   border-style: hidden hidden hidden hidden;
@@ -246,35 +248,35 @@
   color: white;
 }
 
+/*for the small wrapper div in TextBox.js*/
 .textAreaWrapper {
-  /*for the small wrapper div in TextBox.js*/
   border-width: 1px;
   border-style: solid;
   flex-direction: row;
 }
 
+/*for the small xxx/500 charcounter inside the TextBox.js*/
 .charCounter {
-  /*for the small xx/500 charcounter inside the TextBox.js*/
 }
 
+/*for the text right before the charCosunter passed as a prop*/
 .insideText {
-  /*for the text right before the charCosunter passed as a prop*/
 }
 
+/*for the small wrapper to align the words and counter into a row above the actual text input field*/
 .textBoxInner {
-  /*for the small wrapper to align the words and counter into a row above the actual text input field*/
   flex-direction: row;
   display: flex;
   justify-content: space-between;
   color: white;
 }
 
+/*for close button on InputPage*/
 .closeButton {
-  /*for close button on InputPage*/
   flex: 1;
 }
+/*for divs that wrap side by side inputs (like inputs 1 & 2)*/
 .sideBySide-input-container {
-  /*for divs that wrap side by side inputs (like inputs 1 & 2)*/
   flex-direction: row;
   display: flex;
   flex: 1;
@@ -283,8 +285,8 @@
   padding-bottom: 1%;
 }
 
+/*for the actual sideBySide inputs*/
 .sideBySide-input {
-  /*for the actual sideBySide inputs*/
   padding-left: 1%;
   padding-right: 1%;
   width: 100%;
@@ -308,9 +310,8 @@
   /* color: white; */
 }
 
+/*for container around inputs that don't have sibling (like input 3) and that reach across the full width of the input form*/
 .solo-input-container {
-  /*for container around inputs that don't have sibling (like input 3)
-  and that reach across the full width of the input form*/
   padding-top: 2%;
   padding-bottom: 2%;
   /* color: grey; */
@@ -324,47 +325,47 @@
   color: white;
 }
 
+/*for TextBox wrapper in inputPage*/
 .solo-input-select-dropdown {
-  /*for TextBox wrapper in inputPage*/
   width: 100%;
   background-color: black;
   border-style: hidden hidden hidden hidden;
 }
 
+/*for TextBox wrapper in inputPage*/
 .solo-input-textBox {
-  /*for TextBox wrapper in inputPage*/
   width: 100%;
   background-color: black;
   border-style: hidden hidden hidden hidden;
 }
 
+/*for input lines that don't have sibling (like input 3*/
 .solo-input {
-  /*for input lines that don't have sibling (like input 3*/
   width: 100%;
   background-color: black;
   border-style: hidden hidden solid hidden;
   border-bottom-width: 1px;
 }
 
+/*the little div to help space the close button in InputPage.js*/
 .closeButtonWrapper {
-  /*the little div to help space the close button in InputPage.js*/
   flex: 2;
   flex-direction: column;
   align-content: space-around;
 }
 
+/*<p> that holds the lines of contact info text, each in a separate <p>*/
 .inputPageContactInfo {
-  /*<p> that holds the lines of contact info text, each in a separate <p>*/
   color: white;
 }
 
+/*empty spacer to help space contact info text*/
 .inputPageContactSpacer {
-  /*empty spacer to help space contact info text*/
 }
 
+/*div that holds text to be rotated on input page*/
+/*rotating it moves it to the lower right if the  screen?*/
 .inputPageSidewaysText {
-  /*div that holds text to be rotated on input page*/
-  /*rotating it moves it to the lower right if the  screen?*/
   /* transform: rotate(0.25turn); */
   /* position: absolute;
   top: 0;
@@ -380,40 +381,40 @@
   display: flex;
 }
 
+/*wrapper for whole input page*/
 .input-page {
-  /*wrapper for whole input page*/
   display: flex;
   flex-wrap: wrap;
 }
 
+/*for the <form> itself*/
 .input-form {
-  /*for the <form> itself*/
   flex-direction: column;
   flex: 5;
   padding-right: 10vw;
 }
 
+/*for TextBox wrapper in inputPage*/
 .solo-input-textBox {
-  /*for TextBox wrapper in inputPage*/
   width: 100%;
   background-color: black;
   border-style: hidden hidden hidden hidden;
 }
 
+/*for input lines that don't have sibling (like input 3*/
 .solo-input {
-  /*for input lines that don't have sibling (like input 3*/
   width: 100%;
   background-color: black;
   border-style: hidden hidden solid hidden;
 }
 
+/*<p> that holds the lines of contact info text, each in a separate <p>*/
 .inputPageContactInfo {
-  /*<p> that holds the lines of contact info text, each in a separate <p>*/
   color: white;
 }
 
+/*empty spacer to help space contact info text*/
 .inputPageContactSpacer {
-  /*empty spacer to help space contact info text*/
 }
 
 .input-form {

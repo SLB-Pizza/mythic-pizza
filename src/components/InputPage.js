@@ -225,8 +225,10 @@ class InputPage extends React.Component {
   render() {
     return (
       <div className="input-page">
-        <div className="inputPageSidewaysTextWrapper">
-          <p className="inputPageSidewaysText">projectMERCURY</p>
+        <div className="vertical-logo">
+          <p>
+            PROJECT<span id="mercury-text">MERCURY</span>
+          </p>
         </div>
         <div className="closeButtonWrapper">
           <button

@@ -42,7 +42,7 @@ class InputPage extends React.Component {
       servicesSelected: [],
       services: '',
       termsCheckbox: false,
-      // status: '',
+      submitted: false,
     };
 
     this.handleChange.bind(this);
@@ -91,11 +91,13 @@ class InputPage extends React.Component {
       // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
       body: this.encode(data),
     })
-      .then(() =>
-        /*alert('Form Submission Successful!!')*/ console.log(
-          'form submission object: ',
-          data
-        )
+      .then(
+        () =>
+          /*alert('Form Submission Successful!!')*/ console.log(
+            'form submission object: ',
+            data
+          ),
+        this.setState({ submitted: true })
       )
       .catch(error => alert('Form Submission Failed!'));
 
@@ -240,397 +242,405 @@ class InputPage extends React.Component {
         /_  _/ __/ _ \  / /__/ _ \/ / // /  ' \/ _ \
          /_/ \__/_//_/  \___/\___/_/\_,_/_/_/_/_//_/
         */}
-        <form
-          name="contact"
-          onSubmit={this.handleSubmit}
-          netlify="true"
-          // data-netlify-honeypot="bot-field"
-          className="input-form"
-        >
-          {/* <input type="hidden" name="form-name" value="contact" /> */}
-          {/* <input type="hidden" name="bot-field" /> */}
-          <p className="form-header-text">LET'S GET STARTED.</p>
-          <div className="sideBySide-input-container">
-            <label
-              id="left-sideBySide"
-              style={
-                this.state.contactName.length > 0
-                  ? { borderColor: 'white', color: 'white' }
-                  : { borderColor: 'grey', color: 'grey' }
-              }
-            >
-              <input
-                className="sideBySide-input"
+        {this.state.submitted ? (
+          <div style={{ backgroundColor: 'black', color: 'white' }}>
+            <text>THANK YOU!</text>
+            <text>WE'LL BE IN TOUCH.</text>
+          </div>
+        ) : (
+          <form
+            name="contact"
+            onSubmit={this.handleSubmit}
+            netlify="true"
+            // data-netlify-honeypot="bot-field"
+            className="input-form"
+          >
+            {/* <input type="hidden" name="form-name" value="contact" /> */}
+            {/* <input type="hidden" name="bot-field" /> */}
+            <p className="form-header-text">LET'S GET STARTED.</p>
+            <div className="sideBySide-input-container">
+              <label
+                id="left-sideBySide"
                 style={
                   this.state.contactName.length > 0
                     ? { borderColor: 'white', color: 'white' }
                     : { borderColor: 'grey', color: 'grey' }
                 }
-                type="text"
-                name="contactName"
-                value={this.state.contactName}
-                onChange={this.handleChange}
-                required={true}
-              />
-              001. CONTACT NAME*
-            </label>
-            <label
-              style={
-                this.state.contactRole.length > 0
-                  ? { borderColor: 'white', color: 'white' }
-                  : { borderColor: 'grey', color: 'grey' }
-              }
-            >
-              <input
-                className="sideBySide-input"
+              >
+                <input
+                  className="sideBySide-input"
+                  style={
+                    this.state.contactName.length > 0
+                      ? { borderColor: 'white', color: 'white' }
+                      : { borderColor: 'grey', color: 'grey' }
+                  }
+                  type="text"
+                  name="contactName"
+                  value={this.state.contactName}
+                  onChange={this.handleChange}
+                  required={true}
+                />
+                001. CONTACT NAME*
+              </label>
+              <label
                 style={
                   this.state.contactRole.length > 0
                     ? { borderColor: 'white', color: 'white' }
                     : { borderColor: 'grey', color: 'grey' }
                 }
-                type="text"
-                name="contactRole"
-                value={this.state.contactRole}
-                onChange={this.handleChange}
-                required={true}
-              />
-              002. CONTACT ROLE*
-            </label>
-          </div>
-          <div className="solo-input-container">
-            <label
-              style={
-                this.state.companyName.length > 0
-                  ? { borderColor: 'white', color: 'white' }
-                  : { borderColor: 'grey', color: 'grey' }
-              }
-            >
-              <input
-                className="solo-input"
+              >
+                <input
+                  className="sideBySide-input"
+                  style={
+                    this.state.contactRole.length > 0
+                      ? { borderColor: 'white', color: 'white' }
+                      : { borderColor: 'grey', color: 'grey' }
+                  }
+                  type="text"
+                  name="contactRole"
+                  value={this.state.contactRole}
+                  onChange={this.handleChange}
+                  required={true}
+                />
+                002. CONTACT ROLE*
+              </label>
+            </div>
+            <div className="solo-input-container">
+              <label
                 style={
                   this.state.companyName.length > 0
                     ? { borderColor: 'white', color: 'white' }
                     : { borderColor: 'grey', color: 'grey' }
                 }
-                type="text"
-                name="companyName"
-                value={this.state.companyName}
-                onChange={this.handleChange}
-                required={true}
-              />
-              003. COMPANY NAME*
-            </label>
-          </div>
-          <div className="solo-input-container">
-            <div className="solo-input-textBox">
-              <TextBox
-                onChange={this.handleChange}
-                value={this.state.companyDescription}
-                name="companyDescription"
-                insideText="004. COMPANY DESCRIPTION*"
-              />
+              >
+                <input
+                  className="solo-input"
+                  style={
+                    this.state.companyName.length > 0
+                      ? { borderColor: 'white', color: 'white' }
+                      : { borderColor: 'grey', color: 'grey' }
+                  }
+                  type="text"
+                  name="companyName"
+                  value={this.state.companyName}
+                  onChange={this.handleChange}
+                  required={true}
+                />
+                003. COMPANY NAME*
+              </label>
             </div>
-          </div>
-          <div className="solo-input-container">
-            <label
-              style={
-                this.state.based.length > 0
-                  ? { borderColor: 'white', color: 'white' }
-                  : { borderColor: 'grey', color: 'grey' }
-              }
-            >
-              <input
-                className="solo-input"
+            <div className="solo-input-container">
+              <div className="solo-input-textBox">
+                <TextBox
+                  onChange={this.handleChange}
+                  value={this.state.companyDescription}
+                  name="companyDescription"
+                  insideText="004. COMPANY DESCRIPTION*"
+                />
+              </div>
+            </div>
+            <div className="solo-input-container">
+              <label
                 style={
                   this.state.based.length > 0
                     ? { borderColor: 'white', color: 'white' }
                     : { borderColor: 'grey', color: 'grey' }
                 }
-                type="text"
-                name="based"
-                value={this.state.based}
-                onChange={this.handleChange}
-                required={true}
-              />
-              005. WHERE ARE YOU BASED?*
-            </label>
-          </div>
-          <div className="solo-input-container">
-            <label className="solo-input-textBox">
-              <TextBox
-                onChange={this.handleChange}
-                value={this.state.marketOpportunity}
-                name="marketOpportunity"
-                insideText="006. MARKET OPPORTUNITY*"
-              />
-            </label>
-          </div>
-          <div className="solo-input-container">
-            <label
-              style={
-                this.state.targetDemo.length > 0
-                  ? { borderColor: 'white', color: 'white' }
-                  : { borderColor: 'grey', color: 'grey' }
-              }
-            >
-              <input
-                className="solo-input"
+              >
+                <input
+                  className="solo-input"
+                  style={
+                    this.state.based.length > 0
+                      ? { borderColor: 'white', color: 'white' }
+                      : { borderColor: 'grey', color: 'grey' }
+                  }
+                  type="text"
+                  name="based"
+                  value={this.state.based}
+                  onChange={this.handleChange}
+                  required={true}
+                />
+                005. WHERE ARE YOU BASED?*
+              </label>
+            </div>
+            <div className="solo-input-container">
+              <label className="solo-input-textBox">
+                <TextBox
+                  onChange={this.handleChange}
+                  value={this.state.marketOpportunity}
+                  name="marketOpportunity"
+                  insideText="006. MARKET OPPORTUNITY*"
+                />
+              </label>
+            </div>
+            <div className="solo-input-container">
+              <label
                 style={
                   this.state.targetDemo.length > 0
                     ? { borderColor: 'white', color: 'white' }
                     : { borderColor: 'grey', color: 'grey' }
                 }
-                type="text"
-                name="targetDemo"
-                value={this.state.targetDemo}
-                onChange={this.handleChange}
-                required={true}
-              />
-              007. TARGET DEMO*
-            </label>
-          </div>
-          <div className="solo-input-container">
-            <label
-              style={
-                this.state.competitors.length > 0
-                  ? { borderColor: 'white', color: 'white' }
-                  : { borderColor: 'grey', color: 'grey' }
-              }
-            >
-              <input
-                className="solo-input"
+              >
+                <input
+                  className="solo-input"
+                  style={
+                    this.state.targetDemo.length > 0
+                      ? { borderColor: 'white', color: 'white' }
+                      : { borderColor: 'grey', color: 'grey' }
+                  }
+                  type="text"
+                  name="targetDemo"
+                  value={this.state.targetDemo}
+                  onChange={this.handleChange}
+                  required={true}
+                />
+                007. TARGET DEMO*
+              </label>
+            </div>
+            <div className="solo-input-container">
+              <label
                 style={
                   this.state.competitors.length > 0
                     ? { borderColor: 'white', color: 'white' }
                     : { borderColor: 'grey', color: 'grey' }
                 }
-                type="text"
-                name="competitors"
-                value={this.state.competitors}
-                onChange={this.handleChange}
-                required={true}
-              />
-              008. COMPETITORS*
-            </label>
-          </div>
-          <div className="solo-input-container">
-            <div
-              className="fileUploadWrapper"
-              style={{
-                borderColor:
-                  this.state.file && this.state.file.size > 0
-                    ? 'white'
-                    : 'grey',
-              }}
-            >
-              <div className="fileUploadInner">
-                <Dropzone onDrop={this.onDrop}>
-                  {({ getRootProps, getInputProps, isDragActive }) => (
-                    <div
-                      {...getRootProps()}
-                      style={{
-                        height: '19vh',
-                        width: '100%',
-                        display: 'flex',
-                        flexDirection: 'column',
-                        borderColor:
-                          this.state.file && this.state.file.size > 0
-                            ? 'white'
-                            : 'grey',
-                        color:
-                          this.state.file && this.state.file.size > 0
-                            ? 'white'
-                            : 'grey',
-                      }}
-                    >
-                      <input {...getInputProps()} />
-                      {isDragActive
-                        ? 'DROP YOUR FILE HERE'
-                        : '009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL SIZE LIMIT:10MB*'}
-                      {this.state.file && this.state.file.name ? (
-                        <div>{this.state.file.name}</div>
-                      ) : (
-                        ' '
-                      )}
-                    </div>
-                  )}
-                </Dropzone>
-              </div>
-            </div>
-          </div>
-          <div className="solo-input-container">
-            <label className="solo-input">
-              <TextBox
-                onChange={this.handleChange}
-                value={this.state.currentTeam}
-                name="currentTeam"
-                insideText="010. CURRENT TEAM (INCLUDE CURRENT MANAGEMENT STRUCTURE)*"
-              />
-            </label>
-          </div>
-          <div className="solo-input-container">
-            <label className="solo-input">
-              <TextBox
-                onChange={this.handleChange}
-                value={this.state.positions}
-                name="positions"
-                insideText="011. OPEN/NEEDED POSITIONS*"
-              />
-            </label>
-          </div>
-          <div className="solo-input-container">
-            <label
-              style={
-                this.state.capitalRaised.length > 0
-                  ? { borderColor: 'white', color: 'white' }
-                  : { borderColor: 'grey', color: 'grey' }
-              }
-            >
-              <label
-                style={
-                  this.state.capitalRaised.length > 0
-                    ? {
-                        borderColor: 'white',
-                        display: 'flex',
-                        flexDirection: 'row',
-                        fontSize: '1.5rem',
-                      }
-                    : {
-                        borderColor: 'grey',
-                        color: 'grey',
-                        display: 'flex',
-                        flexDirection: 'row',
-                        fontSize: '1.5rem',
-                      }
-                }
               >
-                $
                 <input
                   className="solo-input"
                   style={
-                    this.state.capitalRaised.length > 0
+                    this.state.competitors.length > 0
                       ? { borderColor: 'white', color: 'white' }
                       : { borderColor: 'grey', color: 'grey' }
                   }
-                  type="number"
-                  name="capitalRaised"
-                  value={this.state.capitalRaised}
+                  type="text"
+                  name="competitors"
+                  value={this.state.competitors}
                   onChange={this.handleChange}
                   required={true}
                 />
+                008. COMPETITORS*
               </label>
-              012. CAPITAL RAISED*
-            </label>
-          </div>
-          <div className="solo-input-container">
-            <label className="solo-input">
-              <TextBox
-                onChange={this.handleChange}
-                value={this.state.capitalNeeded}
-                name="capitalNeeded"
-                insideText="013. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
-              />
-            </label>
-          </div>
-          <div className="solo-input-select-dropdown-container">
-            <label className="solo-input-select-dropdown">
-              <SelectDropdown
-                handleSelect={this.handleLaunchSelect}
-                options={this.state.launchSchedule}
-                name="launchSelected"
-                insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
-              />
-              014. ANTICIPATED LAUNCH SCHEDULE*
-            </label>
-          </div>
-          <div className="solo-input-container">
-            <label
-              className="solo-input"
-              style={
-                this.state.servicesSelected.length > 0
-                  ? { borderColor: 'transparent', color: 'white' }
-                  : { borderColor: 'transparent', color: 'grey' }
-              }
-            >
-              <CheckboxDropdown
-                handleSelect={this.handleServicesSelect}
-                services={this.state.servicesNeeded}
-                name="services"
-                insideText="015. SERVICES NEEDED*"
-              />
-              015. SERVICES NEEDED*
-            </label>
-          </div>
-          <div
-            className="termsAndCheckboxWrapper"
-            style={{ paddingBottom: '5%' }}
-          >
-            <div style={{ display: 'flex', flexDirection: 'row' }}>
-              <div
-                className={
-                  this.state.termsCheckbox
-                    ? 'termsCheckboxAgreed'
-                    : 'termsCheckboxNotAgree'
-                }
-                onClick={this.handleTerms}
-              />
             </div>
-            <div className="text">I AGREE TO THE TERMS BELOW</div>
-          </div>
-          <input
-            type="SUBMIT"
-            disabled={this.state.termsCheckbox ? false : true}
-            style={{
-              color: 'black',
-              border: 'none',
-              backgroundColor:
-                this.state.termsCheckbox &&
-                this.state.companyDescription.length > 0 &&
-                this.state.marketOpportunity.length > 0 &&
-                this.state.currentTeam.length > 0 &&
-                this.state.positions.length > 0 &&
-                this.state.capitalNeeded.length > 0 &&
-                this.state.servicesSelected.length > 0 &&
-                this.state.file.size > 0
-                  ? 'white'
-                  : 'grey',
-              width: '100%',
-              height: '5vh',
-              borderRadius: '2px',
-            }}
-          />
-          <p className="text">LEGAL:</p>
-          <p className="text">
-            Any nonpublic information provided hereunder is confidential, and
-            Project Mercury will not disclose the information to third parties
-            except for its professional advisors as strictly necessary; and will
-            not use the information except as necessary to evaluate whether to
-            perform services for or invest in the equity of the Company. Project
-            Mercury will restrict the distribution of the information within its
-            company to those of its employees and representatives who have a
-            need to know.
-          </p>
-          <p className="text">
-            The foregoing is intended solely as a basis for further discussions
-            and is not intended to be and does not constitute a legally binding
-            offer, obligation or commitment on the part of Project Mercury to
-            perform services for or make an investment in the Company. No
-            agreement relating to a business relationship between the parties,
-            or any services or investment, shall arise unless and until a
-            definitive written agreement relating to such business relationship
-            is negotiated, executed and delivered by the parties. The disclosure
-            of information herein or the entering into discussions or a business
-            relationship between the parties shall not prevent Project Mercury
-            or any of its affiliates from evaluating a possible investment in
-            and/or collaboration with, or entering into any transaction with, a
-            company whose business is similar to or competitive with the
-            business or proposed business of the Company or its affiliates.
-          </p>
-          <div className="copyright">
-            <p id="copyright-text">COPYRIGHT 2019 PROJECT MERCURY</p>
-            <p id="rights-text">ALL RIGHTS RESERVED</p>
-          </div>
-        </form>
+            <div className="solo-input-container">
+              <div
+                className="fileUploadWrapper"
+                style={{
+                  borderColor:
+                    this.state.file && this.state.file.size > 0
+                      ? 'white'
+                      : 'grey',
+                }}
+              >
+                <div className="fileUploadInner">
+                  <Dropzone onDrop={this.onDrop}>
+                    {({ getRootProps, getInputProps, isDragActive }) => (
+                      <div
+                        {...getRootProps()}
+                        style={{
+                          height: '19vh',
+                          width: '100%',
+                          display: 'flex',
+                          flexDirection: 'column',
+                          borderColor:
+                            this.state.file && this.state.file.size > 0
+                              ? 'white'
+                              : 'grey',
+                          color:
+                            this.state.file && this.state.file.size > 0
+                              ? 'white'
+                              : 'grey',
+                        }}
+                      >
+                        <input {...getInputProps()} />
+                        {isDragActive
+                          ? 'DROP YOUR FILE HERE'
+                          : '009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL SIZE LIMIT:10MB*'}
+                        {this.state.file && this.state.file.name ? (
+                          <div>{this.state.file.name}</div>
+                        ) : (
+                          ' '
+                        )}
+                      </div>
+                    )}
+                  </Dropzone>
+                </div>
+              </div>
+            </div>
+            <div className="solo-input-container">
+              <label className="solo-input">
+                <TextBox
+                  onChange={this.handleChange}
+                  value={this.state.currentTeam}
+                  name="currentTeam"
+                  insideText="010. CURRENT TEAM (INCLUDE CURRENT MANAGEMENT STRUCTURE)*"
+                />
+              </label>
+            </div>
+            <div className="solo-input-container">
+              <label className="solo-input">
+                <TextBox
+                  onChange={this.handleChange}
+                  value={this.state.positions}
+                  name="positions"
+                  insideText="011. OPEN/NEEDED POSITIONS*"
+                />
+              </label>
+            </div>
+            <div className="solo-input-container">
+              <label
+                style={
+                  this.state.capitalRaised.length > 0
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
+                }
+              >
+                <label
+                  style={
+                    this.state.capitalRaised.length > 0
+                      ? {
+                          borderColor: 'white',
+                          display: 'flex',
+                          flexDirection: 'row',
+                          fontSize: '1.5rem',
+                        }
+                      : {
+                          borderColor: 'grey',
+                          color: 'grey',
+                          display: 'flex',
+                          flexDirection: 'row',
+                          fontSize: '1.5rem',
+                        }
+                  }
+                >
+                  $
+                  <input
+                    className="solo-input"
+                    style={
+                      this.state.capitalRaised.length > 0
+                        ? { borderColor: 'white', color: 'white' }
+                        : { borderColor: 'grey', color: 'grey' }
+                    }
+                    type="number"
+                    name="capitalRaised"
+                    value={this.state.capitalRaised}
+                    onChange={this.handleChange}
+                    required={true}
+                  />
+                </label>
+                012. CAPITAL RAISED*
+              </label>
+            </div>
+            <div className="solo-input-container">
+              <label className="solo-input">
+                <TextBox
+                  onChange={this.handleChange}
+                  value={this.state.capitalNeeded}
+                  name="capitalNeeded"
+                  insideText="013. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
+                />
+              </label>
+            </div>
+            <div className="solo-input-select-dropdown-container">
+              <label className="solo-input-select-dropdown">
+                <SelectDropdown
+                  handleSelect={this.handleLaunchSelect}
+                  options={this.state.launchSchedule}
+                  name="launchSelected"
+                  insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
+                />
+                014. ANTICIPATED LAUNCH SCHEDULE*
+              </label>
+            </div>
+            <div className="solo-input-container">
+              <label
+                className="solo-input"
+                style={
+                  this.state.servicesSelected.length > 0
+                    ? { borderColor: 'transparent', color: 'white' }
+                    : { borderColor: 'transparent', color: 'grey' }
+                }
+              >
+                <CheckboxDropdown
+                  handleSelect={this.handleServicesSelect}
+                  services={this.state.servicesNeeded}
+                  name="services"
+                  insideText="015. SERVICES NEEDED*"
+                />
+                015. SERVICES NEEDED*
+              </label>
+            </div>
+            <div
+              className="termsAndCheckboxWrapper"
+              style={{ paddingBottom: '5%' }}
+            >
+              <div style={{ display: 'flex', flexDirection: 'row' }}>
+                <div
+                  className={
+                    this.state.termsCheckbox
+                      ? 'termsCheckboxAgreed'
+                      : 'termsCheckboxNotAgree'
+                  }
+                  onClick={this.handleTerms}
+                />
+              </div>
+              <div className="text">I AGREE TO THE TERMS BELOW</div>
+            </div>
+            <input
+              type="SUBMIT"
+              disabled={this.state.termsCheckbox ? false : true}
+              style={{
+                color: 'black',
+                border: 'none',
+                backgroundColor:
+                  this.state.termsCheckbox &&
+                  this.state.companyDescription.length > 0 &&
+                  this.state.marketOpportunity.length > 0 &&
+                  this.state.currentTeam.length > 0 &&
+                  this.state.positions.length > 0 &&
+                  this.state.capitalNeeded.length > 0 &&
+                  this.state.servicesSelected.length > 0 &&
+                  this.state.file.size > 0
+                    ? 'white'
+                    : 'grey',
+                width: '100%',
+                height: '5vh',
+                borderRadius: '2px',
+              }}
+            />
+            <p className="text">LEGAL:</p>
+            <p className="text">
+              Any nonpublic information provided hereunder is confidential, and
+              Project Mercury will not disclose the information to third parties
+              except for its professional advisors as strictly necessary; and
+              will not use the information except as necessary to evaluate
+              whether to perform services for or invest in the equity of the
+              Company. Project Mercury will restrict the distribution of the
+              information within its company to those of its employees and
+              representatives who have a need to know.
+            </p>
+            <p className="text">
+              The foregoing is intended solely as a basis for further
+              discussions and is not intended to be and does not constitute a
+              legally binding offer, obligation or commitment on the part of
+              Project Mercury to perform services for or make an investment in
+              the Company. No agreement relating to a business relationship
+              between the parties, or any services or investment, shall arise
+              unless and until a definitive written agreement relating to such
+              business relationship is negotiated, executed and delivered by the
+              parties. The disclosure of information herein or the entering into
+              discussions or a business relationship between the parties shall
+              not prevent Project Mercury or any of its affiliates from
+              evaluating a possible investment in and/or collaboration with, or
+              entering into any transaction with, a company whose business is
+              similar to or competitive with the business or proposed business
+              of the Company or its affiliates.
+            </p>
+            <div className="copyright">
+              <p id="copyright-text">COPYRIGHT 2019 PROJECT MERCURY</p>
+              <p id="rights-text">ALL RIGHTS RESERVED</p>
+            </div>
+          </form>
+        )}
       </div>
     );
   }

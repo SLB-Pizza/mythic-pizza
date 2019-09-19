@@ -1,10 +1,10 @@
 * {
-  font-family: 'David_Reg';
+  font-family: "David_Reg";
   color: white;
 }
 
 .App {
-  background-image: url('./imgs/bg1.jpg');
+  background-image: url("./imgs/bg1.jpg");
   /* This bit underneath needs tweaking */
   background-size: cover;
   background-repeat: no-repeat;
@@ -140,7 +140,7 @@ The vertical logo
 */
 .vertical-logo-input {
   flex: 1;
-  /* background-color: pink; */
+  background-color: pink;
 }
 
 .vertical-logo-input p {
@@ -166,12 +166,11 @@ The vertical logo
 The button and address
 */
 
-/*the little div to help space the close button in InputPage.js*/
 .closeButtonWrapper {
   flex: 3;
   flex-direction: column;
   align-content: space-around;
-  /* background-color: orangered; */
+  background-color: orangered;
 }
 
 /*for close button on InputPage*/
@@ -203,7 +202,7 @@ The required fields notice
 
 .requiredWrapper {
   flex: 1;
-  /* background-color: purple; */
+  background-color: purple;
 }
 
 .requiredWrapper p {
@@ -225,7 +224,7 @@ The form itself
   flex-direction: column;
   margin-right: 10vh;
   margin-bottom: 10vh;
-  /* background-color: aquamarine; */
+  background-color: aquamarine;
 }
 
 input {
@@ -237,12 +236,12 @@ input {
 /* inline style replacements for the grey/white ternaries */
 
 .grey-inactive {
-  border-color: 'grey';
-  color: 'grey';
+  border-color: "grey";
+  color: "grey";
 }
 
 .white-active {
-  border-color: 'white';
+  border-color: "white";
 }
 
 .form-header-text {

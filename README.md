@@ -1,4 +1,4 @@
-# \_redirects (no file extension) file must be created in build folder after "npm run build" is executed. Inside must have this text: "/\* /index.html 200" (no "\" before the asterisk, that's added automatically)
+# 🍕🍕🍕Mythic Pizza 🍕🍕🍕
 
 ## Available Scripts
 

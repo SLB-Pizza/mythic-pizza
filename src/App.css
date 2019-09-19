@@ -1,5 +1,9 @@
+* {
+  font-family: "David_Reg";
+  color: white;
+}
+
 .App {
-  text-align: center;
   background-image: url("./imgs/bg1.jpg");
   /* This bit underneath needs tweaking */
   background-size: cover;
@@ -18,32 +22,87 @@
 
 .landing {
   display: flex;
-  /* flex-direction: row; */
-  flex-wrap: wrap;
-  /* justify-content: space-evenly; */
-  align-items: stretch;
+  height: 100vh;
 }
 
+/* First Column */
 .left-text {
   flex: 1;
-  background-color: rgba(0, 255, 255, 0.5);
+  margin-left: 5vw;
+  /* background-color: rgba(0, 255, 255, 0.5); */
+  align-self: center;
+  color: white;
+  /* height: 30vh; */
 }
 
-.vertical-text {
-  flex: 1;
-  background-color: rgba(255, 55, 255, 0.5);
+.left-text p {
+  text-align: left;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  text-transform: uppercase;
 }
 
+/* Second Column */
+.vertical-logo {
+  flex: 2;
+  /* background-color: rgba(255, 55, 255, 0.5); */
+  align-self: center;
+  color: white;
+}
+
+.vertical-logo p {
+  font-size: 2.5rem;
+  transform: rotate(90deg);
+  white-space: nowrap;
+}
+
+.vertical-logo p text {
+  font-size: 2.5rem;
+  transform: rotate(90deg);
+  white-space: nowrap;
+  /* background-clip: ; */
+  background: linear-gradient(180deg, black 50%, black 50%);
+}
+
+#mercury-text {
+  font-size: 4.65rem;
+}
+
+#mercury-text text {
+  font-size: 4.65rem;
+}
+
+/* Third Column */
 .right-third {
+  flex: 2;
+  margin-right: 5vw;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-button {
+  flex: 5;
+  justify-content: center;
+  /* background-color: rgba(255, 255, 55, 0.5); */
+}
+
+.inquire {
   flex: 1;
-  background-color: rgba(255, 255, 55, 0.5);
+  color: black;
+  background: white;
+  border: none;
+  top: 34vh;
+  width: 7vw;
+  height: 5vh;
+  position: -webkit-sticky;
+  position: sticky;
 }
 
 .contact-text {
-  margin-bottom: 1rem;
-}
-
-.address-text {
+  flex: 3;
+  color: white;
+  /* margin-bottom: 1rem; */
+  /* background-color: rgba(55, 255, 55, 0.5); */
 }
 
 /*
@@ -54,60 +113,279 @@
 ██║     ╚██████╔╝██║  ██║██║ ╚═╝ ██║
 ╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝
 */
-.text {
-  /*for general text rn*/
-  color: white;
+
+/*  wrapper for whole input page
+.App has a 5vw horizontal padding
+This is why the landing BG sticks out for now */
+
+/*
+THE INPUT FORM'S FOUR MAIN DIVS ARE:
+
+- vertical-logo-input
+- closeButtonWrapper
+- inputPageSidewaysTextWrapper
+- inputForm
+
+*/
+
+/*wrapper for whole input page*/
+.input-page {
+  display: flex;
+  background-color: black;
 }
 
+/*
+  ___    __    _____     __
+ <  /__ / /_  / ___/__  / /_ ____ _  ___
+ / (_-</ __/ / /__/ _ \/ / // /  ' \/ _ \
+/_/___/\__/  \___/\___/_/\_,_/_/_/_/_//_/
+The vertical logo
+*/
+.vertical-logo-input {
+  flex: 1;
+  color: white;
+  /* background-color: pink; */
+}
+
+.vertical-logo-input p {
+  font-size: 2rem;
+  top: 10%;
+  width: 15vw;
+  position: -webkit-sticky;
+  position: sticky;
+  transform: rotate(90deg);
+  white-space: nowrap;
+  /* padding-left: 4%; */
+  /* height: 4vh; */
+}
+
+#mercury-text-input {
+  font-size: 6rem;
+}
+
+/*
+   ___          __  _____     __
+  |_  |___  ___/ / / ___/__  / /_ ____ _  ___
+ / __// _ \/ _  / / /__/ _ \/ / // /  ' \/ _ \
+/____/_//_/\_,_/  \___/\___/_/\_,_/_/_/_/_//_/
+The button and address
+*/
+
+.closeButtonWrapper {
+  flex: 2;
+  flex-direction: column;
+  align-content: space-around;
+  /* background-color: orangered; */
+}
+
+/*for close button on InputPage*/
+.closeButton {
+  background-color: black;
+  color: white;
+  border-color: white;
+  border-width: 1px;
+  width: 7vw;
+  height: 5vh;
+  top: 34vh;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+/*<p> that holds the lines of contact info text, each in a separate <p>*/
+.inputContactInfo {
+  top: 66vh;
+  color: white;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+/*
+   ____        __  _____     __
+  |_  /_______/ / / ___/__  / /_ ____ _  ___
+ _/_ </ __/ _  / / /__/ _ \/ / // /  ' \/ _ \
+/____/_/  \_,_/  \___/\___/_/\_,_/_/_/_/_//_/
+The required fields notice
+*/
+
+.requiredWrapper {
+  flex: 1;
+  /* background-color: purple; */
+}
+
+.requiredWrapper p {
+  color: white;
+  transform: rotate(90deg);
+  margin-top: 35vh;
+  white-space: nowrap;
+}
+
+/*
+   ____ __  __     _____     __
+  / / // /_/ /    / ___/__  / /_ ____ _  ___
+ /_  _/ __/ _ \  / /__/ _ \/ / // /  ' \/ _ \
+  /_/ \__/_//_/  \___/\___/_/\_,_/_/_/_/_//_/
+The form itself
+*/
+
+.input-form {
+  flex: 7;
+  flex-direction: column;
+  margin-right: 10vh;
+  margin-bottom: 10vh;
+  /* background-color: aquamarine; */
+}
+
+input {
+  font-size: 1.5rem;
+  margin-bottom: 1%;
+  padding-bottom: 1%;
+}
+
+/* inline style replacements for the grey/white ternaries */
+
+.grey-inactive {
+  border-color: "grey";
+  color: "grey";
+}
+
+.white-active {
+  border-color: "white";
+}
+
+.form-header-text {
+  color: white;
+  font-size: 1.25rem;
+  margin: 15vh 0 10%;
+}
+
+/*
+QUESTIONS
+001 and 002
+*/
+
+.sideBySide-input-container {
+  flex: 1;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+/*for the actual sideBySide inputs*/
+.sideBySide-input {
+  padding-left: 1%;
+  padding-right: 1%;
+  width: 100%;
+  background-color: black;
+  flex: 1;
+  /* border- */
+  border-style: hidden hidden solid hidden;
+  border-bottom-width: 1px;
+  /* border-bottom: 3px solid white; */
+}
+
+.sideBySide-input-container label {
+  padding-right: 1%;
+  /*  */
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+/* ONLY affects 001 */
+#left-sideBySide {
+  padding-right: 5%;
+}
+
+/*
+QUESTIONS
+003, 005
+007, 008
+012
+*/
+
+/*for container around inputs that don't have sibling (like input 3) and that reach across the full width of the input form*/
+.solo-input-container {
+  padding-top: 2%;
+  padding-bottom: 2%;
+  /* color: grey; */
+}
+
+.solo-input-container label {
+  /*  */
+}
+
+/*
+QUESTIONS
+004, 006
+010, 011
+013
+*/
+
+/*wrapper div for the agreement checkbox and "I AGREE" text*/
 .termsAndCheckboxWrapper {
-  /*wrapper div for the agreement checkbox and "I AGREE" text*/
+  padding-top: 2vh;
+  display: flex;
   flex-direction: row;
 }
 
+/*the little checkbox for terms agreement if checked*/
 .termsCheckboxAgreed {
-  /*the little checkbox for terms agreement if checked*/
   height: 2vh;
   width: 2vh;
-  border: 2px solid red;
+  border: 2px solid white;
   background: white;
 }
 
+/*the little checkbox for terms agreement if NOT checked*/
 .termsCheckboxNotAgree {
-  /*the little checkbox for terms agreement if NOT checked*/
   height: 2vh;
   width: 2vh;
   border: 2px solid grey;
+  /* color: grey; */
   background: transparent;
 }
 
+/*for the wrapper around the services needed checkbox dropdown*/
 .checkboxDropdownWrapper {
-  /*for the wrapper around the services needed checkbox dropdown*/
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  width: 99%;
 }
 
+/*for selected services in CheckbocDropdown.js*/
 .selectedService {
-  /*for selected services in CheckbocDropdown.js*/
 }
 
+/*for unselected services in CheckbocDropdown.js*/
 .unselectedService {
-  /*for unselected services in CheckbocDropdown.js*/
 }
 
+/*the wrapper around the launch timing options in SelectDropdown.js*/
 .selectDropdownWrapper {
-  /*the wrapper around the launch timing options in SelectDropdown.js*/
-  border: 1px solid grey;
+  /* border-width: 1px; */
+  /* border-style: solid; */
+  border-bottom: 1px solid white;
+  /* border: none none solid none; */
 }
 
+/*the currently selected launch timing option in SelectDropdown.js*/
 .selectedOption {
-  /*the currently selected launch timing option in SelectDropdown.js*/
-  background: red;
+  background: black;
 }
 
+/*the NOT selected launch timing options in SelectDropdown.js*/
 .unselectedOption {
-  /*the NOT selected launch timing options in SelectDropdown.js*/
+  color: black;
+  background-color: white;
 }
 
+/*for the dropdown arrow inside SelectDropdown.js and CheckboxDropdown.js*/
 .dropDownArrow {
-  /*for the dropdown arrow inside SelectDropdown.js and CheckboxDropdown.js*/
   width: 30px;
   height: 30px;
   margin: 0;
@@ -119,9 +397,9 @@
   justify-content: space-between;
 }
 
+/*to control styling when SelectDropdown.js and CheckboxDropdown.js menu IS showing options
+I followed a tut on making an arrow as a placeholder, but it's not showing in the right spot, it's up on the upper left? so weird lol*/
 .selectDropdownArrowUp {
-  /*to control styling when SelectDropdown.js and CheckboxDropdown.js menu IS showing options
-  I followed a tut on making an arrow as a placeholder, but it's not showing in the right spot, it's up on the upper left? so weird lol*/
   position: absolute;
   top: 10px;
   left: 8px;
@@ -132,8 +410,8 @@
   border-bottom: 10px solid black;
 }
 
+/*to control styling when SelectDropdown.js and CheckboxDropdown.js menu is NOT showing options*/
 .selectDropdownArrowDown {
-  /*to control styling when SelectDropdown.js and CheckboxDropdown.js menu is NOT showing options*/
   position: absolute;
   top: 12px;
   left: 8px;
@@ -144,217 +422,117 @@
   border-top: 10px solid black;
 }
 
+/*for the div wrapping the words <p> and the fielUpload <div> field*/
 .fileUploadWrapper {
-  /*for the div wrapping the words <p> and the fielUpload <div> field*/
-  height: 100%;
+  height: 20vh;
   width: 100%;
-  border: 1px solid grey;
+  /* border: 1px solid grey; */
+  border-width: 1px;
+  border-style: solid;
 }
 
+/*for the <p> that says "upload here"*/
 .fileUploadInner {
-  /*for the <p> that says "upload here"*/
+  align-self: center;
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  padding: 1%;
 }
 
+/*for the drap and drop field itself*/
 .fileUploadField {
-  /*for the drap and drop field itself*/
   height: 10vh;
   width: 100%;
   border: 1px solid red;
 }
 
+/*for the uploaded list of file names that display in upload field*/
 .uploadedFileList {
-  /*for the uploaded list of file names that display in upload field*/
+}
+
+/*for the actual <textarea> input field INSIDE TextBox.js.
+needs to have invisible border AND fill the entire div around it, allowing
+for the description text and char counter to be in a row above it*/
+
+/*for the small wrapper div in TextBox.js*/
+.textAreaWrapper {
+  border-width: 1px;
+  border-style: solid;
+  flex-direction: row;
+  padding: 1%;
 }
 
 .textarea {
-  /*for the actual <textarea> input field INSIDE TextBox.js.
-  needs to have invisible border AND fill the entire div around it, allowing
-  for the description text and char counter to be in a row above it*/
-  height: 100%;
-  width: 99%;
-  border-style: hidden hidden hidden hidden;
   background-color: black;
-  color: red;
+  color: white;
+  border-style: hidden;
+  font-size: 1rem;
+  line-height: 1.6rem;
+  margin-top: 2%;
+  height: 100%;
+  width: 98%;
+  overflow: hidden;
 }
 
-.textAreaWrapper {
-  /*for the small wrapper div in TextBox.js*/
-  border: 1px solid grey;
-  flex-direction: row;
-}
-
+/*for the small xxx/500 charcounter inside the TextBox.js*/
 .charCounter {
-  /*for the small xx/500 charcounter inside the TextBox.js*/
 }
 
+/*for the text right before the charCosunter passed as a prop*/
 .insideText {
-  /*for the text right before the charCosunter passed as a prop*/
 }
 
+/*for the small wrapper to align the words and counter into a row above the actual text input field*/
 .textBoxInner {
-  /*for the small wrapper to align the words and counter into a row above the actual text input field*/
   flex-direction: row;
   display: flex;
   justify-content: space-between;
-  color: white;
 }
 
-.closeButton {
-  /*for close button on InputPage*/
-  flex: 1;
-}
-.sideBySide-input-container {
-  /*for divs that wrap side by side inputs (like inputs 1 & 2)*/
-  flex-direction: row;
-  display: flex;
-  flex: 1;
-  justify-content: space-evenly;
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-.sideBySide-input {
-  /*for the actual sideBySide inputs*/
-  padding-left: 1%;
-  padding-right: 1%;
-  width: 100%;
-  background-color: black;
-  flex: 1;
-  /* border-color: white; */
-  border-style: hidden hidden solid hidden;
-  /* border-bottom: 3px solid white; */
-}
-
-.sideBySide-input-container label {
-  /* padding-left: 1%; */
-  padding-right: 2%;
-  color: white;
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-.solo-input-container label {
-  color: white;
-}
-
-.solo-input-container {
-  /*for container around inputs that don't have sibling (like input 3)
-  and that reach across the full width of the input form*/
-  padding-top: 2%;
-  padding-bottom: 2%;
-  /* color: grey; */
-}
 .solo-input-select-dropdown-container {
   padding-top: 1%;
   padding-bottom: 1%;
 }
 
 .solo-input-select-dropdown-container label {
-  color: white;
 }
 
+/*for TextBox wrapper in inputPage*/
 .solo-input-select-dropdown {
-  /*for TextBox wrapper in inputPage*/
   width: 100%;
+  color: white;
   background-color: black;
   border-style: hidden hidden hidden hidden;
 }
 
+/*for TextBox wrapper in inputPage*/
 .solo-input-textBox {
-  /*for TextBox wrapper in inputPage*/
   width: 100%;
   background-color: black;
   border-style: hidden hidden hidden hidden;
 }
 
+/*for input lines that don't have sibling (like input 3*/
 .solo-input {
-  /*for input lines that don't have sibling (like input 3*/
   width: 100%;
   background-color: black;
   border-style: hidden hidden solid hidden;
+  border-bottom-width: 1px;
 }
 
-.closeButtonWrapper {
-  /*the little div to help space the close button in InputPage.js*/
-  flex: 2;
-  flex-direction: column;
-  align-content: space-around;
-}
-
-.inputPageContactInfo {
-  /*<p> that holds the lines of contact info text, each in a separate <p>*/
-  color: white;
-}
-
-.inputPageContactSpacer {
-  /*empty spacer to help space contact info text*/
-}
-
-.inputPageSidewaysText {
-  /*div that holds text to be rotated on input page*/
-  /*rotating it moves it to the lower right if the  screen?*/
-  /* transform: rotate(0.25turn); */
-  /* position: absolute;
-  top: 0;
-  left: 0;
-  transform: rotate(90deg);
-  transform: 0 0; */
-  background: none;
-  color: white;
-  flex: 2;
-}
-
-.inputPageSidewaysTextWrapper {
+.copyright {
   display: flex;
+  flex-direction: row;
 }
 
-.input-page {
-  /*wrapper for whole input page*/
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.input-form {
-  /*for the <form> itself*/
-  flex-direction: column;
-  flex: 5;
-  padding-right: 10vw;
-}
-
-.inquire {
+#copyright-text {
   flex: 1;
-  color: black;
-  background: white;
-  margin-bottom: 10rem;
+  color: white;
 }
 
-/* .App-logo { */
-/* animation: App-logo-spin infinite 20s linear; */
-/* height: 40vmin; */
-/* pointer-events: none; */
-/* } */
-/*  */
-/* .App-header { */
-/* background-color: #282c34; */
-/* min-height: 100vh; */
-/* display: flex; */
-/* flex-direction: column; */
-/* align-items: center; */
-/* justify-content: center; */
-/* font-size: calc(10px + 2vmin); */
-/* color: white; */
-/* } */
-/*  */
-/* .App-link { */
-/* color: #61dafb; */
-/* } */
-/*  */
-/* @keyframes App-logo-spin { */
-/* from { */
-/* transform: rotate(0deg); */
-/* } */
-/* to { */
-/* transform: rotate(360deg); */
-/* } */
-/* } */
-/*  */
+#rights-text {
+  text-align: right;
+  flex: 1;
+  color: white;
+}

@@ -11,3 +11,9 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+@font-face {
+  font-family: "David_Reg";
+  src: local("David_temporary_03_Regular"),
+    url(./fonts/David_temporary_03_Regular.otf) format("opentype");
+}

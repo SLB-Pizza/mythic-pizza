@@ -1,100 +1,112 @@
-import React from "react";
-import "../App.css";
-import TextBox from "./TextBox.js";
-import FileUpload from "./FileUpload";
-import SelectDropdown from "./SelectDropdown";
-import CheckboxDropdown from "./CheckboxDropdown";
+import React from 'react';
+import { Link } from 'react-router-dom';
+import Dropzone from 'react-dropzone';
+import '../App.css';
+import TextBox from './TextBox.js';
+import SelectDropdown from './SelectDropdown';
+import CheckboxDropdown from './CheckboxDropdown';
 
 class InputPage extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      contactName: "",
-      contactRole: "",
-      companyName: "",
-      companyDescription: "",
-      based: "",
-      marketOpportunity: "",
-      targetDemo: "",
-      competitors: "",
-      uploads: [],
-      currentTeam: "",
-      positions: "",
-      capitalRaised: "",
-      capitalNeeded: "",
+      contactName: '',
+      contactRole: '',
+      companyName: '',
+      companyDescription: '',
+      based: '',
+      marketOpportunity: '',
+      targetDemo: '',
+      competitors: '',
+      file: {},
+      currentTeam: '',
+      positions: '',
+      capitalRaised: '',
+      capitalNeeded: '',
       launchSchedule: [
-        { id: 1, timing: "3 months" },
-        { id: 2, timing: "6 months" },
-        { id: 3, timing: "9 months" },
-        { id: 4, timing: "1 year" },
-        { id: 5, timing: "2 years" },
-        { id: 6, timing: "2 years +" }
+        { id: 1, timing: '3 months' },
+        { id: 2, timing: '6 months' },
+        { id: 3, timing: '9 months' },
+        { id: 4, timing: '1 year' },
+        { id: 5, timing: '2 years' },
+        { id: 6, timing: '2 years +' },
       ],
-      launchSelected: "3 months",
+      launchSelected: '3 months',
       servicesNeeded: [
-        { id: 1, service: "Web Development" },
-        { id: 2, service: "Web Design" },
-        { id: 3, service: "Branding" },
-        { id: 4, service: "Strategy" },
-        { id: 5, service: "Fundraising" }
+        { id: 1, service: 'Web Development' },
+        { id: 2, service: 'Web Design' },
+        { id: 3, service: 'Branding' },
+        { id: 4, service: 'Strategy' },
+        { id: 5, service: 'Fundraising' },
       ],
       servicesSelected: [],
-      servicesString: "",
+      services: '',
       termsCheckbox: false,
-      status: ""
+      submitted: false,
     };
 
     this.handleChange.bind(this);
     this.handleSubmit.bind(this);
-    this.handleFile.bind(this);
+    // this.handleFile.bind(this);
     this.handleLaunchSelect.bind(this);
     this.handleServicesSelect.bind(this);
   }
 
+  onDrop = async acceptedFiles => {
+    if (acceptedFiles[0].size <= 10000000) {
+      console.log('acceptdFiles: ', acceptedFiles);
+      await this.setState({ file: acceptedFiles[0] });
+      alert(`${acceptedFiles[0].name} has been uploaded`);
+      console.log('file: ', this.state.file.name);
+    } else {
+      alert('FILE SIZE TOO LARGE\nPLEASE LIMIT ATTACHMENTS TO 10MB');
+    }
+    // console.log('this.state.file post setState: ', this.state.file);
+  };
+  // const {getRootProps, getInputProps, isDragActive} = useDropzone({onDrop})
+
   handleChange = event => {
     // eslint-disable-next-line no-unused-vars
     const stateName = event.target.name;
-    console.log("event.target.value:", event.target.value);
-    console.log("event.target.name:", event.target.name);
-    console.log("event:", event);
+    console.log('event.target.value:', event.target.value);
+    console.log('event.target.name:', event.target.name);
+    console.log('event:', event);
     this.setState({ [stateName]: event.target.value });
     console.log(`this.state[${stateName}]:`, this.state);
   };
 
-  //this handleSubmit is 100% copied from netlify docs
-  //https://www.netlify.com/blog/2017/07/20/how-to-integrate-netlifys-form-handling-in-a-react-app/#form-handling-with-a-stateful-react-form
+  encode = data => {
+    const formData = new FormData();
+    Object.keys(data).forEach(k => {
+      formData.append(k, data[k]);
+    });
+    return formData;
+  };
+
   handleSubmit = e => {
-    fetch("/", {
-      method: "POST",
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
-      body: this.encode({ "form-name": "contact", ...this.state })
+    const data = { 'form-name': 'contact', ...this.state };
+
+    fetch('/', {
+      method: 'POST',
+      // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
+      body: this.encode(data),
     })
-      .then(() => alert("Success!"))
-      .catch(error => alert(error));
+      .then(
+        () => alert('Form Submission Successful!!'),
+        console.log('form submission object: ', data),
+        this.setState({ submitted: true })
+      )
+      .catch(error => alert('Form Submission Failed!'));
 
     e.preventDefault();
-  };
-  //encode func is copied from netlify docs
-  encode = data => {
-    return Object.keys(data)
-      .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
-      .join("&");
-  };
-
-  handleFile = file => {
-    console.log("handleFile in Input.js current file: \n", file);
-    if (!this.state.uploads.includes(file)) {
-      this.setState({ uploads: [...this.state.uploads, file] });
-    }
-    console.log("handleFile this.state.uploads: ", this.state.uploads);
   };
 
   handleLaunchSelect = async option => {
     await this.setState({
-      launchSelected: option.timing
+      launchSelected: option.timing,
     });
     console.log(
-      "InputPage handleSelect selectedTiming: ",
+      'InputPage handleSelect selectedTiming: ',
       this.state.launchSelected
     );
   };
@@ -102,74 +114,157 @@ class InputPage extends React.Component {
   handleServicesSelect = async selectedService => {
     if (!this.state.servicesSelected.includes(selectedService)) {
       await this.setState({
-        servicesSelected: [...this.state.servicesSelected, selectedService]
+        servicesSelected: [...this.state.servicesSelected, selectedService],
       });
     } else {
       const filteredServices = this.state.servicesSelected.filter(
         service => service.id !== selectedService.id
       );
       await this.setState({
-        servicesSelected: filteredServices
+        servicesSelected: filteredServices,
       });
     }
 
     const stringServices = this.state.servicesSelected
-      .reduce((acc, curr) => acc + ", " + curr.service, "")
+      .reduce((acc, curr) => acc + ', ' + curr.service, '')
       .slice(1);
-    console.log("handleServicesSelect stringServices: ", stringServices);
+    console.log('handleServicesSelect stringServices: ', stringServices);
+    await this.setState({ services: stringServices });
+  };
+
+  handleTerms = async () => {
+    await this.setState({
+      termsCheckbox: !this.state.termsCheckbox,
+    });
+  };
+
+  handleServicesSelect = async selectedService => {
+    if (!this.state.servicesSelected.includes(selectedService)) {
+      await this.setState({
+        servicesSelected: [...this.state.servicesSelected, selectedService],
+      });
+    } else {
+      const filteredServices = this.state.servicesSelected.filter(
+        service => service.id !== selectedService.id
+      );
+      await this.setState({
+        servicesSelected: filteredServices,
+      });
+    }
+
+    const stringServices = this.state.servicesSelected
+      .reduce((acc, curr) => acc + ', ' + curr.service, '')
+      .slice(1);
+    console.log('handleServicesSelect stringServices: ', stringServices);
     await this.setState({ servicesString: stringServices });
   };
 
   handleTerms = async () => {
     await this.setState({
-      termsCheckbox: !this.state.termsCheckbox
+      termsCheckbox: !this.state.termsCheckbox,
     });
   };
+
+  // ██████╗ ███████╗███╗   ██╗██████╗ ███████╗██████╗
+  // ██╔══██╗██╔════╝████╗  ██║██╔══██╗██╔════╝██╔══██╗
+  // ██████╔╝█████╗  ██╔██╗ ██║██║  ██║█████╗  ██████╔╝
+  // ██╔══██╗██╔══╝  ██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗
+  // ██║  ██║███████╗██║ ╚████║██████╔╝███████╗██║  ██║
+  // ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝
+  //
+  // The flex for the four input page columns on desktop is as follows:
+  // - vertical-logo-input: 1
+  // - button/address: 3
+  // - required-stuff-warning: 1
+  // - inquire-form: 7
+  // 12 columns total - something we may replicate when bulma is added
+
+  // Things to note:
+  // vertical-logo and address remain fixed even as inquire-form scrolls
+  // required-stuff-warning does not seem to scroll as we move down the form
+  // ISSUE: Re-org this page into 4 sub-divs as detailed above under "input-page"
+  //
+  // This should be the foundation for the addition of mobile responsiveness
 
   render() {
     return (
       <div className="input-page">
-        <div className="inputPageSidewaysTextWrapper">
-          <p className="inputPageSidewaysText">projectMERCURY</p>
+        {/*
+          ___    __    _____     __
+         <  /__ / /_  / ___/__  / /_ ____ _  ___
+         / (_-</ __/ / /__/ _ \/ / // /  ' \/ _ \
+        /_/___/\__/  \___/\___/_/\_,_/_/_/_/_//_/
+        */}
+        <div className="vertical-logo-input">
+          <p>
+            PROJECT<span id="mercury-text-input">MERCURY</span>
+          </p>
         </div>
+        {/*
+           ___          __  _____     __
+          |_  |___  ___/ / / ___/__  / /_ ____ _  ___
+         / __// _ \/ _  / / /__/ _ \/ / // /  ' \/ _ \
+        /____/_//_/\_,_/  \___/\___/_/\_,_/_/_/_/_//_/
+        */}
         <div className="closeButtonWrapper">
-          <button
-            className="closeButton"
-            onClick={() => {
-              alert("CLOSE CLICKED");
-            }}
-          >
-            CLOSE
-          </button>
-          <p className="inputPageContactInfo">office@projectmercury.com</p>
-          <p className="inputPageContactInfo">T 646 861 2827</p>
-          <div className="inputPageContactSpacer"></div>
-          <p className="inputPageContactInfo">324 Lafayette Street</p>
-          <p className="inputPageContactInfo">NY, New York 11201</p>
-        </div>
-        <div className="inputPageSidewaysTextWrapper">
-          <div className="inputPageSidewaysText" style={{ flex: 1 }}>
-            *denotes required field
+          <Link to="/">
+            <button
+              className="closeButton"
+              // onClick={() => {
+              //   alert('CLOSE CLICKED');
+              // }}
+            >
+              CLOSE
+            </button>
+          </Link>
+          <div className="inputContactInfo">
+            <p>office@projectmercury.com</p>
+            <p>T 646 861 2827</p>
+            <p>324 Lafayette Street</p>
+            <p>NY, New York 11201</p>
           </div>
         </div>
+        {/*
+           ____        __  _____     __
+          |_  /_______/ / / ___/__  / /_ ____ _  ___
+         _/_ </ __/ _  / / /__/ _ \/ / // /  ' \/ _ \
+        /____/_/  \_,_/  \___/\___/_/\_,_/_/_/_/_//_/
+        */}
+        <div className="requiredWrapper">
+          <p>* denotes required field</p>
+        </div>
+        {/*
+          ____ __  __     _____     __
+         / / // /_/ /    / ___/__  / /_ ____ _  ___
+        /_  _/ __/ _ \  / /__/ _ \/ / // /  ' \/ _ \
+         /_/ \__/_//_/  \___/\___/_/\_,_/_/_/_/_//_/
+        */}
         <form
           name="contact"
           onSubmit={this.handleSubmit}
-          netlify
+          netlify="true"
           // data-netlify-honeypot="bot-field"
           className="input-form"
+          action="/success"
         >
           {/* <input type="hidden" name="form-name" value="contact" /> */}
           {/* <input type="hidden" name="bot-field" /> */}
-          <p className="text">LET'S GET STARTED</p>
+          <p className="form-header-text">LET'S GET STARTED.</p>
           <div className="sideBySide-input-container">
-            <label>
+            <label
+              id="left-sideBySide"
+              style={
+                this.state.contactName.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <input
                 className="sideBySide-input"
                 style={
                   this.state.contactName.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="contactName"
@@ -179,13 +274,19 @@ class InputPage extends React.Component {
               />
               001. CONTACT NAME*
             </label>
-            <label>
+            <label
+              style={
+                this.state.contactRole.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <input
                 className="sideBySide-input"
                 style={
                   this.state.contactRole.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="contactRole"
@@ -197,13 +298,19 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.companyName.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <input
                 className="solo-input"
                 style={
                   this.state.companyName.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="companyName"
@@ -225,13 +332,19 @@ class InputPage extends React.Component {
             </div>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.based.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <input
                 className="solo-input"
                 style={
                   this.state.based.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="based"
@@ -253,13 +366,19 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.targetDemo.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <input
                 className="solo-input"
                 style={
                   this.state.targetDemo.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="targetDemo"
@@ -271,13 +390,19 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.competitors.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <input
                 className="solo-input"
                 style={
                   this.state.competitors.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="competitors"
@@ -289,14 +414,49 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label className="solo-input">
-              <FileUpload
-                name="uploads"
-                value={this.state.uploads}
-                handleFile={this.handleFile}
-                required={true}
-              />
-            </label>
+            <div
+              className="fileUploadWrapper"
+              style={{
+                borderColor:
+                  this.state.file && this.state.file.size > 0
+                    ? 'white'
+                    : 'grey',
+              }}
+            >
+              <div className="fileUploadInner">
+                <Dropzone onDrop={this.onDrop}>
+                  {({ getRootProps, getInputProps, isDragActive }) => (
+                    <div
+                      {...getRootProps()}
+                      style={{
+                        height: '19vh',
+                        width: '100%',
+                        display: 'flex',
+                        flexDirection: 'column',
+                        borderColor:
+                          this.state.file && this.state.file.size > 0
+                            ? 'white'
+                            : 'grey',
+                        color:
+                          this.state.file && this.state.file.size > 0
+                            ? 'white'
+                            : 'grey',
+                      }}
+                    >
+                      <input {...getInputProps()} />
+                      {isDragActive
+                        ? 'DROP YOUR FILE HERE'
+                        : '009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL SIZE LIMIT:10MB*'}
+                      {this.state.file && this.state.file.name ? (
+                        <div>{this.state.file.name}</div>
+                      ) : (
+                        ' '
+                      )}
+                    </div>
+                  )}
+                </Dropzone>
+              </div>
+            </div>
           </div>
           <div className="solo-input-container">
             <label className="solo-input">
@@ -319,21 +479,46 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label>
+            <label
+              style={
+                this.state.capitalRaised.length > 0
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
+              }
+            >
               <label
-                style={{
-                  display: "flex",
-                  flexDirection: "row",
-                  color: "white"
-                }}
+                style={
+                  this.state.capitalRaised.length > 0
+                    ? {
+                        borderColor: 'white',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        fontSize: '1.5rem',
+                      }
+                    : {
+                        borderColor: 'grey',
+                        color: 'grey',
+                        display: 'flex',
+                        flexDirection: 'row',
+                        fontSize: '1.5rem',
+                      }
+                }
               >
                 $
                 <input
                   className="solo-input"
                   style={
                     this.state.capitalRaised.length > 0
-                      ? { borderColor: "white", color: "white" }
-                      : { borderColor: "grey", color: "grey" }
+                      ? {
+                          borderColor: 'white',
+                          color: 'white',
+                          backgroundColor: 'transparent',
+                        }
+                      : {
+                          borderColor: 'grey',
+                          color: 'grey',
+                          backgroundColor: 'transparent',
+                        }
                   }
                   type="number"
                   name="capitalRaised"
@@ -367,7 +552,14 @@ class InputPage extends React.Component {
             </label>
           </div>
           <div className="solo-input-container">
-            <label className="solo-input">
+            <label
+              className="solo-input"
+              style={
+                this.state.servicesSelected.length > 0
+                  ? { borderColor: 'transparent', color: 'white' }
+                  : { borderColor: 'transparent', color: 'grey' }
+              }
+            >
               <CheckboxDropdown
                 handleSelect={this.handleServicesSelect}
                 services={this.state.servicesNeeded}
@@ -377,23 +569,51 @@ class InputPage extends React.Component {
               015. SERVICES NEEDED*
             </label>
           </div>
-          <div className="termsAndCheckboxWrapper">
+          <div
+            className="termsAndCheckboxWrapper"
+            style={{ paddingBottom: '5%' }}
+          >
+            <div style={{ display: 'flex', flexDirection: 'row' }}>
+              <div
+                className={
+                  this.state.termsCheckbox
+                    ? 'termsCheckboxAgreed'
+                    : 'termsCheckboxNotAgree'
+                }
+                onClick={this.handleTerms}
+              />
+            </div>
             <div
-              className={
-                this.state.termsCheckbox
-                  ? "termsCheckboxAgreed"
-                  : "termsCheckboxNotAgree"
-              }
-              onClick={this.handleTerms}
-            />
+              className="text"
+              style={{ color: 'white', paddingLeft: '2vw' }}
+            >
+              I AGREE TO THE TERMS BELOW
+            </div>
           </div>
-          <p className="text">I AGREE TO THE TERMS BELOW</p>
           <input
             type="SUBMIT"
             disabled={this.state.termsCheckbox ? false : true}
+            style={{
+              color: 'black',
+              border: 'none',
+              backgroundColor:
+                this.state.termsCheckbox &&
+                this.state.companyDescription.length > 0 &&
+                this.state.marketOpportunity.length > 0 &&
+                this.state.currentTeam.length > 0 &&
+                this.state.positions.length > 0 &&
+                this.state.capitalNeeded.length > 0 &&
+                this.state.servicesSelected.length > 0 &&
+                this.state.file.size > 0
+                  ? 'white'
+                  : 'grey',
+              width: '100%',
+              height: '5vh',
+              borderRadius: '2px',
+            }}
           />
           <p className="text">LEGAL:</p>
-          <p className="text">
+          <p className="text" style={{ color: 'white' }}>
             Any nonpublic information provided hereunder is confidential, and
             Project Mercury will not disclose the information to third parties
             except for its professional advisors as strictly necessary; and will
@@ -403,7 +623,7 @@ class InputPage extends React.Component {
             company to those of its employees and representatives who have a
             need to know.
           </p>
-          <p className="text">
+          <p className="text" style={{ color: 'white' }}>
             The foregoing is intended solely as a basis for further discussions
             and is not intended to be and does not constitute a legally binding
             offer, obligation or commitment on the part of Project Mercury to
@@ -419,6 +639,10 @@ class InputPage extends React.Component {
             company whose business is similar to or competitive with the
             business or proposed business of the Company or its affiliates.
           </p>
+          <div className="copyright">
+            <p id="copyright-text">COPYRIGHT 2019 PROJECT MERCURY</p>
+            <p id="rights-text">ALL RIGHTS RESERVED</p>
+          </div>
         </form>
       </div>
     );

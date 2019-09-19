@@ -175,7 +175,7 @@ The button and address
   flex: 2;
   flex-direction: column;
   align-content: space-around;
-  background-color: orangered;
+  /* background-color: orangered; */
 }
 
 /*for close button on InputPage*/
@@ -209,7 +209,7 @@ The required fields notice
 
 .requiredWrapper {
   flex: 1;
-  background-color: purple;
+  /* background-color: purple; */
 }
 
 .requiredWrapper p {
@@ -232,7 +232,7 @@ The form itself
   flex-direction: column;
   margin-right: 10vh;
   margin-bottom: 10vh;
-  background-color: aquamarine;
+  /* background-color: aquamarine; */
 }
 
 input {

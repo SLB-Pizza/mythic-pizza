@@ -31,21 +31,23 @@
   margin-left: 5vw;
   /* background-color: rgba(0, 255, 255, 0.5); */
   align-self: center;
+  color: white;
   /* height: 30vh; */
 }
 
 .left-text p {
   text-align: left;
-  font-size: 1.55rem;
-  line-height: 1.9rem;
+  font-size: 1rem;
+  line-height: 1.2rem;
   text-transform: uppercase;
 }
 
 /* Second Column */
 .vertical-logo {
-  flex: 1;
+  flex: 2;
   /* background-color: rgba(255, 55, 255, 0.5); */
   align-self: center;
+  color: white;
 }
 
 .vertical-logo p {
@@ -72,7 +74,7 @@
 
 /* Third Column */
 .right-third {
-  flex: 1;
+  flex: 2;
   margin-right: 5vw;
   display: flex;
   flex-direction: column;
@@ -98,6 +100,7 @@
 
 .contact-text {
   flex: 3;
+  color: white;
   /* margin-bottom: 1rem; */
   /* background-color: rgba(55, 255, 55, 0.5); */
 }
@@ -140,12 +143,14 @@ The vertical logo
 */
 .vertical-logo-input {
   flex: 1;
-  background-color: pink;
+  color: white;
+  /* background-color: pink; */
 }
 
 .vertical-logo-input p {
-  font-size: 3rem;
-  top: 40vh;
+  font-size: 2rem;
+  top: 10%;
+  width: 15vw;
   position: -webkit-sticky;
   position: sticky;
   transform: rotate(90deg);
@@ -167,7 +172,7 @@ The button and address
 */
 
 .closeButtonWrapper {
-  flex: 3;
+  flex: 2;
   flex-direction: column;
   align-content: space-around;
   background-color: orangered;
@@ -176,6 +181,7 @@ The button and address
 /*for close button on InputPage*/
 .closeButton {
   background-color: black;
+  color: white;
   border-color: white;
   border-width: 1px;
   width: 7vw;
@@ -188,6 +194,7 @@ The button and address
 /*<p> that holds the lines of contact info text, each in a separate <p>*/
 .inputContactInfo {
   top: 66vh;
+  color: white;
   position: -webkit-sticky;
   position: sticky;
 }
@@ -206,6 +213,7 @@ The required fields notice
 }
 
 .requiredWrapper p {
+  color: white;
   transform: rotate(90deg);
   margin-top: 35vh;
   white-space: nowrap;
@@ -245,6 +253,7 @@ input {
 }
 
 .form-header-text {
+  color: white;
   font-size: 1.25rem;
   margin: 15vh 0 10%;
 }
@@ -316,6 +325,8 @@ QUESTIONS
 
 /*wrapper div for the agreement checkbox and "I AGREE" text*/
 .termsAndCheckboxWrapper {
+  padding-top: 2vh;
+  display: flex;
   flex-direction: row;
 }
 
@@ -356,16 +367,21 @@ QUESTIONS
 
 /*the wrapper around the launch timing options in SelectDropdown.js*/
 .selectDropdownWrapper {
-  border: 1px solid grey;
+  /* border-width: 1px; */
+  /* border-style: solid; */
+  border-bottom: 1px solid white;
+  /* border: none none solid none; */
 }
 
 /*the currently selected launch timing option in SelectDropdown.js*/
 .selectedOption {
-  background: red;
+  background: black;
 }
 
 /*the NOT selected launch timing options in SelectDropdown.js*/
 .unselectedOption {
+  color: black;
+  background-color: white;
 }
 
 /*for the dropdown arrow inside SelectDropdown.js and CheckboxDropdown.js*/
@@ -449,6 +465,7 @@ for the description text and char counter to be in a row above it*/
 
 .textarea {
   background-color: black;
+  color: white;
   border-style: hidden;
   font-size: 1rem;
   line-height: 1.6rem;
@@ -484,6 +501,7 @@ for the description text and char counter to be in a row above it*/
 /*for TextBox wrapper in inputPage*/
 .solo-input-select-dropdown {
   width: 100%;
+  color: white;
   background-color: black;
   border-style: hidden hidden hidden hidden;
 }
@@ -510,9 +528,11 @@ for the description text and char counter to be in a row above it*/
 
 #copyright-text {
   flex: 1;
+  color: white;
 }
 
 #rights-text {
   text-align: right;
   flex: 1;
+  color: white;
 }

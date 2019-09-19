@@ -42,7 +42,7 @@ class InputPage extends React.Component {
       servicesSelected: [],
       services: '',
       termsCheckbox: false,
-      // status: '',
+      submitted: false,
     };
 
     this.handleChange.bind(this);
@@ -91,11 +91,10 @@ class InputPage extends React.Component {
       // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
       body: this.encode(data),
     })
-      .then(() =>
-        /*alert('Form Submission Successful!!')*/ console.log(
-          'form submission object: ',
-          data
-        )
+      .then(
+        () => alert('Form Submission Successful!!'),
+        console.log('form submission object: ', data),
+        this.setState({ submitted: true })
       )
       .catch(error => alert('Form Submission Failed!'));
 
@@ -246,6 +245,7 @@ class InputPage extends React.Component {
           netlify="true"
           // data-netlify-honeypot="bot-field"
           className="input-form"
+          action="/success"
         >
           {/* <input type="hidden" name="form-name" value="contact" /> */}
           {/* <input type="hidden" name="bot-field" /> */}
@@ -509,8 +509,16 @@ class InputPage extends React.Component {
                   className="solo-input"
                   style={
                     this.state.capitalRaised.length > 0
-                      ? { borderColor: 'white', color: 'white' }
-                      : { borderColor: 'grey', color: 'grey' }
+                      ? {
+                          borderColor: 'white',
+                          color: 'white',
+                          backgroundColor: 'transparent',
+                        }
+                      : {
+                          borderColor: 'grey',
+                          color: 'grey',
+                          backgroundColor: 'transparent',
+                        }
                   }
                   type="number"
                   name="capitalRaised"
@@ -555,7 +563,7 @@ class InputPage extends React.Component {
               <CheckboxDropdown
                 handleSelect={this.handleServicesSelect}
                 services={this.state.servicesNeeded}
-                name="services"
+                name="servicesString"
                 insideText="015. SERVICES NEEDED*"
               />
               015. SERVICES NEEDED*
@@ -575,7 +583,12 @@ class InputPage extends React.Component {
                 onClick={this.handleTerms}
               />
             </div>
-            <div className="text">I AGREE TO THE TERMS BELOW</div>
+            <div
+              className="text"
+              style={{ color: 'white', paddingLeft: '2vw' }}
+            >
+              I AGREE TO THE TERMS BELOW
+            </div>
           </div>
           <input
             type="SUBMIT"
@@ -600,7 +613,7 @@ class InputPage extends React.Component {
             }}
           />
           <p className="text">LEGAL:</p>
-          <p className="text">
+          <p className="text" style={{ color: 'white' }}>
             Any nonpublic information provided hereunder is confidential, and
             Project Mercury will not disclose the information to third parties
             except for its professional advisors as strictly necessary; and will
@@ -610,7 +623,7 @@ class InputPage extends React.Component {
             company to those of its employees and representatives who have a
             need to know.
           </p>
-          <p className="text">
+          <p className="text" style={{ color: 'white' }}>
             The foregoing is intended solely as a basis for further discussions
             and is not intended to be and does not constitute a legally binding
             offer, obligation or commitment on the part of Project Mercury to

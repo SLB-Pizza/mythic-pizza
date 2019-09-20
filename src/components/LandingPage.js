@@ -1,11 +1,14 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useTransition, useSpring, animated } from 'react-spring';
+import { Link, __RouterContext } from 'react-router-dom';
+
 import '../App.css';
 
 function LandingPage() {
+  const textfadeIn = useSpring({ opacity: 1, from: { opacity: 0 } });
   return (
     <div className="landing">
-      <div className="left-text">
+      <animated.div className="left-text" style={textfadeIn}>
         <p>
           Derris and Mythology (formerly Partners & Spade) have worked together
           before, bringing to life some of the most known and loved brands of
@@ -18,7 +21,7 @@ function LandingPage() {
           founders and ideas that will change their industries and help build
           the next great brands.
         </p>
-      </div>
+      </animated.div>
 
       <div className="vertical-logo">
         <p>

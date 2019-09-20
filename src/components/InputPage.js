@@ -1,57 +1,14 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
 import Dropzone from 'react-dropzone';
+import { useTransition, useSpring, animated } from 'react-spring';
+import { Link, __RouterContext } from 'react-router-dom';
+
 import '../App.css';
 import TextBox from './TextBox.js';
 import SelectDropdown from './SelectDropdown';
 import CheckboxDropdown from './CheckboxDropdown';
 
 function InputPage(props) {
-  // constructor(props) {
-  //   super(props);
-  //   this.state = {
-  //     contactName: '',
-  //     contactRole: '',
-  //     companyName: '',
-  //     companyDescription: '',
-  //     based: '',
-  //     marketOpportunity: '',
-  //     targetDemo: '',
-  //     competitors: '',
-  //     file: {},
-  //     currentTeam: '',
-  //     positions: '',
-  //     capitalRaised: '',
-  //     capitalNeeded: '',
-  //     launchSchedule: [
-  //       { id: 1, timing: '3 months' },
-  //       { id: 2, timing: '6 months' },
-  //       { id: 3, timing: '9 months' },
-  //       { id: 4, timing: '1 year' },
-  //       { id: 5, timing: '2 years' },
-  //       { id: 6, timing: '2 years +' },
-  //     ],
-  //     launchSelected: '3 months',
-  //     servicesNeeded: [
-  //       { id: 1, service: 'Web Development' },
-  //       { id: 2, service: 'Web Design' },
-  //       { id: 3, service: 'Branding' },
-  //       { id: 4, service: 'Strategy' },
-  //       { id: 5, service: 'Fundraising' },
-  //     ],
-  //     servicesSelected: [],
-  //     services: '',
-  //     termsCheckbox: false,
-  //     submitted: false,
-  //   };
-
-  //   this.handleChange.bind(this);
-  //   this.handleSubmit.bind(this);
-  //   // this.handleFile.bind(this);
-  //   this.handleLaunchSelect.bind(this);
-  //   this.handleServicesSelect.bind(this);
-  // }
-
   const [contactName, setContactName] = useState('');
   const [contactRole, setContactRole] = useState('');
   const [companyName, setCompanyName] = useState('');

@@ -1,47 +1,88 @@
-import React from 'react';
-import { useTransition, useSpring, animated } from 'react-spring';
-import { Link, __RouterContext } from 'react-router-dom';
+import React, { useRef } from 'react';
+import { useSpring, useTransition, animated, useChain } from 'react-spring';
+import { Link } from 'react-router-dom';
+import logo from '../imgs/project-mercury-logo.svg';
 
 import '../App.css';
 
 function LandingPage() {
-  const textfadeIn = useSpring({ opacity: 1, from: { opacity: 0 } });
+  //Left text spring
+  const leftText = useSpring({
+    config: {
+      duration: 1500,
+    },
+    from: { opacity: 1, transform: 'translate(0, -400%)' },
+    to: { opacity: 1, transform: 'translate(0, 0)' },
+    delay: 200,
+  });
+  //contact info srping
+  const contactInfo = useSpring({
+    config: {
+      duration: 1500,
+    },
+    from: { opacity: 0, transform: 'translate(200%, 0)' },
+    to: { opacity: 1, transform: 'translate(0, 0)' },
+    delay: 200,
+  });
+  //inquire button move spring
+  const inquireMoveRef = useRef();
+  const inquireMove = useSpring({
+    config: {
+      duration: 1500,
+    },
+    from: { transform: 'translate(200%, 0)' },
+    to: { transform: 'translate(0, 0)' },
+    delay: 200,
+    ref: inquireMoveRef,
+  });
+  //inquire button fade spring
+  const inquireFadeRef = useRef();
+  const inquireFade = useSpring({
+    config: {
+      duration: 500,
+    },
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    delay: 200,
+    ref: inquireFadeRef,
+  });
+
+  useChain([inquireMoveRef, inquireFadeRef]);
+
   return (
     <div className="landing">
-      <animated.div className="left-text" style={textfadeIn}>
-        <p>
+      <div className="left-text">
+        <animated.p style={leftText}>
           Derris and Mythology (formerly Partners & Spade) have worked together
           before, bringing to life some of the most known and loved brands of
           the past decade, and rethinking the businesses of big, iconic
           companies.
-        </p>
-        <p>
+        </animated.p>
+        <animated.p style={leftText} p>
           Today, as we continue our work with our respective agencies, we're
           officially joining forces on Project Mercury - a project to find the
           founders and ideas that will change their industries and help build
           the next great brands.
-        </p>
-      </animated.div>
+        </animated.p>
+      </div>
 
       <div className="vertical-logo">
-        <p>
-          PROJECT <span id="mercury-text">MERCURY</span>
-        </p>
+        <img src={logo} alt="LOGO" id="mercury-logo" />
       </div>
 
       <div className="right-third">
-        <div className="main-button">
+        <animated.div style={inquireMove} className="main-button">
           <Link to="/form">
             <button className="inquire">INQUIRE</button>
           </Link>
-        </div>
+        </animated.div>
 
-        <div className="contact-text">
+        <animated.div style={contactInfo} className="contact-text">
           <p>office@projectmercury.com</p>
           <p>T 646 861 2827</p>
           <p>324 Lafayette Street</p>
           <p>NY, New York 11201</p>
-        </div>
+        </animated.div>
       </div>
     </div>
   );

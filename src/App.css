@@ -29,7 +29,7 @@
 
 /* First Column */
 .left-text {
-  flex: 1;
+  flex: 2;
   margin-left: 5vw;
   /* background-color: rgba(0, 255, 255, 0.5); */
   align-self: center;
@@ -46,38 +46,20 @@
 
 /* Second Column */
 .vertical-logo {
-  flex: 2;
+  flex: 4;
   /* background-color: rgba(255, 55, 255, 0.5); */
   align-self: center;
   color: white;
 }
 
-.vertical-logo p {
-  font-size: 2.5rem;
-  transform: rotate(90deg);
-  white-space: nowrap;
-}
-
-.vertical-logo p text {
-  font-size: 2.5rem;
-  transform: rotate(90deg);
-  white-space: nowrap;
-  /* background-clip: ; */
-  background: linear-gradient(180deg, black 50%, black 50%);
-}
-
-#mercury-text {
-  font-size: 4.65rem;
-}
-
-#mercury-text text {
-  font-size: 4.65rem;
+#mercury-logo {
+  padding-left: 43%;
 }
 
 /* Third Column */
 .right-third {
-  flex: 2;
-  margin-right: 5vw;
+  flex: 3;
+  /* margin-right: 5vw; */
   display: flex;
   flex-direction: column;
 }

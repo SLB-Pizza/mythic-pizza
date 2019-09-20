@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
 import Dropzone from 'react-dropzone';
-import { useTransition, useSpring, animated } from 'react-spring';
-import { Link, __RouterContext } from 'react-router-dom';
+// import { useTransition, useSpring, animated } from 'react-spring';
+import { Link } from 'react-router-dom';
 
 import '../App.css';
 import TextBox from './TextBox.js';
 import SelectDropdown from './SelectDropdown';
 import CheckboxDropdown from './CheckboxDropdown';
+import logo from '../imgs/project-mercury-logo.svg';
 
 function InputPage(props) {
   const [contactName, setContactName] = useState('');
@@ -163,10 +164,12 @@ function InputPage(props) {
          / (_-</ __/ / /__/ _ \/ / // /  ' \/ _ \
         /_/___/\__/  \___/\___/_/\_,_/_/_/_/_//_/
         */}
+
       <div className="vertical-logo-input">
-        <p>
+        <img src={logo} alt="LOGO" className="mercury-logo" />
+        {/* <p>
           PROJECT<span id="mercury-text-input">MERCURY</span>
-        </p>
+        </p> */}
       </div>
       {/*
            ___          __  _____     __

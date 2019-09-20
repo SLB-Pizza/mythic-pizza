@@ -28,11 +28,10 @@ function LandingPage() {
   const inquireMoveRef = useRef();
   const inquireMove = useSpring({
     config: {
-      duration: 1500,
+      duration: 1000,
     },
     from: { transform: 'translate(200%, 0)' },
     to: { transform: 'translate(0, 0)' },
-    delay: 200,
     ref: inquireMoveRef,
   });
   //inquire button fade spring
@@ -43,7 +42,7 @@ function LandingPage() {
     },
     from: { opacity: 0 },
     to: { opacity: 1 },
-    delay: 200,
+    delay: 500,
     ref: inquireFadeRef,
   });
 
@@ -70,20 +69,20 @@ function LandingPage() {
         <img src={logo} alt="LOGO" id="mercury-logo" />
       </div>
 
-      <div className="right-third">
-        <animated.div style={inquireMove} className="main-button">
+      <animated.div style={inquireMove} className="right-third">
+        <animated.div style={inquireFade} className="main-button">
           <Link to="/form">
             <button className="inquire">INQUIRE</button>
           </Link>
         </animated.div>
 
-        <animated.div style={contactInfo} className="contact-text">
+        <div style={contactInfo} className="contact-text">
           <p>office@projectmercury.com</p>
           <p>T 646 861 2827</p>
           <p>324 Lafayette Street</p>
           <p>NY, New York 11201</p>
-        </animated.div>
-      </div>
+        </div>
+      </animated.div>
     </div>
   );
 }

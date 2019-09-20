@@ -1,7 +1,7 @@
-import React from "react";
-import "../App.css";
-import downArrow from "../icons/corner-right-down.svg";
-import upArrow from "../icons/corner-right-up.svg";
+import React from 'react';
+import '../App.css';
+import downArrow from '../icons/corner-right-down.svg';
+import upArrow from '../icons/corner-right-up.svg';
 
 // props (services, handleSelect, name, insidetext)
 export default class CheckboxDropdown extends React.Component {
@@ -10,7 +10,7 @@ export default class CheckboxDropdown extends React.Component {
     this.state = {
       services: this.props.services || [],
       showServices: false,
-      selectedServices: []
+      selectedServices: [],
     };
   }
 
@@ -22,21 +22,22 @@ export default class CheckboxDropdown extends React.Component {
     if (!this.state.selectedServices.includes(selectedService)) {
       await this.setState({
         selectedServices: [...this.state.selectedServices, selectedService],
-        showServices: false
+        showServices: false,
       });
     } else {
       const filteredServices = this.state.selectedServices.filter(
         service => service.id !== selectedService.id
       );
       await this.setState({
-        selectedServices: filteredServices
+        selectedServices: filteredServices,
+        showServices: false,
       });
     }
     console.log(
-      "CheckboxDropdown.js selectService func selectedServices: \n",
+      'CheckboxDropdown.js selectService func selectedServices: \n',
       this.state.selectedServices
     );
-    this.props.handleSelect(selectedService);
+    this.props.handleSelect(this.state.selectedServices);
     // this.props.handleSelect(service);
   };
 
@@ -45,26 +46,25 @@ export default class CheckboxDropdown extends React.Component {
       <div
         className="checkboxDropdownWrapper"
         style={{
-          borderBottomColor:
-            this.state.selectedServices.length > 0 ? "white" : "grey"
+          borderBottomColor: this.props.value.length > 0 ? 'white' : 'grey',
         }}
       >
-        {this.state.selectedServices.length > 0
-          ? this.state.selectedServices
-              .reduce((acc, curr) => acc + ", " + curr.service, "")
+        {this.props.value.length > 0
+          ? this.props.value
+              .reduce((acc, curr) => acc + ', ' + curr.service, '')
               .slice(1)
-          : "PLEASE SELECT AT LEAST ONE SERVICE"}
+          : 'PLEASE SELECT AT LEAST ONE SERVICE'}
         <div
           style={{
-            display: this.state.showServices ? "block" : "none"
+            display: this.state.showServices ? 'block' : 'none',
           }}
         >
           {this.state.services.map(service => (
             <div
               className={
                 this.state.selectedOption === service
-                  ? "selectedService"
-                  : "unselectedService"
+                  ? 'selectedService'
+                  : 'unselectedService'
               }
               key={service.id}
               onClick={() => this.selectService(service)}
@@ -72,7 +72,7 @@ export default class CheckboxDropdown extends React.Component {
               {service.service}
             </div>
           ))}
-        </div>{" "}
+        </div>{' '}
         <div className="dropDownArrow" onClick={this.dropdown}>
           {this.state.showServices ? (
             <img src={upArrow} alt={upArrow} />

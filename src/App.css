@@ -7,9 +7,10 @@
   background-image: url('./imgs/bg1.jpg');
   /* This bit underneath needs tweaking */
   background-size: cover;
-  background-repeat: no-repeat;
+  /* background-repeat: no-repeat; */
   /* background-position: absolute; */
   min-height: 100vh;
+  overflow: hidden;
 }
 
 /*

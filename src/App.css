@@ -23,6 +23,8 @@
 .landing {
   display: flex;
   height: 100vh;
+  position: absolute;
+  width: 100%;
 }
 
 /* First Column */
@@ -132,6 +134,8 @@ THE INPUT FORM'S FOUR MAIN DIVS ARE:
 .input-page {
   display: flex;
   background-color: black;
+  position: absolute;
+  width: 100%;
 }
 
 /*

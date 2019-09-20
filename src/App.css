@@ -10,7 +10,6 @@
   /* background-repeat: no-repeat; */
   /* background-position: absolute; */
   min-height: 100vh;
-  overflow: hidden;
 }
 
 /*
@@ -27,6 +26,7 @@
   height: 100vh;
   position: absolute;
   width: 100%;
+  overflow: hidden;
 }
 
 /* First Column */

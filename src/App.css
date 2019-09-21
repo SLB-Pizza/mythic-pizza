@@ -299,7 +299,11 @@ QUESTIONS
 
 /* ONLY affects 001 */
 #left-sideBySide {
-  padding-right: 5%;
+  padding-right: 3%;
+}
+
+#right-sideBySide {
+  padding-left: 3%;
 }
 
 /*

@@ -232,7 +232,7 @@ function InputPage(props) {
         netlify="true"
         // data-netlify-honeypot="bot-field"
         className="input-form"
-        // action="/success"
+        action="/success"
         style={{ overflow: 'visible' }}
       >
         {/* <input type="hidden" name="form-name" value="contact" /> */}

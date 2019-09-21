@@ -303,6 +303,7 @@ QUESTIONS
 /* ONLY affects 001 */
 #left-sideBySide {
   /* padding-right: 5%; */
+  padding-right: 20px;
 }
 #left-sideBySide p {
   padding-top: 10px;
@@ -311,6 +312,7 @@ QUESTIONS
 /* ONLY affects 002 */
 
 #right-sideBySide {
+  padding-left: 20px;
 }
 #right-sideBySide p {
   padding-top: 10px;

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Dropzone from 'react-dropzone';
-// import { useTransition, useSpring, animated } from 'react-spring';
+import { useTransition, useSpring, animated } from 'react-spring';
 import { Link } from 'react-router-dom';
 
 import '../App.css';
@@ -156,6 +156,17 @@ function InputPage(props) {
   //
   // This should be the foundation for the addition of mobile responsiveness
 
+  //THe Following are springs from react-springs defined here
+  //for use in animated.div's below as style props
+  const logoSpring = useSpring({
+    config: {
+      duration: 2000,
+    },
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    // delay: 200,
+  });
+
   return (
     <div className="input-page">
       {/*
@@ -166,7 +177,12 @@ function InputPage(props) {
         */}
 
       <div className="vertical-logo-input">
-        <img src={logo} alt="LOGO" className="mercury-logo" />
+        <animated.img
+          style={logoSpring}
+          src={logo}
+          alt="LOGO"
+          className="mercury-logo"
+        />
         {/* <p>
           PROJECT<span id="mercury-text-input">MERCURY</span>
         </p> */}
@@ -567,8 +583,10 @@ function InputPage(props) {
             borderRadius: '2px',
           }}
         />
-        <p className="text">LEGAL:</p>
         <p className="text" style={{ color: 'white' }}>
+          LEGAL:
+        </p>
+        <p className="text" style={{ color: 'grey' }}>
           Any nonpublic information provided hereunder is confidential, and
           Project Mercury will not disclose the information to third parties
           except for its professional advisors as strictly necessary; and will
@@ -578,7 +596,7 @@ function InputPage(props) {
           company to those of its employees and representatives who have a need
           to know.
         </p>
-        <p className="text" style={{ color: 'white' }}>
+        <p className="text" style={{ color: 'grey' }}>
           The foregoing is intended solely as a basis for further discussions
           and is not intended to be and does not constitute a legally binding
           offer, obligation or commitment on the part of Project Mercury to

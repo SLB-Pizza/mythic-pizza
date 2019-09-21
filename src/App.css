@@ -10,6 +10,7 @@
   /* background-repeat: no-repeat; */
   /* background-position: absolute; */
   min-height: 100vh;
+  /* overflow: hidden; */
 }
 
 /*
@@ -37,6 +38,7 @@
   align-self: center;
   color: white;
   /* height: 30vh; */
+  overflow: hidden;
 }
 
 .left-text p {
@@ -44,6 +46,7 @@
   font-size: 1rem;
   line-height: 1.2rem;
   text-transform: uppercase;
+  overflow: hidden;
 }
 
 /* Second Column */
@@ -53,10 +56,12 @@
   align-self: center;
   color: white;
   /* background-color: pink; */
+  overflow: hidden;
 }
 
 #mercury-logo {
   padding-left: 45%;
+  overflow: hidden;
 }
 
 /* Third Column */
@@ -65,12 +70,14 @@
   /* margin-right: 5vw; */
   display: flex;
   flex-direction: column;
+  overflow: hidden;
 }
 
 .main-button {
   flex: 5;
   justify-content: center;
   /* background-color: rgba(255, 255, 55, 0.5); */
+  overflow: hidden;
 }
 
 .inquire {
@@ -83,11 +90,13 @@
   height: 5vh;
   position: -webkit-sticky;
   position: sticky;
+  overflow: hidden;
 }
 
 .contact-text {
   flex: 3;
   color: white;
+  overflow: hidden;
   /* margin-bottom: 1rem; */
   /* background-color: rgba(55, 255, 55, 0.5); */
 }
@@ -140,6 +149,9 @@ The vertical logo
   padding-left: 5vw;
   padding-top: 5vw;
   padding-right: 5vw;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 8%;
 }
 /* .vertical-logo-input p {
   font-size: 2rem;
@@ -223,6 +235,7 @@ The form itself
   flex-direction: column;
   margin-right: 10vh;
   margin-bottom: 10vh;
+  overflow: visible;
   /* background-color: aquamarine; */
 }
 
@@ -333,9 +346,28 @@ QUESTIONS
 .termsCheckboxNotAgree {
   height: 2vh;
   width: 2vh;
-  border: 2px solid grey;
+  border: 1px outset white;
   /* color: grey; */
   background: transparent;
+}
+
+/*the little checkbox for terms agreement if checked*/
+.servicesCheckboxActive {
+  height: 2vh;
+  width: 2vh;
+  border: 1px outset black;
+
+  align-self: center;
+}
+
+/*the little checkbox for terms agreement if NOT checked*/
+.servicesCheckboxInactive {
+  height: 2vh;
+  width: 2vh;
+  border: 1px outset grey;
+  align-self: center;
+  /* color: grey; */
+  background: white;
 }
 
 /*for the wrapper around the services needed checkbox dropdown*/
@@ -345,11 +377,14 @@ QUESTIONS
   justify-content: space-between;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  width: 99%;
+  width: 100%;
 }
 
 /*for selected services in CheckbocDropdown.js*/
 .selectedService {
+  color: black;
+  background-color: white;
+  width: 100%;
 }
 
 /*for unselected services in CheckbocDropdown.js*/

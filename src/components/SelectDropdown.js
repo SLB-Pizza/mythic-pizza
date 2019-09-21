@@ -29,7 +29,10 @@ export default class SelectDropdown extends React.Component {
   render() {
     return (
       <div className="selectDropdownWrapper" style={{ color: 'white' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <div
+          style={{ display: 'flex', justifyContent: 'space-between' }}
+          onClick={this.dropdown}
+        >
           {this.state.selectedOption.timing || ''}
           <div className="dropDownArrow" onClick={this.dropdown}>
             {this.state.showOptions ? (

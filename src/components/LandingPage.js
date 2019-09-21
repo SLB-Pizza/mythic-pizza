@@ -50,20 +50,20 @@ function LandingPage() {
 
   return (
     <div className="landing">
-      <div className="left-text">
-        <animated.p style={leftText}>
+      <animated.div style={leftText} className="left-text">
+        <p>
           Derris and Mythology (formerly Partners & Spade) have worked together
           before, bringing to life some of the most known and loved brands of
           the past decade, and rethinking the businesses of big, iconic
           companies.
-        </animated.p>
-        <animated.p style={leftText} p>
+        </p>
+        <p>
           Today, as we continue our work with our respective agencies, we're
           officially joining forces on Project Mercury - a project to find the
           founders and ideas that will change their industries and help build
           the next great brands.
-        </animated.p>
-      </div>
+        </p>
+      </animated.div>
 
       <div className="vertical-logo">
         <img src={logo} alt="LOGO" id="mercury-logo" />

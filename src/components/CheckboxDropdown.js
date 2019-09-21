@@ -13,28 +13,29 @@ export default class CheckboxDropdown extends React.Component {
       showServices: false,
       selectedServices: [],
     };
+    this.node = null;
     this.handleClick = this.handleClick.bind(this);
-    this.handleOutsideClick = this.handleOutsideClick.bind(this);
   }
 
-  handleClick() {
-    if (!this.state.showServices) {
-      // attach/remove event handler
-      document.addEventListener('click', this.handleOutsideClick, false);
-    } else {
-      document.removeEventListener('click', this.handleOutsideClick, false);
-    }
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClick, false);
+  }
 
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClick, false);
+  }
+
+  handleOutsideClick() {
     this.setState({ showServices: false });
   }
 
-  handleOutsideClick(e) {
-    // ignore clicks on the component itself
+  handleClick(e) {
     if (this.node.contains(e.target)) {
+      // attach/remove event handler
       return;
+    } else {
+      this.handleOutsideClick();
     }
-
-    this.handleClick();
   }
 
   dropdown = () => {
@@ -43,8 +44,11 @@ export default class CheckboxDropdown extends React.Component {
 
   selectService = async selectedService => {
     if (!this.state.selectedServices.includes(selectedService)) {
+      const newServices = [...this.state.selectedServices, selectedService];
+      await newServices.sort((a, b) => a.id - b.id);
+
       await this.setState({
-        selectedServices: [...this.state.selectedServices, selectedService],
+        selectedServices: newServices,
         // showServices: false,
       });
     } else {
@@ -56,10 +60,7 @@ export default class CheckboxDropdown extends React.Component {
         // showServices: false,
       });
     }
-    console.log(
-      'CheckboxDropdown.js selectService func selectedServices: \n',
-      this.state.selectedServices
-    );
+
     this.props.handleSelect(this.state.selectedServices);
     // this.props.handleSelect(service);
   };
@@ -73,9 +74,7 @@ export default class CheckboxDropdown extends React.Component {
           display: 'flex',
           flexDirection: 'column',
         }}
-        ref={node => {
-          this.node = node;
-        }}
+        ref={node => (this.node = node)}
       >
         <div
           style={{
@@ -104,8 +103,11 @@ export default class CheckboxDropdown extends React.Component {
             width: '100%',
           }}
         >
+          {/* MAP  */}
           {this.state.services.map(service => (
+            // MAP RETURN WRAPPER DIV
             <div
+              key={service.id}
               style={{
                 display: 'flex',
                 flexDirection: 'row',
@@ -114,6 +116,7 @@ export default class CheckboxDropdown extends React.Component {
                 backgroundColor: 'white',
               }}
             >
+              {/* checkbox div orange  */}
               <div
                 className={
                   this.state.selectedServices.includes(service)
@@ -121,15 +124,27 @@ export default class CheckboxDropdown extends React.Component {
                     : 'servicesCheckboxInactive'
                 }
                 onClick={() => this.selectService(service)}
+                style={{
+                  // backgroundColor: 'orange',
+                  marginRight: '1%',
+                  marginLeft: '1%',
+                }}
               >
                 {this.state.selectedServices.includes(service) ? (
                   <img
                     src={checkmark}
                     alt="check"
-                    style={{ justifySelf: 'center', alignSelf: 'center' }}
+                    style={{
+                      justifySelf: 'center',
+                      alignSelf: 'center',
+                      height: '95%',
+                      width: '95%',
+                    }}
                   />
                 ) : null}
               </div>
+
+              {/*textfield div teal*/}
               <div
                 className="selectedService"
                 // className={
@@ -139,6 +154,10 @@ export default class CheckboxDropdown extends React.Component {
                 // }
                 key={service.id}
                 onClick={() => this.selectService(service)}
+                style={{
+                  alignSelf: 'center',
+                  // backgroundColor: 'teal'
+                }}
               >
                 {service.service}
               </div>

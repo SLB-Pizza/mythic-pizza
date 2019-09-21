@@ -12,6 +12,29 @@ export default class SelectDropdown extends React.Component {
       showOptions: false,
       selectedOption: this.props.options && this.props.options[0],
     };
+    this.node = null;
+    this.handleClick = this.handleClick.bind(this);
+  }
+
+  componentDidMount() {
+    document.addEventListener('mousedown', this.handleClick, false);
+  }
+
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.handleClick, false);
+  }
+
+  handleOutsideClick() {
+    this.setState({ showOptions: false });
+  }
+
+  handleClick(e) {
+    if (this.node.contains(e.target)) {
+      // attach/remove event handler
+      return;
+    } else {
+      this.handleOutsideClick();
+    }
   }
 
   dropdown = () => {
@@ -28,7 +51,11 @@ export default class SelectDropdown extends React.Component {
 
   render() {
     return (
-      <div className="selectDropdownWrapper" style={{ color: 'white' }}>
+      <div
+        className="selectDropdownWrapper"
+        style={{ color: 'white' }}
+        ref={node => (this.node = node)}
+      >
         <div
           style={{ display: 'flex', justifyContent: 'space-between' }}
           onClick={this.dropdown}

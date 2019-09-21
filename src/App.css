@@ -364,7 +364,8 @@ QUESTIONS
 .servicesCheckboxActive {
   height: 2vh;
   width: 2vh;
-  border: 1px outset black;
+  border: 1px groove black;
+  /* border-style: groove; */
 
   align-self: center;
 }

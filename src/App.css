@@ -565,6 +565,7 @@ for the description text and char counter to be in a row above it*/
 .copyright {
   display: flex;
   flex-direction: row;
+  padding-top: 120px;
 }
 
 #copyright-text {

@@ -13,6 +13,28 @@ export default class CheckboxDropdown extends React.Component {
       showServices: false,
       selectedServices: [],
     };
+    this.handleClick = this.handleClick.bind(this);
+    this.handleOutsideClick = this.handleOutsideClick.bind(this);
+  }
+
+  handleClick() {
+    if (!this.state.showServices) {
+      // attach/remove event handler
+      document.addEventListener('click', this.handleOutsideClick, false);
+    } else {
+      document.removeEventListener('click', this.handleOutsideClick, false);
+    }
+
+    this.setState({ showServices: false });
+  }
+
+  handleOutsideClick(e) {
+    // ignore clicks on the component itself
+    if (this.node.contains(e.target)) {
+      return;
+    }
+
+    this.handleClick();
   }
 
   dropdown = () => {
@@ -23,7 +45,7 @@ export default class CheckboxDropdown extends React.Component {
     if (!this.state.selectedServices.includes(selectedService)) {
       await this.setState({
         selectedServices: [...this.state.selectedServices, selectedService],
-        showServices: false,
+        // showServices: false,
       });
     } else {
       const filteredServices = this.state.selectedServices.filter(
@@ -31,7 +53,7 @@ export default class CheckboxDropdown extends React.Component {
       );
       await this.setState({
         selectedServices: filteredServices,
-        showServices: false,
+        // showServices: false,
       });
     }
     console.log(
@@ -50,6 +72,9 @@ export default class CheckboxDropdown extends React.Component {
           borderBottomColor: this.props.value.length > 0 ? 'white' : 'grey',
           display: 'flex',
           flexDirection: 'column',
+        }}
+        ref={node => {
+          this.node = node;
         }}
       >
         <div

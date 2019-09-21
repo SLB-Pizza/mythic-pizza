@@ -7,6 +7,7 @@
   background-image: url('./imgs/bg1.jpg');
   /* This bit underneath needs tweaking */
   background-size: cover;
+  background-color: black;
   /* background-repeat: no-repeat; */
   /* background-position: absolute; */
   min-height: 100vh;
@@ -27,7 +28,7 @@
   height: 100vh;
   position: absolute;
   width: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* First Column */
@@ -38,7 +39,7 @@
   align-self: center;
   color: white;
   /* height: 30vh; */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .left-text p {
@@ -46,7 +47,7 @@
   font-size: 1rem;
   line-height: 1.2rem;
   text-transform: uppercase;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* Second Column */
@@ -56,12 +57,12 @@
   align-self: center;
   color: white;
   /* background-color: pink; */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 #mercury-logo {
   padding-left: 45%;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 /* Third Column */
@@ -70,14 +71,14 @@
   /* margin-right: 5vw; */
   display: flex;
   flex-direction: column;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .main-button {
   flex: 5;
   justify-content: center;
   /* background-color: rgba(255, 255, 55, 0.5); */
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .inquire {
@@ -90,13 +91,13 @@
   height: 5vh;
   position: -webkit-sticky;
   position: sticky;
-  overflow: hidden;
+  /* overflow: hidden; */
 }
 
 .contact-text {
   flex: 3;
   color: white;
-  overflow: hidden;
+  /* overflow: hidden; */
   /* margin-bottom: 1rem; */
   /* background-color: rgba(55, 255, 55, 0.5); */
 }

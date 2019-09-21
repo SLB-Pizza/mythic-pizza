@@ -360,7 +360,7 @@ QUESTIONS
 .termsCheckboxNotAgree {
   height: 2vh;
   width: 2vh;
-  border: 1px outset white;
+  border: 2px outset white;
   /* color: grey; */
   background: transparent;
 }

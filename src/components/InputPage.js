@@ -233,6 +233,7 @@ function InputPage(props) {
         // data-netlify-honeypot="bot-field"
         className="input-form"
         // action="/success"
+        style={{ overflow: 'visible' }}
       >
         {/* <input type="hidden" name="form-name" value="contact" /> */}
         {/* <input type="hidden" name="bot-field" /> */}
@@ -259,9 +260,10 @@ function InputPage(props) {
               onChange={e => setContactName(e.target.value)}
               required={true}
             />
-            001. CONTACT NAME*
+            <p>001. CONTACT NAME*</p>
           </label>
           <label
+            id="right-sideBySide"
             style={
               contactRole.length > 0
                 ? { borderColor: 'white', color: 'white' }
@@ -281,7 +283,7 @@ function InputPage(props) {
               onChange={e => setContactRole(e.target.value)}
               required={true}
             />
-            002. CONTACT ROLE*
+            <p>002. CONTACT ROLE*</p>
           </label>
         </div>
         <div className="solo-input-container">
@@ -305,7 +307,7 @@ function InputPage(props) {
               onChange={e => setCompanyName(e.target.value)}
               required={true}
             />
-            003. COMPANY NAME*
+            <p>003. COMPANY NAME*</p>
           </label>
         </div>
         <div className="solo-input-container">
@@ -339,7 +341,7 @@ function InputPage(props) {
               onChange={e => setBased(e.target.value)}
               required={true}
             />
-            005. WHERE ARE YOU BASED?*
+            <p>005. WHERE ARE YOU BASED?*</p>
           </label>
         </div>
         <div className="solo-input-container">
@@ -373,7 +375,7 @@ function InputPage(props) {
               onChange={e => setTargetDemo(e.target.value)}
               required={true}
             />
-            007. TARGET DEMO*
+            <p>007. TARGET DEMO*</p>
           </label>
         </div>
         <div className="solo-input-container">
@@ -397,7 +399,7 @@ function InputPage(props) {
               onChange={e => setCompetitors(e.target.value)}
               required={true}
             />
-            008. COMPETITORS*
+            <p>008. COMPETITORS*</p>
           </label>
         </div>
         <div className="solo-input-container">
@@ -502,7 +504,7 @@ function InputPage(props) {
                 required={true}
               />
             </label>
-            012. CAPITAL RAISED*
+            <p>012. CAPITAL RAISED*</p>
           </label>
         </div>
         <div className="solo-input-container">
@@ -523,7 +525,9 @@ function InputPage(props) {
               name="launchSelected"
               insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
             />
-            014. ANTICIPATED LAUNCH SCHEDULE*
+            <p style={{ paddingTop: '10px' }}>
+              014. ANTICIPATED LAUNCH SCHEDULE*
+            </p>
           </label>
         </div>
         <div className="solo-input-container">
@@ -542,7 +546,7 @@ function InputPage(props) {
               name="servicesString"
               insideText="015. SERVICES NEEDED*"
             />
-            015. SERVICES NEEDED*
+            <p style={{ paddingTop: '10px' }}>015. SERVICES NEEDED*</p>
           </label>
         </div>
         <div

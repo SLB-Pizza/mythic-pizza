@@ -10,9 +10,6 @@
   /* background-repeat: no-repeat; */
   /* background-position: absolute; */
   min-height: 100vh;
-  /* min-width: 100vw; */
-  /* max-width: 100vw; */
-  /* max-height: 100vh; */
   /* overflow: hidden; */
 }
 
@@ -302,20 +299,7 @@ QUESTIONS
 
 /* ONLY affects 001 */
 #left-sideBySide {
-  /* padding-right: 5%; */
-  padding-right: 20px;
-}
-#left-sideBySide p {
-  padding-top: 10px;
-}
-
-/* ONLY affects 002 */
-
-#right-sideBySide {
-  padding-left: 20px;
-}
-#right-sideBySide p {
-  padding-top: 10px;
+  padding-right: 5%;
 }
 
 /*
@@ -341,8 +325,7 @@ solo-input-container input[type='number'] {
   -moz-appearance: textfield;
 }
 
-.solo-input-container label p {
-  padding-top: 10px;
+.solo-input-container label {
   /*  */
 }
 

@@ -481,7 +481,16 @@ function InputPage(props) {
                     }
               }
             >
-              $
+              <p
+                style={{
+                  height: '100%',
+                  // borderBottomStyle: 'solid',
+                  // borderBottomWidth: '1px',
+                  alignSelf: 'center',
+                }}
+              >
+                $
+              </p>
               <input
                 className="solo-input"
                 style={

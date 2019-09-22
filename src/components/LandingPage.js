@@ -1,6 +1,6 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import '../App.css';
+import React from "react";
+import { Link } from "react-router-dom";
+import "../App.css";
 
 function LandingPage() {
   return (
@@ -21,9 +21,11 @@ function LandingPage() {
       </div>
 
       <div className="vertical-logo">
-        <p>
-          PROJECT <span id="mercury-text">MERCURY</span>
-        </p>
+        <Link to="/bulma">
+          <p>
+            PROJECT <span id="mercury-text">MERCURY</span>
+          </p>
+        </Link>
       </div>
 
       <div className="right-third">

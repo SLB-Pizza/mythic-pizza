@@ -1,0 +1,17 @@
+@font-face {
+  font-family: "David_Reg";
+  src: local("David_temporary_03_Regular"),
+    url(../fonts/David_temporary_03_Regular.otf) format("opentype");
+}
+
+// Import only what you need from Bulma
+// @import "../../node_modules/bulma/bulma.sass";
+@import "../../node_modules/bulma/sass/utilities/_all.sass";
+@import "../../node_modules/bulma/sass/grid/columns.sass";
+@import "../../node_modules/bulma/sass/elements/container.sass";
+
+body {
+  margin: 0;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}

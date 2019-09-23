@@ -425,9 +425,24 @@ function InputPage(props) {
                     }}
                   >
                     <input {...getInputProps()} />
-                    {isDragActive
-                      ? 'DROP YOUR FILE HERE'
-                      : '009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL *LIMIT:10MB*'}
+                    {isDragActive ? (
+                      'DROP YOUR FILE HERE'
+                    ) : (
+                      <div
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          justifyContent: 'space-between',
+                          height: '99%',
+                          width: '99%',
+                        }}
+                      >
+                        <p>
+                          009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL HERE
+                        </p>{' '}
+                        <p>*LIMIT:10MB*</p>
+                      </div>
+                    )}
                     {file && file.name ? <div>{file.name}</div> : ' '}
                   </div>
                 )}

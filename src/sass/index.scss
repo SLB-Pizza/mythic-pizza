@@ -4,11 +4,12 @@
     url(../fonts/David_temporary_03_Regular.otf) format("opentype");
 }
 
-// Import only what you need from Bulma
-// @import "../../node_modules/bulma/bulma.sass";
+// Bulma imports - DO NOT TOUCH
 @import "../../node_modules/bulma/sass/utilities/_all.sass";
 @import "../../node_modules/bulma/sass/grid/columns.sass";
 @import "../../node_modules/bulma/sass/elements/container.sass";
+
+@import "./test.scss";
 
 body {
   margin: 0;

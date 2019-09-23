@@ -29,70 +29,89 @@ function BulmaTestPage() {
         </p>
       </div>
 
-      <div class="columns is-vcentered">
-        <div class="column is-8">
-          <p class="bd-notification is-primary">First column</p>
+      <div className="columns is-vcentered">
+        <div className="column is-8" id="test-color">
+          <p className="bd-notification is-primary">First column</p>
         </div>
-        <div class="column">
-          <p class="bd-notification is-primary">
+        <div className="column">
+          <p className="bd-notification is-primary">
             Second column with more content. This is so you can see the vertical
-            alignment.
+            alignment in action. IS-VCENTERED is how you make sure everything is
+            vcentered in columns.
           </p>
         </div>
       </div>
 
-      <div class="columns">
-        <div class="column is-four-fifths">is-four-fifths</div>
-        <div class="column">Auto</div>
-        <div class="column">Auto</div>
+      <div className="columns">
+        <div className="column is-four-fifths" id="test-color">
+          is-four-fifths
+        </div>
+        <div className="column">Auto</div>
+        <div className="column">Auto</div>
       </div>
 
-      <div class="columns">
-        <div class="column is-three-quarters">is-three-quarters</div>
-        <div class="column">Auto</div>
-        <div class="column">Auto</div>
+      <div className="columns">
+        <div className="column is-three-quarters" id="test-color">
+          is-three-quarters
+        </div>
+        <div className="column">Auto</div>
+        <div className="column">Auto</div>
       </div>
 
-      <div class="columns">
-        <div class="column is-two-thirds">is-two-thirds</div>
-        <div class="column">Auto</div>
-        <div class="column">Auto</div>
+      <div className="columns">
+        <div className="column is-two-thirds" id="test-color">
+          is-two-thirds
+        </div>
+        <div className="column">Auto</div>
+        <div className="column">Auto</div>
       </div>
 
-      <div class="columns">
-        <div class="column is-three-fifths">is-three-fifths</div>
-        <div class="column">Auto</div>
-        <div class="column">Auto</div>
+      <div className="columns">
+        <div className="column is-three-fifths" id="test-color">
+          is-three-fifths
+        </div>
+        <div className="column">Auto</div>
+        <div className="column">Auto</div>
       </div>
 
-      <div class="columns">
-        <div class="column is-half">is-half</div>
-        <div class="column">Auto</div>
-        <div class="column">Auto</div>
+      <div className="columns">
+        <div className="column is-half" id="test-color">
+          is-half
+        </div>
+        <div className="column">Auto</div>
+        <div className="column">Auto</div>
       </div>
 
-      <div class="columns">
-        <div class="column is-two-fifths">is-two-fifths</div>
-        <div class="column">Auto</div>
-        <div class="column">Auto</div>
+      <div className="columns">
+        <div className="column is-two-fifths" id="test-color">
+          is-two-fifths
+        </div>
+        <div className="column">Auto</div>
+        <div className="column">Auto</div>
       </div>
 
-      <div class="columns">
-        <div class="column is-one-third">is-one-third</div>
-        <div class="column">Auto</div>
-        <div class="column">Auto</div>
+      <div className="columns">
+        <div className="column is-one-third" id="test-color">
+          is-one-third
+        </div>
+        <div className="column">Auto</div>
+        <div className="column">Auto</div>
       </div>
 
-      <div class="columns">
-        <div class="column is-one-quarter">is-one-quarter</div>
-        <div class="column">Auto</div>
-        <div class="column">Auto</div>
+      <div className="columns">
+        <div className="column is-one-quarter" id="test-color">
+          is-one-quarter
+        </div>
+        <div className="column">Auto</div>
+        <div className="column">Auto</div>
       </div>
 
-      <div class="columns">
-        <div class="column is-one-fifth">is-one-fifth</div>
-        <div class="column">Auto</div>
-        <div class="column">Auto</div>
+      <div className="columns">
+        <div className="column is-one-fifth" id="test-color">
+          is-one-fifth
+        </div>
+        <div className="column">Auto</div>
+        <div className="column">Auto</div>
       </div>
 
       <p>You clicked {count} times</p>

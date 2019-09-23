@@ -595,9 +595,7 @@ function InputPage(props) {
             height: '5vh',
             borderRadius: '2px',
           }}
-        >
-          SUBMIT
-        </input>
+        />
         <p className="text" style={{ color: 'white' }}>
           LEGAL:
         </p>

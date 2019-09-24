@@ -100,7 +100,11 @@ The button and address
 /*<p> that holds the lines of contact info text, each in a separate <p>*/
 .inputContactInfo {
   top: 66vh;
-  color: white;
+  color: 'white';
+  font-weight: normal;
+  font-family: Graphik;
+  line-height: 21px;
+  font-size: 14px;
   position: -webkit-sticky;
   position: sticky;
 }

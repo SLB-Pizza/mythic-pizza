@@ -210,7 +210,7 @@ function InputPage(props) {
               fontWeight: 'normal',
               fontFamily: 'Graphik',
               lineHeight: '21px',
-              fonstSize: '14px',
+              fontSize: '14px',
             }}
             href="mailto:office@projectmercury.com">
             office@projectmercury.com

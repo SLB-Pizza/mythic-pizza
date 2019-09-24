@@ -517,6 +517,12 @@ for the description text and char counter to be in a row above it*/
   color: gray;
 }
 
+.legalInfo {
+  font-family: Graphik;
+  font-weight: normal;
+  font-size: 14px;
+}
+
 /*
                     lll tt    iii
 mm mm mmmm  uu   uu lll tt

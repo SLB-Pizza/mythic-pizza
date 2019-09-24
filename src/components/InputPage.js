@@ -686,7 +686,7 @@ function InputPage(props) {
           <p className="text" style={{ color: 'white' }}>
             LEGAL:
           </p>
-          <p className="text" style={{ color: 'grey' }}>
+          <p className="legalInfo" style={{ color: 'grey' }}>
             Any nonpublic information provided hereunder is confidential, and
             Project Mercury will not disclose the information to third parties
             except for its professional advisors as strictly necessary; and will
@@ -696,7 +696,8 @@ function InputPage(props) {
             company to those of its employees and representatives who have a
             need to know.
           </p>
-          <p className="text" style={{ color: 'grey' }}>
+          <br />
+          <p className="legalInfo" style={{ color: 'grey' }}>
             The foregoing is intended solely as a basis for further discussions
             and is not intended to be and does not constitute a legally binding
             offer, obligation or commitment on the part of Project Mercury to

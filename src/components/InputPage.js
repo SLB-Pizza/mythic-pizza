@@ -697,9 +697,7 @@ function InputPage(props) {
             }}
             value="SUBMIT"
           />
-          <p className="text" style={{ color: 'white' }}>
-            LEGAL:
-          </p>
+          <p className="legalLabel">LEGAL:</p>
           <p className="legalInfo">
             Any nonpublic information provided hereunder is confidential, and
             Project Mercury will not disclose the information to third parties
@@ -711,7 +709,7 @@ function InputPage(props) {
             need to know.
           </p>
           <br />
-          <p className="legalInfo" style={{ color: 'grey' }}>
+          <p className="legalInfo">
             The foregoing is intended solely as a basis for further discussions
             and is not intended to be and does not constitute a legally binding
             offer, obligation or commitment on the part of Project Mercury to

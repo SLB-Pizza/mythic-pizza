@@ -522,7 +522,15 @@ for the description text and char counter to be in a row above it*/
   font-weight: normal;
   font-size: 14px;
   color: 'white';
-  opacity: 50;
+  opacity: 0.5;
+}
+
+.legalLabel {
+  color: white;
+  font-family: Graphik;
+  font-weight: normal;
+  font-size: 14px;
+  margin-top: 60px;
 }
 
 /*

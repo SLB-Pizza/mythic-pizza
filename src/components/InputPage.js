@@ -650,7 +650,7 @@ function InputPage(props) {
               color: 'black',
               border: 'none',
               fontFamily: 'Graphik',
-              fontSize: '200%',
+              fontSize: '100%',
               alignContent: 'center',
               backgroundColor:
                 termsCheckbox &&
@@ -667,6 +667,7 @@ function InputPage(props) {
               height: '5vh',
               borderRadius: '2px',
             }}
+            value="SUBMIT"
           />
           <p className="text" style={{ color: 'white' }}>
             LEGAL:

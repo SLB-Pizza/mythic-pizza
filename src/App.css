@@ -109,6 +109,13 @@ The button and address
   position: sticky;
 }
 
+.inputContactInfo p {
+  font-family: 'Graphik';
+  font-size: 14px;
+  line-height: 21px;
+  font-weight: normal;
+}
+
 /*
    ____        __  _____     __
   |_  /_______/ / / ___/__  / /_ ____ _  ___

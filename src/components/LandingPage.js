@@ -114,7 +114,7 @@ function LandingPage() {
 
                 <div style={contactInfo} id="desktop-landing-address">
                   {/* <p>office@projectmercury.com</p> */}
-                  <Link
+                  <a
                     style={{
                       textDecoration: 'none',
                       color: 'white',
@@ -123,9 +123,11 @@ function LandingPage() {
                       lineHeight: '21px',
                       fontSize: '14px',
                     }}
-                    href="mailto:office@projectmercury.com">
+                    href="mailto:office@projectmercury.com"
+                    target="_blank"
+                    rel="noopener noreferrer">
                     office@projectmercury.com
-                  </Link>
+                  </a>
                   <p>T 646 861 2827</p>
                   <br />
                   <p>324 Lafayette Street</p>
@@ -157,7 +159,7 @@ function LandingPage() {
                 className="is-flex-touch"
                 id="mobile-landing">
                 <div style={contactInfo} id="mobile-address">
-                  <Link
+                  <a
                     style={{
                       textDecoration: 'none',
                       color: 'white',
@@ -166,9 +168,11 @@ function LandingPage() {
                       lineHeight: '21px',
                       fontSize: '14px',
                     }}
-                    href="mailto:office@projectmercury.com">
+                    href="mailto:office@projectmercury.com"
+                    target="_blank"
+                    rel="noopener noreferrer">
                     office@projectmercury.com
-                  </Link>
+                  </a>
                   <p>T 646 861 2827</p>
                   <br />
                   <p>324 Lafayette Street</p>

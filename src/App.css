@@ -130,8 +130,19 @@ The required fields notice
   / / // /_/ /    / ___/__  / /_ ____ _  ___
  /_  _/ __/ _ \  / /__/ _ \/ / // /  ' \/ _ \
   /_/ \__/_//_/  \___/\___/_/\_,_/_/_/_/_//_/
-The form itself
+The form itself and success message
 */
+
+.success {
+  /* background-color: 'black';
+  color: white; */
+  flex: 7;
+  flex-direction: column;
+  margin-right: 10vh;
+  margin-bottom: 10vh;
+  min-height: 1000vh;
+  overflow: hidden;
+}
 
 .input-form {
   flex: 7;
@@ -468,17 +479,26 @@ for the description text and char counter to be in a row above it*/
   display: flex;
   flex-direction: row;
   padding-top: 120px;
+  color: gray;
 }
 
 #copyright-text {
   flex: 1;
-  color: white;
+  color: gray;
 }
 
 #rights-text {
   text-align: right;
   flex: 1;
-  color: white;
+  color: gray;
+}
+
+.copyrightSuccess {
+  display: flex;
+  flex-direction: row;
+  padding-top: 70vh;
+  justify-self: flex-end;
+  color: gray;
 }
 
 /*

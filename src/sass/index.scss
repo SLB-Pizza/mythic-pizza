@@ -1,31 +1,35 @@
 // Bulma imports - DO NOT TOUCH
-@import '../../node_modules/bulma/sass/utilities/_all.sass';
-@import '../../node_modules/bulma/sass/base/_all.sass';
-@import '../../node_modules/bulma/sass/grid/columns.sass';
-@import '../../node_modules/bulma/sass/elements/container.sass';
-@import '../../node_modules/bulma/sass/layout/hero.sass';
+@import "../../node_modules/bulma/sass/utilities/_all.sass";
+@import "../../node_modules/bulma/sass/base/_all.sass";
+@import "../../node_modules/bulma/sass/grid/columns.sass";
+@import "../../node_modules/bulma/sass/elements/container.sass";
+@import "../../node_modules/bulma/sass/layout/hero.sass";
 
 // Font imports
 @font-face {
-  font-family: 'David_Reg';
-  src: local('David_temporary_03_Regular'),
-    url(../fonts/David_temporary_03_Regular.otf) format('opentype');
+  font-family: "David_Reg";
+  src: local("David_temporary_03_Regular"),
+    url(../fonts/David_temporary_03_Regular.otf) format("opentype");
 }
 
 // SCSS files for each page
-@import './landing.scss';
+@import "./landing.scss";
+@import "./input.scss";
 
 // REMOVE THIS BEFORE DEPLOY
-@import './test.scss';
+@import "./test.scss";
+
+// UNIVERSAL TOP LEVEL STUFF
+* {
+  font-family: "David_Reg";
+  color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
 // The image needs to be outside the nested container
 .App {
-  background-image: url('../imgs/bg1.jpg');
+  background-image: url("../imgs/bg1.jpg");
   background-color: black;
-}
-
-body {
-  margin: 0;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  background-size: cover;
 }

@@ -1,0 +1,110 @@
+/*
+███████╗ ██████╗ ██████╗ ███╗   ███╗
+██╔════╝██╔═══██╗██╔══██╗████╗ ████║
+█████╗  ██║   ██║██████╔╝██╔████╔██║
+██╔══╝  ██║   ██║██╔══██╗██║╚██╔╝██║
+██║     ╚██████╔╝██║  ██║██║ ╚═╝ ██║
+╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝
+*/
+
+// - vertical-logo-input: 1
+// - button/address: 2
+// - required-stuff-warning: 1
+// - inquire-form: 8
+// 12 columns total - something we may replicate when bulma is added
+
+// ==============================================
+// ENTIRE PAGE
+// ==============================================
+
+#input-page {
+  background-color: black;
+}
+
+// ==============================================
+// UTILITY CLASSES
+// ==============================================
+
+.grey-inactive {
+  border-color: "grey";
+  color: "grey";
+}
+
+.white-active {
+  border-color: "white";
+}
+
+// ==============================================
+// 1ST COLUMN - SVG logo
+// ==============================================
+
+#input-logo {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 25vh;
+}
+
+// ==============================================
+// 2ND COLUMN - close button & address
+// ==============================================
+
+#close-button {
+  width: 100px;
+  height: 50px;
+  border: 1px solid white;
+  background-color: black;
+  top: 40vh;
+  position: -webkit-sticky;
+  position: sticky;
+}
+
+.input-contact-info {
+  top: 66vh;
+  position: -webkit-sticky;
+  position: sticky;
+  p {
+    font-size: 14px;
+    line-height: 21px;
+    &:nth-child(3) {
+      margin-top: 21px;
+    }
+  }
+}
+
+// ==============================================
+// 3RD COLUMN - required text notice
+// ==============================================
+
+#required-text {
+  position: relative;
+  top: 100px;
+  p {
+    transform: rotate(90deg);
+    font-size: 12px;
+    white-space: nowrap;
+  }
+}
+
+// ==============================================
+// 4TH COLUMN - the form itself
+// ==============================================
+
+#form-header-text {
+  font-size: 16px;
+}
+
+input {
+  font-size: 23px;
+}
+
+/*
+QUESTIONS
+001 and 002
+*/
+
+.adjacent-inputs {
+  flex-direction: row;
+  justify-content: space-evenly;
+  padding-top: 100px;
+  padding-bottom: 100px;
+}

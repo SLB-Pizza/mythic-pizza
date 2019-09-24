@@ -48,12 +48,13 @@ The vertical logo
 }
 
 .mercury-logo {
-  padding-left: 5vw;
-  padding-top: 5vw;
-  padding-right: 5vw;
+  /* padding-left: 5vw; */
+  /* padding-top: 5vw; */
+  /* padding-right: 5vw; */
   position: -webkit-sticky;
   position: sticky;
   top: 8%;
+  /* color: pink; */
 }
 /* .vertical-logo-input p {
   font-size: 2rem;

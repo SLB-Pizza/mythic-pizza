@@ -23,7 +23,7 @@ export default function TextBox({ onChange, value, name, insideText }) {
         onChange={onChange}
         maxLength="500"
         rows="6"
-        required={true}
+        // required={true}
         style={{ resize: 'none' }}
       ></textarea>
     </div>

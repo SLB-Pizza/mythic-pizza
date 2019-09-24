@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "bulma": "^0.7.5",
-    "node-sass": "^4.12.0"
+    "node-sass": "^4.12.0",
+    "react-spring": "^8.0.27"
   }
 }

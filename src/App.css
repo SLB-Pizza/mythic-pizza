@@ -7,8 +7,11 @@
   background-image: url("./imgs/bg1.jpg");
   /* This bit underneath needs tweaking */
   background-size: cover;
-  background-repeat: no-repeat;
+  background-color: black;
+  /* background-repeat: no-repeat; */
+  /* background-position: absolute; */
   min-height: 100vh;
+  /* overflow: hidden; */
 }
 
 /*
@@ -23,16 +26,20 @@
 .landing {
   display: flex;
   height: 100vh;
+  position: absolute;
+  width: 100%;
+  /* overflow: hidden; */
 }
 
 /* First Column */
 .left-text {
-  flex: 1;
+  flex: 2;
   margin-left: 5vw;
   /* background-color: rgba(0, 255, 255, 0.5); */
   align-self: center;
   color: white;
   /* height: 30vh; */
+  /* overflow: hidden; */
 }
 
 .left-text p {
@@ -40,50 +47,38 @@
   font-size: 1rem;
   line-height: 1.2rem;
   text-transform: uppercase;
+  /* overflow: hidden; */
 }
 
 /* Second Column */
 .vertical-logo {
-  flex: 2;
+  flex: 4;
   /* background-color: rgba(255, 55, 255, 0.5); */
   align-self: center;
   color: white;
+  /* background-color: pink; */
+  /* overflow: hidden; */
 }
 
-.vertical-logo p {
-  font-size: 2.5rem;
-  transform: rotate(90deg);
-  white-space: nowrap;
-}
-
-.vertical-logo p text {
-  font-size: 2.5rem;
-  transform: rotate(90deg);
-  white-space: nowrap;
-  /* background-clip: ; */
-  background: linear-gradient(180deg, black 50%, black 50%);
-}
-
-#mercury-text {
-  font-size: 4.65rem;
-}
-
-#mercury-text text {
-  font-size: 4.65rem;
+#mercury-logo {
+  padding-left: 45%;
+  /* overflow: hidden; */
 }
 
 /* Third Column */
 .right-third {
-  flex: 2;
-  margin-right: 5vw;
+  flex: 3;
+  /* margin-right: 5vw; */
   display: flex;
   flex-direction: column;
+  /* overflow: hidden; */
 }
 
 .main-button {
   flex: 5;
   justify-content: center;
   /* background-color: rgba(255, 255, 55, 0.5); */
+  /* overflow: hidden; */
 }
 
 .inquire {
@@ -96,11 +91,13 @@
   height: 5vh;
   position: -webkit-sticky;
   position: sticky;
+  /* overflow: hidden; */
 }
 
 .contact-text {
   flex: 3;
   color: white;
+  /* overflow: hidden; */
   /* margin-bottom: 1rem; */
   /* background-color: rgba(55, 255, 55, 0.5); */
 }
@@ -132,6 +129,8 @@ THE INPUT FORM'S FOUR MAIN DIVS ARE:
 .input-page {
   display: flex;
   background-color: black;
+  position: absolute;
+  width: 100%;
 }
 
 /*
@@ -147,7 +146,15 @@ The vertical logo
   /* background-color: pink; */
 }
 
-.vertical-logo-input p {
+.mercury-logo {
+  padding-left: 5vw;
+  padding-top: 5vw;
+  padding-right: 5vw;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 8%;
+}
+/* .vertical-logo-input p {
   font-size: 2rem;
   top: 10%;
   width: 15vw;
@@ -155,13 +162,9 @@ The vertical logo
   position: sticky;
   transform: rotate(90deg);
   white-space: nowrap;
-  /* padding-left: 4%; */
-  /* height: 4vh; */
-}
-
-#mercury-text-input {
-  font-size: 6rem;
-}
+  padding-left: 4%;
+  height: 4vh;
+} */
 
 /*
    ___          __  _____     __
@@ -232,6 +235,7 @@ The form itself
   flex-direction: column;
   margin-right: 10vh;
   margin-bottom: 10vh;
+  overflow: visible;
   /* background-color: aquamarine; */
 }
 
@@ -295,7 +299,11 @@ QUESTIONS
 
 /* ONLY affects 001 */
 #left-sideBySide {
-  padding-right: 5%;
+  padding-right: 3%;
+}
+
+#right-sideBySide {
+  padding-left: 3%;
 }
 
 /*
@@ -310,6 +318,15 @@ QUESTIONS
   padding-top: 2%;
   padding-bottom: 2%;
   /* color: grey; */
+}
+solo-input-container input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+solo-input-container input[type='number'] {
+  -moz-appearance: textfield;
 }
 
 .solo-input-container label {
@@ -342,9 +359,29 @@ QUESTIONS
 .termsCheckboxNotAgree {
   height: 2vh;
   width: 2vh;
-  border: 2px solid grey;
+  border: 2px outset white;
   /* color: grey; */
   background: transparent;
+}
+
+/*the little checkbox for terms agreement if checked*/
+.servicesCheckboxActive {
+  height: 2vh;
+  width: 2vh;
+  border: 1px groove black;
+  /* border-style: groove; */
+
+  align-self: center;
+}
+
+/*the little checkbox for terms agreement if NOT checked*/
+.servicesCheckboxInactive {
+  height: 2vh;
+  width: 2vh;
+  border: 1px outset grey;
+  align-self: center;
+  /* color: grey; */
+  background: white;
 }
 
 /*for the wrapper around the services needed checkbox dropdown*/
@@ -354,11 +391,14 @@ QUESTIONS
   justify-content: space-between;
   border-bottom-width: 1px;
   border-bottom-style: solid;
-  width: 99%;
+  width: 100%;
 }
 
 /*for selected services in CheckbocDropdown.js*/
 .selectedService {
+  color: black;
+  background-color: white;
+  width: 100%;
 }
 
 /*for unselected services in CheckbocDropdown.js*/
@@ -524,6 +564,7 @@ for the description text and char counter to be in a row above it*/
 .copyright {
   display: flex;
   flex-direction: row;
+  padding-top: 120px;
 }
 
 #copyright-text {
@@ -536,3 +577,19 @@ for the description text and char counter to be in a row above it*/
   flex: 1;
   color: white;
 }
+
+/*
+                    lll tt    iii
+mm mm mmmm  uu   uu lll tt
+mmm  mm  mm uu   uu lll tttt  iii
+mmm  mm  mm uu   uu lll tt    iii
+mmm  mm  mm  uuuu u lll  tttt iii
+
+
+DDDDD                              dd
+DD  DD  rr rr   oooo  pp pp        dd  oooo  ww      ww nn nnn
+DD   DD rrr  r oo  oo ppp  pp  dddddd oo  oo ww      ww nnn  nn
+DD   DD rr     oo  oo pppppp  dd   dd oo  oo  ww ww ww  nn   nn
+DDDDDD  rr      oooo  pp       dddddd  oooo    ww  ww   nn   nn
+                      pp
+                      */

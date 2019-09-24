@@ -113,8 +113,21 @@ function LandingPage() {
                 </animated.div>
 
                 <div style={contactInfo} id="desktop-landing-address">
-                  <p>office@projectmercury.com</p>
+                  {/* <p>office@projectmercury.com</p> */}
+                  <Link
+                    style={{
+                      textDecoration: 'none',
+                      color: 'white',
+                      fontWeight: 'normal',
+                      fontFamily: 'Graphik',
+                      lineHeight: '21px',
+                      fonstSize: '14px',
+                    }}
+                    href="mailto:office@projectmercury.com">
+                    office@projectmercury.com
+                  </Link>
                   <p>T 646 861 2827</p>
+                  <br />
                   <p>324 Lafayette Street</p>
                   <p>NY, New York 11201</p>
                 </div>
@@ -144,8 +157,20 @@ function LandingPage() {
                 className="is-flex-touch"
                 id="mobile-landing">
                 <div style={contactInfo} id="mobile-address">
-                  <p>office@projectmercury.com</p>
+                  <Link
+                    style={{
+                      textDecoration: 'none',
+                      color: 'white',
+                      fontWeight: 'normal',
+                      fontFamily: 'Graphik',
+                      lineHeight: '21px',
+                      fonstSize: '14px',
+                    }}
+                    href="mailto:office@projectmercury.com">
+                    office@projectmercury.com
+                  </Link>
                   <p>T 646 861 2827</p>
+                  <br />
                   <p>324 Lafayette Street</p>
                   <p>NY, New York 11201</p>
                 </div>

@@ -203,10 +203,18 @@ function InputPage(props) {
           </button>
         </Link>
         <div className="inputContactInfo">
-          <p>office@projectmercury.com</p>
-          <p>T 646 861 2827</p>
-          <p>324 Lafayette Street</p>
-          <p>NY, New York 11201</p>
+          <Link
+            style={{
+              textDecoration: 'none',
+              color: 'white',
+              fontWeight: 'normal',
+              fontFamily: 'Graphik',
+              lineHeight: '21px',
+              fonstSize: '14px',
+            }}
+            href="mailto:office@projectmercury.com">
+            office@projectmercury.com
+          </Link>
         </div>
       </div>
       {/*

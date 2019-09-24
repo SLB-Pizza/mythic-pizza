@@ -19,6 +19,13 @@ function LandingPage() {
     to: { opacity: 1, transform: 'translate(0, 0)' },
     delay: 200,
   });
+  //Left text spring mobile
+  const leftTextMobile = useSpring({
+    config: { duration: 1500, easing: easings.easeCubicOut },
+    from: { opacity: 1, transform: 'translate(0, 400%)' },
+    to: { opacity: 1, transform: 'translate(0, 0)' },
+    delay: 200,
+  });
   //inquire button move spring
   const inquireMoveRef = useRef();
   const inquireMove = useSpring({
@@ -140,7 +147,7 @@ function LandingPage() {
                   </Link>
                 </animated.div>
 
-                <animated.div style={leftText} id="mobile-blurb">
+                <animated.div style={leftTextMobile} id="mobile-blurb">
                   <p>
                     Derris and Mythology (formerly Partners & Spade) have worked
                     together before, bringing to life some of the most known and

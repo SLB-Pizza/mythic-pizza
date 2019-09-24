@@ -1,33 +1,3 @@
-/*for the actual sideBySide inputs*/
-.sideBySide-input {
-  padding-left: 1%;
-  padding-right: 1%;
-  width: 100%;
-  background-color: black;
-  flex: 1;
-  /* border- */
-  border-style: hidden hidden solid hidden;
-  border-bottom-width: 1px;
-  /* border-bottom: 3px solid white; */
-}
-
-.sideBySide-input-container label {
-  padding-right: 1%;
-  /*  */
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-/* ONLY affects 001 */
-#left-sideBySide {
-  padding-right: 3%;
-}
-
-#right-sideBySide {
-  padding-left: 3%;
-}
-
 /*
 QUESTIONS
 003, 005
@@ -49,10 +19,6 @@ input[type="number"]::-webkit-inner-spin-button {
 
 solo-input-container input[type="number"] {
   -moz-appearance: textfield;
-}
-
-.solo-input-container label {
-  /*  */
 }
 
 /*

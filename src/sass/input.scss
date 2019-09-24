@@ -22,16 +22,17 @@
 }
 
 // ==============================================
-// UTILITY CLASSES
+// UTILITY CLASSES - switch inline input styles
 // ==============================================
 
-.grey-inactive {
+.inactive-grey {
   border-color: "grey";
   color: "grey";
 }
 
-.white-active {
+.active-white {
   border-color: "white";
+  color: "white";
 }
 
 // ==============================================
@@ -77,7 +78,7 @@
 
 #required-text {
   position: relative;
-  top: 100px;
+  top: 315px;
   p {
     transform: rotate(90deg);
     font-size: 12px;
@@ -91,20 +92,42 @@
 
 #form-header-text {
   font-size: 16px;
+  margin-top: 136px;
 }
 
-input {
-  font-size: 23px;
+label {
+  font-family: "Graphik";
+  font-size: 12px;
+  width: 100%;
+  padding-bottom: 84px;
+  input {
+    width: 100%;
+    font-size: 23px;
+    padding-bottom: 10px;
+    background-color: black;
+    border-style: hidden hidden solid;
+    border-width: 0 0 1px;
+  }
+  p {
+    padding-top: 10px;
+  }
 }
 
-/*
-QUESTIONS
-001 and 002
-*/
+// =============================
+// Adjacent inputs
+// 001, 002
+// =============================
 
 .adjacent-inputs {
   flex-direction: row;
-  justify-content: space-evenly;
-  padding-top: 100px;
-  padding-bottom: 100px;
+  justify-content: space-between;
+  padding-top: 84px;
+  label:first-child {
+    padding-right: 21px;
+  }
 }
+
+// =============================
+// Solo inputs
+// 003, 005, 007, 008, 012
+// =============================

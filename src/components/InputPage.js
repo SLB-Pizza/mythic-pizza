@@ -144,7 +144,7 @@ function InputPage(props) {
   //
 
   return (
-    <div className="container is-fluid" id="input-page">
+    <div className="container" id="input-page">
       {/*
           ____            __   __
          / __ \___  _____/ /__/ /_____  ____
@@ -181,24 +181,12 @@ function InputPage(props) {
             name="contact"
             onSubmit={handleSubmit}
             netlify="true"
-            // data-netlify-honeypot="bot-field"
-            className="input-form"
             action="/success"
           >
-            {/* <input type="hidden" name="form-name" value="contact" /> */}
-            {/* <input type="hidden" name="bot-field" /> */}
             <p id="form-header-text">LET'S GET STARTED.</p>
             <div className="adjacent-inputs is-flex-desktop">
-              <label
-                id="left-sideBySide"
-                style={
-                  contactName.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
-                }
-              >
+              <label>
                 <input
-                  className="sideBySide-input"
                   style={
                     contactName.length > 0
                       ? { borderColor: "white", color: "white" }
@@ -212,16 +200,8 @@ function InputPage(props) {
                 />
                 <p>001. CONTACT NAME*</p>
               </label>
-              <label
-                id="right-sideBySide"
-                style={
-                  contactRole.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
-                }
-              >
+              <label>
                 <input
-                  className="sideBySide-input"
                   style={
                     contactRole.length > 0
                       ? { borderColor: "white", color: "white" }

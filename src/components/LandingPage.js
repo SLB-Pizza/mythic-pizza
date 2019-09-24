@@ -62,7 +62,7 @@ function LandingPage() {
           */}
           <div className="columns is-hidden-touch">
             <div className="column">
-              <animated.div style={leftText} className="left-text">
+              <animated.div style={leftText} id="desktop-blurb">
                 <p>
                   Derris and Mythology (formerly Partners & Spade) have worked
                   together before, bringing to life some of the most known and
@@ -77,20 +77,28 @@ function LandingPage() {
                 </p>
               </animated.div>
             </div>
-            <div className="column is-two-fifths">
-              <div className="vertical-logo">
-                <img src={logo} alt="LOGO" id="mercury-logo" />
+            <div className="column">
+              <div className="vertical-logo is-flex-desktop">
+                <img
+                  src={logo}
+                  alt="projectMERCURY"
+                  // style={{ width: "49px", height: "auto" }}
+                />
               </div>
             </div>
             <div className="column">
-              <animated.div style={inquireMove} className="right-third">
-                <animated.div style={inquireFade} className="main-button">
+              <animated.div
+                style={inquireMove}
+                className="is-flex-desktop"
+                id="desktop-landing-right"
+              >
+                <animated.div style={inquireFade} id="main-button">
                   <Link to="/form">
-                    <button className="inquire">INQUIRE</button>
+                    <button className="inquire-btn">INQUIRE ⟶</button>
                   </Link>
                 </animated.div>
 
-                <div style={contactInfo} className="contact-text">
+                <div style={contactInfo} id="desktop-landing-address">
                   <p>office@projectmercury.com</p>
                   <p>T 646 861 2827</p>
                   <p>324 Lafayette Street</p>
@@ -109,37 +117,45 @@ function LandingPage() {
           <div className="columns is-mobile is-hidden-desktop">
             <div className="column is-one-fifth">
               <div className="vertical-logo">
-                <img src={logo} alt="LOGO" id="mercury-logo" />
+                <img
+                  src={logo}
+                  alt="projectMERCURY"
+                  // style={{ width: "49px", height: "auto" }}
+                />
               </div>
             </div>
             <div className="column">
-              <animated.div style={inquireMove} className="right-third">
-                <animated.div style={inquireFade} className="main-button">
-                  <Link to="/form">
-                    <button className="inquire">INQUIRE</button>
-                  </Link>
-                </animated.div>
-
-                <div style={contactInfo} className="contact-text">
+              <animated.div
+                style={inquireMove}
+                className="is-flex-touch"
+                id="mobile-landing"
+              >
+                <div style={contactInfo} id="mobile-address">
                   <p>office@projectmercury.com</p>
                   <p>T 646 861 2827</p>
                   <p>324 Lafayette Street</p>
                   <p>NY, New York 11201</p>
                 </div>
-              </animated.div>
-              <animated.div style={leftText} className="left-text">
-                <p>
-                  Derris and Mythology (formerly Partners & Spade) have worked
-                  together before, bringing to life some of the most known and
-                  loved brands of the past decade, and rethinking the businesses
-                  of big, iconic companies.
-                </p>
-                <p>
-                  Today, as we continue our work with our respective agencies,
-                  we're officially joining forces on Project Mercury - a project
-                  to find the founders and ideas that will change their
-                  industries and help build the next great brands.
-                </p>
+                <animated.div style={inquireFade} id="mobile-inquire">
+                  <Link to="/form">
+                    <button className="inquire-btn">INQUIRE ⟶</button>
+                  </Link>
+                </animated.div>
+
+                <animated.div style={leftText} id="mobile-blurb">
+                  <p>
+                    Derris and Mythology (formerly Partners & Spade) have worked
+                    together before, bringing to life some of the most known and
+                    loved brands of the past decade, and rethinking the
+                    businesses of big, iconic companies.
+                  </p>
+                  <p>
+                    Today, as we continue our work with our respective agencies,
+                    we're officially joining forces on Project Mercury - a
+                    project to find the founders and ideas that will change
+                    their industries and help build the next great brands.
+                  </p>
+                </animated.div>
               </animated.div>
             </div>
           </div>

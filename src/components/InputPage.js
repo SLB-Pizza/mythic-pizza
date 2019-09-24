@@ -201,7 +201,7 @@ function InputPage(props) {
             //   alert('CLOSE CLICKED');
             // }}
           >
-            CLOSE
+            ⟵ CLOSE
           </button>
         </Link>
         <div className="inputContactInfo">

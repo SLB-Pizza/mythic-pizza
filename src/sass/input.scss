@@ -22,7 +22,7 @@
 }
 
 // ==============================================
-// UTILITY CLASSES - switch inline input styles
+// UTILITY CLASSES - switch inline CSS styles
 // ==============================================
 
 .inactive-grey {
@@ -99,7 +99,6 @@ label {
   font-family: "Graphik";
   font-size: 12px;
   width: 100%;
-  padding-bottom: 84px;
   input {
     width: 100%;
     font-size: 23px;
@@ -110,6 +109,7 @@ label {
   }
   p {
     padding-top: 10px;
+    padding-bottom: 84px;
   }
 }
 
@@ -131,3 +131,44 @@ label {
 // Solo inputs
 // 003, 005, 007, 008, 012
 // =============================
+
+.one-line-input {
+  width: 100%;
+}
+
+// =============================
+// <TextBox /> inputs
+// 004, 006, 010, 011, 013
+// =============================
+
+.text-box-container {
+  padding-bottom: 84px;
+  .text-box {
+    border-width: 1px;
+    border-style: solid;
+    padding: 10px;
+    .text-box-details {
+      flex-direction: row;
+      justify-content: space-between;
+      .text-box-description {
+        flex: 3;
+        font-size: 12px;
+      }
+      .text-box-char-count {
+        display: flex;
+        flex: 1;
+        justify-content: flex-end;
+      }
+    }
+    textarea {
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      border-style: hidden;
+      font-size: 14px;
+      line-height: 21px;
+      margin-top: 10px;
+      overflow: hidden;
+    }
+  }
+}

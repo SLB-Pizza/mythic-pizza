@@ -184,6 +184,11 @@ function InputPage(props) {
             action="/success"
           >
             <p id="form-header-text">LET'S GET STARTED.</p>
+            {/*
+            // =============================
+            // 001 & 002
+            // =============================
+            */}
             <div className="adjacent-inputs is-flex-desktop">
               <label>
                 <input
@@ -216,48 +221,47 @@ function InputPage(props) {
                 <p>002. CONTACT ROLE*</p>
               </label>
             </div>
-            <div className="solo-input-container">
-              <label
+            {/*
+            // =============================
+            // 003
+            // =============================
+            */}
+            <label>
+              <input
+                className="one-line-input"
                 style={
                   companyName.length > 0
                     ? { borderColor: "white", color: "white" }
                     : { borderColor: "grey", color: "grey" }
                 }
-              >
-                <input
-                  className="solo-input"
-                  style={
-                    companyName.length > 0
-                      ? { borderColor: "white", color: "white" }
-                      : { borderColor: "grey", color: "grey" }
-                  }
-                  type="text"
-                  name="companyName"
-                  value={companyName}
-                  onChange={e => setCompanyName(e.target.value)}
-                  required={true}
-                />
-                <p>003. COMPANY NAME*</p>
-              </label>
+                type="text"
+                name="companyName"
+                value={companyName}
+                onChange={e => setCompanyName(e.target.value)}
+                required={true}
+              />
+              <p>003. COMPANY NAME*</p>
+            </label>
+            {/*
+            // =============================
+            // 004
+            // =============================
+            */}
+            <div className="text-box-container">
+              <TextBox
+                onChange={e => setCompanyDescription(e.target.value)}
+                value={companyDescription}
+                name="companyDescription"
+                insideText="004. COMPANY DESCRIPTION*"
+              />
             </div>
+            {/*
+            // =============================
+            // 005
+            // =============================
+            */}
             <div className="solo-input-container">
-              <div className="solo-input-textBox">
-                <TextBox
-                  onChange={e => setCompanyDescription(e.target.value)}
-                  value={companyDescription}
-                  name="companyDescription"
-                  insideText="004. COMPANY DESCRIPTION*"
-                />
-              </div>
-            </div>
-            <div className="solo-input-container">
-              <label
-                style={
-                  based.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
-                }
-              >
+              <label>
                 <input
                   className="solo-input"
                   style={
@@ -274,24 +278,26 @@ function InputPage(props) {
                 <p>005. WHERE ARE YOU BASED?*</p>
               </label>
             </div>
-            <div className="solo-input-container">
-              <label className="solo-input-textBox">
-                <TextBox
-                  onChange={e => setMarketOpportunity(e.target.value)}
-                  value={marketOpportunity}
-                  name="marketOpportunity"
-                  insideText="006. MARKET OPPORTUNITY*"
-                />
-              </label>
+            {/*
+            // =============================
+            // 006
+            // =============================
+            */}
+            <div className="text-box-container">
+              <TextBox
+                onChange={e => setMarketOpportunity(e.target.value)}
+                value={marketOpportunity}
+                name="marketOpportunity"
+                insideText="006. MARKET OPPORTUNITY*"
+              />
             </div>
+            {/*
+            // =============================
+            // 007
+            // =============================
+            */}
             <div className="solo-input-container">
-              <label
-                style={
-                  targetDemo.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
-                }
-              >
+              <label>
                 <input
                   className="solo-input"
                   style={
@@ -308,30 +314,32 @@ function InputPage(props) {
                 <p>007. TARGET DEMO*</p>
               </label>
             </div>
-            <div className="solo-input-container">
-              <label
+            {/*
+            // =============================
+            // 008
+            // =============================
+            */}
+            <label>
+              <input
+                className="one-line-input"
                 style={
                   competitors.length > 0
                     ? { borderColor: "white", color: "white" }
                     : { borderColor: "grey", color: "grey" }
                 }
-              >
-                <input
-                  className="solo-input"
-                  style={
-                    competitors.length > 0
-                      ? { borderColor: "white", color: "white" }
-                      : { borderColor: "grey", color: "grey" }
-                  }
-                  type="text"
-                  name="competitors"
-                  value={competitors}
-                  onChange={e => setCompetitors(e.target.value)}
-                  required={true}
-                />
-                <p>008. COMPETITORS*</p>
-              </label>
-            </div>
+                type="text"
+                name="competitors"
+                value={competitors}
+                onChange={e => setCompetitors(e.target.value)}
+                required={true}
+              />
+              <p>008. COMPETITORS*</p>
+            </label>
+            {/*
+            // =============================
+            // 009
+            // =============================
+            */}
             <div className="solo-input-container">
               <div
                 className="fileUploadWrapper"
@@ -403,26 +411,38 @@ function InputPage(props) {
                 </div>
               </div>
             </div>
-            <div className="solo-input-container">
-              <label className="solo-input">
-                <TextBox
-                  onChange={e => setCurrentTeam(e.target.value)}
-                  value={currentTeam}
-                  name="currentTeam"
-                  insideText="010. CURRENT TEAM (INCLUDE CURRENT MANAGEMENT STRUCTURE)*"
-                />
-              </label>
+            {/*
+            // =============================
+            // 010
+            // =============================
+            */}
+            <div className="text-box-container">
+              <TextBox
+                onChange={e => setCurrentTeam(e.target.value)}
+                value={currentTeam}
+                name="currentTeam"
+                insideText="010. CURRENT TEAM (INCLUDE CURRENT MANAGEMENT STRUCTURE)*"
+              />
             </div>
-            <div className="solo-input-container">
-              <label className="solo-input">
-                <TextBox
-                  onChange={e => setPositions(e.target.value)}
-                  value={positions}
-                  name="positions"
-                  insideText="011. OPEN/NEEDED POSITIONS*"
-                />
-              </label>
+
+            {/*
+            // =============================
+            // 011
+            // =============================
+            */}
+            <div className="text-box-container">
+              <TextBox
+                onChange={e => setPositions(e.target.value)}
+                value={positions}
+                name="positions"
+                insideText="011. OPEN/NEEDED POSITIONS*"
+              />
             </div>
+            {/*
+            // =============================
+            // 012
+            // =============================
+            */}
             <div className="solo-input-container">
               <label
                 style={
@@ -484,16 +504,24 @@ function InputPage(props) {
                 <p>012. CAPITAL RAISED*</p>
               </label>
             </div>
-            <div className="solo-input-container">
-              <label className="solo-input">
-                <TextBox
-                  onChange={e => setCapitalNeeded(e.target.value)}
-                  value={capitalNeeded}
-                  name="capitalNeeded"
-                  insideText="013. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
-                />
-              </label>
+            {/*
+            // =============================
+            // 013
+            // =============================
+            */}
+            <div className="text-box-container">
+              <TextBox
+                onChange={e => setCapitalNeeded(e.target.value)}
+                value={capitalNeeded}
+                name="capitalNeeded"
+                insideText="013. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
+              />
             </div>
+            {/*
+            // =============================
+            // 014
+            // =============================
+            */}
             <div className="solo-input-select-dropdown-container">
               <label className="solo-input-select-dropdown">
                 <SelectDropdown
@@ -507,6 +535,11 @@ function InputPage(props) {
                 </p>
               </label>
             </div>
+            {/*
+            // =============================
+            // 015
+            // =============================
+            */}
             <div className="solo-input-container">
               <label
                 className="solo-input"
@@ -526,6 +559,11 @@ function InputPage(props) {
                 <p style={{ paddingTop: "10px" }}>015. SERVICES NEEDED*</p>
               </label>
             </div>
+            {/*
+            // =============================
+            // Terms & Conditions
+            // =============================
+            */}
             <div
               className="termsAndCheckboxWrapper"
               style={{ paddingBottom: "5%" }}
@@ -547,6 +585,11 @@ function InputPage(props) {
                 I AGREE TO THE TERMS BELOW
               </div>
             </div>
+            {/*
+            // =============================
+            // Submit Button
+            // =============================
+            */}
             <input
               type="SUBMIT"
               disabled={termsCheckbox ? false : true}
@@ -569,6 +612,11 @@ function InputPage(props) {
                 borderRadius: "2px"
               }}
             />
+            {/*
+            // =============================
+            // Legalese
+            // =============================
+            */}
             <p className="text" style={{ color: "white" }}>
               LEGAL:
             </p>

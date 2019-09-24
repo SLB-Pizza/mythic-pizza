@@ -215,6 +215,9 @@ function InputPage(props) {
             href="mailto:office@projectmercury.com">
             office@projectmercury.com
           </Link>
+          <p>T 646 861 2827</p>
+          <p>324 Lafayette Street</p>
+          <p>NY, New York 11201</p>
         </div>
       </div>
       {/*

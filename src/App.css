@@ -128,6 +128,9 @@ The required fields notice
 
 .requiredWrapper {
   flex: 1;
+  font-family: 'Graphik';
+  font-size: 14px;
+  line-height: 21px;
   /* background-color: purple; */
 }
 

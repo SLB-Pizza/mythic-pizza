@@ -158,6 +158,15 @@ function InputPage(props) {
     // delay: 200,
   });
 
+  const formSpring = useSpring({
+    config: {
+      duration: 2000,
+    },
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    // delay: 200,
+  });
+
   return (
     <div className="input-page">
       {/*
@@ -188,10 +197,9 @@ function InputPage(props) {
         <Link to="/">
           <button
             className="closeButton"
-            // onClick={() => {
-            //   alert('CLOSE CLICKED');
-            // }}
-          >
+            onClick={() => {
+              window.scrollTo(0, 0);
+            }}>
             ⟵ CLOSE
           </button>
         </Link>
@@ -217,14 +225,14 @@ function InputPage(props) {
         /_  _/ __/ _ \  / /__/ _ \/ / // /  ' \/ _ \
          /_/ \__/_//_/  \___/\___/_/\_,_/_/_/_/_//_/
         */}
-      <form
+      <animated.form
         name="contact"
         onSubmit={handleSubmit}
         netlify="true"
         // data-netlify-honeypot="bot-field"
         className="input-form"
         action="/success"
-        style={{ overflow: 'visible' }}>
+        style={formSpring}>
         {/* <input type="hidden" name="form-name" value="contact" /> */}
         {/* <input type="hidden" name="bot-field" /> */}
         <p className="form-header-text">LET'S GET STARTED.</p>
@@ -417,6 +425,7 @@ function InputPage(props) {
                           justifyContent: 'space-between',
                           height: '49%',
                           width: '99%',
+                          flex: 1,
                         }}>
                         <p>
                           009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL HERE
@@ -432,6 +441,7 @@ function InputPage(props) {
                         alignContent: 'center',
                         height: '49%',
                         width: '99%',
+                        flex: 3,
                       }}>
                       {file && file.name ? (
                         <div>{file.name}</div>
@@ -638,7 +648,7 @@ function InputPage(props) {
           <p id="copyright-text">COPYRIGHT 2019 PROJECT MERCURY</p>
           <p id="rights-text">ALL RIGHTS RESERVED</p>
         </div>
-      </form>
+      </animated.form>
     </div>
   );
 }

@@ -32,6 +32,7 @@ THE INPUT FORM'S FOUR MAIN DIVS ARE:
   background-color: black;
   position: absolute;
   width: 100%;
+  /* overflow: hidden; */
 }
 
 /*
@@ -137,7 +138,7 @@ The form itself
   flex-direction: column;
   margin-right: 10vh;
   margin-bottom: 10vh;
-  overflow: visible;
+  /* overflow: auto; */
   /* background-color: aquamarine; */
 }
 

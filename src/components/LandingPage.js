@@ -1,48 +1,48 @@
 import React, { useRef } from 'react';
-import { useSpring, /*useTransition,*/ animated, useChain } from 'react-spring';
+import {
+  useSpring,
+  /*useTransition,*/ animated,
+  useChain,
+  config,
+} from 'react-spring';
 import { Link } from 'react-router-dom';
 import logo from '../imgs/project-mercury-logo.svg';
+import * as easings from 'd3-ease';
 
 // import "../App.css";
 
 function LandingPage() {
   //Left text spring
   const leftText = useSpring({
-    config: {
-      duration: 1500,
-    },
+    config: { duration: 1500, easing: easings.easeCubicOut },
     from: { opacity: 1, transform: 'translate(0, -400%)' },
-    to: { opacity: 1, transform: 'translate(0, 0)' },
-    delay: 200,
-  });
-  //contact info srping
-  const contactInfo = useSpring({
-    config: {
-      duration: 1500,
-    },
-    from: { opacity: 0, transform: 'translate(200%, 0)' },
     to: { opacity: 1, transform: 'translate(0, 0)' },
     delay: 200,
   });
   //inquire button move spring
   const inquireMoveRef = useRef();
   const inquireMove = useSpring({
-    config: {
-      duration: 1000,
-    },
+    config: { duration: 1500, easing: easings.easeCubicOut },
     from: { transform: 'translate(200%, 0)' },
     to: { transform: 'translate(0, 0)' },
     ref: inquireMoveRef,
+  });
+  //contact info srping
+  const contactInfo = useSpring({
+    config: config.molasses,
+    from: { opacity: 0, transform: 'translate(200%, 0)' },
+    to: { opacity: 1, transform: 'translate(0, 0)' },
+    delay: 200,
   });
   //inquire button fade spring
   const inquireFadeRef = useRef();
   const inquireFade = useSpring({
     config: {
-      duration: 500,
+      duration: 800,
     },
     from: { opacity: 0 },
     to: { opacity: 1 },
-    delay: 500,
+    // delay: 300,
     ref: inquireFadeRef,
   });
 

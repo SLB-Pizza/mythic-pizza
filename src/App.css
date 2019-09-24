@@ -281,15 +281,15 @@ QUESTIONS
 .termsCheckboxAgreed {
   height: 2vh;
   width: 2vh;
-  border: 2px solid white;
-  background: white;
+  border: 1px solid white;
+  background: black;
 }
 
 /*the little checkbox for terms agreement if NOT checked*/
 .termsCheckboxNotAgree {
   height: 2vh;
   width: 2vh;
-  border: 2px outset white;
+  border: 1px solid white;
   /* color: grey; */
   background: transparent;
 }
@@ -521,6 +521,8 @@ for the description text and char counter to be in a row above it*/
   font-family: Graphik;
   font-weight: normal;
   font-size: 14px;
+  color: 'white';
+  opacity: 50;
 }
 
 /*

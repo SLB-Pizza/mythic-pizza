@@ -10,6 +10,7 @@ import CheckboxDropdown from './CheckboxDropdown';
 
 import logo from '../imgs/project-mercury-logo.svg';
 import uploadIcon from '../imgs/uploadArrow-Sketch.svg';
+import checkmark from '../imgs/check-white.svg';
 
 function InputPage(props) {
   const [contactName, setContactName] = useState('');
@@ -632,8 +633,21 @@ function InputPage(props) {
                     ? 'termsCheckboxAgreed'
                     : 'termsCheckboxNotAgree'
                 }
-                onClick={handleTerms}
-              />
+                onClick={handleTerms}>
+                {termsCheckbox ? (
+                  <img
+                    src={checkmark}
+                    alt="check"
+                    style={{
+                      justifySelf: 'center',
+                      alignSelf: 'center',
+                      height: '95%',
+                      width: '95%',
+                      color: 'white',
+                    }}
+                  />
+                ) : null}
+              </div>
             </div>
             <div
               className="text"
@@ -686,7 +700,7 @@ function InputPage(props) {
           <p className="text" style={{ color: 'white' }}>
             LEGAL:
           </p>
-          <p className="legalInfo" style={{ color: 'grey' }}>
+          <p className="legalInfo">
             Any nonpublic information provided hereunder is confidential, and
             Project Mercury will not disclose the information to third parties
             except for its professional advisors as strictly necessary; and will

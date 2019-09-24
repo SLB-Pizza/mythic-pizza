@@ -1,7 +1,7 @@
-import React, { useRef } from "react";
-import { useSpring, /*useTransition,*/ animated, useChain } from "react-spring";
-import { Link } from "react-router-dom";
-import logo from "../imgs/project-mercury-logo.svg";
+import React, { useRef } from 'react';
+import { useSpring, /*useTransition,*/ animated, useChain } from 'react-spring';
+import { Link } from 'react-router-dom';
+import logo from '../imgs/project-mercury-logo.svg';
 
 // import "../App.css";
 
@@ -9,41 +9,41 @@ function LandingPage() {
   //Left text spring
   const leftText = useSpring({
     config: {
-      duration: 1500
+      duration: 1500,
     },
-    from: { opacity: 1, transform: "translate(0, -400%)" },
-    to: { opacity: 1, transform: "translate(0, 0)" },
-    delay: 200
+    from: { opacity: 1, transform: 'translate(0, -400%)' },
+    to: { opacity: 1, transform: 'translate(0, 0)' },
+    delay: 200,
   });
   //contact info srping
   const contactInfo = useSpring({
     config: {
-      duration: 1500
+      duration: 1500,
     },
-    from: { opacity: 0, transform: "translate(200%, 0)" },
-    to: { opacity: 1, transform: "translate(0, 0)" },
-    delay: 200
+    from: { opacity: 0, transform: 'translate(200%, 0)' },
+    to: { opacity: 1, transform: 'translate(0, 0)' },
+    delay: 200,
   });
   //inquire button move spring
   const inquireMoveRef = useRef();
   const inquireMove = useSpring({
     config: {
-      duration: 1000
+      duration: 1000,
     },
-    from: { transform: "translate(200%, 0)" },
-    to: { transform: "translate(0, 0)" },
-    ref: inquireMoveRef
+    from: { transform: 'translate(200%, 0)' },
+    to: { transform: 'translate(0, 0)' },
+    ref: inquireMoveRef,
   });
   //inquire button fade spring
   const inquireFadeRef = useRef();
   const inquireFade = useSpring({
     config: {
-      duration: 500
+      duration: 500,
     },
     from: { opacity: 0 },
     to: { opacity: 1 },
     delay: 500,
-    ref: inquireFadeRef
+    ref: inquireFadeRef,
   });
 
   useChain([inquireMoveRef, inquireFadeRef]);
@@ -90,8 +90,7 @@ function LandingPage() {
               <animated.div
                 style={inquireMove}
                 className="is-flex-desktop"
-                id="desktop-landing-right"
-              >
+                id="desktop-landing-right">
                 <animated.div style={inquireFade} id="main-button">
                   <Link to="/form">
                     <button className="inquire-btn">INQUIRE ⟶</button>
@@ -128,8 +127,7 @@ function LandingPage() {
               <animated.div
                 style={inquireMove}
                 className="is-flex-touch"
-                id="mobile-landing"
-              >
+                id="mobile-landing">
                 <div style={contactInfo} id="mobile-address">
                   <p>office@projectmercury.com</p>
                   <p>T 646 861 2827</p>

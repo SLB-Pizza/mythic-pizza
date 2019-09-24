@@ -1,70 +1,61 @@
-import React, { useState } from "react";
-import Dropzone from "react-dropzone";
-import { /*useTransition,*/ useSpring, animated } from "react-spring";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import Dropzone from 'react-dropzone';
+import { /*useTransition,*/ useSpring, animated } from 'react-spring';
+import { Link } from 'react-router-dom';
 
-import "../App.css";
-import TextBox from "./TextBox.js";
-import SelectDropdown from "./SelectDropdown";
-import CheckboxDropdown from "./CheckboxDropdown";
-import logo from "../imgs/project-mercury-logo.svg";
+import '../App.css';
+import TextBox from './TextBox.js';
+import SelectDropdown from './SelectDropdown';
+import CheckboxDropdown from './CheckboxDropdown';
+
+import logo from '../imgs/project-mercury-logo.svg';
+import uploadIcon from '../imgs/uploadArrow-Sketch.svg';
 
 function InputPage(props) {
-  const [contactName, setContactName] = useState("");
-  const [contactRole, setContactRole] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [companyDescription, setCompanyDescription] = useState("");
-  const [based, setBased] = useState("");
-  const [marketOpportunity, setMarketOpportunity] = useState("");
-  const [targetDemo, setTargetDemo] = useState("");
-  const [competitors, setCompetitors] = useState("");
+  const [contactName, setContactName] = useState('');
+  const [contactRole, setContactRole] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [companyDescription, setCompanyDescription] = useState('');
+  const [based, setBased] = useState('');
+  const [marketOpportunity, setMarketOpportunity] = useState('');
+  const [targetDemo, setTargetDemo] = useState('');
+  const [competitors, setCompetitors] = useState('');
   const [file, setFile] = useState({});
-  const [currentTeam, setCurrentTeam] = useState("");
-  const [positions, setPositions] = useState("");
-  const [capitalRaised, setCapitalRaised] = useState("");
-  const [capitalNeeded, setCapitalNeeded] = useState("");
+  const [currentTeam, setCurrentTeam] = useState('');
+  const [positions, setPositions] = useState('');
+  const [capitalRaised, setCapitalRaised] = useState('');
+  const [capitalNeeded, setCapitalNeeded] = useState('');
   const launchSchedule = [
-    { id: 1, timing: "3 MONTHS" },
-    { id: 2, timing: "6 MONTHS" },
-    { id: 3, timing: "9 MONTHS" },
-    { id: 4, timing: "1 YEAR" },
-    { id: 5, timing: "2 YEARS" },
-    { id: 6, timing: "2 YEARS+" }
+    { id: 1, timing: '3 MONTHS' },
+    { id: 2, timing: '6 MONTHS' },
+    { id: 3, timing: '9 MONTHS' },
+    { id: 4, timing: '1 YEAR' },
+    { id: 5, timing: '2 YEARS' },
+    { id: 6, timing: '2 YEARS+' },
   ];
-  const [launchSelected, setLaunchSelected] = useState("3 MONTHS");
+  const [launchSelected, setLaunchSelected] = useState('3 MONTHS');
   const servicesNeeded = [
-    { id: 1, service: "BRANDING" },
-    { id: 2, service: "FUNDRAISING" },
-    { id: 3, service: "STRATEGY" },
-    { id: 4, service: "WEB DESIGN" },
-    { id: 5, service: "WEB DEVELOPMENT" }
+    { id: 1, service: 'BRANDING' },
+    { id: 2, service: 'FUNDRAISING' },
+    { id: 3, service: 'STRATEGY' },
+    { id: 4, service: 'WEB DESIGN' },
+    { id: 5, service: 'WEB DEVELOPMENT' },
   ];
   const [servicesSelected, setServicesSelected] = useState([]);
-  const [servicesString, setServicesString] = useState("");
+  const [servicesString, setServicesString] = useState('');
   const [termsCheckbox, setTermsCheckbox] = useState(false);
   // const [submitted, setSubmitted] = useState(false);
 
   const onDrop = async acceptedFiles => {
     if (acceptedFiles[0].size <= 10000000) {
-      console.log("acceptdFiles: ", acceptedFiles);
+      console.log('acceptdFiles: ', acceptedFiles);
       // await this.setState({ file: acceptedFiles[0] });
       await setFile(acceptedFiles[0]);
-      alert(`${file.name} has been uploaded`);
+      alert(`${acceptedFiles[0].name} has been uploaded`);
     } else {
-      alert("FILE SIZE TOO LARGE\nPLEASE LIMIT ATTACHMENTS TO 10MB");
+      alert('FILE SIZE TOO LARGE\nPLEASE LIMIT ATTACHMENTS TO 10MB');
     }
   };
-
-  //remnant from class based origins:
-  // const handleChange = event => {
-  //   // eslint-disable-next-line no-unused-vars
-  //   const stateName = event.target.name;
-  //   console.log('event.target.value:', event.target.value);
-  //   console.log('event.target.name:', event.target.name);
-  //   console.log('event:', event);
-  //   this.setState({ [stateName]: event.target.value });
-  //   console.log(`this.state[${stateName}]:`, this.state);
-  // };
 
   const encode = data => {
     const formData = new FormData();
@@ -77,7 +68,7 @@ function InputPage(props) {
   const handleSubmit = e => {
     // const data = { 'form-name': 'contact', ...this.state };
     const data = {
-      "form-name": "contact",
+      'form-name': 'contact',
       contactName,
       contactRole,
       companyName,
@@ -92,43 +83,43 @@ function InputPage(props) {
       capitalRaised,
       capitalNeeded,
       launchSelected,
-      servicesString
+      servicesString,
     };
 
-    fetch("/", {
-      method: "POST",
+    fetch('/', {
+      method: 'POST',
       // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
-      body: encode(data)
+      body: encode(data),
     })
       .then(
-        () => alert("Form Submission Successful!!"),
-        console.log("form submission object: ", data)
+        () => alert('Form Submission Successful!!'),
+        console.log('form submission object: ', data)
         // setSubmitted(true)
       )
-      .catch(error => alert("Form Submission Failed!"));
+      .catch(error => alert('Form Submission Failed!'));
 
     e.preventDefault();
   };
 
   const handleLaunchSelect = async option => {
     await setLaunchSelected(option.timing);
-    console.log("InputPage handleSelect selectedTiming: ", launchSelected);
+    console.log('InputPage handleSelect selectedTiming: ', launchSelected);
   };
 
   const handleServicesSelect = async selectedServices => {
-    console.log("handleServicesSelect selectedServices: ", selectedServices);
+    console.log('handleServicesSelect selectedServices: ', selectedServices);
     await setServicesSelected(selectedServices);
     console.log(
-      "servicesSelected AFTER setServicesSelected: ",
+      'servicesSelected AFTER setServicesSelected: ',
       servicesSelected
     );
 
     const stringServices = await selectedServices
-      .reduce((acc, curr) => acc + ", " + curr.service, "")
+      .reduce((acc, curr) => acc + ', ' + curr.service, '')
       .slice(1);
-    console.log("handleServicesSelect stringServices: ", stringServices);
+    console.log('handleServicesSelect stringServices: ', stringServices);
     await setServicesString(stringServices);
-    console.log("handleServicesSelect servicesString: ", servicesString);
+    console.log('handleServicesSelect servicesString: ', servicesString);
   };
 
   const handleTerms = async () => {
@@ -160,10 +151,10 @@ function InputPage(props) {
   //for use in animated.div's below as style props
   const logoSpring = useSpring({
     config: {
-      duration: 2000
+      duration: 2000,
     },
     from: { opacity: 0 },
-    to: { opacity: 1 }
+    to: { opacity: 1 },
     // delay: 200,
   });
 
@@ -233,8 +224,7 @@ function InputPage(props) {
         // data-netlify-honeypot="bot-field"
         className="input-form"
         action="/success"
-        style={{ overflow: "visible" }}
-      >
+        style={{ overflow: 'visible' }}>
         {/* <input type="hidden" name="form-name" value="contact" /> */}
         {/* <input type="hidden" name="bot-field" /> */}
         <p className="form-header-text">LET'S GET STARTED.</p>
@@ -243,16 +233,15 @@ function InputPage(props) {
             id="left-sideBySide"
             style={
               contactName.length > 0
-                ? { borderColor: "white", color: "white" }
-                : { borderColor: "grey", color: "grey" }
-            }
-          >
+                ? { borderColor: 'white', color: 'white' }
+                : { borderColor: 'grey', color: 'grey' }
+            }>
             <input
               className="sideBySide-input"
               style={
                 contactName.length > 0
-                  ? { borderColor: "white", color: "white" }
-                  : { borderColor: "grey", color: "grey" }
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
               }
               type="text"
               name="contactName"
@@ -266,16 +255,15 @@ function InputPage(props) {
             id="right-sideBySide"
             style={
               contactRole.length > 0
-                ? { borderColor: "white", color: "white" }
-                : { borderColor: "grey", color: "grey" }
-            }
-          >
+                ? { borderColor: 'white', color: 'white' }
+                : { borderColor: 'grey', color: 'grey' }
+            }>
             <input
               className="sideBySide-input"
               style={
                 contactRole.length > 0
-                  ? { borderColor: "white", color: "white" }
-                  : { borderColor: "grey", color: "grey" }
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
               }
               type="text"
               name="contactRole"
@@ -290,16 +278,15 @@ function InputPage(props) {
           <label
             style={
               companyName.length > 0
-                ? { borderColor: "white", color: "white" }
-                : { borderColor: "grey", color: "grey" }
-            }
-          >
+                ? { borderColor: 'white', color: 'white' }
+                : { borderColor: 'grey', color: 'grey' }
+            }>
             <input
               className="solo-input"
               style={
                 companyName.length > 0
-                  ? { borderColor: "white", color: "white" }
-                  : { borderColor: "grey", color: "grey" }
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
               }
               type="text"
               name="companyName"
@@ -324,16 +311,15 @@ function InputPage(props) {
           <label
             style={
               based.length > 0
-                ? { borderColor: "white", color: "white" }
-                : { borderColor: "grey", color: "grey" }
-            }
-          >
+                ? { borderColor: 'white', color: 'white' }
+                : { borderColor: 'grey', color: 'grey' }
+            }>
             <input
               className="solo-input"
               style={
                 based.length > 0
-                  ? { borderColor: "white", color: "white" }
-                  : { borderColor: "grey", color: "grey" }
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
               }
               type="text"
               name="based"
@@ -358,16 +344,15 @@ function InputPage(props) {
           <label
             style={
               targetDemo.length > 0
-                ? { borderColor: "white", color: "white" }
-                : { borderColor: "grey", color: "grey" }
-            }
-          >
+                ? { borderColor: 'white', color: 'white' }
+                : { borderColor: 'grey', color: 'grey' }
+            }>
             <input
               className="solo-input"
               style={
                 targetDemo.length > 0
-                  ? { borderColor: "white", color: "white" }
-                  : { borderColor: "grey", color: "grey" }
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
               }
               type="text"
               name="targetDemo"
@@ -382,16 +367,15 @@ function InputPage(props) {
           <label
             style={
               competitors.length > 0
-                ? { borderColor: "white", color: "white" }
-                : { borderColor: "grey", color: "grey" }
-            }
-          >
+                ? { borderColor: 'white', color: 'white' }
+                : { borderColor: 'grey', color: 'grey' }
+            }>
             <input
               className="solo-input"
               style={
                 competitors.length > 0
-                  ? { borderColor: "white", color: "white" }
-                  : { borderColor: "grey", color: "grey" }
+                  ? { borderColor: 'white', color: 'white' }
+                  : { borderColor: 'grey', color: 'grey' }
               }
               type="text"
               name="competitors"
@@ -406,28 +390,59 @@ function InputPage(props) {
           <div
             className="fileUploadWrapper"
             style={{
-              borderColor: file && file.name && file.size > 0 ? "white" : "grey"
-            }}
-          >
+              borderColor:
+                file && file.name && file.size > 0 ? 'white' : 'grey',
+            }}>
             <div className="fileUploadInner">
               <Dropzone onDrop={onDrop}>
                 {({ getRootProps, getInputProps, isDragActive }) => (
                   <div
                     {...getRootProps()}
                     style={{
-                      height: "19vh",
-                      width: "100%",
-                      display: "flex",
-                      flexDirection: "column",
-                      borderColor: file && file.size > 0 ? "white" : "grey",
-                      color: file && file.size > 0 ? "white" : "grey"
-                    }}
-                  >
+                      height: '18vh',
+                      width: '100%',
+                      display: 'flex',
+                      flexDirection: 'column',
+                      borderColor: file && file.size > 0 ? 'white' : 'grey',
+                      color: file && file.size > 0 ? 'white' : 'grey',
+                    }}>
                     <input {...getInputProps()} />
-                    {isDragActive
-                      ? "DROP YOUR FILE HERE"
-                      : "009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL *LIMIT:10MB*"}
-                    {file && file.name ? <div>{file.name}</div> : " "}
+                    {isDragActive ? (
+                      'DROP YOUR FILE HERE'
+                    ) : (
+                      <div
+                        style={{
+                          display: 'flex',
+                          flexDirection: 'row',
+                          justifyContent: 'space-between',
+                          height: '49%',
+                          width: '99%',
+                        }}>
+                        <p>
+                          009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL HERE
+                        </p>{' '}
+                        <p>*LIMIT: 10 MB*</p>
+                      </div>
+                    )}
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'row',
+                        justifyContent: 'center',
+                        alignContent: 'center',
+                        height: '49%',
+                        width: '99%',
+                      }}>
+                      {file && file.name ? (
+                        <div>{file.name}</div>
+                      ) : (
+                        <img
+                          style={{ alignSelf: 'center', justifySelf: 'center' }}
+                          src={uploadIcon}
+                          alt="Upload Icon Goes Here"
+                        />
+                      )}
+                    </div>
                   </div>
                 )}
               </Dropzone>
@@ -458,36 +473,33 @@ function InputPage(props) {
           <label
             style={
               capitalRaised.length > 0
-                ? { borderColor: "white", color: "white" }
-                : { borderColor: "grey", color: "grey" }
-            }
-          >
+                ? { borderColor: 'white', color: 'white' }
+                : { borderColor: 'grey', color: 'grey' }
+            }>
             <label
               style={
                 capitalRaised.length > 0
                   ? {
-                      borderColor: "white",
-                      display: "flex",
-                      flexDirection: "row",
-                      fontSize: "1.5rem"
+                      borderColor: 'white',
+                      display: 'flex',
+                      flexDirection: 'row',
+                      fontSize: '1.5rem',
                     }
                   : {
-                      borderColor: "grey",
-                      color: "grey",
-                      display: "flex",
-                      flexDirection: "row",
-                      fontSize: "1.5rem"
+                      borderColor: 'grey',
+                      color: 'grey',
+                      display: 'flex',
+                      flexDirection: 'row',
+                      fontSize: '1.5rem',
                     }
-              }
-            >
+              }>
               <p
                 style={{
-                  height: "100%",
+                  height: '100%',
                   // borderBottomStyle: 'solid',
                   // borderBottomWidth: '1px',
-                  alignSelf: "center"
-                }}
-              >
+                  alignSelf: 'center',
+                }}>
                 $
               </p>
               <input
@@ -495,14 +507,14 @@ function InputPage(props) {
                 style={
                   capitalRaised.length > 0
                     ? {
-                        borderColor: "white",
-                        color: "white",
-                        backgroundColor: "transparent"
+                        borderColor: 'white',
+                        color: 'white',
+                        backgroundColor: 'transparent',
                       }
                     : {
-                        borderColor: "grey",
-                        color: "grey",
-                        backgroundColor: "transparent"
+                        borderColor: 'grey',
+                        color: 'grey',
+                        backgroundColor: 'transparent',
                       }
                 }
                 type="number"
@@ -533,7 +545,7 @@ function InputPage(props) {
               name="launchSelected"
               insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
             />
-            <p style={{ paddingTop: "10px" }}>
+            <p style={{ paddingTop: '10px' }}>
               014. ANTICIPATED LAUNCH SCHEDULE*
             </p>
           </label>
@@ -543,10 +555,9 @@ function InputPage(props) {
             className="solo-input"
             style={
               servicesSelected.length > 0
-                ? { borderColor: "transparent", color: "white" }
-                : { borderColor: "transparent", color: "grey" }
-            }
-          >
+                ? { borderColor: 'transparent', color: 'white' }
+                : { borderColor: 'transparent', color: 'grey' }
+            }>
             <CheckboxDropdown
               value={servicesSelected}
               handleSelect={handleServicesSelect}
@@ -554,22 +565,21 @@ function InputPage(props) {
               name="servicesString"
               insideText="015. SERVICES NEEDED*"
             />
-            <p style={{ paddingTop: "10px" }}>015. SERVICES NEEDED*</p>
+            <p style={{ paddingTop: '10px' }}>015. SERVICES NEEDED*</p>
           </label>
         </div>
         <div
           className="termsAndCheckboxWrapper"
-          style={{ paddingBottom: "5%" }}
-        >
-          <div style={{ display: "flex", flexDirection: "row" }}>
+          style={{ paddingBottom: '5%' }}>
+          <div style={{ display: 'flex', flexDirection: 'row' }}>
             <div
               className={
-                termsCheckbox ? "termsCheckboxAgreed" : "termsCheckboxNotAgree"
+                termsCheckbox ? 'termsCheckboxAgreed' : 'termsCheckboxNotAgree'
               }
               onClick={handleTerms}
             />
           </div>
-          <div className="text" style={{ color: "white", paddingLeft: "2vw" }}>
+          <div className="text" style={{ color: 'white', paddingLeft: '2vw' }}>
             I AGREE TO THE TERMS BELOW
           </div>
         </div>
@@ -577,8 +587,8 @@ function InputPage(props) {
           type="SUBMIT"
           disabled={termsCheckbox ? false : true}
           style={{
-            color: "black",
-            border: "none",
+            color: 'black',
+            border: 'none',
             backgroundColor:
               termsCheckbox &&
               companyDescription.length > 0 &&
@@ -588,18 +598,17 @@ function InputPage(props) {
               capitalNeeded.length > 0 &&
               servicesSelected.length > 0 &&
               file.size > 0
-                ? "white"
-                : "grey",
-            width: "100%",
-            height: "5vh",
-            borderRadius: "2px"
+                ? 'white'
+                : 'grey',
+            width: '100%',
+            height: '5vh',
+            borderRadius: '2px',
           }}
         />
-        SUBMIT
-        <p className="text" style={{ color: "white" }}>
+        <p className="text" style={{ color: 'white' }}>
           LEGAL:
         </p>
-        <p className="text" style={{ color: "grey" }}>
+        <p className="text" style={{ color: 'grey' }}>
           Any nonpublic information provided hereunder is confidential, and
           Project Mercury will not disclose the information to third parties
           except for its professional advisors as strictly necessary; and will
@@ -609,7 +618,7 @@ function InputPage(props) {
           company to those of its employees and representatives who have a need
           to know.
         </p>
-        <p className="text" style={{ color: "grey" }}>
+        <p className="text" style={{ color: 'grey' }}>
           The foregoing is intended solely as a basis for further discussions
           and is not intended to be and does not constitute a legally binding
           offer, obligation or commitment on the part of Project Mercury to

@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
-import downArrow from '../icons/corner-right-down.svg';
-import upArrow from '../icons/corner-right-up.svg';
+import downArrow from '../imgs/dropdownArrow-Sketch.svg';
+import upArrow from '../imgs/dropdownUpArrow-Sketch.svg';
 import checkmark from '../imgs/check.svg';
 
 // props (services, handleSelect, name, insidetext)
@@ -57,12 +57,10 @@ export default class CheckboxDropdown extends React.Component {
       );
       await this.setState({
         selectedServices: filteredServices,
-        // showServices: false,
       });
     }
 
     this.props.handleSelect(this.state.selectedServices);
-    // this.props.handleSelect(service);
   };
 
   render() {
@@ -74,16 +72,14 @@ export default class CheckboxDropdown extends React.Component {
           display: 'flex',
           flexDirection: 'column',
         }}
-        ref={node => (this.node = node)}
-      >
+        ref={node => (this.node = node)}>
         <div
           style={{
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
           }}
-          onClick={this.dropdown}
-        >
+          onClick={this.dropdown}>
           {this.props.value.length > 0
             ? this.props.value
                 .reduce((acc, curr) => acc + ', ' + curr.service, '')
@@ -101,8 +97,7 @@ export default class CheckboxDropdown extends React.Component {
           style={{
             display: this.state.showServices ? 'inline' : 'none',
             width: '100%',
-          }}
-        >
+          }}>
           {/* MAP  */}
           {this.state.services.map(service => (
             // MAP RETURN WRAPPER DIV
@@ -114,8 +109,7 @@ export default class CheckboxDropdown extends React.Component {
                 borderTop: '1px solid grey',
                 height: '4vh',
                 backgroundColor: 'white',
-              }}
-            >
+              }}>
               {/* checkbox div orange  */}
               <div
                 className={
@@ -128,8 +122,7 @@ export default class CheckboxDropdown extends React.Component {
                   // backgroundColor: 'orange',
                   marginRight: '1%',
                   marginLeft: '1%',
-                }}
-              >
+                }}>
                 {this.state.selectedServices.includes(service) ? (
                   <img
                     src={checkmark}
@@ -157,8 +150,7 @@ export default class CheckboxDropdown extends React.Component {
                 style={{
                   alignSelf: 'center',
                   // backgroundColor: 'teal'
-                }}
-              >
+                }}>
                 {service.service}
               </div>
             </div>

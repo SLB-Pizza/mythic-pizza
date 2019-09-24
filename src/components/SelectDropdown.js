@@ -1,7 +1,7 @@
 import React from 'react';
 import '../App.css';
-import downArrow from '../icons/corner-right-down.svg';
-import upArrow from '../icons/corner-right-up.svg';
+import downArrow from '../imgs/dropdownArrow-Sketch.svg';
+import upArrow from '../imgs/dropdownUpArrow-Sketch.svg';
 
 // props (options, handleSelect, name, insidetext)
 export default class SelectDropdown extends React.Component {
@@ -54,12 +54,10 @@ export default class SelectDropdown extends React.Component {
       <div
         className="selectDropdownWrapper"
         style={{ color: 'white' }}
-        ref={node => (this.node = node)}
-      >
+        ref={node => (this.node = node)}>
         <div
           style={{ display: 'flex', justifyContent: 'space-between' }}
-          onClick={this.dropdown}
-        >
+          onClick={this.dropdown}>
           {this.state.selectedOption.timing || ''}
           <div className="dropDownArrow" onClick={this.dropdown}>
             {this.state.showOptions ? (
@@ -78,8 +76,7 @@ export default class SelectDropdown extends React.Component {
                   : 'unselectedOption'
               }
               key={option.id}
-              onClick={() => this.selectOption(option)}
-            >
+              onClick={() => this.selectOption(option)}>
               {option.timing}
             </div>
           ))}

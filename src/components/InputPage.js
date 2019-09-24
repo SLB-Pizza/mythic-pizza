@@ -48,7 +48,6 @@ function InputPage(props) {
 
   const onDrop = async acceptedFiles => {
     if (acceptedFiles[0].size <= 10000000) {
-      console.log('acceptdFiles: ', acceptedFiles);
       // await this.setState({ file: acceptedFiles[0] });
       await setFile(acceptedFiles[0]);
       alert(`${acceptedFiles[0].name} has been uploaded`);
@@ -94,33 +93,23 @@ function InputPage(props) {
     })
       .then(
         // () => alert('Form Submission Successful!!'),
-        console.log('form submission object: ', data),
         window.scrollTo(0, 0),
         setSubmitted(true)
-        // setSubmitted(true)
       )
       .catch(error => alert('Form Submission Failed!'));
   };
 
   const handleLaunchSelect = async option => {
     await setLaunchSelected(option.timing);
-    console.log('InputPage handleSelect selectedTiming: ', launchSelected);
   };
 
   const handleServicesSelect = async selectedServices => {
-    console.log('handleServicesSelect selectedServices: ', selectedServices);
     await setServicesSelected(selectedServices);
-    console.log(
-      'servicesSelected AFTER setServicesSelected: ',
-      servicesSelected
-    );
 
     const stringServices = await selectedServices
       .reduce((acc, curr) => acc + ', ' + curr.service, '')
       .slice(1);
-    console.log('handleServicesSelect stringServices: ', stringServices);
     await setServicesString(stringServices);
-    console.log('handleServicesSelect servicesString: ', servicesString);
   };
 
   const handleTerms = async () => {

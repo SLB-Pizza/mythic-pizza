@@ -465,24 +465,33 @@ function InputPage(props) {
                       <div
                         style={{
                           display: 'flex',
-                          flexDirection: 'row',
+                          flexDirection: 'column',
                           justifyContent: 'center',
                           alignContent: 'center',
                           height: '49%',
                           width: '99%',
                           flex: 3,
                         }}>
+                        <img
+                          style={{
+                            alignSelf: 'center',
+                            justifySelf: 'center',
+                          }}
+                          src={uploadIcon}
+                          alt="Upload Icon Goes Here"
+                        />
                         {file && file.name ? (
-                          <div>{file.name}</div>
-                        ) : (
-                          <img
+                          //fontSize: '100%' just means font is normal sozed, 200% is dbl sized, etc
+                          <div
                             style={{
+                              fontSize: '100%',
                               alignSelf: 'center',
-                              justifySelf: 'center',
-                            }}
-                            src={uploadIcon}
-                            alt="Upload Icon Goes Here"
-                          />
+                              marginTop: '2vh',
+                            }}>
+                            Uploaded: {file.name}
+                          </div>
+                        ) : (
+                          <div />
                         )}
                       </div>
                     </div>

@@ -1,5 +1,5 @@
 * {
-  font-family: "David_Reg";
+  font-family: 'David_Reg';
   color: white;
 }
 
@@ -149,12 +149,12 @@ input {
 /* inline style replacements for the grey/white ternaries */
 
 .grey-inactive {
-  border-color: "grey";
-  color: "grey";
+  border-color: 'grey';
+  color: 'grey';
 }
 
 .white-active {
-  border-color: "white";
+  border-color: 'white';
 }
 
 .form-header-text {
@@ -220,13 +220,13 @@ QUESTIONS
   padding-bottom: 2%;
   /* color: grey; */
 }
-solo-input-container input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+solo-input-container input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-solo-input-container input[type="number"] {
+solo-input-container input[type='number'] {
   -moz-appearance: textfield;
 }
 

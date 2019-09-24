@@ -1,9 +1,9 @@
 import React, { useRef } from "react";
-import { useSpring, useTransition, animated, useChain } from "react-spring";
+import { useSpring, /*useTransition,*/ animated, useChain } from "react-spring";
 import { Link } from "react-router-dom";
 import logo from "../imgs/project-mercury-logo.svg";
 
-import "../App.css";
+// import "../App.css";
 
 function LandingPage() {
   //Left text spring
@@ -49,40 +49,102 @@ function LandingPage() {
   useChain([inquireMoveRef, inquireFadeRef]);
 
   return (
-    <div className="landing">
-      <animated.div style={leftText} className="left-text">
-        <p>
-          Derris and Mythology (formerly Partners & Spade) have worked together
-          before, bringing to life some of the most known and loved brands of
-          the past decade, and rethinking the businesses of big, iconic
-          companies.
-        </p>
-        <p>
-          Today, as we continue our work with our respective agencies, we're
-          officially joining forces on Project Mercury - a project to find the
-          founders and ideas that will change their industries and help build
-          the next great brands.
-        </p>
-      </animated.div>
+    <div className="hero is-fullheight">
+      <div className="hero-body">
+        <div className="container">
+          {/*
+              ____            __   __
+             / __ \___  _____/ /__/ /_____  ____
+            / / / / _ \/ ___/ //_/ __/ __ \/ __ \
+           / /_/ /  __(__  ) ,< / /_/ /_/ / /_/ /
+          /_____/\___/____/_/|_|\__/\____/ .___/
+                                        /_/
+          */}
+          <div className="columns is-hidden-touch">
+            <div className="column">
+              <animated.div style={leftText} className="left-text">
+                <p>
+                  Derris and Mythology (formerly Partners & Spade) have worked
+                  together before, bringing to life some of the most known and
+                  loved brands of the past decade, and rethinking the businesses
+                  of big, iconic companies.
+                </p>
+                <p>
+                  Today, as we continue our work with our respective agencies,
+                  we're officially joining forces on Project Mercury - a project
+                  to find the founders and ideas that will change their
+                  industries and help build the next great brands.
+                </p>
+              </animated.div>
+            </div>
+            <div className="column is-two-fifths">
+              <div className="vertical-logo">
+                <img src={logo} alt="LOGO" id="mercury-logo" />
+              </div>
+            </div>
+            <div className="column">
+              <animated.div style={inquireMove} className="right-third">
+                <animated.div style={inquireFade} className="main-button">
+                  <Link to="/form">
+                    <button className="inquire">INQUIRE</button>
+                  </Link>
+                </animated.div>
 
-      <div className="vertical-logo">
-        <img src={logo} alt="LOGO" id="mercury-logo" />
-      </div>
+                <div style={contactInfo} className="contact-text">
+                  <p>office@projectmercury.com</p>
+                  <p>T 646 861 2827</p>
+                  <p>324 Lafayette Street</p>
+                  <p>NY, New York 11201</p>
+                </div>
+              </animated.div>
+            </div>
+          </div>
+          {/*
+            ______                 __
+           /_  __/___  __  _______/ /_
+            / / / __ \/ / / / ___/ __ \
+           / / / /_/ / /_/ / /__/ / / /
+          /_/  \____/\__,_/\___/_/ /_/
+          */}
+          <div className="columns is-mobile is-hidden-desktop">
+            <div className="column is-one-fifth">
+              <div className="vertical-logo">
+                <img src={logo} alt="LOGO" id="mercury-logo" />
+              </div>
+            </div>
+            <div className="column">
+              <animated.div style={inquireMove} className="right-third">
+                <animated.div style={inquireFade} className="main-button">
+                  <Link to="/form">
+                    <button className="inquire">INQUIRE</button>
+                  </Link>
+                </animated.div>
 
-      <animated.div style={inquireMove} className="right-third">
-        <animated.div style={inquireFade} className="main-button">
-          <Link to="/form">
-            <button className="inquire">INQUIRE</button>
-          </Link>
-        </animated.div>
-
-        <div style={contactInfo} className="contact-text">
-          <p>office@projectmercury.com</p>
-          <p>T 646 861 2827</p>
-          <p>324 Lafayette Street</p>
-          <p>NY, New York 11201</p>
+                <div style={contactInfo} className="contact-text">
+                  <p>office@projectmercury.com</p>
+                  <p>T 646 861 2827</p>
+                  <p>324 Lafayette Street</p>
+                  <p>NY, New York 11201</p>
+                </div>
+              </animated.div>
+              <animated.div style={leftText} className="left-text">
+                <p>
+                  Derris and Mythology (formerly Partners & Spade) have worked
+                  together before, bringing to life some of the most known and
+                  loved brands of the past decade, and rethinking the businesses
+                  of big, iconic companies.
+                </p>
+                <p>
+                  Today, as we continue our work with our respective agencies,
+                  we're officially joining forces on Project Mercury - a project
+                  to find the founders and ideas that will change their
+                  industries and help build the next great brands.
+                </p>
+              </animated.div>
+            </div>
+          </div>
         </div>
-      </animated.div>
+      </div>
     </div>
   );
 }

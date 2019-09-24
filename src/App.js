@@ -14,22 +14,17 @@ function App() {
   });
 
   return (
-    <>
-      <div className="App">
-        {transitions.map(({ item, props, key }) => (
-          <animated.div key={key} style={props}>
-            {console.log("page route animation props \n", props)}
-            {console.log("page route animation item \n", item)}
-
-            <Switch location={item}>
-              <Route exact path="/" component={LandingPage} />
-              <Route exact path="/form" component={InputPage} />
-              <Route exact path="/success" component={SuccessPage} />
-            </Switch>
-          </animated.div>
-        ))}
-      </div>
-    </>
+    <div className="App">
+      {transitions.map(({ item, props, key }) => (
+        <animated.div key={key} style={props}>
+          <Switch location={item}>
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/form" component={InputPage} />
+            <Route exact path="/success" component={SuccessPage} />
+          </Switch>
+        </animated.div>
+      ))}
+    </div>
   );
 }
 

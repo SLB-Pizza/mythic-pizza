@@ -3,105 +3,6 @@
   color: white;
 }
 
-.App {
-  background-image: url("./imgs/bg1.jpg");
-  /* This bit underneath needs tweaking */
-  background-size: cover;
-  background-color: black;
-  /* background-repeat: no-repeat; */
-  /* background-position: absolute; */
-  min-height: 100vh;
-  /* overflow: hidden; */
-}
-
-/*
-██╗      █████╗ ███╗   ██╗██████╗ ██╗███╗   ██╗ ██████╗
-██║     ██╔══██╗████╗  ██║██╔══██╗██║████╗  ██║██╔════╝
-██║     ███████║██╔██╗ ██║██║  ██║██║██╔██╗ ██║██║  ███╗
-██║     ██╔══██║██║╚██╗██║██║  ██║██║██║╚██╗██║██║   ██║
-███████╗██║  ██║██║ ╚████║██████╔╝██║██║ ╚████║╚██████╔╝
-╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝
-*/
-
-.landing {
-  display: flex;
-  height: 100vh;
-  position: absolute;
-  width: 100%;
-  /* overflow: hidden; */
-}
-
-/* First Column */
-.left-text {
-  flex: 2;
-  margin-left: 5vw;
-  /* background-color: rgba(0, 255, 255, 0.5); */
-  align-self: center;
-  color: white;
-  /* height: 30vh; */
-  /* overflow: hidden; */
-}
-
-.left-text p {
-  text-align: left;
-  font-size: 1rem;
-  line-height: 1.2rem;
-  text-transform: uppercase;
-  /* overflow: hidden; */
-}
-
-/* Second Column */
-.vertical-logo {
-  flex: 4;
-  /* background-color: rgba(255, 55, 255, 0.5); */
-  align-self: center;
-  color: white;
-  /* background-color: pink; */
-  /* overflow: hidden; */
-}
-
-#mercury-logo {
-  padding-left: 45%;
-  /* overflow: hidden; */
-}
-
-/* Third Column */
-.right-third {
-  flex: 3;
-  /* margin-right: 5vw; */
-  display: flex;
-  flex-direction: column;
-  /* overflow: hidden; */
-}
-
-.main-button {
-  flex: 5;
-  justify-content: center;
-  /* background-color: rgba(255, 255, 55, 0.5); */
-  /* overflow: hidden; */
-}
-
-.inquire {
-  flex: 1;
-  color: black;
-  background: white;
-  border: none;
-  top: 34vh;
-  width: 7vw;
-  height: 5vh;
-  position: -webkit-sticky;
-  position: sticky;
-  /* overflow: hidden; */
-}
-
-.contact-text {
-  flex: 3;
-  color: white;
-  /* overflow: hidden; */
-  /* margin-bottom: 1rem; */
-  /* background-color: rgba(55, 255, 55, 0.5); */
-}
-
 /*
 ███████╗ ██████╗ ██████╗ ███╗   ███╗
 ██╔════╝██╔═══██╗██╔══██╗████╗ ████║
@@ -319,13 +220,13 @@ QUESTIONS
   padding-bottom: 2%;
   /* color: grey; */
 }
-solo-input-container input[type='number']::-webkit-outer-spin-button,
-input[type='number']::-webkit-inner-spin-button {
+solo-input-container input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-solo-input-container input[type='number'] {
+solo-input-container input[type="number"] {
   -moz-appearance: textfield;
 }
 

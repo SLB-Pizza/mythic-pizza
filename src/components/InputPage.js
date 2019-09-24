@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Dropzone from "react-dropzone";
-import { useTransition, useSpring, animated } from "react-spring";
+import { /*useTransition,*/ useSpring, animated } from "react-spring";
 import { Link } from "react-router-dom";
 
 import "../App.css";
@@ -42,7 +42,7 @@ function InputPage(props) {
   const [servicesSelected, setServicesSelected] = useState([]);
   const [servicesString, setServicesString] = useState("");
   const [termsCheckbox, setTermsCheckbox] = useState(false);
-  const [submitted, setSubmitted] = useState(false);
+  // const [submitted, setSubmitted] = useState(false);
 
   const onDrop = async acceptedFiles => {
     if (acceptedFiles[0].size <= 10000000) {
@@ -102,8 +102,8 @@ function InputPage(props) {
     })
       .then(
         () => alert("Form Submission Successful!!"),
-        console.log("form submission object: ", data),
-        setSubmitted(true)
+        console.log("form submission object: ", data)
+        // setSubmitted(true)
       )
       .catch(error => alert("Form Submission Failed!"));
 

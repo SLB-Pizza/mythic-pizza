@@ -623,7 +623,12 @@ function InputPage(props) {
             </div>
             <div
               className="text"
-              style={{ color: 'white', paddingLeft: '2vw' }}>
+              style={{
+                color: 'white',
+                paddingLeft: '2vw',
+                fontFamily: 'Graphik',
+                fontSize: '14px',
+              }}>
               I AGREE TO THE TERMS BELOW
             </div>
           </div>
@@ -644,6 +649,9 @@ function InputPage(props) {
             style={{
               color: 'black',
               border: 'none',
+              fontFamily: 'Graphik',
+              fontSize: '200%',
+              alignContent: 'center',
               backgroundColor:
                 termsCheckbox &&
                 companyDescription.length > 0 &&

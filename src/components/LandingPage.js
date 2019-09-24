@@ -7,6 +7,7 @@ import {
 } from 'react-spring';
 import { Link } from 'react-router-dom';
 import logo from '../imgs/project-mercury-logo.svg';
+import bgIMG from '../imgs/bg1.jpg';
 import * as easings from 'd3-ease';
 
 // import "../App.css";
@@ -56,7 +57,13 @@ function LandingPage() {
   useChain([inquireMoveRef, inquireFadeRef]);
 
   return (
-    <div className="hero is-fullheight">
+    <div
+      className="hero is-fullheight"
+      style={{
+        backgroundImage: 'url(' + bgIMG + ')',
+        backgroundSize: 'cover',
+        backgroundAttachment: 'fixed',
+      }}>
       <div className="hero-body">
         <div className="container">
           {/*

@@ -44,7 +44,7 @@ function InputPage(props) {
   const [servicesSelected, setServicesSelected] = useState([]);
   const [servicesString, setServicesString] = useState('');
   const [termsCheckbox, setTermsCheckbox] = useState(false);
-  // const [submitted, setSubmitted] = useState(false);
+  const [submitted, setSubmitted] = useState(false);
 
   const onDrop = async acceptedFiles => {
     if (acceptedFiles[0].size <= 10000000) {
@@ -149,6 +149,8 @@ function InputPage(props) {
 
   //THe Following are springs from react-springs defined here
   //for use in animated.div's below as style props
+
+  //logo fade in on load
   const logoSpring = useSpring({
     config: {
       duration: 2000,
@@ -157,8 +159,17 @@ function InputPage(props) {
     to: { opacity: 1 },
     // delay: 200,
   });
-
+  //form fade in upon page load
   const formSpring = useSpring({
+    config: {
+      duration: 8000,
+    },
+    from: { opacity: 0 },
+    to: { opacity: 1 },
+    // delay: 200,
+  });
+  //success message fade-in upon submission:
+  const successSpring = useSpring({
     config: {
       duration: 2000,
     },

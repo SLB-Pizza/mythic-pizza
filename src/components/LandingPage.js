@@ -124,7 +124,7 @@ function LandingPage() {
                       fontSize: '14px',
                     }}
                     href="mailto:office@projectmercury.com"
-                    target="_blank"
+                    // target="_blank"
                     rel="noopener noreferrer">
                     office@projectmercury.com
                   </a>
@@ -169,7 +169,7 @@ function LandingPage() {
                       fontSize: '14px',
                     }}
                     href="mailto:office@projectmercury.com"
-                    target="_blank"
+                    // target="_blank"
                     rel="noopener noreferrer">
                     office@projectmercury.com
                   </a>

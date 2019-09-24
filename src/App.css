@@ -89,6 +89,8 @@ The button and address
   background-color: black;
   color: white;
   border-color: white;
+  font-family: Graphik;
+  font-size: 14px;
   border-width: 1px;
   width: 7vw;
   height: 5vh;
@@ -101,10 +103,10 @@ The button and address
 .inputContactInfo {
   top: 66vh;
   color: 'white';
-  font-weight: normal;
+  font-weight: 200;
   font-family: Graphik;
-  line-height: 21px;
   font-size: 14px;
+  line-height: 21px;
   position: -webkit-sticky;
   position: sticky;
 }

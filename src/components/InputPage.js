@@ -866,7 +866,7 @@ function InputPage(props) {
                       <input {...getInputProps()} />
                       {isDragActive ? (
                         <div className="upload-header">
-                          <p id="drop-file">PLEASE DROP YOUR FILE HERE</p>
+                          <p id="drop-file">DROP YOUR FILE HERE</p>
                         </div>
                       ) : (
                         <div className="upload-header">
@@ -877,10 +877,11 @@ function InputPage(props) {
                         </div>
                       )}
                       <div className="upload-icon">
+                        <img src={uploadIcon} alt="Upload Icon" />
                         {file && file.name ? (
-                          <p>{file.name}</p>
+                          <p>Uploaded: {file.name}</p>
                         ) : (
-                          <img src={uploadIcon} alt="Upload Icon" />
+                          <div />
                         )}
                       </div>
                     </div>

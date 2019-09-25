@@ -141,6 +141,16 @@
   }
 }
 
+#required-text-mobile {
+  position: relative;
+  top: 241px;
+  p {
+    transform: rotate(90deg);
+    font-size: 12pt;
+    white-space: nowrap;
+  }
+}
+
 // ==============================================
 // 4TH COLUMN - the form itself
 // ==============================================

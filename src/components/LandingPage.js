@@ -62,7 +62,7 @@ function LandingPage() {
       style={{
         backgroundImage: 'url(' + bgIMG + ')',
         backgroundSize: 'cover',
-        backgroundAttachment: 'fixed',
+        // backgroundAttachment: 'fixed',
         overflowY: 'hidden',
       }}>
       <div className="hero-body">

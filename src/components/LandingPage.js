@@ -20,6 +20,7 @@ function LandingPage() {
     to: { opacity: 1, transform: "translate(0, 0)" },
     delay: 200
   });
+
   //Left text spring mobile
   const leftTextMobile = useSpring({
     config: { duration: 1500, easing: easings.easeCubicOut },
@@ -27,6 +28,7 @@ function LandingPage() {
     to: { opacity: 1, transform: "translate(0, 0)" },
     delay: 200
   });
+
   //inquire button move spring
   const inquireMoveRef = useRef();
   const inquireMove = useSpring({
@@ -35,6 +37,7 @@ function LandingPage() {
     to: { transform: "translate(0, 0)" },
     ref: inquireMoveRef
   });
+
   //contact info srping
   const contactInfo = useSpring({
     config: config.molasses,
@@ -42,6 +45,7 @@ function LandingPage() {
     to: { opacity: 1, transform: "translate(0, 0)" },
     delay: 200
   });
+
   //inquire button fade spring
   const inquireFadeRef = useRef();
   const inquireFade = useSpring({

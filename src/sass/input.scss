@@ -78,6 +78,14 @@
       margin-top: 21pt;
     }
   }
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: normal;
+    font-family: Graphik;
+    line-height: 21px;
+    font-size: 14px;
+  }
 }
 
 // ==============================================
@@ -97,6 +105,13 @@
 // ==============================================
 // 4TH COLUMN - the form itself
 // ==============================================
+.copyrightSuccess {
+  display: flex;
+  flex-direction: row;
+  padding-top: 70vh;
+  justify-self: flex-end;
+  color: gray;
+}
 
 #form-header-text {
   font-size: 16pt;

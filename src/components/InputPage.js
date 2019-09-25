@@ -164,7 +164,9 @@ function InputPage(props) {
         </div>
         <div className="column is-2">
           <Link to="/">
-            <button id="close-button">⟵ CLOSE</button>
+            <button id="close-button">
+              <p>⟵ CLOSE</p>
+            </button>
           </Link>
           <div className="input-contact-info">
             <p>office@projectmercury.com</p>
@@ -186,6 +188,7 @@ function InputPage(props) {
             <p id="form-header-text">LET'S GET STARTED.</p>
             {/*
             // =============================
+            // Contact Name & Role
             // 001 & 002
             // =============================
             */}
@@ -223,6 +226,7 @@ function InputPage(props) {
             </div>
             {/*
             // =============================
+            // Company Name
             // 003
             // =============================
             */}
@@ -244,6 +248,7 @@ function InputPage(props) {
             </label>
             {/*
             // =============================
+            // Company Description
             // 004
             // =============================
             */}
@@ -257,6 +262,7 @@ function InputPage(props) {
             </div>
             {/*
             // =============================
+            // Where are you based?
             // 005
             // =============================
             */}
@@ -280,6 +286,7 @@ function InputPage(props) {
             </div>
             {/*
             // =============================
+            // Market Opportunity
             // 006
             // =============================
             */}
@@ -293,6 +300,7 @@ function InputPage(props) {
             </div>
             {/*
             // =============================
+            // Target Demo
             // 007
             // =============================
             */}
@@ -316,6 +324,7 @@ function InputPage(props) {
             </div>
             {/*
             // =============================
+            // Competitors
             // 008
             // =============================
             */}
@@ -337,82 +346,55 @@ function InputPage(props) {
             </label>
             {/*
             // =============================
+            // File Upload
             // 009
             // =============================
             */}
-            <div className="solo-input-container">
-              <div
-                className="fileUploadWrapper"
-                style={{
-                  borderColor:
-                    file && file.name && file.size > 0 ? "white" : "grey"
-                }}
-              >
-                <div className="fileUploadInner">
-                  <Dropzone onDrop={onDrop}>
-                    {({ getRootProps, getInputProps, isDragActive }) => (
-                      <div
-                        {...getRootProps()}
-                        style={{
-                          height: "18vh",
-                          width: "100%",
-                          display: "flex",
-                          flexDirection: "column",
-                          borderColor: file && file.size > 0 ? "white" : "grey",
-                          color: file && file.size > 0 ? "white" : "grey"
-                        }}
-                      >
-                        <input {...getInputProps()} />
-                        {isDragActive ? (
-                          "DROP YOUR FILE HERE"
-                        ) : (
-                          <div
-                            style={{
-                              display: "flex",
-                              flexDirection: "row",
-                              justifyContent: "space-between",
-                              height: "49%",
-                              width: "99%"
-                            }}
-                          >
-                            <p>
-                              009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL
-                              HERE
-                            </p>{" "}
-                            <p>*LIMIT: 10 MB*</p>
-                          </div>
-                        )}
-                        <div
-                          style={{
-                            display: "flex",
-                            flexDirection: "row",
-                            justifyContent: "center",
-                            alignContent: "center",
-                            height: "49%",
-                            width: "99%"
-                          }}
-                        >
-                          {file && file.name ? (
-                            <div>{file.name}</div>
-                          ) : (
-                            <img
-                              style={{
-                                alignSelf: "center",
-                                justifySelf: "center"
-                              }}
-                              src={uploadIcon}
-                              alt="Upload Icon Goes Here"
-                            />
-                          )}
-                        </div>
+            <div
+              className="file-upload-box"
+              style={{
+                borderColor:
+                  file && file.name && file.size > 0 ? "white" : "grey"
+              }}
+            >
+              <Dropzone onDrop={onDrop}>
+                {({ getRootProps, getInputProps, isDragActive }) => (
+                  <div
+                    {...getRootProps()}
+                    className="upload is-flex-desktop"
+                    style={{
+                      borderColor: file && file.size > 0 ? "white" : "grey",
+                      color: file && file.size > 0 ? "white" : "grey"
+                    }}
+                  >
+                    <input {...getInputProps()} />
+                    {isDragActive ? (
+                      <div className="upload-header">
+                        <p id="drop-file">PLEASE DROP YOUR FILE HERE</p>
+                      </div>
+                    ) : (
+                      <div className="upload-header">
+                        <p id="instructions">
+                          009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL HERE
+                        </p>
+                        <p id="limit">*LIMIT: 10 MB*</p>
                       </div>
                     )}
-                  </Dropzone>
-                </div>
-              </div>
+                    <div className="upload-icon is-flex-desktop">
+                      {file && file.name ? (
+                        <p>{file.name}</p>
+                      ) : (
+                        <img src={uploadIcon} alt="Upload Icon" />
+                      )}
+                    </div>
+                  </div>
+                )}
+              </Dropzone>
             </div>
+
             {/*
             // =============================
+            // Current Team Structure
             // 010
             // =============================
             */}
@@ -427,6 +409,7 @@ function InputPage(props) {
 
             {/*
             // =============================
+            // Open/Needed Positions
             // 011
             // =============================
             */}
@@ -440,6 +423,7 @@ function InputPage(props) {
             </div>
             {/*
             // =============================
+            // Capital Raised
             // 012
             // =============================
             */}
@@ -506,6 +490,7 @@ function InputPage(props) {
             </div>
             {/*
             // =============================
+            // Capital Needed
             // 013
             // =============================
             */}
@@ -519,6 +504,7 @@ function InputPage(props) {
             </div>
             {/*
             // =============================
+            // Anticipated Launch Schedule
             // 014
             // =============================
             */}
@@ -537,6 +523,7 @@ function InputPage(props) {
             </div>
             {/*
             // =============================
+            // Services Needed
             // 015
             // =============================
             */}
@@ -647,6 +634,11 @@ function InputPage(props) {
               similar to or competitive with the business or proposed business
               of the Company or its affiliates.
             </p>
+            {/*
+            // =============================
+            // Copyright
+            // =============================
+            */}
             <div className="copyright">
               <p id="copyright-text">COPYRIGHT 2019 PROJECT MERCURY</p>
               <p id="rights-text">ALL RIGHTS RESERVED</p>

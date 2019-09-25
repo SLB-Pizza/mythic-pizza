@@ -50,13 +50,17 @@
 // ==============================================
 
 #close-button {
-  width: 100px;
-  height: 50px;
+  // width: 100px;
+  // height: 36px;
   border: 1px solid white;
   background-color: black;
   top: 40vh;
   position: -webkit-sticky;
   position: sticky;
+  p {
+    font-size: 14pt;
+    padding: 8px 18px;
+  }
 }
 
 .input-contact-info {
@@ -64,10 +68,10 @@
   position: -webkit-sticky;
   position: sticky;
   p {
-    font-size: 14px;
-    line-height: 21px;
+    font-size: 14pt;
+    line-height: 21pt;
     &:nth-child(3) {
-      margin-top: 21px;
+      margin-top: 21pt;
     }
   }
 }
@@ -78,10 +82,10 @@
 
 #required-text {
   position: relative;
-  top: 315px;
+  top: 241px;
   p {
     transform: rotate(90deg);
-    font-size: 12px;
+    font-size: 12pt;
     white-space: nowrap;
   }
 }
@@ -91,17 +95,17 @@
 // ==============================================
 
 #form-header-text {
-  font-size: 16px;
+  font-size: 16pt;
   margin-top: 136px;
 }
 
 label {
   font-family: "Graphik";
-  font-size: 12px;
+  font-size: 12pt;
   width: 100%;
   input {
     width: 100%;
-    font-size: 23px;
+    font-size: 23pt;
     padding-bottom: 10px;
     background-color: black;
     border-style: hidden hidden solid;
@@ -152,7 +156,7 @@ label {
       justify-content: space-between;
       .text-box-description {
         flex: 3;
-        font-size: 12px;
+        font-size: 12pt;
       }
       .text-box-char-count {
         display: flex;
@@ -165,10 +169,62 @@ label {
       height: 100%;
       background-color: black;
       border-style: hidden;
-      font-size: 14px;
-      line-height: 21px;
+      font-size: 14pt;
+      line-height: 21pt;
       margin-top: 10px;
       overflow: hidden;
+    }
+  }
+}
+
+// =============================
+// File Upload
+// 009
+// =============================
+
+.file-upload-box {
+  height: 220px;
+  border-width: 1px;
+  border-style: solid;
+  margin-bottom: 50px;
+  .upload {
+    height: 100%;
+    width: 100%;
+    padding: 10px 14px 0;
+    flex-direction: column;
+    p {
+      justify-self: center;
+    }
+    .upload-header {
+      width: 100%;
+      display: flex;
+      flex-direction: row;
+      #drop-file {
+        flex: 1;
+      }
+      #instructions {
+        flex: 4;
+      }
+      #limit {
+        flex: 1;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+    .upload-icon {
+      height: 100%;
+      flex-direction: row;
+      align-items: "center";
+      justify-content: "center";
+      p {
+        flex: 1;
+        height: 100%;
+      }
+      img {
+        flex: 1;
+        height: 41px;
+        align-self: center;
+      }
     }
   }
 }

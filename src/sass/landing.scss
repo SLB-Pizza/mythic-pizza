@@ -50,8 +50,8 @@
     justify-content: flex-end;
     background-color: rgba(55, 255, 55, 0.5);
     p {
-      font-size: 14px;
-      line-height: 21px;
+      font-size: 14pt;
+      line-height: 21pt;
       &:nth-child(3) {
         margin-top: 14px;
       }
@@ -85,8 +85,8 @@
     flex: 1;
     background-color: rgba(255, 55, 255, 0.5);
     p {
-      font-size: 12px;
-      line-height: 18px;
+      font-size: 12pt;
+      line-height: 18pt;
       &:nth-child(3) {
         margin-top: 18px;
       }
@@ -104,8 +104,8 @@
   #mobile-blurb {
     flex: 2;
     p {
-      font-size: 14px;
-      line-height: 19px;
+      font-size: 14pt;
+      line-height: 19pt;
       text-transform: uppercase;
       &:last-of-type {
         margin-top: 19px;
@@ -114,39 +114,3 @@
     background-color: rgba(55, 255, 55, 0.5);
   }
 }
-
-// #mobile-landing-right {
-//   height: 100%;
-//   flex-direction: column;
-//   #main-button {
-//     flex: 2;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: center;
-//     background-color: rgba(255, 55, 255, 0.5);
-//   }
-
-//   #contact-text {
-//     flex: 1;
-//     display: flex;
-//     flex-direction: column;
-//     justify-content: flex-end;
-//     background-color: rgba(55, 255, 55, 0.5);
-//     p {
-//       font-size: 14px;
-//       line-height: 21px;
-//       &:nth-child(3) {
-//         margin-top: 14px;
-//       }
-//     }
-//   }
-// }
-
-// #p {
-//   font-size: 16px;
-//   line-height: 21px;
-//   text-transform: uppercase;
-//   &:last-child {
-//     margin-top: 16px;
-//   }
-// }

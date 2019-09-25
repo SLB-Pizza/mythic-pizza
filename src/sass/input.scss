@@ -225,11 +225,17 @@ label {
       .text-box-description {
         flex: 3;
         font-size: 12pt;
+        #mobile {
+          font-size: 6pt;
+        }
       }
       .text-box-char-count {
         display: flex;
         flex: 1;
         justify-content: flex-end;
+        #mobile {
+          font-size: 6pt;
+        }
       }
     }
     textarea {

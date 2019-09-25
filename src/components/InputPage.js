@@ -565,7 +565,18 @@ function InputPage(props) {
               <input
                 className="submit-btn"
                 type="SUBMIT"
-                disabled={termsCheckbox ? false : true}
+                disabled={
+                  termsCheckbox &&
+                  companyDescription.length > 0 &&
+                  marketOpportunity.length > 0 &&
+                  currentTeam.length > 0 &&
+                  positions.length > 0 &&
+                  capitalNeeded.length > 0 &&
+                  servicesSelected.length > 0 &&
+                  file.size > 0
+                    ? false
+                    : true
+                }
                 style={{
                   backgroundColor:
                     termsCheckbox &&
@@ -1022,7 +1033,18 @@ function InputPage(props) {
               <input
                 className="submit-btn"
                 type="SUBMIT"
-                disabled={termsCheckbox ? false : true}
+                disabled={
+                  termsCheckbox &&
+                  companyDescription.length > 0 &&
+                  marketOpportunity.length > 0 &&
+                  currentTeam.length > 0 &&
+                  positions.length > 0 &&
+                  capitalNeeded.length > 0 &&
+                  servicesSelected.length > 0 &&
+                  file.size > 0
+                    ? false
+                    : true
+                }
                 style={{
                   backgroundColor:
                     termsCheckbox &&

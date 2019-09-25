@@ -11,6 +11,8 @@ export default class SelectDropdown extends React.Component {
       options: this.props.options || [],
       showOptions: false,
       selectedOption: this.props.options && this.props.options[0],
+      hovering: false,
+      hoverNode: null,
     };
     this.node = null;
     this.handleClick = this.handleClick.bind(this);
@@ -71,11 +73,19 @@ export default class SelectDropdown extends React.Component {
           {this.state.options.map(option => (
             <div
               className={
-                this.state.selectedOption === option
+                this.state.selectedOption === option ||
+                this.state.hoverNode === option.id
                   ? 'selectedOption'
                   : 'unselectedOption'
               }
               key={option.id}
+              // ref={node => (this.node = node)}
+              onMouseEnter={() => {
+                this.setState({ hoverNode: option.id });
+              }}
+              onMouseLeave={() => {
+                this.setState({ hoverNode: null });
+              }}
               onClick={() => this.selectOption(option)}>
               {option.timing}
             </div>

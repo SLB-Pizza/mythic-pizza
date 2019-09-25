@@ -1,50 +1,50 @@
-import React, { useState } from "react";
-import Dropzone from "react-dropzone";
-import { /*useTransition,*/ useSpring, animated, config } from "react-spring";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import Dropzone from 'react-dropzone';
+import { /*useTransition,*/ useSpring, animated, config } from 'react-spring';
+import { Link } from 'react-router-dom';
 
-import "../App.css";
-import TextBox from "./TextBox.js";
-import SelectDropdown from "./SelectDropdown";
-import CheckboxDropdown from "./CheckboxDropdown";
+import '../App.css';
+import TextBox from './TextBox.js';
+import SelectDropdown from './SelectDropdown';
+import CheckboxDropdown from './CheckboxDropdown';
 
-import logo from "../imgs/project-mercury-logo.svg";
-import termsCheckmark from "../imgs/terms-checkmark.svg";
-import termsNoCheckmark from "../imgs/terms-no-checkmark.svg";
-import uploadIcon from "../imgs/uploadArrow-Sketch.svg";
+import logo from '../imgs/project-mercury-logo.svg';
+import termsCheckmark from '../imgs/terms-checkmark.svg';
+import termsNoCheckmark from '../imgs/terms-no-checkmark.svg';
+import uploadIcon from '../imgs/uploadArrow-Sketch.svg';
 
 function InputPage(props) {
-  const [contactName, setContactName] = useState("");
-  const [contactRole, setContactRole] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [companyDescription, setCompanyDescription] = useState("");
-  const [based, setBased] = useState("");
-  const [marketOpportunity, setMarketOpportunity] = useState("");
-  const [targetDemo, setTargetDemo] = useState("");
-  const [competitors, setCompetitors] = useState("");
+  const [contactName, setContactName] = useState('');
+  const [contactRole, setContactRole] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [companyDescription, setCompanyDescription] = useState('');
+  const [based, setBased] = useState('');
+  const [marketOpportunity, setMarketOpportunity] = useState('');
+  const [targetDemo, setTargetDemo] = useState('');
+  const [competitors, setCompetitors] = useState('');
   const [file, setFile] = useState({});
-  const [currentTeam, setCurrentTeam] = useState("");
-  const [positions, setPositions] = useState("");
-  const [capitalRaised, setCapitalRaised] = useState("");
-  const [capitalNeeded, setCapitalNeeded] = useState("");
+  const [currentTeam, setCurrentTeam] = useState('');
+  const [positions, setPositions] = useState('');
+  const [capitalRaised, setCapitalRaised] = useState('');
+  const [capitalNeeded, setCapitalNeeded] = useState('');
   const launchSchedule = [
-    { id: 1, timing: "3 months" },
-    { id: 2, timing: "6 months" },
-    { id: 3, timing: "9 months" },
-    { id: 4, timing: "1 year" },
-    { id: 5, timing: "2 years" },
-    { id: 6, timing: "2 years +" }
+    { id: 1, timing: '3 months' },
+    { id: 2, timing: '6 months' },
+    { id: 3, timing: '9 months' },
+    { id: 4, timing: '1 year' },
+    { id: 5, timing: '2 years' },
+    { id: 6, timing: '2 years +' },
   ];
-  const [launchSelected, setLaunchSelected] = useState("3 MONTHS");
+  const [launchSelected, setLaunchSelected] = useState('3 MONTHS');
   const servicesNeeded = [
-    { id: 1, service: "Branding" },
-    { id: 2, service: "Fundraising" },
-    { id: 3, service: "Strategy" },
-    { id: 4, service: "Web Design" },
-    { id: 5, service: "Web Development" }
+    { id: 1, service: 'Branding' },
+    { id: 2, service: 'Fundraising' },
+    { id: 3, service: 'Strategy' },
+    { id: 4, service: 'Web Design' },
+    { id: 5, service: 'Web Development' },
   ];
   const [servicesSelected, setServicesSelected] = useState([]);
-  const [servicesString, setServicesString] = useState("");
+  const [servicesString, setServicesString] = useState('');
   const [termsCheckbox, setTermsCheckbox] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -54,7 +54,7 @@ function InputPage(props) {
       await setFile(acceptedFiles[0]);
       alert(`${acceptedFiles[0].name} has been uploaded.`);
     } else {
-      alert("FILE SIZE TOO LARGE\nPLEASE LIMIT ATTACHMENTS TO 10MB");
+      alert('FILE SIZE TOO LARGE\nPLEASE LIMIT ATTACHMENTS TO 10MB');
     }
   };
 
@@ -70,7 +70,7 @@ function InputPage(props) {
     e.preventDefault();
     // const data = { 'form-name': 'contact', ...this.state };
     const data = {
-      "form-name": "contact",
+      'form-name': 'contact',
       contactName,
       contactRole,
       companyName,
@@ -85,20 +85,20 @@ function InputPage(props) {
       capitalRaised,
       capitalNeeded,
       launchSelected,
-      servicesString
+      servicesString,
     };
 
-    fetch("/", {
-      method: "POST",
+    fetch('/', {
+      method: 'POST',
       // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
-      body: encode(data)
+      body: encode(data),
     })
       .then(
         // () => alert('Form Submission Successful!!'),
         window.scrollTo(0, 0),
         setSubmitted(true)
       )
-      .catch(error => alert("Form Submission Failed!"));
+      .catch(error => alert('Form Submission Failed!'));
   };
 
   const handleLaunchSelect = async option => {
@@ -109,7 +109,7 @@ function InputPage(props) {
     await setServicesSelected(selectedServices);
 
     const stringServices = await selectedServices
-      .reduce((acc, curr) => acc + ", " + curr.service, "")
+      .reduce((acc, curr) => acc + ', ' + curr.service, '')
       .slice(1);
     await setServicesString(stringServices);
   };
@@ -145,27 +145,27 @@ function InputPage(props) {
   //logo fade in on load
   const logoSpring = useSpring({
     config: {
-      duration: 2000
+      duration: 2000,
     },
     from: { opacity: 0 },
-    to: { opacity: 1 }
+    to: { opacity: 1 },
     // delay: 200,
   });
   //form fade in upon page load
   const formSpring = useSpring({
     config: {
-      duration: 4000
+      duration: 4000,
     },
     from: { opacity: 0 },
     to: { opacity: 1 },
-    delay: 1000
+    delay: 1000,
   });
   //success message fade-in upon submission:
   const successSpring = useSpring({
     config: config.molasses,
     from: { opacity: submitted ? 0 : 1 },
     to: { opacity: submitted ? 1 : 0 },
-    delay: 1000
+    delay: 1000,
   });
 
   return (
@@ -208,8 +208,7 @@ function InputPage(props) {
             name="contact"
             onSubmit={handleSubmit}
             netlify="true"
-            action="/success"
-          >
+            action="/success">
             <p id="form-header-text">LET'S GET STARTED.</p>
             {/*
             // =============================
@@ -222,8 +221,8 @@ function InputPage(props) {
                 <input
                   style={
                     contactName.length > 0
-                      ? { borderColor: "white", color: "white" }
-                      : { borderColor: "grey", color: "grey" }
+                      ? { borderColor: 'white', color: 'white' }
+                      : { borderColor: 'grey', color: 'grey' }
                   }
                   type="text"
                   name="contactName"
@@ -237,8 +236,8 @@ function InputPage(props) {
                 <input
                   style={
                     contactRole.length > 0
-                      ? { borderColor: "white", color: "white" }
-                      : { borderColor: "grey", color: "grey" }
+                      ? { borderColor: 'white', color: 'white' }
+                      : { borderColor: 'grey', color: 'grey' }
                   }
                   type="text"
                   name="contactRole"
@@ -260,8 +259,8 @@ function InputPage(props) {
                 className="one-line-input"
                 style={
                   companyName.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="companyName"
@@ -295,8 +294,8 @@ function InputPage(props) {
               <input
                 style={
                   based.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="based"
@@ -330,8 +329,8 @@ function InputPage(props) {
               <input
                 style={
                   targetDemo.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="targetDemo"
@@ -352,8 +351,8 @@ function InputPage(props) {
                 className="one-line-input"
                 style={
                   competitors.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="competitors"
@@ -373,23 +372,21 @@ function InputPage(props) {
               className="file-upload-box"
               style={{
                 borderColor:
-                  file && file.name && file.size > 0 ? "white" : "grey"
-              }}
-            >
+                  file && file.name && file.size > 0 ? 'white' : 'grey',
+              }}>
               <Dropzone onDrop={onDrop}>
                 {({ getRootProps, getInputProps, isDragActive }) => (
                   <div
                     {...getRootProps()}
                     className="upload"
                     style={{
-                      borderColor: file && file.size > 0 ? "white" : "grey",
-                      color: file && file.size > 0 ? "white" : "grey"
-                    }}
-                  >
+                      borderColor: file && file.size > 0 ? 'white' : 'grey',
+                      color: file && file.size > 0 ? 'white' : 'grey',
+                    }}>
                     <input {...getInputProps()} />
                     {isDragActive ? (
                       <div className="upload-header">
-                        <p id="drop-file">PLEASE DROP YOUR FILE HERE</p>
+                        <p id="drop-file">DROP YOUR FILE HERE</p>
                       </div>
                     ) : (
                       <div className="upload-header">
@@ -400,17 +397,17 @@ function InputPage(props) {
                       </div>
                     )}
                     <div className="upload-icon">
+                      <img src={uploadIcon} alt="Upload Icon" />
                       {file && file.name ? (
-                        <p>{file.name}</p>
+                        <p>Uploaded: {file.name}</p>
                       ) : (
-                        <img src={uploadIcon} alt="Upload Icon" />
+                        <div />
                       )}
                     </div>
                   </div>
                 )}
               </Dropzone>
             </div>
-
             {/*
             // =============================
             // Current Team Structure
@@ -453,14 +450,14 @@ function InputPage(props) {
                   style={
                     capitalRaised.length > 0
                       ? {
-                          borderColor: "white",
-                          color: "white",
-                          backgroundColor: "transparent"
+                          borderColor: 'white',
+                          color: 'white',
+                          backgroundColor: 'transparent',
                         }
                       : {
-                          borderColor: "grey",
-                          color: "grey",
-                          backgroundColor: "transparent"
+                          borderColor: 'grey',
+                          color: 'grey',
+                          backgroundColor: 'transparent',
                         }
                   }
                   type="number"
@@ -510,10 +507,9 @@ function InputPage(props) {
             <label
               style={
                 servicesSelected.length > 0
-                  ? { borderColor: "transparent", color: "white" }
-                  : { borderColor: "transparent", color: "grey" }
-              }
-            >
+                  ? { borderColor: 'transparent', color: 'white' }
+                  : { borderColor: 'transparent', color: 'grey' }
+              }>
               <CheckboxDropdown
                 value={servicesSelected}
                 handleSelect={handleServicesSelect}
@@ -556,8 +552,8 @@ function InputPage(props) {
                   capitalNeeded.length > 0 &&
                   servicesSelected.length > 0 &&
                   file.size > 0
-                    ? "white"
-                    : "grey"
+                    ? 'white'
+                    : 'grey',
               }}
             />
             {/*
@@ -629,8 +625,7 @@ function InputPage(props) {
             name="contact"
             onSubmit={handleSubmit}
             netlify="true"
-            action="/success"
-          >
+            action="/success">
             <p id="form-header-text">LET'S GET STARTED.</p>
             {/*
             // =============================
@@ -643,8 +638,8 @@ function InputPage(props) {
                 <input
                   style={
                     contactName.length > 0
-                      ? { borderColor: "white", color: "white" }
-                      : { borderColor: "grey", color: "grey" }
+                      ? { borderColor: 'white', color: 'white' }
+                      : { borderColor: 'grey', color: 'grey' }
                   }
                   type="text"
                   name="contactName"
@@ -658,8 +653,8 @@ function InputPage(props) {
                 <input
                   style={
                     contactRole.length > 0
-                      ? { borderColor: "white", color: "white" }
-                      : { borderColor: "grey", color: "grey" }
+                      ? { borderColor: 'white', color: 'white' }
+                      : { borderColor: 'grey', color: 'grey' }
                   }
                   type="text"
                   name="contactRole"
@@ -681,8 +676,8 @@ function InputPage(props) {
                 className="one-line-input"
                 style={
                   companyName.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="companyName"
@@ -716,8 +711,8 @@ function InputPage(props) {
               <input
                 style={
                   based.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="based"
@@ -751,8 +746,8 @@ function InputPage(props) {
               <input
                 style={
                   targetDemo.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="targetDemo"
@@ -773,8 +768,8 @@ function InputPage(props) {
                 className="one-line-input"
                 style={
                   competitors.length > 0
-                    ? { borderColor: "white", color: "white" }
-                    : { borderColor: "grey", color: "grey" }
+                    ? { borderColor: 'white', color: 'white' }
+                    : { borderColor: 'grey', color: 'grey' }
                 }
                 type="text"
                 name="competitors"
@@ -794,19 +789,17 @@ function InputPage(props) {
               className="file-upload-box"
               style={{
                 borderColor:
-                  file && file.name && file.size > 0 ? "white" : "grey"
-              }}
-            >
+                  file && file.name && file.size > 0 ? 'white' : 'grey',
+              }}>
               <Dropzone onDrop={onDrop}>
                 {({ getRootProps, getInputProps, isDragActive }) => (
                   <div
                     {...getRootProps()}
                     className="upload"
                     style={{
-                      borderColor: file && file.size > 0 ? "white" : "grey",
-                      color: file && file.size > 0 ? "white" : "grey"
-                    }}
-                  >
+                      borderColor: file && file.size > 0 ? 'white' : 'grey',
+                      color: file && file.size > 0 ? 'white' : 'grey',
+                    }}>
                     <input {...getInputProps()} />
                     {isDragActive ? (
                       <div className="upload-header">
@@ -874,14 +867,14 @@ function InputPage(props) {
                   style={
                     capitalRaised.length > 0
                       ? {
-                          borderColor: "white",
-                          color: "white",
-                          backgroundColor: "transparent"
+                          borderColor: 'white',
+                          color: 'white',
+                          backgroundColor: 'transparent',
                         }
                       : {
-                          borderColor: "grey",
-                          color: "grey",
-                          backgroundColor: "transparent"
+                          borderColor: 'grey',
+                          color: 'grey',
+                          backgroundColor: 'transparent',
                         }
                   }
                   type="number"
@@ -931,10 +924,9 @@ function InputPage(props) {
             <label
               style={
                 servicesSelected.length > 0
-                  ? { borderColor: "transparent", color: "white" }
-                  : { borderColor: "transparent", color: "grey" }
-              }
-            >
+                  ? { borderColor: 'transparent', color: 'white' }
+                  : { borderColor: 'transparent', color: 'grey' }
+              }>
               <CheckboxDropdown
                 value={servicesSelected}
                 handleSelect={handleServicesSelect}
@@ -977,8 +969,8 @@ function InputPage(props) {
                   capitalNeeded.length > 0 &&
                   servicesSelected.length > 0 &&
                   file.size > 0
-                    ? "white"
-                    : "grey"
+                    ? 'white'
+                    : 'grey',
               }}
             />
             {/*

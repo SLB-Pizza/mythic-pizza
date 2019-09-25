@@ -21,10 +21,10 @@
   src: local("Graphik-Regular"),
     url(../fonts/Graphik-Regular.otf) format("opentype");
 }
+
 // ==============================================
 // SCSS files for each page
 // ==============================================
-
 @import "./landing.scss";
 @import "./input.scss";
 
@@ -37,15 +37,14 @@
 // UNIVERSAL TOP LEVEL STUFF
 // ==============================================
 * {
-  font-family: "David_Reg";
   color: white;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 // ==============================================
 // Landing BG img must be outside of columns
 // ==============================================
-
 .App {
   background-image: url("../imgs/bg1.jpg");
   background-color: black;

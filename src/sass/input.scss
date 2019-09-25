@@ -35,6 +35,10 @@
   color: "white";
 }
 
+#mobile-column-margin {
+  margin: 0 10px;
+}
+
 // ==============================================
 // 1ST COLUMN - SVG logo
 // ==============================================
@@ -127,7 +131,7 @@ label {
   justify-content: space-between;
   padding-top: 84px;
   label:first-child {
-    padding-right: 21px;
+    margin-right: 21px;
   }
 }
 
@@ -188,6 +192,7 @@ label {
   border-style: solid;
   margin-bottom: 50px;
   .upload {
+    display: flex;
     height: 100%;
     width: 100%;
     padding: 10px 14px 0;
@@ -212,6 +217,7 @@ label {
       }
     }
     .upload-icon {
+      display: flex;
       height: 100%;
       flex-direction: row;
       align-items: "center";
@@ -225,6 +231,142 @@ label {
         height: 41px;
         align-self: center;
       }
+    }
+  }
+}
+
+// =============================
+// Capital Raised
+// 012
+// =============================
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  margin: 0;
+}
+
+.dollar-and-input {
+  display: flex;
+  height: calc(23pt + 10px);
+  p {
+    flex: 1;
+    margin-top: -17px;
+    margin-right: 2px;
+    font-size: 23pt;
+  }
+}
+
+// =============================
+// Anticipated Launch Schedule
+// 014
+// =============================
+
+.launch-schedule-dropdown {
+  // background-color: darkmagenta;
+  width: 100%;
+  font-size: 23pt;
+  font-family: "Graphik";
+  color: white;
+  background-color: black;
+  border-style: hidden hidden hidden hidden;
+  .dropdown-wrapper {
+    border-bottom: 1px solid white;
+    .selected-option {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .dropdown-arrow {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .dropdown-options {
+      font-family: "Graphik";
+      font-size: 14pt;
+      .selected-option {
+        border-bottom: 1px black solid;
+        padding: 8px 0 8px 10px;
+        background: black;
+      }
+      .unselected-option {
+        border-bottom: 1px black solid;
+        padding: 8px 0 8px 10px;
+        color: black;
+        background-color: white;
+      }
+    }
+  }
+  p {
+    font-size: 12pt;
+  }
+}
+
+// =============================
+// Services Needed
+// 015
+// =============================
+
+// =============================
+// Terms & Conditions
+// =============================
+
+.terms {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-bottom: 49px;
+  .agree-terms {
+    padding-left: 13px;
+    font-size: 12pt;
+  }
+}
+
+// =============================
+// Submit Button
+// =============================
+
+.submit-btn {
+  color: black;
+  border: none;
+  width: 100%;
+  height: 36px;
+  border-radius: 2px;
+  margin-bottom: 50px;
+}
+
+// =============================
+// Legalese
+// =============================
+
+.legal-stuff {
+  font-family: "Graphik";
+  font-family: 12pt;
+  line-height: 21pt;
+  margin-bottom: 118px;
+  .grey-legal {
+    color: grey;
+  }
+}
+
+// =============================
+// Copyright
+// =============================
+.copyright {
+  display: flex;
+  flex-direction: row;
+  margin: 120px 0 50px;
+  p {
+    color: grey;
+    &.copyright-text {
+      flex: 1;
+    }
+    &.rights-text {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
     }
   }
 }

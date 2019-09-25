@@ -1,27 +1,3 @@
-/*wrapper div for the agreement checkbox and "I AGREE" text*/
-.termsAndCheckboxWrapper {
-  padding-top: 2vh;
-  display: flex;
-  flex-direction: row;
-}
-
-/*the little checkbox for terms agreement if cheicked*/
-.termsCheckboxAgreed {
-  height: 2vh;
-  width: 2vh;
-  border: 2px solid white;
-  background: white;
-}
-
-/*the little checkbox for terms agreement if NOT checked*/
-.termsCheckboxNotAgree {
-  height: 2vh;
-  width: 2vh;
-  border: 2px outset white;
-  /* color: grey; */
-  background: transparent;
-}
-
 /*the little checkbox for terms agreement if checked*/
 .servicesCheckboxActive {
   height: 2vh;
@@ -52,110 +28,43 @@
   width: 100%;
 }
 
-/*for selected services in CheckbocDropdown.js*/
-.selectedService {
-  color: black;
-  background-color: white;
-  width: 100%;
-}
-
-/*for unselected services in CheckbocDropdown.js*/
-.unselectedService {
-}
-
-/*the wrapper around the launch timing options in SelectDropdown.js*/
-.selectDropdownWrapper {
-  /* border-width: 1px; */
-  /* border-style: solid; */
-  border-bottom: 1px solid white;
-  /* border: none none solid none; */
-}
-
-/*the currently selected launch timing option in SelectDropdown.js*/
-.selectedOption {
+/*the little checkbox for terms agreement if cheicked*/
+.termsCheckboxAgreed {
+  height: 2vh;
+  width: 2vh;
+  border: 1px solid white;
   background: black;
 }
 
-/*the NOT selected launch timing options in SelectDropdown.js*/
-.unselectedOption {
-  color: black;
-  background-color: white;
-}
-
-/*for the dropdown arrow inside SelectDropdown.js and CheckboxDropdown.js*/
-.dropDownArrow {
-  width: 30px;
-  height: 30px;
-  margin: 0;
-  padding: 0;
-  display: inline-block;
+/*the little checkbox for terms agreement if NOT checked*/
+.termsCheckboxNotAgree {
+  height: 2vh;
+  width: 2vh;
+  border: 1px solid white;
+  /* color: grey; */
   background: transparent;
-  /* flex-direction: row; */
-  /* display: flex; */
-  justify-content: space-between;
 }
 
-/*to control styling when SelectDropdown.js and CheckboxDropdown.js menu IS showing options
-I followed a tut on making an arrow as a placeholder, but it's not showing in the right spot, it's up on the upper left? so weird lol*/
-.selectDropdownArrowUp {
-  position: absolute;
-  top: 10px;
-  left: 8px;
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-bottom: 10px solid black;
-}
-
-/*to control styling when SelectDropdown.js and CheckboxDropdown.js menu is NOT showing options*/
-.selectDropdownArrowDown {
-  position: absolute;
-  top: 12px;
-  left: 8px;
-  width: 0;
-  height: 0;
-  border-left: 8px solid transparent;
-  border-right: 8px solid transparent;
-  border-top: 10px solid black;
-}
-
-.solo-input-select-dropdown-container {
-  padding-top: 1%;
-  padding-bottom: 1%;
-}
-
-.solo-input-select-dropdown-container label {
-}
-
-/*for TextBox wrapper in inputPage*/
-.solo-input-select-dropdown {
-  width: 100%;
-  color: white;
-  background-color: black;
-  border-style: hidden hidden hidden hidden;
-}
-
-/* for TextBox wrapper in inputPage
-.solo-input-textBox {
-  width: 100%;
-  background-color: black;
-  border-style: hidden hidden hidden hidden;
-} */
-
-.copyright {
+.copyrightSuccess {
   display: flex;
   flex-direction: row;
-  padding-top: 120px;
+  padding-top: 70vh;
+  justify-self: flex-end;
+  color: gray;
 }
 
-#copyright-text {
-  flex: 1;
-  color: white;
+.legalInfo {
+  font-family: Graphik;
+  font-weight: normal;
+  font-size: 14px;
+  color: "white";
+  opacity: 0.5;
 }
 
-#rights-text {
-  text-align: right;
-  flex: 1;
+.legalLabel {
   color: white;
+  font-family: Graphik;
+  font-weight: normal;
+  font-size: 14px;
+  margin-top: 60px;
 }

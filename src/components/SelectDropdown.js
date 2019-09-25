@@ -69,7 +69,7 @@ export default class SelectDropdown extends React.Component {
             )}
           </div>
         </div>
-        <div style={{ display: this.state.showOptions ? 'block' : 'none' }}>
+        <div style={{ display: this.state.showOptions ? 'contents' : 'none' }}>
           {this.state.options.map(option => (
             <div
               className={

@@ -252,7 +252,7 @@ function InputPage(props) {
             <text>THANK YOU!</text>
             <text>WE'LL BE IN TOUCH.</text>
             <div className="copyrightSuccess">
-              <p id="copyright-text">COPYRIGHT 2019 PROJECT MERCURY</p>
+              <p id="copyright-text">COPYRIGHT ©2019 PROJECT MERCURY</p>
               <p id="rights-text">ALL RIGHTS RESERVED</p>
             </div>
           </div>
@@ -726,7 +726,7 @@ function InputPage(props) {
             business or proposed business of the Company or its affiliates.
           </p>
           <div className="copyright">
-            <p id="copyright-text">COPYRIGHT 2019 PROJECT MERCURY</p>
+            <p id="copyright-text">COPYRIGHT ©2019 PROJECT MERCURY</p>
             <p id="rights-text">ALL RIGHTS RESERVED</p>
           </div>
         </animated.form>

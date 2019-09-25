@@ -532,19 +532,3 @@ for the description text and char counter to be in a row above it*/
   font-size: 14px;
   margin-top: 60px;
 }
-
-/*
-                    lll tt    iii
-mm mm mmmm  uu   uu lll tt
-mmm  mm  mm uu   uu lll tttt  iii
-mmm  mm  mm uu   uu lll tt    iii
-mmm  mm  mm  uuuu u lll  tttt iii
-
-
-DDDDD                              dd
-DD  DD  rr rr   oooo  pp pp        dd  oooo  ww      ww nn nnn
-DD   DD rrr  r oo  oo ppp  pp  dddddd oo  oo ww      ww nnn  nn
-DD   DD rr     oo  oo pppppp  dd   dd oo  oo  ww ww ww  nn   nn
-DDDDDD  rr      oooo  pp       dddddd  oooo    ww  ww   nn   nn
-                      pp
-                      */

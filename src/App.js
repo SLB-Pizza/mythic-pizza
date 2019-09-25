@@ -6,7 +6,6 @@ import * as easings from 'd3-ease';
 
 import LandingPage from './components/LandingPage';
 import InputPage from './components/InputPage';
-import SuccessPage from './components/SuccessPage';
 
 function App() {
   const { location } = useContext(__RouterContext);
@@ -24,7 +23,6 @@ function App() {
           <Switch location={item}>
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/form" component={InputPage} />
-            <Route exact path="/success" component={SuccessPage} />
           </Switch>
         </animated.div>
       ))}

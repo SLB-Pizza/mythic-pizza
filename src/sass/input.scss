@@ -49,6 +49,12 @@
   top: 25vh;
 }
 
+#input-logo-mobile {
+  // position: -webkit-sticky;
+  // position: relative;
+  margin-top: 20vh;
+}
+
 // ==============================================
 // 2ND COLUMN - close button & address
 // ==============================================
@@ -67,10 +73,43 @@
   }
 }
 
+#close-button-mobile {
+  // width: 100px;
+  // height: 36px;
+  border: 1px solid white;
+  background-color: black;
+  margin-top: 10vh;
+  // position: -webkit-sticky;
+  // position: sticky;
+  p {
+    font-size: 14pt;
+    padding: 8px 18px;
+  }
+}
+
 .input-contact-info {
   top: 66vh;
   position: -webkit-sticky;
   position: sticky;
+  p {
+    font-size: 14pt;
+    line-height: 21pt;
+    &:nth-child(3) {
+      margin-top: 21pt;
+    }
+  }
+  a {
+    text-decoration: none;
+    color: white;
+    font-weight: normal;
+    font-family: Graphik;
+    line-height: 21px;
+    font-size: 14px;
+  }
+}
+
+.input-contact-info-mobile {
+  margin-top: 10vh;
   p {
     font-size: 14pt;
     line-height: 21pt;
@@ -394,6 +433,23 @@ input[type='number']::-webkit-outer-spin-button {
       flex: 1;
       display: flex;
       justify-content: flex-end;
+    }
+  }
+}
+
+.copyright-mobile {
+  display: flex;
+  flex-direction: column;
+  margin: 80px 0 50px;
+  p {
+    color: grey;
+    &.copyright-text {
+      flex: 1;
+    }
+    &.rights-text {
+      flex: 1;
+      display: flex;
+      margin-top: 3vh;
     }
   }
 }

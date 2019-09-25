@@ -641,15 +641,31 @@ function InputPage(props) {
     /_/  \____/\__,_/\___/_/ /_/
     */}
       <div className="columns is-mobile is-hidden-desktop">
-        <div className="column is-2">
+        <div className="column is-2 is-relative">
           <animated.img
             style={logoSpring}
             src={logo}
             alt="LOGO"
-            id="input-logo"
+            id="input-logo-mobile"
           />
         </div>
         <div className="column" id="mobile-column-margin">
+          <div className="input-contact-info-mobile">
+            <a
+              href="mailto:office@projectmercury.com"
+              // target="_blank"
+              rel="noopener noreferrer">
+              office@projectmercury.com
+            </a>
+            <p>T 646 861 2827</p>
+            <p>324 Lafayette Street</p>
+            <p>NY, New York 11201</p>
+          </div>
+          <Link to="/">
+            <button id="close-button-mobile">
+              <p>⟵ CLOSE</p>
+            </button>
+          </Link>
           {/*BEGIN TERNARY*/}
           {submitted ? (
             <animated.div className="success" style={successSpring}>
@@ -1063,7 +1079,7 @@ function InputPage(props) {
             // Copyright
             // =============================
             */}
-              <div className="copyright">
+              <div className="copyright-mobile">
                 <p className="copyright-text">
                   COPYRIGHT ©2019 PROJECT MERCURY
                 </p>

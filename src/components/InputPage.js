@@ -701,6 +701,7 @@ function InputPage(props) {
               netlify="true"
               action="/success">
               <p id="form-header-text">LET'S GET STARTED.</p>
+              <p id="form-header-required-field">* denotes required field</p>
               {/*
             // =============================
             // Contact Name & Role

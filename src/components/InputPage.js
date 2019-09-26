@@ -256,7 +256,6 @@ function InputPage(props) {
                     value={contactName}
                     onChange={e => setContactName(e.target.value)}
                     // required={true}
-                    autoFocus
                   />
                   <p>001. CONTACT NAME*</p>
                 </label>

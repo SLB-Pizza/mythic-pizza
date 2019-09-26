@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Dropzone from 'react-dropzone';
 import { /*useTransition,*/ useSpring, animated, config } from 'react-spring';
 import { Link } from 'react-router-dom';
@@ -47,6 +47,14 @@ function InputPage(props) {
   const [servicesString, setServicesString] = useState('');
   const [termsCheckbox, setTermsCheckbox] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [focus, setFocus] = useState(false);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFocus(true);
+    }, 4000);
+    return () => clearTimeout(timer);
+  }, []);
 
   const onDrop = async acceptedFiles => {
     if (acceptedFiles[0].size <= 10000000) {
@@ -256,6 +264,7 @@ function InputPage(props) {
                     value={contactName}
                     onChange={e => setContactName(e.target.value)}
                     // required={true}
+                    autoFocus={focus ? true : false}
                   />
                   <p>001. CONTACT NAME*</p>
                 </label>
@@ -702,7 +711,8 @@ function InputPage(props) {
               name="contact"
               onSubmit={handleSubmit}
               netlify="true"
-              action="/success">
+              action="/success"
+              style={formSpring}>
               <p id="form-header-text">LET'S GET STARTED.</p>
               <p id="form-header-required-text-mobile">
                 * denotes required field

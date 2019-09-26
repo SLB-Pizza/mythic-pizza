@@ -51,7 +51,7 @@
 
 #input-logo-mobile {
   position: -webkit-sticky;
-  position: relative;
+  position: sticky;
   margin-top: 20vh;
 }
 
@@ -134,16 +134,6 @@
 #required-text {
   position: relative;
   top: 241px;
-  p {
-    transform: rotate(90deg);
-    font-size: 12pt;
-    white-space: nowrap;
-  }
-}
-
-#required-text-mobile {
-  position: relative;
-  top: 25px;
   p {
     transform: rotate(90deg);
     font-size: 12pt;

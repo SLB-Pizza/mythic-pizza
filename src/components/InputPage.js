@@ -255,7 +255,8 @@ function InputPage(props) {
                     name="contactName"
                     value={contactName}
                     onChange={e => setContactName(e.target.value)}
-                    required={true}
+                    // required={true}
+                    autoFocus
                   />
                   <p>001. CONTACT NAME*</p>
                 </label>
@@ -270,7 +271,7 @@ function InputPage(props) {
                     name="contactRole"
                     value={contactRole}
                     onChange={e => setContactRole(e.target.value)}
-                    required={true}
+                    // required={true}
                   />
                   <p>002. CONTACT ROLE*</p>
                 </label>
@@ -293,7 +294,7 @@ function InputPage(props) {
                   name="companyName"
                   value={companyName}
                   onChange={e => setCompanyName(e.target.value)}
-                  required={true}
+                  // required={true}
                 />
                 <p>003. COMPANY NAME*</p>
               </label>
@@ -328,7 +329,7 @@ function InputPage(props) {
                   name="based"
                   value={based}
                   onChange={e => setBased(e.target.value)}
-                  required={true}
+                  // required={true}
                 />
                 <p>005. WHERE ARE YOU BASED?*</p>
               </label>
@@ -363,7 +364,7 @@ function InputPage(props) {
                   name="targetDemo"
                   value={targetDemo}
                   onChange={e => setTargetDemo(e.target.value)}
-                  required={true}
+                  // required={true}
                 />
                 <p>007. TARGET DEMO*</p>
               </label>
@@ -385,7 +386,7 @@ function InputPage(props) {
                   name="competitors"
                   value={competitors}
                   onChange={e => setCompetitors(e.target.value)}
-                  required={true}
+                  // required={true}
                 />
                 <p>008. COMPETITORS*</p>
               </label>
@@ -491,7 +492,7 @@ function InputPage(props) {
                     name="capitalRaised"
                     value={capitalRaised}
                     onChange={e => setCapitalRaised(e.target.value)}
-                    required={true}
+                    // required={true}
                   />
                 </div>
                 <p>012. CAPITAL RAISED*</p>
@@ -568,18 +569,18 @@ function InputPage(props) {
               <input
                 className="submit-btn"
                 type="SUBMIT"
-                disabled={
-                  termsCheckbox &&
-                  companyDescription.length > 0 &&
-                  marketOpportunity.length > 0 &&
-                  currentTeam.length > 0 &&
-                  positions.length > 0 &&
-                  capitalNeeded.length > 0 &&
-                  servicesSelected.length > 0 &&
-                  file.size > 0
-                    ? false
-                    : true
-                }
+                // disabled={
+                //   termsCheckbox &&
+                //   companyDescription.length > 0 &&
+                //   marketOpportunity.length > 0 &&
+                //   currentTeam.length > 0 &&
+                //   positions.length > 0 &&
+                //   capitalNeeded.length > 0 &&
+                //   servicesSelected.length > 0 &&
+                //   file.size > 0
+                //     ? false
+                //     : true
+                // }
                 style={{
                   backgroundColor:
                     termsCheckbox &&
@@ -725,7 +726,7 @@ function InputPage(props) {
                     name="contactName"
                     value={contactName}
                     onChange={e => setContactName(e.target.value)}
-                    required={true}
+                    // required={true}
                   />
                   <p>001. CONTACT NAME*</p>
                 </label>
@@ -740,7 +741,7 @@ function InputPage(props) {
                     name="contactRole"
                     value={contactRole}
                     onChange={e => setContactRole(e.target.value)}
-                    required={true}
+                    // required={true}
                   />
                   <p>002. CONTACT ROLE*</p>
                 </label>
@@ -763,7 +764,7 @@ function InputPage(props) {
                   name="companyName"
                   value={companyName}
                   onChange={e => setCompanyName(e.target.value)}
-                  required={true}
+                  // required={true}
                 />
                 <p>003. COMPANY NAME*</p>
               </label>
@@ -798,7 +799,7 @@ function InputPage(props) {
                   name="based"
                   value={based}
                   onChange={e => setBased(e.target.value)}
-                  required={true}
+                  // required={true}
                 />
                 <p>005. WHERE ARE YOU BASED?*</p>
               </label>
@@ -833,7 +834,7 @@ function InputPage(props) {
                   name="targetDemo"
                   value={targetDemo}
                   onChange={e => setTargetDemo(e.target.value)}
-                  required={true}
+                  // required={true}
                 />
                 <p>007. TARGET DEMO*</p>
               </label>
@@ -855,7 +856,7 @@ function InputPage(props) {
                   name="competitors"
                   value={competitors}
                   onChange={e => setCompetitors(e.target.value)}
-                  required={true}
+                  // required={true}
                 />
                 <p>008. COMPETITORS*</p>
               </label>
@@ -962,7 +963,7 @@ function InputPage(props) {
                     name="capitalRaised"
                     value={capitalRaised}
                     onChange={e => setCapitalRaised(e.target.value)}
-                    required={true}
+                    // required={true}
                   />
                 </div>
                 <p>012. CAPITAL RAISED*</p>
@@ -1039,18 +1040,18 @@ function InputPage(props) {
               <input
                 className="submit-btn"
                 type="SUBMIT"
-                disabled={
-                  termsCheckbox &&
-                  companyDescription.length > 0 &&
-                  marketOpportunity.length > 0 &&
-                  currentTeam.length > 0 &&
-                  positions.length > 0 &&
-                  capitalNeeded.length > 0 &&
-                  servicesSelected.length > 0 &&
-                  file.size > 0
-                    ? false
-                    : true
-                }
+                // disabled={
+                //   termsCheckbox &&
+                //   companyDescription.length > 0 &&
+                //   marketOpportunity.length > 0 &&
+                //   currentTeam.length > 0 &&
+                //   positions.length > 0 &&
+                //   capitalNeeded.length > 0 &&
+                //   servicesSelected.length > 0 &&
+                //   file.size > 0
+                //     ? false
+                //     : true
+                // }
                 style={{
                   backgroundColor:
                     termsCheckbox &&

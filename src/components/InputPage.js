@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Dropzone from 'react-dropzone';
 import { /*useTransition,*/ useSpring, animated, config } from 'react-spring';
 import { Link } from 'react-router-dom';
@@ -47,13 +47,13 @@ function InputPage(props) {
   const [servicesString, setServicesString] = useState('');
   const [termsCheckbox, setTermsCheckbox] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-  const [focus, setFocus] = useState(false);
+
+  const inputFocus = useRef(null);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setFocus(true);
-    }, 4000);
-    return () => clearTimeout(timer);
+    setTimeout(() => {
+      inputFocus.current.focus();
+    }, 3000);
   }, []);
 
   const onDrop = async acceptedFiles => {
@@ -263,8 +263,8 @@ function InputPage(props) {
                     name="contactName"
                     value={contactName}
                     onChange={e => setContactName(e.target.value)}
+                    ref={inputFocus}
                     // required={true}
-                    autoFocus={focus ? true : false}
                   />
                   <p>001. CONTACT NAME*</p>
                 </label>
@@ -608,7 +608,7 @@ function InputPage(props) {
             // Legalese
             // =============================
             */}
-              <div class="legal-stuff">
+              <div className="legal-stuff">
                 <p>LEGAL:</p>
                 <p className="grey-legal">
                   Any nonpublic information provided hereunder is confidential,
@@ -1080,7 +1080,7 @@ function InputPage(props) {
             // Legalese
             // =============================
             */}
-              <div class="legal-stuff">
+              <div className="legal-stuff">
                 <p>LEGAL:</p>
                 <p className="grey-legal">
                   Any nonpublic information provided hereunder is confidential,

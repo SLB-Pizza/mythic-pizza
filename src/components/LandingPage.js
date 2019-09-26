@@ -3,7 +3,7 @@ import {
   useSpring,
   /*useTransition,*/ animated,
   useChain,
-  config,
+  // config,
 } from 'react-spring';
 import { Link } from 'react-router-dom';
 import logo from '../imgs/project-mercury-logo.svg';
@@ -36,12 +36,12 @@ function LandingPage() {
     ref: inquireMoveRef,
   });
   //contact info srping
-  const contactInfo = useSpring({
-    config: config.molasses,
-    from: { opacity: 0, transform: 'translate(200%, 0)' },
-    to: { opacity: 1, transform: 'translate(0, 0)' },
-    delay: 200,
-  });
+  // const contactInfo = useSpring({
+  //   config: config.molasses,
+  //   from: { opacity: 0, transform: 'translate(200%, 0)' },
+  //   to: { opacity: 1, transform: 'translate(0, 0)' },
+  //   delay: 200,
+  // });
   //inquire button fade spring
   const inquireFadeRef = useRef();
   const inquireFade = useSpring({

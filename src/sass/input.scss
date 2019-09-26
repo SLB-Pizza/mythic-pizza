@@ -50,8 +50,8 @@
 }
 
 #input-logo-mobile {
-  // position: -webkit-sticky;
-  // position: relative;
+  position: -webkit-sticky;
+  position: relative;
   margin-top: 20vh;
 }
 
@@ -154,6 +154,10 @@
 // ==============================================
 // 4TH COLUMN - the form itself
 // ==============================================
+//.success is for the success message
+.success {
+}
+
 .copyrightSuccess {
   display: flex;
   flex-direction: row;

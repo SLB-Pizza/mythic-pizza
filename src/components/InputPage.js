@@ -168,7 +168,10 @@ function InputPage(props) {
   });
 
   return (
-    <div className="container" id="input-page">
+    <div
+      className="container"
+      id="input-page"
+      style={{ backgroundColor: 'black' }}>
       {/*
           ____            __   __
          / __ \___  _____/ /__/ /_____  ____
@@ -701,7 +704,9 @@ function InputPage(props) {
               netlify="true"
               action="/success">
               <p id="form-header-text">LET'S GET STARTED.</p>
-              <p id="form-header-required-field">* denotes required field</p>
+              <p id="form-header-required-text-mobile">
+                * denotes required field
+              </p>
               {/*
             // =============================
             // Contact Name & Role

@@ -589,6 +589,7 @@ function InputPage(props) {
                 //     ? false
                 //     : true
                 // }
+                value="SUBMIT"
                 style={{
                   backgroundColor:
                     termsCheckbox &&
@@ -1061,6 +1062,7 @@ function InputPage(props) {
                 //     ? false
                 //     : true
                 // }
+                value="SUBMIT"
                 style={{
                   backgroundColor:
                     termsCheckbox &&

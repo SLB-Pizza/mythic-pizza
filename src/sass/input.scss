@@ -26,13 +26,13 @@
 // ==============================================
 
 .inactive-grey {
-  border-color: 'grey';
-  color: 'grey';
+  border-color: "grey";
+  color: "grey";
 }
 
 .active-white {
-  border-color: 'white';
-  color: 'white';
+  border-color: "white";
+  color: "white";
 }
 
 #mobile-column-margin {
@@ -42,11 +42,12 @@
 // ==============================================
 // 1ST COLUMN - SVG logo
 // ==============================================
-
-#input-logo {
+.input-logo {
   position: -webkit-sticky;
   position: sticky;
-  top: 25vh;
+  top: 0;
+  width: 100vw;
+  height: auto;
 }
 
 #input-logo-mobile {
@@ -146,6 +147,9 @@
 // ==============================================
 //.success is for the success message
 .success {
+  display: flex;
+  flex-direction: column;
+  padding-top: 20vh;
 }
 
 .copyrightSuccess {
@@ -168,7 +172,7 @@
 }
 
 label {
-  font-family: 'Graphik';
+  font-family: "Graphik";
   font-size: 12pt;
   width: 100%;
   input {
@@ -290,8 +294,8 @@ label {
       display: flex;
       height: 100%;
       flex-direction: column;
-      align-items: 'center';
-      justify-content: 'center';
+      align-items: "center";
+      justify-content: "center";
       p {
         flex: 1;
         height: 100%;
@@ -317,8 +321,8 @@ label {
 // 012
 // =============================
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -345,7 +349,7 @@ input[type='number']::-webkit-outer-spin-button {
   // background-color: darkmagenta;
   width: 100%;
   font-size: 23pt;
-  font-family: 'Graphik';
+  font-family: "Graphik";
   color: white;
   background-color: black;
   border-style: hidden hidden hidden hidden;
@@ -361,7 +365,7 @@ input[type='number']::-webkit-outer-spin-button {
       }
     }
     .dropdown-options {
-      font-family: 'Graphik';
+      font-family: "Graphik";
       font-size: 14pt;
       .selected-option {
         border-bottom: 1px black solid;
@@ -417,7 +421,7 @@ input[type='number']::-webkit-outer-spin-button {
   height: 36px;
   border-radius: 2px;
   margin-bottom: 50px;
-  font-family: 'Graphik';
+  font-family: "Graphik";
   font-size: 14px;
 }
 
@@ -426,7 +430,7 @@ input[type='number']::-webkit-outer-spin-button {
 // =============================
 
 .legal-stuff {
-  font-family: 'Graphik';
+  font-family: "Graphik";
   font-family: 12pt;
   line-height: 21pt;
   margin-bottom: 118px;

@@ -18,6 +18,14 @@
   background: white;
 }
 
+.servicesCheckboxHover {
+  height: 2vh;
+  width: 2vh;
+  border: 1px outset white;
+  align-self: center;
+  background: black;
+}
+
 /*for the wrapper around the services needed checkbox dropdown*/
 .checkboxDropdownWrapper {
   display: flex;
@@ -57,7 +65,7 @@
   font-family: Graphik;
   font-weight: normal;
   font-size: 14px;
-  color: "white";
+  color: 'white';
   opacity: 0.5;
 }
 

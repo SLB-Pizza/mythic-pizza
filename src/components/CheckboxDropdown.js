@@ -136,24 +136,10 @@ export default class CheckboxDropdown extends React.Component {
                     <img
                       src={whiteCheck}
                       alt="whiteCheck"
-                      style={{
-                        justifySelf: 'center',
-                        alignSelf: 'center',
-                        height: '95%',
-                        width: '95%',
-                      }}
+                      className="checkmark"
                     />
                   ) : (
-                    <img
-                      src={checkmark}
-                      alt="check"
-                      style={{
-                        justifySelf: 'center',
-                        alignSelf: 'center',
-                        height: '95%',
-                        width: '95%',
-                      }}
-                    />
+                    <img src={checkmark} alt="check" className="checkmark" />
                   )
                 ) : null}
               </div>

@@ -401,6 +401,39 @@ input[type='number']::-webkit-outer-spin-button {
   width: 100%;
 }
 
+.servicesCheckboxActive {
+  height: 2vh;
+  width: 2vh;
+  border: 1px groove black;
+  /* border-style: groove; */
+
+  align-self: center;
+}
+
+.servicesCheckboxInactive {
+  height: 2vh;
+  width: 2vh;
+  border: 1px outset grey;
+  align-self: center;
+  /* color: grey; */
+  background: white;
+}
+
+.servicesCheckboxHover {
+  height: 2vh;
+  width: 2vh;
+  border: 1px outset white;
+  align-self: center;
+  background: black;
+}
+
+.checkmark {
+  justify-self: center;
+  align-self: center;
+  height: 95%;
+  width: 95%;
+}
+
 // =============================
 // Terms & Conditions
 // =============================

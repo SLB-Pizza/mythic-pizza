@@ -1,31 +1,3 @@
-/*the little checkbox for terms agreement if checked*/
-.servicesCheckboxActive {
-  height: 2vh;
-  width: 2vh;
-  border: 1px groove black;
-  /* border-style: groove; */
-
-  align-self: center;
-}
-
-/*the little checkbox for terms agreement if NOT checked*/
-.servicesCheckboxInactive {
-  height: 2vh;
-  width: 2vh;
-  border: 1px outset grey;
-  align-self: center;
-  /* color: grey; */
-  background: white;
-}
-
-.servicesCheckboxHover {
-  height: 2vh;
-  width: 2vh;
-  border: 1px outset white;
-  align-self: center;
-  background: black;
-}
-
 /*for the wrapper around the services needed checkbox dropdown*/
 .checkboxDropdownWrapper {
   display: flex;

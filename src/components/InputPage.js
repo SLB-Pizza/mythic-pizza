@@ -212,9 +212,13 @@ function InputPage(props) {
             <p>NY, New York 11201</p>
           </div>
         </div>
-        <div className="column is-1" id="required-text">
-          <p>* denotes required field</p>
-        </div>
+        {submitted ? (
+          <div className="column is-1" id="required-text" />
+        ) : (
+          <div className="column is-1" id="required-text">
+            <p>* denotes required field</p>
+          </div>
+        )}
         <div className="column">
           {/*BEGIN TERNARY*/}
           {submitted ? (
@@ -691,7 +695,7 @@ function InputPage(props) {
                 }}>
                 <text>THANK YOU!</text>
                 <text>WE'LL BE IN TOUCH.</text>
-                <div className="copyrightSuccess">
+                <div className="copyrightSuccess-mobile">
                   <p id="copyright-text">COPYRIGHT ©2019 PROJECT MERCURY</p>
                   <p id="rights-text">ALL RIGHTS RESERVED</p>
                 </div>

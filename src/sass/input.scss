@@ -514,3 +514,28 @@ input[type='number']::-webkit-outer-spin-button {
     }
   }
 }
+
+.copyrightSuccess {
+  display: flex;
+  flex-direction: row;
+  padding-top: 70vh;
+  p {
+    color: grey;
+    &#copyright-text {
+      flex: 1;
+    }
+    &#rights-text {
+      flex: 1;
+      display: flex;
+      justify-self: flex-end;
+    }
+  }
+}
+
+.copyrightSuccess-mobile {
+  display: flex;
+  flex-direction: row;
+  padding-top: 70vh;
+  justify-self: flex-end;
+  color: gray;
+}

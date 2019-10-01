@@ -181,15 +181,18 @@
   flex-direction: row;
   padding-top: 60vh;
   justify-self: flex-end;
+  font-family: 'Graphik';
   p {
     color: grey;
     &#copyright-text {
       flex: 1;
+      font-size: 12px;
     }
     &#rights-text {
       flex: 1;
       display: flex;
       justify-self: flex-end;
+      font-size: 12px;
     }
   }
 }
@@ -199,16 +202,19 @@
   flex-direction: column;
   padding-top: 10vh;
   justify-content: space-around;
+  font-family: 'Graphik';
   p {
     color: grey;
     &#copyright-text-mobile {
       flex: 1;
       margin-bottom: 1vh;
+      font-size: 12px;
     }
     &#rights-text-mobile {
       flex: 1;
       display: flex;
       justify-self: flex-end;
+      font-size: 12px;
     }
   }
 }

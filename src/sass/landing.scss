@@ -52,7 +52,6 @@
 #desktop-landing-right {
   height: 100%;
   flex-direction: column;
-  background-color: pink;
 
   #main-button {
     flex: 1;
@@ -64,13 +63,14 @@
       display: flex;
       flex-direction: row;
       align-items: center;
+      background-color: transparent;
       border: 2px solid white;
-      padding: 12px 15px;
+      padding: 10px 15px;
       font-family: "Graphik";
       font-size: 16pt;
 
       p {
-        color: yellow;
+        color: white;
         padding-right: 27px;
       }
     }
@@ -93,24 +93,6 @@
   height: 100%;
   flex-direction: column;
   align-content: space-between;
-
-  #mobile-address {
-    flex: 1;
-    a {
-      text-decoration: none;
-      font-family: "Graphik";
-      font-size: 14pt;
-      line-height: 21pt;
-      color: white;
-    }
-    p {
-      font-size: 14pt;
-      line-height: 21pt;
-      &:nth-child(2) {
-        margin-top: 14pt;
-      }
-    }
-  }
 
   #mobile-inquire {
     flex: 1;

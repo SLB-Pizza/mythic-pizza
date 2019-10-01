@@ -626,6 +626,7 @@ function InputPage(props) {
                           ? "white"
                           : "grey"
                     }}
+                    readOnly
                   />
                   {/*
             // =============================
@@ -1108,6 +1109,7 @@ function InputPage(props) {
                           ? "white"
                           : "grey"
                     }}
+                    readOnly
                   />
                   {/*
             // =============================

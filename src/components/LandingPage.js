@@ -7,10 +7,7 @@ import {
 } from "react-spring";
 import { Link } from "react-router-dom";
 import logo from "../imgs/project-mercury-logo.svg";
-import bgIMG from "../imgs/bg1.jpg";
 import * as easings from "d3-ease";
-
-// import "../App.css";
 
 function LandingPage() {
   //Left text spring

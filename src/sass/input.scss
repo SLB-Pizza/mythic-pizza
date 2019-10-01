@@ -27,13 +27,13 @@
 // ==============================================
 
 .inactive-grey {
-  border-color: "grey";
-  color: "grey";
+  border-color: 'grey';
+  color: 'grey';
 }
 
 .active-white {
-  border-color: "white";
-  color: "white";
+  border-color: 'white';
+  color: 'white';
 }
 
 #mobile-column-margin {
@@ -172,7 +172,7 @@
 }
 
 label {
-  font-family: "Graphik";
+  font-family: 'Graphik';
   font-size: 12pt;
   width: 100%;
   input {
@@ -294,8 +294,8 @@ label {
       display: flex;
       height: 100%;
       flex-direction: column;
-      align-items: "center";
-      justify-content: "center";
+      align-items: 'center';
+      justify-content: 'center';
       p {
         flex: 1;
         height: 100%;
@@ -321,8 +321,8 @@ label {
 // 012
 // =============================
 
-input[type="number"]::-webkit-inner-spin-button,
-input[type="number"]::-webkit-outer-spin-button {
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -349,7 +349,7 @@ input[type="number"]::-webkit-outer-spin-button {
   // background-color: darkmagenta;
   width: 100%;
   font-size: 23pt;
-  font-family: "Graphik";
+  font-family: 'Graphik';
   color: white;
   background-color: black;
   border-style: hidden hidden hidden hidden;
@@ -365,7 +365,7 @@ input[type="number"]::-webkit-outer-spin-button {
       }
     }
     .dropdown-options {
-      font-family: "Graphik";
+      font-family: 'Graphik';
       font-size: 14pt;
       .selected-option {
         border-bottom: 1px black solid;
@@ -395,6 +395,45 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 100%;
 }
 
+.hoverService {
+  color: white;
+  background-color: black;
+  width: 100%;
+}
+
+.servicesCheckboxActive {
+  height: 2vh;
+  width: 2vh;
+  border: 1px groove black;
+  /* border-style: groove; */
+
+  align-self: center;
+}
+
+.servicesCheckboxInactive {
+  height: 2vh;
+  width: 2vh;
+  border: 1px outset grey;
+  align-self: center;
+  /* color: grey; */
+  background: white;
+}
+
+.servicesCheckboxHover {
+  height: 2vh;
+  width: 2vh;
+  border: 1px outset white;
+  align-self: center;
+  background: black;
+}
+
+.checkmark {
+  justify-self: center;
+  align-self: center;
+  height: 95%;
+  width: 95%;
+}
+
 // =============================
 // Terms & Conditions
 // =============================
@@ -421,7 +460,7 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 36px;
   border-radius: 2px;
   margin-bottom: 50px;
-  font-family: "Graphik";
+  font-family: 'Graphik';
   font-size: 14px;
 }
 
@@ -430,7 +469,7 @@ input[type="number"]::-webkit-outer-spin-button {
 // =============================
 
 .legal-stuff {
-  font-family: "Graphik";
+  font-family: 'Graphik';
   font-family: 12pt;
   line-height: 21pt;
   margin-bottom: 118px;
@@ -472,6 +511,40 @@ input[type="number"]::-webkit-outer-spin-button {
       flex: 1;
       display: flex;
       margin-top: 3vh;
+    }
+  }
+}
+
+.copyrightSuccess {
+  display: flex;
+  flex-direction: row;
+  padding-top: 70vh;
+  p {
+    color: grey;
+    &#copyright-text {
+      flex: 1;
+    }
+    &#rights-text {
+      flex: 1;
+      display: flex;
+      justify-self: flex-end;
+    }
+  }
+}
+
+.copyrightSuccess-mobile {
+  display: flex;
+  flex-direction: row;
+  padding-top: 70vh;
+  p {
+    color: grey;
+    &#copyright-text {
+      flex: 1;
+    }
+    &#rights-text {
+      flex: 1;
+      display: flex;
+      justify-self: flex-end;
     }
   }
 }

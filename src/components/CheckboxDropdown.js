@@ -1,8 +1,9 @@
-import React from "react";
-import "../App.css";
-import downArrow from "../imgs/dropdownArrow-Sketch.svg";
-import upArrow from "../imgs/dropdownUpArrow-Sketch.svg";
-import checkmark from "../imgs/check.svg";
+import React from 'react';
+import '../App.css';
+import downArrow from '../imgs/dropdownArrow-Sketch.svg';
+import upArrow from '../imgs/dropdownUpArrow-Sketch.svg';
+import checkmark from '../imgs/check.svg';
+import whiteCheck from '../imgs/check-white.svg';
 
 // props (services, handleSelect, name, insidetext)
 export default class CheckboxDropdown extends React.Component {
@@ -11,18 +12,20 @@ export default class CheckboxDropdown extends React.Component {
     this.state = {
       services: this.props.services || [],
       showServices: false,
-      selectedServices: []
+      selectedServices: [],
+      hovering: false,
+      hoverNode: null,
     };
     this.node = null;
     this.handleClick = this.handleClick.bind(this);
   }
 
   componentDidMount() {
-    document.addEventListener("mousedown", this.handleClick, false);
+    document.addEventListener('mousedown', this.handleClick, false);
   }
 
   componentWillUnmount() {
-    document.removeEventListener("mousedown", this.handleClick, false);
+    document.removeEventListener('mousedown', this.handleClick, false);
   }
 
   handleOutsideClick() {
@@ -48,7 +51,7 @@ export default class CheckboxDropdown extends React.Component {
       await newServices.sort((a, b) => a.id - b.id);
 
       await this.setState({
-        selectedServices: newServices
+        selectedServices: newServices,
         // showServices: false,
       });
     } else {
@@ -56,7 +59,7 @@ export default class CheckboxDropdown extends React.Component {
         service => service.id !== selectedService.id
       );
       await this.setState({
-        selectedServices: filteredServices
+        selectedServices: filteredServices,
       });
     }
 
@@ -68,26 +71,24 @@ export default class CheckboxDropdown extends React.Component {
       <div
         className="checkboxDropdownWrapper"
         style={{
-          borderBottomColor: this.props.value.length > 0 ? "white" : "grey",
-          display: "flex",
-          flexDirection: "column"
+          borderBottomColor: this.props.value.length > 0 ? 'white' : 'grey',
+          display: 'flex',
+          flexDirection: 'column',
         }}
-        ref={node => (this.node = node)}
-      >
+        ref={node => (this.node = node)}>
         <div
           style={{
-            display: "flex",
-            flexDirection: "row",
-            justifyContent: "space-between",
-            fontSize: "23pt"
+            display: 'flex',
+            flexDirection: 'row',
+            justifyContent: 'space-between',
+            fontSize: '23pt',
           }}
-          onClick={this.dropdown}
-        >
+          onClick={this.dropdown}>
           {this.props.value.length > 0
             ? this.props.value
-                .reduce((acc, curr) => acc + ", " + curr.service, "")
+                .reduce((acc, curr) => acc + ', ' + curr.service, '')
                 .slice(1)
-            : "Please select at least one service"}
+            : 'Please select at least one service'}
           <div className="dropDownArrow" onClick={this.dropdown}>
             {this.state.showServices ? (
               <img src={upArrow} alt={upArrow} />
@@ -98,66 +99,70 @@ export default class CheckboxDropdown extends React.Component {
         </div>
         <div
           style={{
-            display: this.state.showServices ? "inline" : "none",
-            width: "100%"
-          }}
-        >
+            display: this.state.showServices ? 'inline' : 'none',
+            width: '100%',
+          }}>
           {/* MAP  */}
           {this.state.services.map(service => (
             // MAP RETURN WRAPPER DIV
             <div
               key={service.id}
               style={{
-                display: "flex",
-                flexDirection: "row",
-                borderTop: "1px solid grey",
-                height: "4vh",
-                backgroundColor: "white",
-                color: "black"
-              }}
-            >
+                display: 'flex',
+                flexDirection: 'row',
+                borderTop: '1px solid grey',
+                height: '4vh',
+                backgroundColor:
+                  this.state.hoverNode === service.id ? 'black' : 'white',
+                color: this.state.hoverNode === service.id ? 'white' : 'black',
+              }}>
               {/* checkbox div orange  */}
               <div
                 className={
-                  this.state.selectedServices.includes(service)
-                    ? "servicesCheckboxActive"
-                    : "servicesCheckboxInactive"
+                  this.state.hoverNode === service.id
+                    ? 'servicesCheckboxHover'
+                    : this.state.selectedServices.includes(service)
+                    ? 'servicesCheckboxActive'
+                    : 'servicesCheckboxInactive'
                 }
                 onClick={() => this.selectService(service)}
                 style={{
                   // backgroundColor: 'orange',
-                  marginRight: "1%",
-                  marginLeft: "1%"
-                }}
-              >
+                  marginRight: '1%',
+                  marginLeft: '1%',
+                }}>
                 {this.state.selectedServices.includes(service) ? (
-                  <img
-                    src={checkmark}
-                    alt="check"
-                    style={{
-                      justifySelf: "center",
-                      alignSelf: "center",
-                      height: "95%",
-                      width: "95%"
-                    }}
-                  />
+                  this.state.hoverNode === service.id ? (
+                    <img
+                      src={whiteCheck}
+                      alt="whiteCheck"
+                      className="checkmark"
+                    />
+                  ) : (
+                    <img src={checkmark} alt="check" className="checkmark" />
+                  )
                 ) : null}
               </div>
 
               <div
-                className="selectedService"
-                // className={
-                //   this.state.selectedOption === service
-                //     ? 'selectedService'
-                //     : 'unselectedService'
-                // }
+                // className="selectedService"
+                className={
+                  this.state.hoverNode === service.id
+                    ? 'hoverService'
+                    : 'selectedService'
+                }
                 key={service.id}
+                onMouseEnter={() => {
+                  this.setState({ hoverNode: service.id });
+                }}
+                onMouseLeave={() => {
+                  this.setState({ hoverNode: null });
+                }}
                 onClick={() => this.selectService(service)}
                 style={{
-                  alignSelf: "center"
+                  alignSelf: 'center',
                   // backgroundColor: 'teal'
-                }}
-              >
+                }}>
                 {service.service}
               </div>
             </div>

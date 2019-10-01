@@ -72,26 +72,19 @@ function LandingPage() {
             <div className="column">
               <animated.div style={leftText} id="desktop-blurb">
                 <p>
-                  Derris and Mythology (formerly Partners & Spade) have worked
-                  together before, bringing to life some of the most known and
-                  loved brands of the past decade, and rethinking the businesses
-                  of big, iconic companies.
+                  Attention new thinkers, subversive talents and iconoclasts,
                 </p>
                 <p>
-                  Today, as we continue our work with our respective agencies,
-                  we're officially joining forces on Project Mercury - a project
-                  to find the founders and ideas that will change their
-                  industries and help build the next great brands.
+                  Announcing Project Mercury, a joint initiative from Derris and
+                  Mythology (formerly Partners & Spade) to find the undiscovered
+                  founders and radical ideas that will change industries, and
+                  help them build the next great brands.
                 </p>
               </animated.div>
             </div>
             <div className="column">
               <div className="vertical-logo is-flex-desktop">
-                <img
-                  src={logo}
-                  alt="projectMERCURY"
-                  // style={{ width: "49px", height: "auto" }}
-                />
+                <img src={logo} alt="projectMERCURY" />
               </div>
             </div>
             <div className="column">
@@ -105,20 +98,6 @@ function LandingPage() {
                     <button className="inquire-btn">INQUIRE ⟶</button>
                   </Link>
                 </animated.div>
-
-                {/* <div style={contactInfo} id="desktop-landing-address">
-                  <a
-                    href="mailto:office@projectmercury.com"
-                    // target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    office@projectmercury.com
-                  </a>
-                  <p>T 646 861 2827</p>
-                  <br />
-                  <p>324 Lafayette Street</p>
-                  <p>NY, New York 11201</p>
-                </div> */}
               </animated.div>
             </div>
           </div>

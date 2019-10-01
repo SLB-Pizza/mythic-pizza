@@ -16,21 +16,13 @@
   overflow-y: hidden;
 }
 
-// Old React Code
-// <div
-//       className="hero is-fullheight"
-//       style={{
-//         backgroundImage: 'url(' + bgIMG + ')',
-//         backgroundSize: 'cover',
-//         // backgroundAttachment: 'fixed',
-//         overflowY: 'hidden',
-//       }}>
-
 // ==============================================
 // DESKTOP
 // ==============================================
 
+// =======================
 // First Column
+// =======================
 #desktop-blurb {
   margin-top: -3px;
   p {
@@ -43,13 +35,16 @@
   }
 }
 
-/* Second Column */
+// =======================
+// Second Column
+// =======================
 // This column is flexed manually in LandingPage
 .vertical-logo {
   justify-content: center;
 }
-
-/* Third Column */
+// =======================
+// Third Column
+// =======================
 // This column is flexed manually in LandingPage
 #desktop-landing-right {
   height: 100%;
@@ -98,11 +93,14 @@
 // MOBILE
 // ==============================================
 
+// =======================
 // First Column
+// =======================
 // Straight forward; it's one SVG file; needs to be made larger
 
+// =======================
 // Second Column
-
+// =======================
 #mobile-landing {
   height: 100%;
   flex-direction: column;

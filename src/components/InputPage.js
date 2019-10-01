@@ -213,6 +213,7 @@ function InputPage(props) {
                 </button>
               </Link>
               <div className="input-contact-info">
+
                 <a
                   href="mailto:office@projectmercury.com"
                   // target="_blank"

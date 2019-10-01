@@ -24,25 +24,22 @@
 // First Column
 // =======================
 #desktop-blurb {
-  // margin-top: -3px;
+  // margin-top: -3px;;
   display: flex;
   flex-direction: column;
   align-content: center;
   justify-content: center;
-  // background-color: blue;
   height: 100%;
-  width: 1005;
-
   p {
-    align-self: center;
-    justify-self: center;
-    font-size: 22px;
-    line-height: 30px;
     font-family: 'Graphik';
+    font-size: 22px;
+    justify-self: center;
+    align-self: center;
+    line-height: 30px;
     text-transform: uppercase;
 
     &:last-child {
-      margin-top: 16px;
+      margin-top: 22px;
     }
   }
 }
@@ -52,12 +49,7 @@
 // =======================
 // This column is flexed manually in LandingPage
 .vertical-logo {
-  display: flex;
-  // flex: 1;
   justify-content: center;
-  align-content: center;
-  height: 90vh;
-  // background-color: orange;
 }
 
 .vertical-logo-img {
@@ -86,7 +78,7 @@
       flex-direction: row;
       align-items: center;
       background-color: transparent;
-      border: 1px solid white;
+      border: 2px solid white;
       padding: 10px 15px;
       font-family: 'Graphik';
       font-size: 16px;
@@ -132,10 +124,10 @@
     flex-direction: row;
     align-items: center;
     background-color: transparent;
-    border: 1px solid white;
+    border: 2px solid white;
     padding: 10px 15px;
     font-family: 'Graphik';
-    font-size: 22px;
+    font-size: 16px;
     outline: none;
     p {
       color: white;
@@ -146,8 +138,8 @@
   #mobile-blurb {
     flex: 2;
     p {
-      font-size: 22px;
-      line-height: 30px;
+      font-size: 16px;
+      line-height: 19pt;
       text-transform: uppercase;
 
       &:last-of-type {

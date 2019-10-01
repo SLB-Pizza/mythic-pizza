@@ -629,7 +629,7 @@ input[type='number']::-webkit-outer-spin-button {
 .legal-stuff {
   font-family: 'Graphik';
   font-family: 12px;
-  line-height: 22pt;
+  line-height: 18pt;
   margin-bottom: 118px;
   p {
     font-size: 12px;
@@ -665,11 +665,13 @@ input[type='number']::-webkit-outer-spin-button {
     color: grey;
     &.copyright-text {
       flex: 1;
+      font-size: 12px;
     }
     &.rights-text {
       flex: 1;
       display: flex;
       margin-top: 3vh;
+      font-size: 12px;
     }
   }
 }

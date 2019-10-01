@@ -109,7 +109,7 @@ function LandingPage() {
               <animated.div style={inquireMove} className="landing-right">
                 <animated.div style={inquireFade} className="btn-animation">
                   <Link to="/form">
-                    <button className="inquire-style">
+                    <button className="inquire-btn">
                       <p>INQUIRE</p>
                       <img src={inquireArrow} alt="inquire arrow" />
                     </button>

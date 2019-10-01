@@ -3,12 +3,12 @@ import Dropzone from "react-dropzone";
 import { /*useTransition,*/ useSpring, animated, config } from "react-spring";
 import { Link } from "react-router-dom";
 
-import "../App.css";
 import TextBox from "./TextBox.js";
 import SelectDropdown from "./SelectDropdown";
 import CheckboxDropdown from "./CheckboxDropdown";
 
 import logo from "../imgs/project-mercury-logo.svg";
+import closeArrow from "../imgs/close-arrow.svg";
 import termsCheckmark from "../imgs/terms-checkmark.svg";
 import termsNoCheckmark from "../imgs/terms-no-checkmark.svg";
 import uploadIcon from "../imgs/uploadArrow-Sketch.svg";
@@ -154,7 +154,6 @@ function InputPage(props) {
     delay: 1000
   });
 
-
   // ██████╗ ███████╗███╗   ██╗██████╗ ███████╗██████╗
   // ██╔══██╗██╔════╝████╗  ██║██╔══██╗██╔════╝██╔══██╗
   // ██████╔╝█████╗  ██╔██╗ ██║██║  ██║█████╗  ██████╔╝
@@ -195,8 +194,9 @@ function InputPage(props) {
             */}
             <div className="column is-2">
               <Link to="/">
-                <button id="close-button">
-                  <p>⟵ CLOSE</p>
+                <button className="close-btn">
+                  <img src={closeArrow} alt="inquire arrow" />
+                  <p>CLOSE</p>
                 </button>
               </Link>
               <div className="input-contact-info">

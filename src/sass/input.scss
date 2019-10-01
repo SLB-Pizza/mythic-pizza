@@ -44,8 +44,8 @@
 .logo-size {
   position: -webkit-sticky;
   position: sticky;
-  top: 25vh;
-  width: 100vh;
+  top: 12.5vh;
+  height: 75vh;
 }
 
 #input-logo-mobile {
@@ -58,17 +58,22 @@
 // 2ND COLUMN - close button & address
 // ==============================================
 
-#close-button {
-  // width: 100px;
-  // height: 36px;
-  border: 1px solid white;
-  background-color: #292929;
-  top: 60vh;
+.close-btn {
   position: -webkit-sticky;
   position: sticky;
+  top: 37.5vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid white;
+  padding: 10px 15px;
+  font-family: "Graphik";
+  font-size: 16pt;
+
   p {
-    font-size: 14pt;
-    padding: 8px 18px;
+    color: white;
+    padding-left: 27px;
   }
 }
 

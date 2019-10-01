@@ -659,12 +659,14 @@ input[type='number']::-webkit-outer-spin-button {
     &.copyright-text {
       flex: 1;
       font-size: 12px;
+      font-family: 'Graphik';
     }
     &.rights-text {
       flex: 1;
       display: flex;
       justify-content: flex-end;
       font-size: 12px;
+      font-family: 'Graphik';
     }
   }
 }
@@ -677,12 +679,14 @@ input[type='number']::-webkit-outer-spin-button {
     color: grey;
     &.copyright-text {
       flex: 1;
+      font-family: 'Graphik';
       font-size: 12px;
     }
     &.rights-text {
       flex: 1;
       display: flex;
       margin-top: 3vh;
+      font-family: 'Graphik';
       font-size: 12px;
     }
   }

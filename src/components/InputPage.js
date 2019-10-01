@@ -230,9 +230,13 @@ function InputPage(props) {
             // 3rd Column
             // =============================
             */}
-            <div className="column is-1" id="required-text">
-              <p>* denotes required field</p>
-            </div>
+            {submitted ? (
+              <div className="column is-1" id="required-text" />
+            ) : (
+              <div className="column is-1" id="required-text">
+                <p>* denotes required field</p>
+              </div>
+            )}
             {/*
             // =============================
             // 4th Column
@@ -242,7 +246,12 @@ function InputPage(props) {
               {/*BEGIN TERNARY*/}
               {submitted ? (
                 <animated.div className="success" style={successSpring}>
-                  HELLO! This is where SuccessMessage will go when complete.
+                  <text>THANK YOU!</text>
+                  <text>WE'LL BE IN TOUCH.</text>
+                  <div className="copyrightSuccess">
+                    <p id="copyright-text">COPYRIGHT ©2019 PROJECT MERCURY</p>
+                    <p id="rights-text">ALL RIGHTS RESERVED</p>
+                  </div>
                 </animated.div>
               ) : (
                 <animated.form

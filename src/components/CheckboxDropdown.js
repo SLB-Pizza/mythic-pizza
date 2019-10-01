@@ -69,7 +69,11 @@ export default class CheckboxDropdown extends React.Component {
   render() {
     return (
       <div
-        className="checkboxDropdownWrapper"
+        className={
+          this.state.showServices
+            ? 'checkboxDropdown-no-border'
+            : 'checkboxDropdownWrapper'
+        }
         style={{
           borderBottomColor: this.props.value.length > 0 ? 'white' : 'grey',
           display: 'flex',

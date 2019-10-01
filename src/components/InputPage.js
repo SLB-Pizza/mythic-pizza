@@ -648,6 +648,7 @@ function InputPage(props) {
                       currentTeam.length > 0 &&
                       positions.length > 0 &&
                       capitalNeeded.length > 0 &&
+                      launchSelected.length > 0 &&
                       // servicesSelected.length > 0 &&
                       servicesString.length > 0 &&
                       file.size > 0
@@ -663,6 +664,7 @@ function InputPage(props) {
                         currentTeam.length > 0 &&
                         positions.length > 0 &&
                         capitalNeeded.length > 0 &&
+                        launchSelected.length > 0 &&
                         // servicesSelected.length > 0 &&
                         servicesString.length > 0 &&
                         file.size > 0
@@ -1168,6 +1170,7 @@ function InputPage(props) {
                       currentTeam.length > 0 &&
                       positions.length > 0 &&
                       capitalNeeded.length > 0 &&
+                      launchSelected.length > 0 &&
                       // servicesSelected.length > 0 &&
                       servicesString.length > 0 &&
                       file.size > 0
@@ -1183,6 +1186,7 @@ function InputPage(props) {
                         currentTeam.length > 0 &&
                         positions.length > 0 &&
                         capitalNeeded.length > 0 &&
+                        launchSelected.length > 0 &&
                         // servicesSelected.length > 0 &&
                         servicesString.length > 0 &&
                         file.size > 0

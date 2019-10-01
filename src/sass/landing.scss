@@ -25,10 +25,12 @@
 // =======================
 #desktop-blurb {
   margin-top: -3px;
+
   p {
     font-size: 16pt;
-    line-height: 21pt;
+    line-height: get-line-height(16pt, 23pt);
     text-transform: uppercase;
+
     &:last-child {
       margin-top: 16px;
     }
@@ -42,6 +44,7 @@
 .vertical-logo {
   justify-content: center;
 }
+
 // =======================
 // Third Column
 // =======================
@@ -49,44 +52,29 @@
 #desktop-landing-right {
   height: 100%;
   flex-direction: column;
-  #main-button {
-    flex: 2;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    // background-color: rgba(255, 55, 255, 0.5);
-  }
+  background-color: pink;
 
-  #desktop-landing-address {
+  #main-button {
     flex: 1;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
-    // background-color: rgba(55, 255, 55, 0.5);
-    a {
-      text-decoration: none;
+    justify-content: center;
+
+    .inquire-btn {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      border: 2px solid white;
+      padding: 12px 15px;
       font-family: "Graphik";
-      font-size: 14pt;
-      color: white;
-    }
-    p {
-      font-size: 14pt;
-      line-height: 21pt;
-      &:nth-child(2) {
-        margin-top: 14pt;
+      font-size: 16pt;
+
+      p {
+        color: yellow;
+        padding-right: 27px;
       }
     }
   }
-}
-
-.inquire-btn {
-  color: black;
-  background: white;
-  font-family: "Graphik";
-  font-size: 14pt;
-  line-height: 21pt;
-  border: none;
-  padding: 8px 13px;
 }
 
 // ==============================================
@@ -134,10 +122,12 @@
 
   #mobile-blurb {
     flex: 2;
+
     p {
       font-size: 14pt;
       line-height: 19pt;
       text-transform: uppercase;
+
       &:last-of-type {
         margin-top: 19px;
       }

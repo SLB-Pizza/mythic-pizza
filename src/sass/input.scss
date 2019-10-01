@@ -16,11 +16,9 @@
 // ==============================================
 // ENTIRE PAGE
 // ==============================================
-
-// Client changed
-// #input-page {
-//   background-color: black;
-// }
+#input-page {
+  background-color: #292929;
+}
 
 // ==============================================
 // UTILITY CLASSES - switch inline CSS styles
@@ -43,10 +41,10 @@
 // ==============================================
 // 1ST COLUMN - SVG logo
 // ==============================================
-.input-logo {
+.logo-size {
   position: -webkit-sticky;
   position: sticky;
-  top: 0;
+  top: 25vh;
   width: 100vh;
 }
 
@@ -64,7 +62,7 @@
   // width: 100px;
   // height: 36px;
   border: 1px solid white;
-  background-color: black;
+  background-color: #292929;
   top: 60vh;
   position: -webkit-sticky;
   position: sticky;

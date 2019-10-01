@@ -7,6 +7,7 @@ import {
 } from "react-spring";
 import { Link } from "react-router-dom";
 import logo from "../imgs/project-mercury-logo.svg";
+import inquireArrow from "../imgs/inquire-arrow.svg";
 import * as easings from "d3-ease";
 
 function LandingPage() {
@@ -67,6 +68,11 @@ function LandingPage() {
           */}
           <div className="columns is-hidden-touch">
             <div className="column">
+              {/*
+            // =============================
+            // 1st Column
+            // =============================
+            */}
               <animated.div style={leftText} id="desktop-blurb">
                 <p>
                   Attention new thinkers, subversive talents and iconoclasts,
@@ -79,11 +85,26 @@ function LandingPage() {
                 </p>
               </animated.div>
             </div>
+            {/*
+            // =============================
+            // 2nd Column
+            // =============================
+            */}
             <div className="column">
               <div className="vertical-logo is-flex-desktop">
-                <img src={logo} alt="projectMERCURY" />
+                <img
+                  src={logo}
+                  height="65vh"
+                  width="auto"
+                  alt="projectMERCURY"
+                />
               </div>
             </div>
+            {/*
+            // =============================
+            // 3rd Column
+            // =============================
+            */}
             <div className="column">
               <animated.div
                 style={inquireMove}
@@ -92,7 +113,10 @@ function LandingPage() {
               >
                 <animated.div style={inquireFade} id="main-button">
                   <Link to="/form">
-                    <button className="inquire-btn">INQUIRE ⟶</button>
+                    <button className="inquire-btn">
+                      <p>INQUIRE</p>
+                      <img src={inquireArrow} alt="inquire arrow" />
+                    </button>
                   </Link>
                 </animated.div>
               </animated.div>
@@ -106,34 +130,33 @@ function LandingPage() {
           /_/  \____/\__,_/\___/_/ /_/
           */}
           <div className="columns is-mobile is-hidden-desktop">
+            {/*
+            // =============================
+            // 1st Column
+            // =============================
+            */}
             <div className="column is-one-fifth">
               <div className="vertical-logo">
                 <img
                   src={logo}
+                  height="65vh"
+                  width="auto"
                   alt="projectMERCURY"
                   // style={{ width: "49px", height: "auto" }}
                 />
               </div>
             </div>
+            {/*
+            // =============================
+            // 2nd Column
+            // =============================
+            */}
             <div className="column">
               <animated.div
                 style={inquireMove}
                 className="is-flex-touch"
                 id="mobile-landing"
               >
-                {/* <div style={contactInfo} id="mobile-address">
-                  <a
-                    href="mailto:office@projectmercury.com"
-                    // target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    office@projectmercury.com
-                  </a>
-                  <p>T 646 861 2827</p>
-                  <br />
-                  <p>324 Lafayette Street</p>
-                  <p>NY, New York 11201</p>
-                </div> */}
                 <animated.div style={inquireFade} id="mobile-inquire">
                   <Link to="/form">
                     <button className="inquire-btn">INQUIRE ⟶</button>
@@ -142,16 +165,13 @@ function LandingPage() {
 
                 <animated.div style={leftTextMobile} id="mobile-blurb">
                   <p>
-                    Derris and Mythology (formerly Partners & Spade) have worked
-                    together before, bringing to life some of the most known and
-                    loved brands of the past decade, and rethinking the
-                    businesses of big, iconic companies.
+                    Attention new thinkers, subversive talents and iconoclasts,
                   </p>
                   <p>
-                    Today, as we continue our work with our respective agencies,
-                    we're officially joining forces on Project Mercury - a
-                    project to find the founders and ideas that will change
-                    their industries and help build the next great brands.
+                    Announcing Project Mercury, a joint initiative from Derris
+                    and Mythology (formerly Partners & Spade) to find the
+                    undiscovered founders and radical ideas that will change
+                    industries, and help them build the next great brands.
                   </p>
                 </animated.div>
               </animated.div>

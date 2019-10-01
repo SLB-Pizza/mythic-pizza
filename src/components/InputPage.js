@@ -125,28 +125,7 @@ function InputPage(props) {
     await setTermsCheckbox(!termsCheckbox);
   };
 
-  // ██████╗ ███████╗███╗   ██╗██████╗ ███████╗██████╗
-  // ██╔══██╗██╔════╝████╗  ██║██╔══██╗██╔════╝██╔══██╗
-  // ██████╔╝█████╗  ██╔██╗ ██║██║  ██║█████╗  ██████╔╝
-  // ██╔══██╗██╔══╝  ██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗
-  // ██║  ██║███████╗██║ ╚████║██████╔╝███████╗██║  ██║
-  // ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝
-  //
-  // The flex for the four input page columns on desktop is as follows:
-  // - vertical-logo-input: 1
-  // - button/address: 3
-  // - required-stuff-warning: 1
-  // - inquire-form: 7
-  // 12 columns total - something we may replicate when bulma is added
-
-  // Things to note:
-  // vertical-logo and address remain fixed even as inquire-form scrolls
-  // required-stuff-warning does not seem to scroll as we move down the form
-  // ISSUE: Re-org this page into 4 sub-divs as detailed above under "input-page"
-  //
-  // This should be the foundation for the addition of mobile responsiveness
-
-  //THe Following are springs from react-springs defined here
+  //The following are springs from react-springs defined here
   //for use in animated.div's below as style props
 
   //logo fade in on load
@@ -175,6 +154,14 @@ function InputPage(props) {
     delay: 1000
   });
 
+
+  // ██████╗ ███████╗███╗   ██╗██████╗ ███████╗██████╗
+  // ██╔══██╗██╔════╝████╗  ██║██╔══██╗██╔════╝██╔══██╗
+  // ██████╔╝█████╗  ██╔██╗ ██║██║  ██║█████╗  ██████╔╝
+  // ██╔══██╗██╔══╝  ██║╚██╗██║██║  ██║██╔══╝  ██╔══██╗
+  // ██║  ██║███████╗██║ ╚████║██████╔╝███████╗██║  ██║
+  // ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝
+  //
   return (
     <div className="hero is-fullheight" id="input-page">
       <div className="hero-body">
@@ -198,7 +185,7 @@ function InputPage(props) {
                 style={logoSpring}
                 src={logo}
                 alt="LOGO"
-                className="input-logo"
+                className="logo-size"
               />
             </div>
             {/*
@@ -213,7 +200,6 @@ function InputPage(props) {
                 </button>
               </Link>
               <div className="input-contact-info">
-
                 <a
                   href="mailto:office@projectmercury.com"
                   // target="_blank"
@@ -690,6 +676,11 @@ function InputPage(props) {
     /_/  \____/\__,_/\___/_/ /_/
     */}
           <div className="columns is-mobile is-hidden-desktop">
+            {/*
+            // =============================
+            // 1st Column
+            // =============================
+            */}
             <div className="column is-2 is-relative">
               <animated.img
                 style={logoSpring}
@@ -698,6 +689,11 @@ function InputPage(props) {
                 id="input-logo-mobile"
               />
             </div>
+            {/*
+            // =============================
+            // 2nd Column
+            // =============================
+            */}
             <div className="column" id="mobile-column-margin">
               <div className="input-contact-info-mobile">
                 <a
@@ -726,8 +722,8 @@ function InputPage(props) {
                       marginTop: "20vh"
                     }}
                   >
-                    <text>THANK YOU!</text>
-                    <text>WE'LL BE IN TOUCH.</text>
+                    <p>THANK YOU!</p>
+                    <p>WE'LL BE IN TOUCH.</p>
                     <div className="copyrightSuccess">
                       <p id="copyright-text">COPYRIGHT ©2019 PROJECT MERCURY</p>
                       <p id="rights-text">ALL RIGHTS RESERVED</p>

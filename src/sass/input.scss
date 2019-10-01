@@ -82,7 +82,7 @@
   // height: 36px;
   border: 1px solid white;
   background-color: #292929;
-  margin-top: 10vh;
+  margin-top: 5vh;
   //**Keep ouline:none
   outline: none;
   // position: -webkit-sticky;
@@ -115,7 +115,7 @@
 }
 
 .input-contact-info-mobile {
-  margin-top: 10vh;
+  margin-top: 13vh;
   p {
     font-size: 14pt;
     line-height: 21pt;
@@ -149,20 +149,63 @@
 // ==============================================
 // 4TH COLUMN - the form itself
 // ==============================================
-//.success is for the success message
+//SUCCESS MESSAGE
 .success {
   display: flex;
   flex-direction: column;
-  padding-top: 20vh;
+  margin-top: 15vh;
+}
+
+.success-mobile {
+  display: flex;
+  flex-direction: column;
+  margin-top: 8vh;
+}
+
+.success-inner-wrapper-mobile {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5vh;
 }
 
 .copyrightSuccess {
   display: flex;
   flex-direction: row;
-  padding-top: 70vh;
+  padding-top: 60vh;
   justify-self: flex-end;
-  color: gray;
+  p {
+    color: grey;
+    &#copyright-text {
+      flex: 1;
+    }
+    &#rights-text {
+      flex: 1;
+      display: flex;
+      justify-self: flex-end;
+    }
+  }
 }
+
+.copyrightSuccess-mobile {
+  display: flex;
+  flex-direction: column;
+  padding-top: 10vh;
+  justify-content: space-around;
+  p {
+    color: grey;
+    &#copyright-text-mobile {
+      flex: 1;
+      margin-bottom: 1vh;
+    }
+    &#rights-text-mobile {
+      flex: 1;
+      display: flex;
+      justify-self: flex-end;
+    }
+  }
+}
+
+//FORM
 
 #form-header-text {
   font-size: 16pt;
@@ -558,40 +601,6 @@ input[type='number']::-webkit-outer-spin-button {
       flex: 1;
       display: flex;
       margin-top: 3vh;
-    }
-  }
-}
-
-.copyrightSuccess {
-  display: flex;
-  flex-direction: row;
-  padding-top: 70vh;
-  p {
-    color: grey;
-    &#copyright-text {
-      flex: 1;
-    }
-    &#rights-text {
-      flex: 1;
-      display: flex;
-      justify-self: flex-end;
-    }
-  }
-}
-
-.copyrightSuccess-mobile {
-  display: flex;
-  flex-direction: row;
-  padding-top: 70vh;
-  p {
-    color: grey;
-    &#copyright-text {
-      flex: 1;
-    }
-    &#rights-text {
-      flex: 1;
-      display: flex;
-      justify-self: flex-end;
     }
   }
 }

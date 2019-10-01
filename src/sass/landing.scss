@@ -49,17 +49,18 @@
 // Third Column
 // =======================
 // This column is flexed manually in LandingPage
-#desktop-landing-right {
+.landing-right {
   height: 100%;
+  display: flex;
   flex-direction: column;
 
-  #main-button {
+  .btn-animation {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    .inquire-btn {
+    .inquire-style {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -91,6 +92,7 @@
 // =======================
 #mobile-landing {
   height: 100%;
+  display: flex;
   flex-direction: column;
   align-content: space-between;
 
@@ -104,7 +106,6 @@
 
   #mobile-blurb {
     flex: 2;
-
     p {
       font-size: 14pt;
       line-height: 19pt;

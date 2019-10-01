@@ -106,14 +106,10 @@ function LandingPage() {
             // =============================
             */}
             <div className="column">
-              <animated.div
-                style={inquireMove}
-                className="is-flex-desktop"
-                id="desktop-landing-right"
-              >
-                <animated.div style={inquireFade} id="main-button">
+              <animated.div style={inquireMove} className="landing-right">
+                <animated.div style={inquireFade} className="btn-animation">
                   <Link to="/form">
-                    <button className="inquire-btn">
+                    <button className="inquire-style">
                       <p>INQUIRE</p>
                       <img src={inquireArrow} alt="inquire arrow" />
                     </button>
@@ -135,7 +131,7 @@ function LandingPage() {
             // 1st Column
             // =============================
             */}
-            <div className="column is-one-fifth">
+            <div className="column is-one-quarter">
               <div className="vertical-logo">
                 <img
                   src={logo}
@@ -154,12 +150,15 @@ function LandingPage() {
             <div className="column">
               <animated.div
                 style={inquireMove}
-                className="is-flex-touch"
+                className="landing-right"
                 id="mobile-landing"
               >
-                <animated.div style={inquireFade} id="mobile-inquire">
+                <animated.div style={inquireFade} className="btn-animation">
                   <Link to="/form">
-                    <button className="inquire-btn">INQUIRE ⟶</button>
+                    <button className="inquire-style">
+                      <p>INQUIRE</p>
+                      <img src={inquireArrow} alt="learn more" />
+                    </button>
                   </Link>
                 </animated.div>
 

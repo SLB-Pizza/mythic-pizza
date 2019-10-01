@@ -25,11 +25,20 @@
 // =======================
 #desktop-blurb {
   // margin-top: -3px;
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  // background-color: blue;
+  height: 100%;
+  width: 1005;
 
   p {
     align-self: center;
-    font-size: 16px;
-    line-height: get-line-height(16pt, 23pt);
+    justify-self: center;
+    font-size: 22px;
+    line-height: 30px;
+    font-family: 'Graphik';
     text-transform: uppercase;
 
     &:last-child {
@@ -43,7 +52,18 @@
 // =======================
 // This column is flexed manually in LandingPage
 .vertical-logo {
+  display: flex;
+  // flex: 1;
   justify-content: center;
+  align-content: center;
+  height: 90vh;
+  // background-color: orange;
+}
+
+.vertical-logo-img {
+  height: 75vh;
+  align-self: center;
+  // justify-self: center;
 }
 
 // =======================
@@ -115,7 +135,7 @@
     border: 1px solid white;
     padding: 10px 15px;
     font-family: 'Graphik';
-    font-size: 16px;
+    font-size: 22px;
     outline: none;
     p {
       color: white;
@@ -126,8 +146,8 @@
   #mobile-blurb {
     flex: 2;
     p {
-      font-size: 16px;
-      line-height: 19pt;
+      font-size: 22px;
+      line-height: 30px;
       text-transform: uppercase;
 
       &:last-of-type {

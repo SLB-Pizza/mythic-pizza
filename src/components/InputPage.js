@@ -522,12 +522,16 @@ function InputPage(props) {
                                 color: 'white',
                                 backgroundColor: '#292929',
                                 outline: 'none',
+                                fontSize: '22px',
+                                fontFamily: 'Graphik',
                               }
                             : {
                                 borderColor: 'grey',
                                 color: 'grey',
                                 backgroundColor: '#292929',
                                 outline: 'none',
+                                fontSize: '22px',
+                                fontFamily: 'Graphik',
                               }
                         }
                         // required={true}
@@ -679,7 +683,7 @@ function InputPage(props) {
             // =============================
             */}
                   <div className="legal-stuff">
-                    <p>LEGAL:</p>
+                    <p style={{ color: 'white' }}>LEGAL:</p>
                     <p className="grey-legal">
                       Any nonpublic information provided hereunder is
                       confidential, and Project Mercury will not disclose the
@@ -1153,7 +1157,9 @@ function InputPage(props) {
                       alt="terms agreement checkmark"
                       onClick={handleTerms}
                     />
-                    <p className="agree-terms">I AGREE TO THE TERMS BELOW</p>
+                    <p className="agree-terms" onClick={handleTerms}>
+                      I AGREE TO THE TERMS BELOW
+                    </p>
                   </div>
                   {/*
             // =============================
@@ -1201,7 +1207,7 @@ function InputPage(props) {
             // =============================
             */}
                   <div className="legal-stuff">
-                    <p>LEGAL:</p>
+                    <p style={{ color: 'white' }}>LEGAL:</p>
                     <p className="grey-legal">
                       Any nonpublic information provided hereunder is
                       confidential, and Project Mercury will not disclose the

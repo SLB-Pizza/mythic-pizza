@@ -104,10 +104,10 @@
   position: sticky;
   p {
     font-size: 16px;
-    line-height: 21pt;
+    line-height: 22pt;
     font-family: 'Graphik';
     &:nth-child(3) {
-      margin-top: 21pt;
+      margin-top: 24px;
     }
   }
   a {
@@ -116,7 +116,7 @@
     font-weight: normal;
     font-family: 'Graphik';
     font-size: 16px;
-    line-height: 21px;
+    line-height: 22px;
   }
 }
 
@@ -124,7 +124,7 @@
   margin-top: 13vh;
   p {
     font-size: 16px;
-    line-height: 21pt;
+    line-height: 30px;
     font-family: 'Graphik';
     &:nth-child(3) {
       margin-top: 21pt;
@@ -135,7 +135,7 @@
     color: white;
     font-weight: normal;
     font-family: 'Graphik';
-    line-height: 21px;
+    line-height: 30px;
     font-size: 16px;
   }
 }
@@ -287,7 +287,7 @@ label {
 .one-line-input {
   width: 100%;
   outline: none;
-  font-size: 16px;
+  font-size: 22px;
   font-family: 'Graphik';
 }
 
@@ -299,6 +299,8 @@ label {
 .text-box-container {
   margin-bottom: 84px;
   .text-box {
+    font-family: 'Graphik';
+    font-size: 22px;
     border-width: 1px;
     border-style: solid;
     padding: 10px;
@@ -327,8 +329,9 @@ label {
       height: 100%;
       background-color: #292929;
       border-style: hidden;
-      font-size: 16px;
-      line-height: 21px;
+      font-family: 'Graphik';
+      font-size: 22px;
+      line-height: 30px;
       margin-top: 10px;
       overflow: hidden;
       outline: none;
@@ -385,6 +388,8 @@ label {
         flex: 1;
         height: 100%;
         align-self: center;
+        font-family: 'Graphik';
+        font-size: 22px;
       }
       img {
         flex: 1;
@@ -427,9 +432,10 @@ input[type='number']::-webkit-outer-spin-button {
   height: calc(23pt + 10px);
   p {
     flex: 1;
-    margin-top: 80px;
+    margin-top: 65px;
     margin-right: 2px;
-    font-size: 23pt;
+    font-size: 22px;
+    font-family: 'Graphik';
   }
 }
 
@@ -438,9 +444,10 @@ input[type='number']::-webkit-outer-spin-button {
   height: calc(23pt + 10px);
   p {
     flex: 1;
-    margin-top: -15px;
+    margin-top: -12px;
     margin-right: 2px;
-    font-size: 23pt;
+    font-size: 22px;
+    font-family: 'Graphik';
   }
 }
 
@@ -596,7 +603,7 @@ input[type='number']::-webkit-outer-spin-button {
   margin-bottom: 49px;
   .agree-terms {
     padding-left: 13px;
-    font-size: 12pt;
+    font-size: 12px;
   }
 }
 
@@ -608,11 +615,11 @@ input[type='number']::-webkit-outer-spin-button {
   color: #292929;
   border: none;
   width: 100%;
-  height: 36px;
+  height: 40px;
   border-radius: 2px;
   margin-bottom: 50px;
   font-family: 'Graphik';
-  font-size: 14px;
+  font-size: 16px;
 }
 
 // =============================
@@ -621,10 +628,11 @@ input[type='number']::-webkit-outer-spin-button {
 
 .legal-stuff {
   font-family: 'Graphik';
-  font-family: 12pt;
-  line-height: 21pt;
+  font-family: 12px;
+  line-height: 22pt;
   margin-bottom: 118px;
-  .grey-legal {
+  p {
+    font-size: 12px;
     color: grey;
   }
 }

@@ -67,12 +67,7 @@ function LandingPage() {
                                         /_/
           */}
           <div className="columns is-hidden-touch">
-            <div
-              className="column"
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-              }}>
+            <div className="column">
               {/*
             // =============================
             // 1st Column
@@ -98,6 +93,7 @@ function LandingPage() {
             <div className="column">
               <div className="vertical-logo is-flex-desktop">
                 <img
+                  className="vertical-logo-img"
                   src={logo}
                   height="65vh"
                   width="auto"

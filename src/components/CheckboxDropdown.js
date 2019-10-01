@@ -85,7 +85,7 @@ export default class CheckboxDropdown extends React.Component {
             display: 'flex',
             flexDirection: 'row',
             justifyContent: 'space-between',
-            fontSize: '23pt',
+            fontSize: '12pt',
           }}
           onClick={this.dropdown}>
           {this.props.value.length > 0

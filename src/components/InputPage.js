@@ -4,8 +4,8 @@ import { /*useTransition,*/ useSpring, animated } from 'react-spring';
 import { Link } from 'react-router-dom';
 
 import TextBox from './TextBox.js';
-import SelectDropdown from './SelectDropdown';
-import CheckboxDropdown from './CheckboxDropdown';
+// import SelectDropdown from './SelectDropdown';
+// import CheckboxDropdown from './CheckboxDropdown';
 
 import logo from '../imgs/project-mercury-logo.svg';
 import closeArrow from '../imgs/close-arrow.svg';
@@ -27,23 +27,26 @@ function InputPage(props) {
   const [positions, setPositions] = useState('');
   const [capitalRaised, setCapitalRaised] = useState('');
   const [capitalNeeded, setCapitalNeeded] = useState('');
-  const launchSchedule = [
-    { id: 1, timing: '3 months' },
-    { id: 2, timing: '6 months' },
-    { id: 3, timing: '9 months' },
-    { id: 4, timing: '1 year' },
-    { id: 5, timing: '2 years' },
-    { id: 6, timing: '2 years +' },
-  ];
-  const [launchSelected, setLaunchSelected] = useState('3 MONTHS');
-  const servicesNeeded = [
-    { id: 1, service: 'Branding' },
-    { id: 2, service: 'Fundraising' },
-    { id: 3, service: 'Strategy' },
-    { id: 4, service: 'Web Design' },
-    { id: 5, service: 'Web Development' },
-  ];
-  const [servicesSelected, setServicesSelected] = useState([]);
+  //following for use with old 014 dropdown
+  // const launchSchedule = [
+  //   { id: 1, timing: '3 months' },
+  //   { id: 2, timing: '6 months' },
+  //   { id: 3, timing: '9 months' },
+  //   { id: 4, timing: '1 year' },
+  //   { id: 5, timing: '2 years' },
+  //   { id: 6, timing: '2 years +' },
+  // ];
+  // const [oldLaunchSelected, setOldLaunchSelected] = useState('3 MONTHS');
+  const [launchSelected, setLaunchSelected] = useState('');
+  //following for use with old 015 dropdown
+  // const servicesNeeded = [
+  //   { id: 1, service: 'Branding' },
+  //   { id: 2, service: 'Fundraising' },
+  //   { id: 3, service: 'Strategy' },
+  //   { id: 4, service: 'Web Design' },
+  //   { id: 5, service: 'Web Development' },
+  // ];
+  // const [oldServicesSelected, setOldServicesSelected] = useState([]);
   const [servicesString, setServicesString] = useState('');
   const [termsCheckbox, setTermsCheckbox] = useState(false);
   const [submitted, setSubmitted] = useState(false);
@@ -107,19 +110,20 @@ function InputPage(props) {
       )
       .catch(error => alert('Form Submission Failed!'));
   };
+  //the foloowing for use with old 014 dropdown
+  // const handleLaunchSelect = async option => {
+  //   await setOldLaunchSelected(option.timing);
+  // };
 
-  const handleLaunchSelect = async option => {
-    await setLaunchSelected(option.timing);
-  };
+  //folowing for use with old 015
+  // const handleServicesSelect = async selectedServices => {
+  //   await setOldServicesSelected(selectedServices);
 
-  const handleServicesSelect = async selectedServices => {
-    await setServicesSelected(selectedServices);
-
-    const stringServices = await selectedServices
-      .reduce((acc, curr) => acc + ', ' + curr.service, '')
-      .slice(1);
-    await setServicesString(stringServices);
-  };
+  //   const stringServices = await selectedServices
+  //     .reduce((acc, curr) => acc + ', ' + curr.service, '')
+  //     .slice(1);
+  //   await setServicesString(stringServices);
+  // };
 
   const handleTerms = async () => {
     await setTermsCheckbox(!termsCheckbox);
@@ -293,7 +297,7 @@ function InputPage(props) {
             // 003
             // =============================
             */}
-                  <label>
+                  <label className="one-line-input-label">
                     <input
                       className="one-line-input"
                       style={
@@ -329,8 +333,9 @@ function InputPage(props) {
             // 005
             // =============================
             */}
-                  <label>
+                  <label className="one-line-input-label">
                     <input
+                      className="one-line-input"
                       style={
                         based.length > 0
                           ? { borderColor: 'white', color: 'white' }
@@ -364,8 +369,9 @@ function InputPage(props) {
             // 007
             // =============================
             */}
-                  <label>
+                  <label className="one-line-input-label">
                     <input
+                      className="one-line-input"
                       style={
                         targetDemo.length > 0
                           ? { borderColor: 'white', color: 'white' }
@@ -385,7 +391,7 @@ function InputPage(props) {
             // 008
             // =============================
             */}
-                  <label>
+                  <label className="one-line-input-label">
                     <input
                       className="one-line-input"
                       style={
@@ -412,6 +418,7 @@ function InputPage(props) {
                     style={{
                       borderColor:
                         file && file.name && file.size > 0 ? 'white' : 'grey',
+                      outline: 'none',
                     }}>
                     <Dropzone onDrop={onDrop}>
                       {({ getRootProps, getInputProps, isDragActive }) => (
@@ -422,6 +429,7 @@ function InputPage(props) {
                             borderColor:
                               file && file.size > 0 ? 'white' : 'grey',
                             color: file && file.size > 0 ? 'white' : 'grey',
+                            outline: 'none',
                           }}>
                           <input {...getInputProps()} />
                           {isDragActive ? (
@@ -484,32 +492,56 @@ function InputPage(props) {
             // 012
             // =============================
             */}
-                  <label>
-                    <div className="dollar-and-input">
-                      <p>$</p>
+                  <label className="capital-input">
+                    <div
+                      className="dollar-and-input"
+                      style={{ flexDirection: 'row', alignItems: 'center' }}>
+                      <p
+                        style={
+                          capitalRaised.length > 0
+                            ? {
+                                color: 'white',
+                              }
+                            : {
+                                color: 'grey',
+                              }
+                        }>
+                        $
+                      </p>
                       <input
+                        type="number"
+                        name="capitalRaised"
+                        // placeholder="0"
+                        value={capitalRaised}
+                        onChange={e => setCapitalRaised(e.target.value)}
+                        outline="none"
                         style={
                           capitalRaised.length > 0
                             ? {
                                 borderColor: 'white',
                                 color: 'white',
-                                backgroundColor: 'transparent',
+                                backgroundColor: '#292929',
+                                outline: 'none',
                               }
                             : {
                                 borderColor: 'grey',
                                 color: 'grey',
-                                backgroundColor: 'transparent',
+                                backgroundColor: '#292929',
+                                outline: 'none',
                               }
                         }
-                        type="number"
-                        name="capitalRaised"
-                        placeholder="0"
-                        value={capitalRaised}
-                        onChange={e => setCapitalRaised(e.target.value)}
                         // required={true}
                       />
                     </div>
-                    <p>012. CAPITAL RAISED*</p>
+                    <p
+                      style={{
+                        fontFamily: 'Graphik',
+                        fontSize: '12px',
+                        backgroundColor: '#292929',
+                        color: capitalRaised.length > 0 ? 'white' : 'gray',
+                      }}>
+                      012. CAPITAL RAISED*
+                    </p>
                   </label>
                   {/*
             // =============================
@@ -531,7 +563,17 @@ function InputPage(props) {
             // 014
             // =============================
             */}
-                  <label className="launch-schedule-dropdown">
+                  <div className="text-box-container">
+                    <TextBox
+                      onChange={e => setLaunchSelected(e.target.value)}
+                      value={launchSelected}
+                      name="launchSelected"
+                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
+                    />
+                  </div>
+                  {/* WHat follows i the old dropdown of this that can be toggled on by uncommenting this block and
+                  oldLaunchSelected, and launchSchedule in the state const's  and handleLaunchSelect func in methods and mobile version below and the SelectDropdown component import at top*/}
+                  {/* <label className="launch-schedule-dropdown">
                     <SelectDropdown
                       handleSelect={handleLaunchSelect}
                       options={launchSchedule}
@@ -539,14 +581,30 @@ function InputPage(props) {
                       insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
                     />
                     <p>014. ANTICIPATED LAUNCH SCHEDULE*</p>
-                  </label>
+                  </label> */}
                   {/*
             // =============================
             // Services Needed
             // 015
             // =============================
             */}
-                  <label
+                  <label className="one-line-input-label">
+                    <input
+                      className="one-line-input"
+                      style={
+                        servicesString.length > 0
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
+                      }
+                      type="text"
+                      name="servicesString"
+                      value={servicesString}
+                      onChange={e => setServicesString(e.target.value)}
+                      // required={true}
+                    />
+                    <p>015. SERVICES NEEDED*</p>
+                  </label>
+                  {/* <label
                     style={
                       servicesSelected.length > 0
                         ? { borderColor: 'transparent', color: 'white' }
@@ -560,14 +618,14 @@ function InputPage(props) {
                       insideText="015. SERVICES NEEDED*"
                     />
                     <p>015. SERVICES NEEDED*</p>
-                  </label>
+                  </label> */}
                   {/*
             // =============================
             // Terms & Conditions
             // =============================
             */}
 
-                  <div className="terms">
+                  <div className="terms" onClick={handleTerms}>
                     <img
                       src={termsCheckbox ? termsCheckmark : termsNoCheckmark}
                       alt="terms agreement checkmark"
@@ -590,7 +648,8 @@ function InputPage(props) {
                       currentTeam.length > 0 &&
                       positions.length > 0 &&
                       capitalNeeded.length > 0 &&
-                      servicesSelected.length > 0 &&
+                      // servicesSelected.length > 0 &&
+                      servicesString.length > 0 &&
                       file.size > 0
                         ? false
                         : true
@@ -604,7 +663,8 @@ function InputPage(props) {
                         currentTeam.length > 0 &&
                         positions.length > 0 &&
                         capitalNeeded.length > 0 &&
-                        servicesSelected.length > 0 &&
+                        // servicesSelected.length > 0 &&
+                        servicesString.length > 0 &&
                         file.size > 0
                           ? 'white'
                           : 'grey',
@@ -709,7 +769,8 @@ function InputPage(props) {
               )}
               <Link to="/">
                 <button id="close-button-mobile">
-                  <p>⟵ CLOSE</p>
+                  <img src={closeArrow} alt="inquire arrow" />
+                  <p>CLOSE</p>
                 </button>
               </Link>
               {/*BEGIN TERNARY*/}
@@ -780,7 +841,7 @@ function InputPage(props) {
             // 003
             // =============================
             */}
-                  <label>
+                  <label className="one-line-input-label">
                     <input
                       className="one-line-input"
                       style={
@@ -816,8 +877,9 @@ function InputPage(props) {
             // 005
             // =============================
             */}
-                  <label>
+                  <label className="one-line-input-label">
                     <input
+                      className="one-line-input"
                       style={
                         based.length > 0
                           ? { borderColor: 'white', color: 'white' }
@@ -851,8 +913,9 @@ function InputPage(props) {
             // 007
             // =============================
             */}
-                  <label>
+                  <label className="one-line-input-label">
                     <input
+                      className="one-line-input"
                       style={
                         targetDemo.length > 0
                           ? { borderColor: 'white', color: 'white' }
@@ -872,7 +935,7 @@ function InputPage(props) {
             // 008
             // =============================
             */}
-                  <label>
+                  <label className="one-line-input-label">
                     <input
                       className="one-line-input"
                       style={
@@ -972,8 +1035,8 @@ function InputPage(props) {
             // 012
             // =============================
             */}
-                  <label>
-                    <div className="dollar-and-input">
+                  <label className="one-line-input-label">
+                    <div className="dollar-and-input-mobile">
                       <p>$</p>
                       <input
                         style={
@@ -982,16 +1045,19 @@ function InputPage(props) {
                                 borderColor: 'white',
                                 color: 'white',
                                 backgroundColor: 'transparent',
+                                outline: 'none',
                               }
                             : {
                                 borderColor: 'grey',
                                 color: 'grey',
                                 backgroundColor: 'transparent',
+                                outline: 'none',
                               }
                         }
                         type="number"
                         name="capitalRaised"
                         value={capitalRaised}
+                        outline="none"
                         onChange={e => setCapitalRaised(e.target.value)}
                         // required={true}
                       />
@@ -1018,7 +1084,16 @@ function InputPage(props) {
             // 014
             // =============================
             */}
-                  <label className="launch-schedule-dropdown">
+                  <div className="text-box-container">
+                    <TextBox
+                      onChange={e => setLaunchSelected(e.target.value)}
+                      value={launchSelected}
+                      name="launchSelected"
+                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
+                    />
+                  </div>
+                  {/* Old dropdown */}
+                  {/* <label className="launch-schedule-dropdown">
                     <SelectDropdown
                       handleSelect={handleLaunchSelect}
                       options={launchSchedule}
@@ -1026,14 +1101,30 @@ function InputPage(props) {
                       insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
                     />
                     <p>014. ANTICIPATED LAUNCH SCHEDULE*</p>
-                  </label>
+                  </label> */}
                   {/*
             // =============================
             // Services Needed
             // 015
             // =============================
             */}
-                  <label
+                  <label className="one-line-input-label">
+                    <input
+                      className="one-line-input"
+                      style={
+                        servicesString.length > 0
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
+                      }
+                      type="text"
+                      name="servicesString"
+                      value={servicesString}
+                      onChange={e => setServicesString(e.target.value)}
+                      // required={true}
+                    />
+                    <p>015. SERVICES NEEDED*</p>
+                  </label>
+                  {/* <label
                     style={
                       servicesSelected.length > 0
                         ? { borderColor: 'transparent', color: 'white' }
@@ -1047,14 +1138,14 @@ function InputPage(props) {
                       insideText="015. SERVICES NEEDED*"
                     />
                     <p>015. SERVICES NEEDED*</p>
-                  </label>
+                  </label> */}
                   {/*
             // =============================
             // Terms & Conditions
             // =============================
             */}
 
-                  <div className="terms">
+                  <div className="terms" onClick={handleTerms}>
                     <img
                       src={termsCheckbox ? termsCheckmark : termsNoCheckmark}
                       alt="terms agreement checkmark"
@@ -1077,7 +1168,8 @@ function InputPage(props) {
                       currentTeam.length > 0 &&
                       positions.length > 0 &&
                       capitalNeeded.length > 0 &&
-                      servicesSelected.length > 0 &&
+                      // servicesSelected.length > 0 &&
+                      servicesString.length > 0 &&
                       file.size > 0
                         ? false
                         : true
@@ -1091,7 +1183,8 @@ function InputPage(props) {
                         currentTeam.length > 0 &&
                         positions.length > 0 &&
                         capitalNeeded.length > 0 &&
-                        servicesSelected.length > 0 &&
+                        // servicesSelected.length > 0 &&
+                        servicesString.length > 0 &&
                         file.size > 0
                           ? 'white'
                           : 'grey',

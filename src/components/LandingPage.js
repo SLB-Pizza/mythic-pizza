@@ -67,7 +67,12 @@ function LandingPage() {
                                         /_/
           */}
           <div className="columns is-hidden-touch">
-            <div className="column">
+            <div
+              className="column"
+              style={{
+                display: 'flex',
+                alignItems: 'center',
+              }}>
               {/*
             // =============================
             // 1st Column
@@ -154,7 +159,7 @@ function LandingPage() {
                 id="mobile-landing">
                 <animated.div style={inquireFade} className="btn-animation">
                   <Link to="/form">
-                    <button className="inquire-style">
+                    <button className="inquire-mobile">
                       <p>INQUIRE</p>
                       <img src={inquireArrow} alt="learn more" />
                     </button>

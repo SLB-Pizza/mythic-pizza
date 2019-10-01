@@ -69,7 +69,7 @@
   border: 2px solid white;
   padding: 10px 15px;
   font-family: 'Graphik';
-  font-size: 16pt;
+  font-size: 16px;
   outline: none;
   p {
     color: white;
@@ -80,16 +80,21 @@
 #close-button-mobile {
   // width: 100px;
   // height: 36px;
-  border: 1px solid white;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  background-color: transparent;
+  border: 2px solid white;
   background-color: #292929;
   margin-top: 5vh;
   //**Keep ouline:none
   outline: none;
-  // position: -webkit-sticky;
-  // position: sticky;
+  padding: 10px 15px;
+  font-family: 'Graphik';
+  font-size: 16px;
   p {
-    font-size: 14pt;
-    padding: 8px 18px;
+    color: white;
+    padding-left: 27px;
   }
 }
 
@@ -98,8 +103,9 @@
   position: -webkit-sticky;
   position: sticky;
   p {
-    font-size: 14pt;
+    font-size: 16px;
     line-height: 21pt;
+    font-family: 'Graphik';
     &:nth-child(3) {
       margin-top: 21pt;
     }
@@ -108,17 +114,18 @@
     text-decoration: none;
     color: white;
     font-weight: normal;
-    font-family: Graphik;
+    font-family: 'Graphik';
+    font-size: 16px;
     line-height: 21px;
-    font-size: 14px;
   }
 }
 
 .input-contact-info-mobile {
   margin-top: 13vh;
   p {
-    font-size: 14pt;
+    font-size: 16px;
     line-height: 21pt;
+    font-family: 'Graphik';
     &:nth-child(3) {
       margin-top: 21pt;
     }
@@ -127,9 +134,9 @@
     text-decoration: none;
     color: white;
     font-weight: normal;
-    font-family: Graphik;
+    font-family: 'Graphik';
     line-height: 21px;
-    font-size: 14px;
+    font-size: 16px;
   }
 }
 
@@ -141,7 +148,8 @@
   margin-top: 12.5vh;
   p {
     transform: rotate(90deg);
-    font-size: 12pt;
+    font-size: 16px;
+    font-family: 'Graphik';
     white-space: nowrap;
   }
 }
@@ -208,12 +216,12 @@
 //FORM
 
 #form-header-text {
-  font-size: 16pt;
+  font-size: 16px;
   margin-top: 8.5vh;
 }
 
 #form-header-required-text-mobile {
-  font-size: 8pt;
+  font-size: 16px;
   margin-top: 30px;
   opacity: 0.5;
 }
@@ -224,7 +232,7 @@ label {
   width: 100%;
   input {
     width: 100%;
-    font-size: 23pt;
+    font-size: 16px;
     padding-bottom: 10px;
     background-color: #292929;
     border-style: hidden hidden solid;
@@ -248,6 +256,15 @@ label {
   label:first-child {
     margin-right: 21px;
   }
+  label input {
+    font-size: 16px;
+    font-family: 'Graphik';
+    outline: none;
+  }
+  label p {
+    font-size: 12px;
+    font-family: 'Graphik';
+  }
 }
 
 // =============================
@@ -255,8 +272,23 @@ label {
 // 003, 005, 007, 008, 012
 // =============================
 
+.one-line-input-label {
+  width: 100%;
+  p {
+    font-size: 12px;
+    font-family: 'Graphik';
+  }
+  input {
+    font-size: 16px;
+    font-family: 'Graphik';
+  }
+}
+
 .one-line-input {
   width: 100%;
+  outline: none;
+  font-size: 16px;
+  font-family: 'Graphik';
 }
 
 // =============================
@@ -265,7 +297,7 @@ label {
 // =============================
 
 .text-box-container {
-  padding-bottom: 84px;
+  margin-bottom: 84px;
   .text-box {
     border-width: 1px;
     border-style: solid;
@@ -275,17 +307,18 @@ label {
       justify-content: space-between;
       .text-box-description {
         flex: 3;
-        font-size: 12pt;
+        font-size: 12px;
         #mobile {
-          font-size: 6pt;
+          font-size: 12px;
         }
       }
       .text-box-char-count {
         display: flex;
         flex: 1;
         justify-content: flex-end;
+        font-size: 12px;
         #mobile {
-          font-size: 6pt;
+          font-size: 12px;
         }
       }
     }
@@ -294,10 +327,11 @@ label {
       height: 100%;
       background-color: #292929;
       border-style: hidden;
-      font-size: 14pt;
-      line-height: 21pt;
+      font-size: 16px;
+      line-height: 21px;
       margin-top: 10px;
       overflow: hidden;
+      outline: none;
     }
   }
 }
@@ -330,11 +364,15 @@ label {
       }
       #instructions {
         flex: 4;
+        font-family: 'Graphik';
+        font-size: 12px;
       }
       #limit {
         flex: 1;
         display: flex;
         justify-content: flex-end;
+        font-family: 'Graphik';
+        font-size: 12px;
       }
     }
     .upload-icon {
@@ -376,12 +414,31 @@ input[type='number']::-webkit-outer-spin-button {
   margin: 0;
 }
 
+.capital-input {
+  width: 100%;
+  p {
+    font-size: 12px;
+    font-family: 'Graphik';
+  }
+}
+
 .dollar-and-input {
   display: flex;
   height: calc(23pt + 10px);
   p {
     flex: 1;
-    margin-top: -17px;
+    margin-top: 80px;
+    margin-right: 2px;
+    font-size: 23pt;
+  }
+}
+
+.dollar-and-input-mobile {
+  display: flex;
+  height: calc(23pt + 10px);
+  p {
+    flex: 1;
+    margin-top: -15px;
     margin-right: 2px;
     font-size: 23pt;
   }
@@ -395,7 +452,7 @@ input[type='number']::-webkit-outer-spin-button {
 .launch-schedule-dropdown {
   // background-color: darkmagenta;
   width: 100%;
-  font-size: 23pt;
+  font-size: 16px;
   font-family: 'Graphik';
   color: white;
   background-color: #292929;
@@ -413,7 +470,7 @@ input[type='number']::-webkit-outer-spin-button {
     }
     .dropdown-options {
       font-family: 'Graphik';
-      font-size: 14pt;
+      font-size: 16px;
       .selected-option {
         border-bottom: 1px #292929 solid;
         padding: 8px 0 8px 10px;
@@ -431,6 +488,8 @@ input[type='number']::-webkit-outer-spin-button {
     border-bottom: 1px solid #292929;
     .selected-option {
       display: flex;
+      font-size: 16px;
+      font-family: 'Graphik';
       flex-direction: row;
       justify-content: space-between;
       .dropdown-arrow {
@@ -440,7 +499,7 @@ input[type='number']::-webkit-outer-spin-button {
     }
     .dropdown-options {
       font-family: 'Graphik';
-      font-size: 14pt;
+      font-size: 12pt;
       .selected-option {
         border-bottom: 1px #292929 solid;
         padding: 8px 0 8px 10px;
@@ -466,6 +525,8 @@ input[type='number']::-webkit-outer-spin-button {
 .checkboxDropdownWrapper {
   display: flex;
   flex-direction: row;
+  font-size: 16px;
+  font-family: 'Graphik';
   justify-content: space-between;
   border-bottom-width: 1px;
   border-bottom-style: solid;

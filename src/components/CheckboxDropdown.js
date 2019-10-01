@@ -113,8 +113,9 @@ export default class CheckboxDropdown extends React.Component {
                 borderTop: '1px solid grey',
                 height: '4vh',
                 backgroundColor:
-                  this.state.hoverNode === service.id ? 'black' : 'white',
-                color: this.state.hoverNode === service.id ? 'white' : 'black',
+                  this.state.hoverNode === service.id ? '#292929' : 'white',
+                color:
+                  this.state.hoverNode === service.id ? 'white' : '#292929',
               }}>
               {/* checkbox div orange  */}
               <div

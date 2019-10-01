@@ -377,6 +377,33 @@ input[type='number']::-webkit-outer-spin-button {
       }
     }
   }
+  .dropdown-wrapper-no-border {
+    border-bottom: 1px solid #292929;
+    .selected-option {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .dropdown-arrow {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .dropdown-options {
+      font-family: 'Graphik';
+      font-size: 14pt;
+      .selected-option {
+        border-bottom: 1px #292929 solid;
+        padding: 8px 0 8px 10px;
+        background: #292929;
+      }
+      .unselected-option {
+        border-bottom: 1px #292929 solid;
+        padding: 8px 0 8px 10px;
+        color: #292929;
+        background-color: white;
+      }
+    }
+  }
   p {
     font-size: 12pt;
   }

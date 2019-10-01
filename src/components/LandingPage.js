@@ -1,14 +1,14 @@
-import React, { useRef } from 'react';
+import React, { useRef } from "react";
 import {
   useSpring,
   /*useTransition,*/ animated,
-  useChain,
+  useChain
   // config,
-} from 'react-spring';
-import { Link } from 'react-router-dom';
-import logo from '../imgs/project-mercury-logo.svg';
-import bgIMG from '../imgs/bg1.jpg';
-import * as easings from 'd3-ease';
+} from "react-spring";
+import { Link } from "react-router-dom";
+import logo from "../imgs/project-mercury-logo.svg";
+import bgIMG from "../imgs/bg1.jpg";
+import * as easings from "d3-ease";
 
 // import "../App.css";
 
@@ -16,24 +16,24 @@ function LandingPage() {
   //Left text spring
   const leftText = useSpring({
     config: { duration: 1500, easing: easings.easeCubicOut },
-    from: { opacity: 1, transform: 'translate(0, -400%)' },
-    to: { opacity: 1, transform: 'translate(0, 0)' },
-    delay: 200,
+    from: { opacity: 1, transform: "translate(0, -400%)" },
+    to: { opacity: 1, transform: "translate(0, 0)" },
+    delay: 200
   });
   //Left text spring mobile
   const leftTextMobile = useSpring({
     config: { duration: 1500, easing: easings.easeCubicOut },
-    from: { opacity: 1, transform: 'translate(0, 400%)' },
-    to: { opacity: 1, transform: 'translate(0, 0)' },
-    delay: 200,
+    from: { opacity: 1, transform: "translate(0, 400%)" },
+    to: { opacity: 1, transform: "translate(0, 0)" },
+    delay: 200
   });
   //inquire button move spring
   const inquireMoveRef = useRef();
   const inquireMove = useSpring({
     config: { duration: 1500, easing: easings.easeCubicOut },
-    from: { transform: 'translate(200%, 0)' },
-    to: { transform: 'translate(0, 0)' },
-    ref: inquireMoveRef,
+    from: { transform: "translate(200%, 0)" },
+    to: { transform: "translate(0, 0)" },
+    ref: inquireMoveRef
   });
   //contact info srping
   // const contactInfo = useSpring({
@@ -46,25 +46,18 @@ function LandingPage() {
   const inquireFadeRef = useRef();
   const inquireFade = useSpring({
     config: {
-      duration: 800,
+      duration: 800
     },
     from: { opacity: 0 },
     to: { opacity: 1 },
     // delay: 300,
-    ref: inquireFadeRef,
+    ref: inquireFadeRef
   });
 
   useChain([inquireMoveRef, inquireFadeRef]);
 
   return (
-    <div
-      className="hero is-fullheight"
-      style={{
-        backgroundImage: 'url(' + bgIMG + ')',
-        backgroundSize: 'cover',
-        // backgroundAttachment: 'fixed',
-        overflowY: 'hidden',
-      }}>
+    <div className="hero is-fullheight" id="landing-bg">
       <div className="hero-body">
         <div className="container">
           {/*
@@ -105,7 +98,8 @@ function LandingPage() {
               <animated.div
                 style={inquireMove}
                 className="is-flex-desktop"
-                id="desktop-landing-right">
+                id="desktop-landing-right"
+              >
                 <animated.div style={inquireFade} id="main-button">
                   <Link to="/form">
                     <button className="inquire-btn">INQUIRE ⟶</button>
@@ -149,7 +143,8 @@ function LandingPage() {
               <animated.div
                 style={inquireMove}
                 className="is-flex-touch"
-                id="mobile-landing">
+                id="mobile-landing"
+              >
                 {/* <div style={contactInfo} id="mobile-address">
                   <a
                     href="mailto:office@projectmercury.com"

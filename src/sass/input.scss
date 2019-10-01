@@ -17,9 +17,10 @@
 // ENTIRE PAGE
 // ==============================================
 
-#input-page {
-  background-color: black;
-}
+// Client changed
+// #input-page {
+//   background-color: black;
+// }
 
 // ==============================================
 // UTILITY CLASSES - switch inline CSS styles
@@ -46,8 +47,7 @@
   position: -webkit-sticky;
   position: sticky;
   top: 0;
-  width: 100vw;
-  height: auto;
+  width: 100vh;
 }
 
 #input-logo-mobile {
@@ -65,7 +65,7 @@
   // height: 36px;
   border: 1px solid white;
   background-color: black;
-  top: 40vh;
+  top: 60vh;
   position: -webkit-sticky;
   position: sticky;
   p {
@@ -462,7 +462,7 @@ input[type="number"]::-webkit-outer-spin-button {
 .copyright-mobile {
   display: flex;
   flex-direction: column;
-  margin: 80px 0 50px;
+  padding: 80px 0 50px;
   p {
     color: grey;
     &.copyright-text {

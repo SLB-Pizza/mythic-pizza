@@ -70,7 +70,7 @@
   padding: 10px 15px;
   font-family: 'Graphik';
   font-size: 16pt;
-
+  outline: none;
   p {
     color: white;
     padding-left: 27px;
@@ -83,6 +83,8 @@
   border: 1px solid white;
   background-color: #292929;
   margin-top: 10vh;
+  //**Keep ouline:none
+  outline: none;
   // position: -webkit-sticky;
   // position: sticky;
   p {

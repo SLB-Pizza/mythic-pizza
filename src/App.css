@@ -1,13 +1,3 @@
-/*for the wrapper around the services needed checkbox dropdown*/
-.checkboxDropdownWrapper {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  width: 100%;
-}
-
 /*the little checkbox for terms agreement if cheicked*/
 .termsCheckboxAgreed {
   height: 2vh;

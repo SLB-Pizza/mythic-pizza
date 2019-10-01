@@ -68,7 +68,7 @@
   background-color: transparent;
   border: 2px solid white;
   padding: 10px 15px;
-  font-family: "Graphik";
+  font-family: 'Graphik';
   font-size: 16pt;
 
   p {
@@ -418,6 +418,22 @@ input[type='number']::-webkit-outer-spin-button {
 // Services Needed
 // 015
 // =============================
+.checkboxDropdownWrapper {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  width: 100%;
+}
+
+.checkboxDropdown-no-border {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: none;
+}
+
 .selectedService {
   color: #292929;
   background-color: white;

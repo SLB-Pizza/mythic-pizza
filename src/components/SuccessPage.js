@@ -64,8 +64,7 @@ export default function SuccessPage() {
           flexDirection: 'column',
           marginRight: '10vh',
           marginBottom: '10vh',
-        }}
-      >
+        }}>
         <text>THANK YOU!</text>
         <text>WE'LL BE IN TOUCH.</text>
       </div>

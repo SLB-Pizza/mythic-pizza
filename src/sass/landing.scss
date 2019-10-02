@@ -1,0 +1,191 @@
+/*
+██╗      █████╗ ███╗   ██╗██████╗ ██╗███╗   ██╗ ██████╗
+██║     ██╔══██╗████╗  ██║██╔══██╗██║████╗  ██║██╔════╝
+██║     ███████║██╔██╗ ██║██║  ██║██║██╔██╗ ██║██║  ███╗
+██║     ██╔══██║██║╚██╗██║██║  ██║██║██║╚██╗██║██║   ██║
+███████╗██║  ██║██║ ╚████║██████╔╝██║██║ ╚████║╚██████╔╝
+╚══════╝╚═╝  ╚═╝╚═╝  ╚═══╝╚═════╝ ╚═╝╚═╝  ╚═══╝ ╚═════╝
+*/
+
+// ==============================================
+// Background Img
+// ==============================================
+#landing-bg {
+  background-image: url(../imgs/bg1.jpg);
+  background-size: cover;
+  overflow-y: hidden;
+  overflow-x: hidden;
+}
+
+// ==============================================
+// DESKTOP
+// ==============================================
+
+// =======================
+// First Column
+// =======================
+
+// four-k-blurb has a 2x multiplier on desktop-blurb
+#four-k-blurb {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+  p {
+    font-family: "Graphik";
+    font-size: 32px;
+    justify-self: center;
+    align-self: center;
+    line-height: get-line-height(32px, 44px);
+    text-transform: uppercase;
+
+    &:last-child {
+      margin-top: 32px;
+    }
+  }
+}
+
+#desktop-blurb {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+
+  p {
+    font-family: "Graphik";
+    font-size: 16px;
+    justify-self: center;
+    align-self: center;
+    line-height: get-line-height(16px, 22px);
+    text-transform: uppercase;
+
+    &:last-child {
+      margin-top: 16px;
+    }
+  }
+}
+
+// =======================
+// Second Column
+// =======================
+// This column is flexed manually in LandingPage
+.vertical-logo {
+  justify-content: center;
+}
+
+.vertical-logo-img {
+  height: 75vh;
+  align-self: center;
+}
+
+// =======================
+// Third Column
+// =======================
+// This column is flexed manually in LandingPage
+.landing-right {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  .btn-animation {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    .inquire-btn {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: transparent;
+      border: 2px solid white;
+      padding: 10px 15px;
+      outline: none;
+      p {
+        font-family: "Graphik";
+        font-size: 16px;
+        color: white;
+        padding-right: 27px;
+      }
+    }
+
+    // four-k-btn has a 2x multiplier on inquire-btn
+    #four-k-btn {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: transparent;
+      border: 4px solid white;
+      padding: 20px 30px;
+      outline: none;
+      p {
+        font-family: "Graphik";
+        font-size: 32px;
+        color: white;
+        padding-right: 54px;
+      }
+      img {
+        height: 24px;
+      }
+    }
+  }
+}
+
+// ==============================================
+// MOBILE
+// ==============================================
+
+// =======================
+// First Column
+// =======================
+// Straight forward; it's one SVG file; needs to be made larger
+
+// =======================
+// Second Column
+// =======================
+#mobile-landing {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-content: space-between;
+
+  #mobile-inquire {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    outline: none;
+  }
+
+  .inquire-mobile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    background-color: transparent;
+    border: 2px solid white;
+    padding: 10px 15px;
+    font-family: "Graphik";
+    font-size: 16px;
+    outline: none;
+    p {
+      color: white;
+      padding-right: 27px;
+    }
+  }
+
+  #mobile-blurb {
+    flex: 2;
+    p {
+      font-size: 16px;
+      line-height: 22px;
+      text-transform: uppercase;
+
+      &:last-of-type {
+        margin-top: 19px;
+      }
+    }
+  }
+}

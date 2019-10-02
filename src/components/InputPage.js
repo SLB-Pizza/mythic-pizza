@@ -690,8 +690,8 @@ function InputPage(props) {
                       capitalNeeded.length > 0 &&
                       launchSelected.length > 0 &&
                       // servicesSelected.length > 0 &&
-                      servicesString.length > 0 &&
-                      file.size > 0
+                      servicesString.length > 0
+                      //&& file.size > 0
                         ? false
                         : true
                     }
@@ -706,8 +706,8 @@ function InputPage(props) {
                         capitalNeeded.length > 0 &&
                         launchSelected.length > 0 &&
                         // servicesSelected.length > 0 &&
-                        servicesString.length > 0 &&
-                        file.size > 0
+                        servicesString.length > 0
+                        //&& file.size > 0
                           ? 'white'
                           : 'grey',
                     }}
@@ -1249,8 +1249,8 @@ function InputPage(props) {
                       capitalNeeded.length > 0 &&
                       launchSelected.length > 0 &&
                       // servicesSelected.length > 0 &&
-                      servicesString.length > 0 &&
-                      file.size > 0
+                      servicesString.length > 0
+                      // && file.size > 0
                         ? false
                         : true
                     }
@@ -1265,8 +1265,8 @@ function InputPage(props) {
                         capitalNeeded.length > 0 &&
                         launchSelected.length > 0 &&
                         // servicesSelected.length > 0 &&
-                        servicesString.length > 0 &&
-                        file.size > 0
+                        servicesString.length > 0
+                        //&& file.size > 0
                           ? 'white'
                           : 'grey',
                     }}
@@ -1773,8 +1773,8 @@ function InputPage(props) {
                       capitalNeeded.length > 0 &&
                       launchSelected.length > 0 &&
                       // servicesSelected.length > 0 &&
-                      servicesString.length > 0 &&
-                      file.size > 0
+                      servicesString.length > 0
+                      // && file.size > 0
                         ? false
                         : true
                     }
@@ -1789,8 +1789,8 @@ function InputPage(props) {
                         capitalNeeded.length > 0 &&
                         launchSelected.length > 0 &&
                         // servicesSelected.length > 0 &&
-                        servicesString.length > 0 &&
-                        file.size > 0
+                        servicesString.length > 0
+                        //&& file.size > 0
                           ? 'white'
                           : 'grey',
                     }}

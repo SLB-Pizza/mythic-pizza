@@ -225,8 +225,7 @@ function LandingPage() {
 
                 <animated.div style={leftTextMobile} id="mobile-blurb">
                   <p>
-                    mobile only please Attention new thinkers, subversive
-                    talents and iconoclasts
+                    Attention new thinkers, subversive talents and iconoclasts
                   </p>
                   <p>
                     Announcing Project Mercury, a joint initiative from Derris

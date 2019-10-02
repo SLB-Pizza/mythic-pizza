@@ -251,7 +251,7 @@ function InputPage(props) {
                   style={formSpring}
                   // action="/success"
                 >
-                  <p id="four-k-start-text">LET'S GET STARTED IN 4K.</p>
+                  <p id="four-k-start-text">LET'S GET STARTED.</p>
                   {/*
             // =============================
             // Contact Name & Role
@@ -305,8 +305,16 @@ function InputPage(props) {
                       className="four-k-solo-input"
                       style={
                         companyName.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? {
+                              borderColor: "white",
+                              color: "white",
+                              fontSize: "44px"
+                            }
+                          : {
+                              borderColor: "grey",
+                              color: "grey",
+                              fontSize: "44px"
+                            }
                       }
                       type="text"
                       name="companyName"
@@ -526,7 +534,7 @@ function InputPage(props) {
                                 color: "white",
                                 backgroundColor: "#292929",
                                 outline: "none",
-                                fontSize: "22px",
+                                fontSize: "44px",
                                 fontFamily: "Graphik"
                               }
                             : {
@@ -534,7 +542,7 @@ function InputPage(props) {
                                 color: "grey",
                                 backgroundColor: "#292929",
                                 outline: "none",
-                                fontSize: "22px",
+                                fontSize: "44px",
                                 fontFamily: "Graphik"
                               }
                         }

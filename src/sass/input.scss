@@ -228,6 +228,31 @@
   margin-top: 5vh;
 }
 
+// 2x multiplier
+.copyrightSuccess {
+  display: flex;
+  flex-direction: row;
+  padding-top: 60vh;
+  justify-self: flex-end;
+  font-family: "Graphik";
+  p {
+    color: grey;
+    &#copyright-text {
+      flex: 1;
+      font-size: 24px;
+      font-family: "Graphik";
+    }
+    &#rights-text {
+      flex: 1;
+      display: flex;
+      justify-self: flex-end;
+      font-size: 24px;
+      font-family: "Graphik";
+    }
+  }
+}
+
+// regular
 .copyrightSuccess {
   display: flex;
   flex-direction: row;
@@ -282,11 +307,13 @@
 #four-k-start-text {
   font-size: 32px;
   margin-top: 10vh;
+  font-family: "David_Reg";
 }
 
 #form-header-text {
   font-size: 16px;
   margin-top: 8.5vh;
+  font-family: "David_Reg";
 }
 
 #form-header-required-text-mobile {

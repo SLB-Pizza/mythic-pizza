@@ -483,6 +483,120 @@ $column-gap: 0.75rem !default
         width: percentage($i / 12)
       &.is-offset-#{$i}-quadhd
         margin-left: percentage($i / 12)
+  +notFourK
+    &.is-narrow-notFourK
+      flex: none
+    &.is-full-notFourK
+      flex: none
+      width: 100%
+    &.is-three-quarters-notFourK
+      flex: none
+      width: 75%
+    &.is-two-thirds-notFourK
+      flex: none
+      width: 66.6666%
+    &.is-half-notFourK
+      flex: none
+      width: 50%
+    &.is-one-third-notFourK
+      flex: none
+      width: 33.3333%
+    &.is-one-quarter-notFourK
+      flex: none
+      width: 25%
+    &.is-one-fifth-notFourK
+      flex: none
+      width: 20%
+    &.is-two-fifths-notFourK
+      flex: none
+      width: 40%
+    &.is-three-fifths-notFourK
+      flex: none
+      width: 60%
+    &.is-four-fifths-notFourK
+      flex: none
+      width: 80%
+    &.is-offset-three-quarters-notFourK
+      margin-left: 75%
+    &.is-offset-two-thirds-notFourK
+      margin-left: 66.6666%
+    &.is-offset-half-notFourK
+      margin-left: 50%
+    &.is-offset-one-third-notFourK
+      margin-left: 33.3333%
+    &.is-offset-one-quarter-notFourK
+      margin-left: 25%
+    &.is-offset-one-fifth-notFourK
+      margin-left: 20%
+    &.is-offset-two-fifths-notFourK
+      margin-left: 40%
+    &.is-offset-three-fifths-notFourK
+      margin-left: 60%
+    &.is-offset-four-fifths-notFourK
+      margin-left: 80%
+    @for $i from 0 through 12
+      &.is-#{$i}-notFourK
+        flex: none
+        width: percentage($i / 12)
+      &.is-offset-#{$i}-notFourK
+        margin-left: percentage($i / 12)
+  +fourk
+    &.is-narrow-fourk
+      flex: none
+    &.is-full-fourk
+      flex: none
+      width: 100%
+    &.is-three-quarters-fourk
+      flex: none
+      width: 75%
+    &.is-two-thirds-fourk
+      flex: none
+      width: 66.6666%
+    &.is-half-fourk
+      flex: none
+      width: 50%
+    &.is-one-third-fourk
+      flex: none
+      width: 33.3333%
+    &.is-one-quarter-fourk
+      flex: none
+      width: 25%
+    &.is-one-fifth-fourk
+      flex: none
+      width: 20%
+    &.is-two-fifths-fourk
+      flex: none
+      width: 40%
+    &.is-three-fifths-fourk
+      flex: none
+      width: 60%
+    &.is-four-fifths-fourk
+      flex: none
+      width: 80%
+    &.is-offset-three-quarters-fourk
+      margin-left: 75%
+    &.is-offset-two-thirds-fourk
+      margin-left: 66.6666%
+    &.is-offset-half-fourk
+      margin-left: 50%
+    &.is-offset-one-third-fourk
+      margin-left: 33.3333%
+    &.is-offset-one-quarter-fourk
+      margin-left: 25%
+    &.is-offset-one-fifth-fourk
+      margin-left: 20%
+    &.is-offset-two-fifths-fourk
+      margin-left: 40%
+    &.is-offset-three-fifths-fourk
+      margin-left: 60%
+    &.is-offset-four-fifths-fourk
+      margin-left: 80%
+    @for $i from 0 through 12
+      &.is-#{$i}-fourk
+        flex: none
+        width: percentage($i / 12)
+      &.is-offset-#{$i}-fourk
+        margin-left: percentage($i / 12)
 
 .columns
   margin-left: (-$column-gap)
@@ -561,4 +675,10 @@ $column-gap: 0.75rem !default
           --columnGap: #{$i * 0.25rem}
       +quadhd
         &.is-#{$i}-quadhd
+          --columnGap: #{$i * 0.25rem}
+      +notFourK
+        &.is-#{$i}-notFourK
+          --columnGap: #{$i * 0.25rem}
+      +fourk
+        &.is-#{$i}-fourk
           --columnGap: #{$i * 0.25rem}

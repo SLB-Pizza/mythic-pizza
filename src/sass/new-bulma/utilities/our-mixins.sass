@@ -135,11 +135,31 @@
     @media screen and (max-width: $quadhd - 1px)
       @content
 
-// Actual quadhd breakpoint query
 =quadhd
   @if $quadhd-enabled
     @media screen and (min-width: $quadhd)
       @content
+
+=quadhd-only
+  @if $fullhd-enabled and $quadhd-enabled
+    @media screen and (min-width: $fullhd) and (max-width: $quadhd - 1px)
+      @content
+
+=notFourK
+  @media screen and (max-width: $fourk - 1px)
+    @content
+
+=until-fourk
+  @if $fourk-enabled
+    @media screen and (max-width: $fourk - 1px)
+      @content
+
+=fourk
+  @if $fourk-enabled
+    @media screen and (min-width: $fourk)
+      @content
+
+
 
 // Placeholders
 

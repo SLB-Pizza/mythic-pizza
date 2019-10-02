@@ -5,31 +5,55 @@
 @import '../../node_modules/bulma/sass/layout/hero.sass';
 
 
-SASS FILES IN BULMA NODE MODULES
+SASS FILES AND THEIR ORIGINAL BULMA CHANGES
 
   base
     generic     - X
-    helpers     - added visibility on 141;
-                  hidden-quadhd on 228;
-                  invisible-quad on 271;
+    helpers     - added quadhd visibility on 175
+    helpers     - added notFourK visibility on 178
+                  added fourk visibility on 181
+
+                  hidden-quadhd on 234
+                  hidden-notFourK on 238
+                  hidden-fourk on 242
+
+                  invisible-quadhd on 286
+                  invisible-notFourK on 290
+                  invisible-fourk on 294
+
     minireset   - X
   utilities
     animations  - X
     controls    - X
+    functions   - X
     derived-var - X
-    initial-var - added responsiveness on 65-69 for quadhd
+    initial-var - added responsiveness on 62-66 for quadhd
+                  added responsiveness on 75-79 for fourk
+                  notFourK not added because 'touch' not added
 
-    mixins      - added responsiveness on 131-139 for quadhd
+    mixins      - added responsiveness on 133-146 for quadhd
+                  added responsiveness on 148 for notFourK
+                  added responsiveness on 152-160 for fourk
   grid
     columns     - yep, this is gonna be work; focus on `is-#` and reg
                   added quadhd section on 429
                     based off +fullhd on 372
-                  added quadhd variable columns on 562
-                    based off +fullhd on 559
+                  added notFourK section on 486
+                    based off +fullhd on 372
+                  added fourk section on 543
+                    based off +fullhd on 372
+
+                  added quadhd variable columns on 676
+                    based off +fullhd on 673
+                  added notFourK variable columns on 679
+                    based off +fullhd on 673
+                  added fourk variable columns on 682
+                    based off +fullhd on 673
   elements
-    container   - added until-quadhd section on 20
-                    based off +until-fullhd on 17
-                  added quadhd section on 27
-                    based of +fullhd on 25
+    container   - added until-quadhd section on 28
+                    based off +until-fullhd on 26
+                  added quadhd section on 30
+                    new container offset = fourk-offset
+                    based of +fullhd on 28
   layout
     hero        - X

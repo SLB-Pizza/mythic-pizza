@@ -57,7 +57,7 @@
     font-family: 'Graphik';
     font-size: 16px;
     justify-self: center;
-    align-self: center;
+    align-self: inherit;
     line-height: get-line-height(16px, 22px);
     text-transform: uppercase;
 
@@ -159,12 +159,15 @@
     justify-content: center;
     outline: none;
   }
+  .btn-animation {
+    display: flex;
+  }
 
   .inquire-mobile {
     display: flex;
     flex-direction: row;
     align-items: center;
-    margin-right: 110px;
+    margin-right: 120px;
     background-color: transparent;
     border: 2px solid white;
     padding: 10px 15px;

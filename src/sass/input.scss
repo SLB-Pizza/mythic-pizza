@@ -25,13 +25,13 @@
 // ==============================================
 
 .inactive-grey {
-  border-color: 'grey';
-  color: 'grey';
+  border-color: "grey";
+  color: "grey";
 }
 
 .active-white {
-  border-color: 'white';
-  color: 'white';
+  border-color: "white";
+  color: "white";
 }
 
 #mobile-column-margin {
@@ -68,7 +68,7 @@
   background-color: transparent;
   border: 1px solid white;
   padding: 10px 15px;
-  font-family: 'Graphik';
+  font-family: "Graphik";
   font-size: 16px;
   outline: none;
   p {
@@ -90,7 +90,7 @@
   //**Keep ouline:none
   outline: none;
   padding: 10px 15px;
-  font-family: 'Graphik';
+  font-family: "Graphik";
   font-size: 16px;
   p {
     color: white;
@@ -105,7 +105,7 @@
   p {
     font-size: 16px;
     line-height: 22pt;
-    font-family: 'Graphik';
+    font-family: "Graphik";
     &:nth-child(3) {
       margin-top: 24px;
     }
@@ -114,9 +114,9 @@
     text-decoration: none;
     color: white;
     font-weight: normal;
-    font-family: 'Graphik';
+    font-family: "Graphik";
     font-size: 16px;
-    line-height: 22px;
+    line-height: 22pt;
   }
 }
 
@@ -125,7 +125,7 @@
   p {
     font-size: 16px;
     line-height: 30px;
-    font-family: 'Graphik';
+    font-family: "Graphik";
     &:nth-child(3) {
       margin-top: 21pt;
     }
@@ -134,7 +134,7 @@
     text-decoration: none;
     color: white;
     font-weight: normal;
-    font-family: 'Graphik';
+    font-family: "Graphik";
     line-height: 30px;
     font-size: 16px;
   }
@@ -149,7 +149,7 @@
   p {
     transform: rotate(90deg);
     font-size: 12px;
-    font-family: 'Graphik';
+    font-family: "Graphik";
     white-space: nowrap;
   }
 }
@@ -181,20 +181,20 @@
   flex-direction: row;
   padding-top: 60vh;
   justify-self: flex-end;
-  font-family: 'Graphik';
+  font-family: "Graphik";
   p {
     color: grey;
     &#copyright-text {
       flex: 1;
       font-size: 12px;
-      font-family: 'Graphik';
+      font-family: "Graphik";
     }
     &#rights-text {
       flex: 1;
       display: flex;
       justify-self: flex-end;
       font-size: 12px;
-      font-family: 'Graphik';
+      font-family: "Graphik";
     }
   }
 }
@@ -204,21 +204,21 @@
   flex-direction: column;
   padding-top: 10vh;
   justify-content: space-around;
-  font-family: 'Graphik';
+  font-family: "Graphik";
   p {
     color: grey;
     &#copyright-text-mobile {
       flex: 1;
       margin-bottom: 1vh;
       font-size: 12px;
-      font-family: 'Graphik';
+      font-family: "Graphik";
     }
     &#rights-text-mobile {
       flex: 1;
       display: flex;
       justify-self: flex-end;
       font-size: 12px;
-      font-family: 'Graphik';
+      font-family: "Graphik";
     }
   }
 }
@@ -237,7 +237,7 @@
 }
 
 label {
-  font-family: 'Graphik';
+  font-family: "Graphik";
   font-size: 12pt;
   width: 100%;
   input {
@@ -268,12 +268,12 @@ label {
   }
   label input {
     font-size: 22px;
-    font-family: 'Graphik';
+    font-family: "Graphik";
     outline: none;
   }
   label p {
     font-size: 12px;
-    font-family: 'Graphik';
+    font-family: "Graphik";
   }
 }
 
@@ -286,11 +286,11 @@ label {
   width: 100%;
   p {
     font-size: 12px;
-    font-family: 'Graphik';
+    font-family: "Graphik";
   }
   input {
     font-size: 22px;
-    font-family: 'Graphik';
+    font-family: "Graphik";
   }
 }
 
@@ -298,7 +298,7 @@ label {
   width: 100%;
   outline: none;
   font-size: 22px;
-  font-family: 'Graphik';
+  font-family: "Graphik";
 }
 
 // =============================
@@ -309,7 +309,7 @@ label {
 .text-box-container {
   margin-bottom: 84px;
   .text-box {
-    font-family: 'Graphik';
+    font-family: "Graphik";
     font-size: 22px;
     border-width: 1px;
     border-style: solid;
@@ -339,7 +339,7 @@ label {
       height: 100%;
       background-color: #292929;
       border-style: hidden;
-      font-family: 'Graphik';
+      font-family: "Graphik";
       font-size: 22px;
       line-height: 30px;
       margin-top: 10px;
@@ -377,14 +377,14 @@ label {
       }
       #instructions {
         flex: 4;
-        font-family: 'Graphik';
+        font-family: "Graphik";
         font-size: 12px;
       }
       #limit {
         flex: 1;
         display: flex;
         justify-content: flex-end;
-        font-family: 'Graphik';
+        font-family: "Graphik";
         font-size: 12px;
       }
     }
@@ -392,18 +392,17 @@ label {
       display: flex;
       height: 100%;
       flex-direction: column;
-      align-items: 'center';
-      justify-content: 'center';
+      align-items: "center";
+      justify-content: "center";
       p {
         flex: 1;
         height: 100%;
         align-self: center;
-        font-family: 'Graphik';
+        font-family: "Graphik";
         font-size: 22px;
       }
       img {
         flex: 1;
-        // height: 41px;
         align-self: center;
         justify-self: center;
       }
@@ -421,8 +420,8 @@ label {
 // 012
 // =============================
 
-input[type='number']::-webkit-inner-spin-button,
-input[type='number']::-webkit-outer-spin-button {
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
@@ -433,19 +432,21 @@ input[type='number']::-webkit-outer-spin-button {
   width: 100%;
   p {
     font-size: 12px;
-    font-family: 'Graphik';
+    font-family: "Graphik";
   }
 }
 
 .dollar-and-input {
   display: flex;
+  flex-direction: row;
+  align-items: center;
   height: calc(23pt + 10px);
   p {
     flex: 1;
     margin-top: 65px;
     margin-right: 2px;
     font-size: 22px;
-    font-family: 'Graphik';
+    font-family: "Graphik";
   }
 }
 
@@ -457,7 +458,7 @@ input[type='number']::-webkit-outer-spin-button {
     margin-top: -12px;
     margin-right: 2px;
     font-size: 22px;
-    font-family: 'Graphik';
+    font-family: "Graphik";
   }
 }
 
@@ -470,7 +471,7 @@ input[type='number']::-webkit-outer-spin-button {
   // background-color: darkmagenta;
   width: 100%;
   font-size: 16px;
-  font-family: 'Graphik';
+  font-family: "Graphik";
   color: white;
   background-color: #292929;
   border-style: hidden hidden hidden hidden;
@@ -486,7 +487,7 @@ input[type='number']::-webkit-outer-spin-button {
       }
     }
     .dropdown-options {
-      font-family: 'Graphik';
+      font-family: "Graphik";
       font-size: 16px;
       .selected-option {
         border-bottom: 1px #292929 solid;
@@ -506,7 +507,7 @@ input[type='number']::-webkit-outer-spin-button {
     .selected-option {
       display: flex;
       font-size: 16px;
-      font-family: 'Graphik';
+      font-family: "Graphik";
       flex-direction: row;
       justify-content: space-between;
       .dropdown-arrow {
@@ -515,7 +516,7 @@ input[type='number']::-webkit-outer-spin-button {
       }
     }
     .dropdown-options {
-      font-family: 'Graphik';
+      font-family: "Graphik";
       font-size: 12pt;
       .selected-option {
         border-bottom: 1px #292929 solid;
@@ -543,7 +544,7 @@ input[type='number']::-webkit-outer-spin-button {
   display: flex;
   flex-direction: row;
   font-size: 16px;
-  font-family: 'Graphik';
+  font-family: "Graphik";
   justify-content: space-between;
   border-bottom-width: 1px;
   border-bottom-style: solid;
@@ -628,7 +629,7 @@ input[type='number']::-webkit-outer-spin-button {
   height: 40px;
   border-radius: 2px;
   margin-bottom: 50px;
-  font-family: 'Graphik';
+  font-family: "Graphik";
   font-size: 16px;
 }
 
@@ -637,7 +638,7 @@ input[type='number']::-webkit-outer-spin-button {
 // =============================
 
 .legal-stuff {
-  font-family: 'Graphik';
+  font-family: "Graphik";
   font-family: 12px;
   line-height: 18pt;
   margin-bottom: 118px;
@@ -659,14 +660,14 @@ input[type='number']::-webkit-outer-spin-button {
     &.copyright-text {
       flex: 1;
       font-size: 12px;
-      font-family: 'Graphik';
+      font-family: "Graphik";
     }
     &.rights-text {
       flex: 1;
       display: flex;
       justify-content: flex-end;
       font-size: 12px;
-      font-family: 'Graphik';
+      font-family: "Graphik";
     }
   }
 }
@@ -679,14 +680,14 @@ input[type='number']::-webkit-outer-spin-button {
     color: grey;
     &.copyright-text {
       flex: 1;
-      font-family: 'Graphik';
+      font-family: "Graphik";
       font-size: 12px;
     }
     &.rights-text {
       flex: 1;
       display: flex;
       margin-top: 3vh;
-      font-family: 'Graphik';
+      font-family: "Graphik";
       font-size: 12px;
     }
   }

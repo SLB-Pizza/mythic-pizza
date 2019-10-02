@@ -1,32 +1,32 @@
-import React, { useState /*useEffect, useRef*/ } from "react";
-import Dropzone from "react-dropzone";
-import { /*useTransition,*/ useSpring, animated } from "react-spring";
-import { Link } from "react-router-dom";
+import React, { useState /*useEffect, useRef*/ } from 'react';
+import Dropzone from 'react-dropzone';
+import { /*useTransition,*/ useSpring, animated } from 'react-spring';
+import { Link } from 'react-router-dom';
 
-import TextBox from "./TextBox.js";
+import TextBox from './TextBox.js';
 // import SelectDropdown from './SelectDropdown';
 // import CheckboxDropdown from './CheckboxDropdown';
 
-import logo from "../imgs/project-mercury-logo.svg";
-import closeArrow from "../imgs/close-arrow.svg";
-import termsCheckmark from "../imgs/terms-checkmark.svg";
-import termsNoCheckmark from "../imgs/terms-no-checkmark.svg";
-import uploadIcon from "../imgs/uploadArrow-Sketch.svg";
+import logo from '../imgs/project-mercury-logo.svg';
+import closeArrow from '../imgs/close-arrow.svg';
+import termsCheckmark from '../imgs/terms-checkmark.svg';
+import termsNoCheckmark from '../imgs/terms-no-checkmark.svg';
+import uploadIcon from '../imgs/uploadArrow-Sketch.svg';
 
 function InputPage(props) {
-  const [contactName, setContactName] = useState("");
-  const [contactRole, setContactRole] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [companyDescription, setCompanyDescription] = useState("");
-  const [based, setBased] = useState("");
-  const [marketOpportunity, setMarketOpportunity] = useState("");
-  const [targetDemo, setTargetDemo] = useState("");
-  const [competitors, setCompetitors] = useState("");
+  const [contactName, setContactName] = useState('');
+  const [contactRole, setContactRole] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [companyDescription, setCompanyDescription] = useState('');
+  const [based, setBased] = useState('');
+  const [marketOpportunity, setMarketOpportunity] = useState('');
+  const [targetDemo, setTargetDemo] = useState('');
+  const [competitors, setCompetitors] = useState('');
   const [file, setFile] = useState({});
-  const [currentTeam, setCurrentTeam] = useState("");
-  const [positions, setPositions] = useState("");
-  const [capitalRaised, setCapitalRaised] = useState("");
-  const [capitalNeeded, setCapitalNeeded] = useState("");
+  const [currentTeam, setCurrentTeam] = useState('');
+  const [positions, setPositions] = useState('');
+  const [capitalRaised, setCapitalRaised] = useState('');
+  const [capitalNeeded, setCapitalNeeded] = useState('');
   //following for use with old 014 dropdown
   // const launchSchedule = [
   //   { id: 1, timing: '3 months' },
@@ -37,7 +37,7 @@ function InputPage(props) {
   //   { id: 6, timing: '2 years +' },
   // ];
   // const [oldLaunchSelected, setOldLaunchSelected] = useState('3 MONTHS');
-  const [launchSelected, setLaunchSelected] = useState("");
+  const [launchSelected, setLaunchSelected] = useState('');
   //following for use with old 015 dropdown
   // const servicesNeeded = [
   //   { id: 1, service: 'Branding' },
@@ -47,7 +47,7 @@ function InputPage(props) {
   //   { id: 5, service: 'Web Development' },
   // ];
   // const [oldServicesSelected, setOldServicesSelected] = useState([]);
-  const [servicesString, setServicesString] = useState("");
+  const [servicesString, setServicesString] = useState('');
   const [termsCheckbox, setTermsCheckbox] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -64,7 +64,7 @@ function InputPage(props) {
       await setFile(acceptedFiles[0]);
       // alert(`${acceptedFiles[0].name} has been uploaded.`);
     } else {
-      alert("FILE SIZE TOO LARGE\nPLEASE LIMIT ATTACHMENTS TO 10MB");
+      alert('FILE SIZE TOO LARGE\nPLEASE LIMIT ATTACHMENTS TO 10MB');
     }
   };
 
@@ -80,7 +80,7 @@ function InputPage(props) {
     e.preventDefault();
     // const data = { 'form-name': 'contact', ...this.state };
     const data = {
-      "form-name": "contact",
+      'form-name': 'contact',
       contactName,
       contactRole,
       companyName,
@@ -95,20 +95,20 @@ function InputPage(props) {
       capitalRaised,
       capitalNeeded,
       launchSelected,
-      servicesString
+      servicesString,
     };
 
-    fetch("/", {
-      method: "POST",
+    fetch('/', {
+      method: 'POST',
       // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
-      body: encode(data)
+      body: encode(data),
     })
       .then(
         // () => alert('Form Submission Successful!!'),
         window.scrollTo(0, 0),
         setSubmitted(true)
       )
-      .catch(error => alert("Form Submission Failed!"));
+      .catch(error => alert('Form Submission Failed!'));
   };
   //the foloowing for use with old 014 dropdown
   // const handleLaunchSelect = async option => {
@@ -135,27 +135,27 @@ function InputPage(props) {
   //logo fade in on load
   const logoSpring = useSpring({
     config: {
-      duration: 2000
+      duration: 2000,
     },
     from: { opacity: 0 },
-    to: { opacity: 1 }
+    to: { opacity: 1 },
     // delay: 200,
   });
   //form fade in upon page load
   const formSpring = useSpring({
     config: {
-      duration: 4000
+      duration: 4000,
     },
     from: { opacity: 0 },
     to: { opacity: 1 },
-    delay: 1000
+    delay: 1000,
   });
   //success message fade-in upon submission:
   const successSpring = useSpring({
     config: { duration: 2000 },
     from: { opacity: submitted ? 0 : 1 },
     to: { opacity: submitted ? 1 : 0 },
-    delay: 1000
+    delay: 1000,
   });
 
   // ██████╗ ███████╗███╗   ██╗██████╗ ███████╗██████╗
@@ -206,8 +206,7 @@ function InputPage(props) {
                 <a
                   href="mailto:office@projectmercury.com"
                   // target="_blank"
-                  rel="noopener noreferrer"
-                >
+                  rel="noopener noreferrer">
                   office@projectmercury.com
                 </a>
                 <p>T 646 861 2827</p>
@@ -260,14 +259,13 @@ function InputPage(props) {
             */}
                   <div
                     className="adjacent-inputs is-flex-desktop"
-                    id="four-k-adj-inputs"
-                  >
+                    id="four-k-adj-inputs">
                     <label>
                       <input
                         style={
                           contactName.length > 0
-                            ? { borderColor: "white", color: "white" }
-                            : { borderColor: "grey", color: "grey" }
+                            ? { borderColor: 'white', color: 'white' }
+                            : { borderColor: 'grey', color: 'grey' }
                         }
                         type="text"
                         name="contactName"
@@ -282,8 +280,8 @@ function InputPage(props) {
                       <input
                         style={
                           contactRole.length > 0
-                            ? { borderColor: "white", color: "white" }
-                            : { borderColor: "grey", color: "grey" }
+                            ? { borderColor: 'white', color: 'white' }
+                            : { borderColor: 'grey', color: 'grey' }
                         }
                         type="text"
                         name="contactRole"
@@ -306,14 +304,14 @@ function InputPage(props) {
                       style={
                         companyName.length > 0
                           ? {
-                              borderColor: "white",
-                              color: "white",
-                              fontSize: "44px"
+                              borderColor: 'white',
+                              color: 'white',
+                              fontSize: '44px',
                             }
                           : {
-                              borderColor: "grey",
-                              color: "grey",
-                              fontSize: "44px"
+                              borderColor: 'grey',
+                              color: 'grey',
+                              fontSize: '44px',
                             }
                       }
                       type="text"
@@ -349,8 +347,16 @@ function InputPage(props) {
                       className="four-k-solo-input"
                       style={
                         based.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? {
+                              borderColor: 'white',
+                              color: 'white',
+                              fontSize: '44px',
+                            }
+                          : {
+                              borderColor: 'grey',
+                              color: 'grey',
+                              fontSize: '44px',
+                            }
                       }
                       type="text"
                       name="based"
@@ -385,8 +391,16 @@ function InputPage(props) {
                       className="four-k-one-line"
                       style={
                         targetDemo.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? {
+                              borderColor: 'white',
+                              color: 'white',
+                              fontSize: '44px',
+                            }
+                          : {
+                              borderColor: 'grey',
+                              color: 'grey',
+                              fontSize: '44px',
+                            }
                       }
                       type="text"
                       name="targetDemo"
@@ -407,8 +421,16 @@ function InputPage(props) {
                       className="four-k-solo-input"
                       style={
                         competitors.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? {
+                              borderColor: 'white',
+                              color: 'white',
+                              fontSize: '44px',
+                            }
+                          : {
+                              borderColor: 'grey',
+                              color: 'grey',
+                              fontSize: '44px',
+                            }
                       }
                       type="text"
                       name="competitors"
@@ -428,10 +450,9 @@ function InputPage(props) {
                     className="file-upload-four-k"
                     style={{
                       borderColor:
-                        file && file.name && file.size > 0 ? "white" : "grey",
-                      outline: "none"
-                    }}
-                  >
+                        file && file.name && file.size > 0 ? 'white' : 'grey',
+                      outline: 'none',
+                    }}>
                     <Dropzone onDrop={onDrop}>
                       {({ getRootProps, getInputProps, isDragActive }) => (
                         <div
@@ -439,11 +460,10 @@ function InputPage(props) {
                           className="upload"
                           style={{
                             borderColor:
-                              file && file.size > 0 ? "white" : "grey",
-                            color: file && file.size > 0 ? "white" : "grey",
-                            outline: "none"
-                          }}
-                        >
+                              file && file.size > 0 ? 'white' : 'grey',
+                            color: file && file.size > 0 ? 'white' : 'grey',
+                            outline: 'none',
+                          }}>
                           <input {...getInputProps()} />
                           {isDragActive ? (
                             <div className="upload-header">
@@ -511,13 +531,12 @@ function InputPage(props) {
                         style={
                           capitalRaised.length > 0
                             ? {
-                                color: "white"
+                                color: 'white',
                               }
                             : {
-                                color: "grey"
+                                color: 'grey',
                               }
-                        }
-                      >
+                        }>
                         $
                       </p>
                       <input
@@ -530,20 +549,20 @@ function InputPage(props) {
                         style={
                           capitalRaised.length > 0
                             ? {
-                                borderColor: "white",
-                                color: "white",
-                                backgroundColor: "#292929",
-                                outline: "none",
-                                fontSize: "44px",
-                                fontFamily: "Graphik"
+                                borderColor: 'white',
+                                color: 'white',
+                                backgroundColor: '#292929',
+                                outline: 'none',
+                                fontSize: '44px',
+                                fontFamily: 'Graphik',
                               }
                             : {
-                                borderColor: "grey",
-                                color: "grey",
-                                backgroundColor: "#292929",
-                                outline: "none",
-                                fontSize: "44px",
-                                fontFamily: "Graphik"
+                                borderColor: 'grey',
+                                color: 'grey',
+                                backgroundColor: '#292929',
+                                outline: 'none',
+                                fontSize: '44px',
+                                fontFamily: 'Graphik',
                               }
                         }
                         // required={true}
@@ -552,9 +571,8 @@ function InputPage(props) {
                     <p
                       id="four-k-capital-label"
                       style={{
-                        color: capitalRaised.length > 0 ? "white" : "gray"
-                      }}
-                    >
+                        color: capitalRaised.length > 0 ? 'white' : 'gray',
+                      }}>
                       012. CAPITAL RAISED*
                     </p>
                   </label>
@@ -608,8 +626,16 @@ function InputPage(props) {
                       className="four-k-solo-input"
                       style={
                         servicesString.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? {
+                              borderColor: 'white',
+                              color: 'white',
+                              fontSize: '44px',
+                            }
+                          : {
+                              borderColor: 'grey',
+                              color: 'grey',
+                              fontSize: '44px',
+                            }
                       }
                       type="text"
                       name="servicesString"
@@ -682,8 +708,8 @@ function InputPage(props) {
                         // servicesSelected.length > 0 &&
                         servicesString.length > 0 &&
                         file.size > 0
-                          ? "white"
-                          : "grey"
+                          ? 'white'
+                          : 'grey',
                     }}
                     readOnly
                   />
@@ -779,8 +805,7 @@ function InputPage(props) {
                 <a
                   href="mailto:office@projectmercury.com"
                   // target="_blank"
-                  rel="noopener noreferrer"
-                >
+                  rel="noopener noreferrer">
                   office@projectmercury.com
                 </a>
                 <p>T 646 861 2827</p>
@@ -836,8 +861,8 @@ function InputPage(props) {
                       <input
                         style={
                           contactName.length > 0
-                            ? { borderColor: "white", color: "white" }
-                            : { borderColor: "grey", color: "grey" }
+                            ? { borderColor: 'white', color: 'white' }
+                            : { borderColor: 'grey', color: 'grey' }
                         }
                         type="text"
                         name="contactName"
@@ -852,8 +877,8 @@ function InputPage(props) {
                       <input
                         style={
                           contactRole.length > 0
-                            ? { borderColor: "white", color: "white" }
-                            : { borderColor: "grey", color: "grey" }
+                            ? { borderColor: 'white', color: 'white' }
+                            : { borderColor: 'grey', color: 'grey' }
                         }
                         type="text"
                         name="contactRole"
@@ -875,8 +900,8 @@ function InputPage(props) {
                       className="four-k-solo-label"
                       style={
                         companyName.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="companyName"
@@ -911,8 +936,8 @@ function InputPage(props) {
                       className="four-k-solo-label"
                       style={
                         based.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="based"
@@ -947,8 +972,8 @@ function InputPage(props) {
                       className="four-k-solo-label"
                       style={
                         targetDemo.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="targetDemo"
@@ -969,8 +994,8 @@ function InputPage(props) {
                       className="four-k-solo-label"
                       style={
                         competitors.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="competitors"
@@ -990,10 +1015,9 @@ function InputPage(props) {
                     className="file-upload-box"
                     style={{
                       borderColor:
-                        file && file.name && file.size > 0 ? "white" : "grey",
-                      outline: "none"
-                    }}
-                  >
+                        file && file.name && file.size > 0 ? 'white' : 'grey',
+                      outline: 'none',
+                    }}>
                     <Dropzone onDrop={onDrop}>
                       {({ getRootProps, getInputProps, isDragActive }) => (
                         <div
@@ -1001,11 +1025,10 @@ function InputPage(props) {
                           className="upload"
                           style={{
                             borderColor:
-                              file && file.size > 0 ? "white" : "grey",
-                            color: file && file.size > 0 ? "white" : "grey",
-                            outline: "none"
-                          }}
-                        >
+                              file && file.size > 0 ? 'white' : 'grey',
+                            color: file && file.size > 0 ? 'white' : 'grey',
+                            outline: 'none',
+                          }}>
                           <input {...getInputProps()} />
                           {isDragActive ? (
                             <div className="upload-header">
@@ -1073,13 +1096,12 @@ function InputPage(props) {
                         style={
                           capitalRaised.length > 0
                             ? {
-                                color: "white"
+                                color: 'white',
                               }
                             : {
-                                color: "grey"
+                                color: 'grey',
                               }
-                        }
-                      >
+                        }>
                         $
                       </p>
                       <input
@@ -1092,20 +1114,20 @@ function InputPage(props) {
                         style={
                           capitalRaised.length > 0
                             ? {
-                                borderColor: "white",
-                                color: "white",
-                                backgroundColor: "#292929",
-                                outline: "none",
-                                fontSize: "22px",
-                                fontFamily: "Graphik"
+                                borderColor: 'white',
+                                color: 'white',
+                                backgroundColor: '#292929',
+                                outline: 'none',
+                                fontSize: '22px',
+                                fontFamily: 'Graphik',
                               }
                             : {
-                                borderColor: "grey",
-                                color: "grey",
-                                backgroundColor: "#292929",
-                                outline: "none",
-                                fontSize: "22px",
-                                fontFamily: "Graphik"
+                                borderColor: 'grey',
+                                color: 'grey',
+                                backgroundColor: '#292929',
+                                outline: 'none',
+                                fontSize: '22px',
+                                fontFamily: 'Graphik',
                               }
                         }
                         // required={true}
@@ -1113,12 +1135,11 @@ function InputPage(props) {
                     </div>
                     <p
                       style={{
-                        fontFamily: "Graphik",
-                        fontSize: "12px",
-                        backgroundColor: "#292929",
-                        color: capitalRaised.length > 0 ? "white" : "gray"
-                      }}
-                    >
+                        fontFamily: 'Graphik',
+                        fontSize: '12px',
+                        backgroundColor: '#292929',
+                        color: capitalRaised.length > 0 ? 'white' : 'gray',
+                      }}>
                       012. CAPITAL RAISED*
                     </p>
                   </label>
@@ -1172,8 +1193,8 @@ function InputPage(props) {
                       className="four-k-solo-label"
                       style={
                         servicesString.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="servicesString"
@@ -1246,8 +1267,8 @@ function InputPage(props) {
                         // servicesSelected.length > 0 &&
                         servicesString.length > 0 &&
                         file.size > 0
-                          ? "white"
-                          : "grey"
+                          ? 'white'
+                          : 'grey',
                     }}
                     readOnly
                   />
@@ -1257,7 +1278,7 @@ function InputPage(props) {
             // =============================
             */}
                   <div className="legal-stuff">
-                    <p style={{ color: "white" }}>LEGAL:</p>
+                    <p style={{ color: 'white' }}>LEGAL:</p>
                     <p className="grey-legal">
                       Any nonpublic information provided hereunder is
                       confidential, and Project Mercury will not disclose the
@@ -1339,8 +1360,7 @@ function InputPage(props) {
                   <a
                     href="mailto:office@projectmercury.com"
                     // target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                    rel="noopener noreferrer">
                     office@projectmercury.com
                   </a>
                   <p>T 646 861 2827</p>
@@ -1373,8 +1393,7 @@ function InputPage(props) {
                   onSubmit={handleSubmit}
                   netlify="true"
                   action="/success"
-                  style={formSpring}
-                >
+                  style={formSpring}>
                   <p id="form-header-text">LET'S GET STARTED.</p>
                   <p id="form-header-required-text-mobile">
                     * denotes required field
@@ -1390,8 +1409,8 @@ function InputPage(props) {
                       <input
                         style={
                           contactName.length > 0
-                            ? { borderColor: "white", color: "white" }
-                            : { borderColor: "grey", color: "grey" }
+                            ? { borderColor: 'white', color: 'white' }
+                            : { borderColor: 'grey', color: 'grey' }
                         }
                         type="text"
                         name="contactName"
@@ -1405,8 +1424,8 @@ function InputPage(props) {
                       <input
                         style={
                           contactRole.length > 0
-                            ? { borderColor: "white", color: "white" }
-                            : { borderColor: "grey", color: "grey" }
+                            ? { borderColor: 'white', color: 'white' }
+                            : { borderColor: 'grey', color: 'grey' }
                         }
                         type="text"
                         name="contactRole"
@@ -1428,8 +1447,8 @@ function InputPage(props) {
                       className="one-line-input"
                       style={
                         companyName.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="companyName"
@@ -1464,8 +1483,8 @@ function InputPage(props) {
                       className="one-line-input"
                       style={
                         based.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="based"
@@ -1500,8 +1519,8 @@ function InputPage(props) {
                       className="one-line-input"
                       style={
                         targetDemo.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="targetDemo"
@@ -1522,8 +1541,8 @@ function InputPage(props) {
                       className="one-line-input"
                       style={
                         competitors.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="competitors"
@@ -1543,9 +1562,8 @@ function InputPage(props) {
                     className="file-upload-box"
                     style={{
                       borderColor:
-                        file && file.name && file.size > 0 ? "white" : "grey"
-                    }}
-                  >
+                        file && file.name && file.size > 0 ? 'white' : 'grey',
+                    }}>
                     <Dropzone onDrop={onDrop}>
                       {({ getRootProps, getInputProps, isDragActive }) => (
                         <div
@@ -1553,10 +1571,9 @@ function InputPage(props) {
                           className="upload"
                           style={{
                             borderColor:
-                              file && file.size > 0 ? "white" : "grey",
-                            color: file && file.size > 0 ? "white" : "grey"
-                          }}
-                        >
+                              file && file.size > 0 ? 'white' : 'grey',
+                            color: file && file.size > 0 ? 'white' : 'grey',
+                          }}>
                           <input {...getInputProps()} />
                           {isDragActive ? (
                             <div className="upload-header">
@@ -1626,16 +1643,16 @@ function InputPage(props) {
                         style={
                           capitalRaised.length > 0
                             ? {
-                                borderColor: "white",
-                                color: "white",
-                                backgroundColor: "transparent",
-                                outline: "none"
+                                borderColor: 'white',
+                                color: 'white',
+                                backgroundColor: 'transparent',
+                                outline: 'none',
                               }
                             : {
-                                borderColor: "grey",
-                                color: "grey",
-                                backgroundColor: "transparent",
-                                outline: "none"
+                                borderColor: 'grey',
+                                color: 'grey',
+                                backgroundColor: 'transparent',
+                                outline: 'none',
                               }
                         }
                         type="number"
@@ -1697,8 +1714,8 @@ function InputPage(props) {
                       className="one-line-input"
                       style={
                         servicesString.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="servicesString"
@@ -1774,8 +1791,8 @@ function InputPage(props) {
                         // servicesSelected.length > 0 &&
                         servicesString.length > 0 &&
                         file.size > 0
-                          ? "white"
-                          : "grey"
+                          ? 'white'
+                          : 'grey',
                     }}
                     readOnly
                   />
@@ -1785,7 +1802,7 @@ function InputPage(props) {
             // =============================
             */}
                   <div className="legal-stuff">
-                    <p style={{ color: "white" }}>LEGAL:</p>
+                    <p style={{ color: 'white' }}>LEGAL:</p>
                     <p className="grey-legal">
                       Any nonpublic information provided hereunder is
                       confidential, and Project Mercury will not disclose the

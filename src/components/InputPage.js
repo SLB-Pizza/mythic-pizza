@@ -166,7 +166,7 @@ function InputPage(props) {
   // ╚═╝  ╚═╝╚══════╝╚═╝  ╚═══╝╚═════╝ ╚══════╝╚═╝  ╚═╝
   //
   return (
-    <div className="hero is-fullheight" id="input-page">
+    <div className="hero is-fullheight has-background-success" id="input-page">
       <div className="hero-body">
         <div className="container">
           {/*
@@ -177,13 +177,13 @@ function InputPage(props) {
       /_____/\___/____/_/|_|\__/\____/ .___/
                                     /_/
       */}
-          <div className="columns is-hidden-touch">
+          <div className="columns is-hidden-touch has-background-primary">
             {/*
             // =============================
             // 1st Column
             // =============================
             */}
-            <div className="column is-1">
+            <div className="column is-1 has-background-info">
               <animated.img
                 style={logoSpring}
                 src={logo}
@@ -196,14 +196,14 @@ function InputPage(props) {
             // 2nd Column
             // =============================
             */}
-            <div className="column is-2">
+            <div className="column is-2 has-background-danger">
               <Link to="/">
                 <button className="close-btn">
                   <img src={closeArrow} alt="inquire arrow" />
                   <p>CLOSE</p>
                 </button>
               </Link>
-              <div className="input-contact-info">
+              <div className="input-contact-info has-background-warning">
                 <a
                   href="mailto:office@projectmercury.com"
                   // target="_blank"
@@ -223,7 +223,9 @@ function InputPage(props) {
             {submitted ? (
               <div className="column is-1" id="required-text" />
             ) : (
-              <div className="column is-1" id="required-text">
+              <div
+                className="column is-1 has-background-link"
+                id="required-text">
                 <p>* denotes required field</p>
               </div>
             )}

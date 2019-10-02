@@ -93,6 +93,7 @@ function LandingPage() {
             <div className="column">
               <div className="vertical-logo is-flex-desktop">
                 <img
+                  className="vertical-logo-img"
                   src={logo}
                   height="65vh"
                   width="auto"
@@ -154,7 +155,7 @@ function LandingPage() {
                 id="mobile-landing">
                 <animated.div style={inquireFade} className="btn-animation">
                   <Link to="/form">
-                    <button className="inquire-style">
+                    <button className="inquire-mobile">
                       <p>INQUIRE</p>
                       <img src={inquireArrow} alt="learn more" />
                     </button>

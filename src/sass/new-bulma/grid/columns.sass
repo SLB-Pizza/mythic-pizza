@@ -483,119 +483,119 @@ $column-gap: 0.75rem !default
         width: percentage($i / 12)
       &.is-offset-#{$i}-quadhd
         margin-left: percentage($i / 12)
-  +notFourK
-    &.is-narrow-notFourK
+  +lowres-desktop
+    &.is-narrow-lowres-desktop
       flex: none
-    &.is-full-notFourK
+    &.is-full-lowres-desktop
       flex: none
       width: 100%
-    &.is-three-quarters-notFourK
+    &.is-three-quarters-lowres-desktop
       flex: none
       width: 75%
-    &.is-two-thirds-notFourK
+    &.is-two-thirds-lowres-desktop
       flex: none
       width: 66.6666%
-    &.is-half-notFourK
+    &.is-half-lowres-desktop
       flex: none
       width: 50%
-    &.is-one-third-notFourK
+    &.is-one-third-lowres-desktop
       flex: none
       width: 33.3333%
-    &.is-one-quarter-notFourK
+    &.is-one-quarter-lowres-desktop
       flex: none
       width: 25%
-    &.is-one-fifth-notFourK
+    &.is-one-fifth-lowres-desktop
       flex: none
       width: 20%
-    &.is-two-fifths-notFourK
+    &.is-two-fifths-lowres-desktop
       flex: none
       width: 40%
-    &.is-three-fifths-notFourK
+    &.is-three-fifths-lowres-desktop
       flex: none
       width: 60%
-    &.is-four-fifths-notFourK
+    &.is-four-fifths-lowres-desktop
       flex: none
       width: 80%
-    &.is-offset-three-quarters-notFourK
+    &.is-offset-three-quarters-lowres-desktop
       margin-left: 75%
-    &.is-offset-two-thirds-notFourK
+    &.is-offset-two-thirds-lowres-desktop
       margin-left: 66.6666%
-    &.is-offset-half-notFourK
+    &.is-offset-half-lowres-desktop
       margin-left: 50%
-    &.is-offset-one-third-notFourK
+    &.is-offset-one-third-lowres-desktop
       margin-left: 33.3333%
-    &.is-offset-one-quarter-notFourK
+    &.is-offset-one-quarter-lowres-desktop
       margin-left: 25%
-    &.is-offset-one-fifth-notFourK
+    &.is-offset-one-fifth-lowres-desktop
       margin-left: 20%
-    &.is-offset-two-fifths-notFourK
+    &.is-offset-two-fifths-lowres-desktop
       margin-left: 40%
-    &.is-offset-three-fifths-notFourK
+    &.is-offset-three-fifths-lowres-desktop
       margin-left: 60%
-    &.is-offset-four-fifths-notFourK
+    &.is-offset-four-fifths-lowres-desktop
       margin-left: 80%
     @for $i from 0 through 12
-      &.is-#{$i}-notFourK
+      &.is-#{$i}-lowres-desktop
         flex: none
         width: percentage($i / 12)
-      &.is-offset-#{$i}-notFourK
+      &.is-offset-#{$i}-lowres-desktop
         margin-left: percentage($i / 12)
-  +fourk
-    &.is-narrow-fourk
+  +four-k
+    &.is-narrow-four-k
       flex: none
-    &.is-full-fourk
+    &.is-full-four-k
       flex: none
       width: 100%
-    &.is-three-quarters-fourk
+    &.is-three-quarters-four-k
       flex: none
       width: 75%
-    &.is-two-thirds-fourk
+    &.is-two-thirds-four-k
       flex: none
       width: 66.6666%
-    &.is-half-fourk
+    &.is-half-four-k
       flex: none
       width: 50%
-    &.is-one-third-fourk
+    &.is-one-third-four-k
       flex: none
       width: 33.3333%
-    &.is-one-quarter-fourk
+    &.is-one-quarter-four-k
       flex: none
       width: 25%
-    &.is-one-fifth-fourk
+    &.is-one-fifth-four-k
       flex: none
       width: 20%
-    &.is-two-fifths-fourk
+    &.is-two-fifths-four-k
       flex: none
       width: 40%
-    &.is-three-fifths-fourk
+    &.is-three-fifths-four-k
       flex: none
       width: 60%
-    &.is-four-fifths-fourk
+    &.is-four-fifths-four-k
       flex: none
       width: 80%
-    &.is-offset-three-quarters-fourk
+    &.is-offset-three-quarters-four-k
       margin-left: 75%
-    &.is-offset-two-thirds-fourk
+    &.is-offset-two-thirds-four-k
       margin-left: 66.6666%
-    &.is-offset-half-fourk
+    &.is-offset-half-four-k
       margin-left: 50%
-    &.is-offset-one-third-fourk
+    &.is-offset-one-third-four-k
       margin-left: 33.3333%
-    &.is-offset-one-quarter-fourk
+    &.is-offset-one-quarter-four-k
       margin-left: 25%
-    &.is-offset-one-fifth-fourk
+    &.is-offset-one-fifth-four-k
       margin-left: 20%
-    &.is-offset-two-fifths-fourk
+    &.is-offset-two-fifths-four-k
       margin-left: 40%
-    &.is-offset-three-fifths-fourk
+    &.is-offset-three-fifths-four-k
       margin-left: 60%
-    &.is-offset-four-fifths-fourk
+    &.is-offset-four-fifths-four-k
       margin-left: 80%
     @for $i from 0 through 12
-      &.is-#{$i}-fourk
+      &.is-#{$i}-four-k
         flex: none
         width: percentage($i / 12)
-      &.is-offset-#{$i}-fourk
+      &.is-offset-#{$i}-four-k
         margin-left: percentage($i / 12)
 
 .columns
@@ -676,9 +676,9 @@ $column-gap: 0.75rem !default
       +quadhd
         &.is-#{$i}-quadhd
           --columnGap: #{$i * 0.25rem}
-      +notFourK
-        &.is-#{$i}-notFourK
+      +lowres-desktop
+        &.is-#{$i}-lowres-desktop
           --columnGap: #{$i * 0.25rem}
-      +fourk
-        &.is-#{$i}-fourk
+      +four-k
+        &.is-#{$i}-four-k
           --columnGap: #{$i * 0.25rem}

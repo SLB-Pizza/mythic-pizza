@@ -65,7 +65,7 @@ function LandingPage() {
            / __/ / /_/ / /_/ / /  / /| |
           /_/    \____/\__,_/_/  /_/ |_|
           */}
-          <div className="columns is-hidden-notFourK">
+          <div className="columns is-hidden-touch is-hidden-lowres-desktop">
             <div className="column">
               {/*
             // =============================
@@ -74,7 +74,8 @@ function LandingPage() {
             */}
               <animated.div style={leftText} id="desktop-blurb">
                 <p>
-                  Attention new thinkers, subversive talents and iconoclasts
+                  4k only please Attention new thinkers, subversive talents and
+                  iconoclasts
                 </p>
                 <p>
                   Announcing Project Mercury, a joint initiative from Derris and
@@ -126,7 +127,7 @@ function LandingPage() {
           /_____/\___/____/_/|_|\__/\____/ .___/
                                         /_/
           */}
-          <div className="columns is-hidden-touch">
+          <div className="columns is-hidden-touch is-hidden-four-k">
             <div className="column">
               {/*
             // =============================
@@ -135,7 +136,8 @@ function LandingPage() {
             */}
               <animated.div style={leftText} id="desktop-blurb">
                 <p>
-                  Attention new thinkers, subversive talents and iconoclasts
+                  Desktop only please Attention new thinkers, subversive talents
+                  and iconoclasts
                 </p>
                 <p>
                   Announcing Project Mercury, a joint initiative from Derris and
@@ -225,7 +227,8 @@ function LandingPage() {
 
                 <animated.div style={leftTextMobile} id="mobile-blurb">
                   <p>
-                    Attention new thinkers, subversive talents and iconoclasts
+                    mobile only please Attention new thinkers, subversive
+                    talents and iconoclasts
                   </p>
                   <p>
                     Announcing Project Mercury, a joint initiative from Derris

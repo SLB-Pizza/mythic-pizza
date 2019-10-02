@@ -145,18 +145,19 @@
     @media screen and (min-width: $fullhd) and (max-width: $quadhd - 1px)
       @content
 
-=notFourK
-  @media screen and (max-width: $fourk - 1px)
-    @content
-
-=until-fourk
-  @if $fourk-enabled
-    @media screen and (max-width: $fourk - 1px)
+=until-four-k
+  @if $four-k-enabled
+    @media screen and (max-width: $four-k - 1px)
       @content
 
-=fourk
-  @if $fourk-enabled
-    @media screen and (min-width: $fourk)
+=lowres-desktop
+  @if $four-k-enabled
+    @media screen and (min-width: $desktop) and (max-width: $four-k - 1px)
+      @content
+
+=four-k
+  @if $four-k-enabled
+    @media screen and (min-width: $four-k)
       @content
 
 

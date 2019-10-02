@@ -1,11 +1,62 @@
 // ==============================================
 // Bulma imports - DO NOT TOUCH
 // ==============================================
-@import '../../node_modules/bulma/sass/utilities/_all.sass';
-@import '../../node_modules/bulma/sass/base/_all.sass';
-@import '../../node_modules/bulma/sass/grid/columns.sass';
-@import '../../node_modules/bulma/sass/elements/container.sass';
-@import '../../node_modules/bulma/sass/layout/hero.sass';
+// The originals - the starting point
+// @import "../../node_modules/bulma/sass/utilities/_all.sass";
+// @import "../../node_modules/bulma/sass/base/_all.sass";
+// @import "../../node_modules/bulma/sass/grid/columns.sass";
+// @import "../../node_modules/bulma/sass/elements/container.sass";
+// @import "../../node_modules/bulma/sass/layout/hero.sass";
+
+// Utilities imports
+@import "../../node_modules/bulma/sass/utilities/animations.sass";
+@import "../../node_modules/bulma/sass/utilities/controls.sass";
+@import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
+@import "./new-bulma/initial-variables.sass";
+@import "./new-bulma/mixins.sass";
+
+// Base imports
+@import "../../node_modules/bulma/sass/base/generic.sass";
+@import "./new-bulma/helpers.sass";
+@import "../../node_modules/bulma/sass/base/minireset.sass";
+
+// Grid-column import
+@import "./new-bulma/columns.sass";
+
+// Elements-container import
+@import "./new-bulma/container.sass";
+
+// Layout-hero import
+@import "./new-bulma/hero.sass";
+
+// SASS FILES AND THEIR ORIGINA BULMA NODE MODULE CHANGES
+
+//   base
+//     generic     - X
+//     helpers     - added visibility on 141;
+//                   hidden-quadhd on 228;
+//                   invisible-quad on 271;
+//     minireset   - X
+//   utilities
+//     animations  - X
+//     controls    - X
+//     derived-var - X
+//     initial-var - added responsiveness on 65-69 for quadhd
+
+//     mixins      - added responsiveness on 131-139 for quadhd
+//   grid
+//     columns     - yep, this is gonna be work; focus on `is-#` and reg
+//                   added quadhd section on 429
+//                     based off +fullhd on 372
+//                   added quadhd variable columns on 562
+//                     based off +fullhd on 559
+//   elements
+//     container   - added until-quadhd section on 20
+//                     based off +until-fullhd on 17
+//                   added quadhd section on 27
+//                     based of +fullhd on 25
+//   layout
+//     hero        - X
 
 // ==============================================
 // Font imports
@@ -17,9 +68,9 @@
 // }
 
 @font-face {
-  font-family: 'Graphik';
-  src: local('Graphik-Regular'),
-    url(../fonts/Graphik-Regular.otf) format('opentype');
+  font-family: "Graphik";
+  src: local("Graphik-Regular"),
+    url(../fonts/Graphik-Regular.otf) format("opentype");
 }
 
 // ==============================================
@@ -32,8 +83,8 @@
 // ==============================================
 // SCSS files for each page
 // ==============================================
-@import './landing.scss';
-@import './input.scss';
+@import "./landing.scss";
+@import "./input.scss";
 
 // ==============================================
 // REMOVE THIS BEFORE DEPLOY

@@ -8,28 +8,13 @@
 // @import "../../node_modules/bulma/sass/elements/container.sass";
 // @import "../../node_modules/bulma/sass/layout/hero.sass";
 
-// Utilities imports
-@import "../../node_modules/bulma/sass/utilities/animations.sass";
-@import "../../node_modules/bulma/sass/utilities/controls.sass";
-@import "../../node_modules/bulma/sass/utilities/derived-variables.sass";
-@import "./new-bulma/initial-variables.sass";
-@import "./new-bulma/mixins.sass";
+@import "../sass/new-bulma/utilities/_all.sass";
+@import "../sass/new-bulma/base/_all.sass";
+@import "../sass/new-bulma/grid/columns.sass";
+@import "../sass/new-bulma/elements/container.sass";
+@import "../sass/new-bulma/layout/hero.sass";
 
-// Base imports
-@import "../../node_modules/bulma/sass/base/generic.sass";
-@import "./new-bulma/helpers.sass";
-@import "../../node_modules/bulma/sass/base/minireset.sass";
-
-// Grid-column import
-@import "./new-bulma/columns.sass";
-
-// Elements-container import
-@import "./new-bulma/container.sass";
-
-// Layout-hero import
-@import "./new-bulma/hero.sass";
-
-// SASS FILES AND THEIR ORIGINA BULMA NODE MODULE CHANGES
+// SASS FILES AND THEIR ORIGINA BULMA CHANGES
 
 //   base
 //     generic     - X
@@ -40,6 +25,7 @@
 //   utilities
 //     animations  - X
 //     controls    - X
+//     functions   - X
 //     derived-var - X
 //     initial-var - added responsiveness on 65-69 for quadhd
 
@@ -61,11 +47,11 @@
 // ==============================================
 // Font imports
 // ==============================================
-// @font-face {
-//   font-family: 'David_Reg';
-//   src: local('David_temporary_03_Regular'),
-//     url(../fonts/David_temporary_03_Regular.otf) format('opentype');
-// }
+@font-face {
+  font-family: "David_Reg";
+  src: local("David_temporary_03_Regular"),
+    url(../fonts/David_temporary_03_Regular.otf) format("opentype");
+}
 
 @font-face {
   font-family: "Graphik";

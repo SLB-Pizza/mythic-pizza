@@ -24,8 +24,9 @@
 // =======================
 // First Column
 // =======================
-#desktop-blurb {
-  // margin-top: -3px;;
+
+// four-k-blurb has a 2x multiplier on desktop-blurb
+#four-k-blurb {
   display: flex;
   flex-direction: column;
   align-content: center;
@@ -33,10 +34,31 @@
   height: 100%;
   p {
     font-family: "Graphik";
+    font-size: 32px;
+    justify-self: center;
+    align-self: center;
+    line-height: get-line-height(32px, 44px);
+    text-transform: uppercase;
+
+    &:last-child {
+      margin-top: 32px;
+    }
+  }
+}
+
+#desktop-blurb {
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+  justify-content: center;
+  height: 100%;
+
+  p {
+    font-family: "Graphik";
     font-size: 16px;
     justify-self: center;
     align-self: center;
-    line-height: 22px;
+    line-height: get-line-height(16px, 22px);
     text-transform: uppercase;
 
     &:last-child {
@@ -56,7 +78,6 @@
 .vertical-logo-img {
   height: 75vh;
   align-self: center;
-  // justify-self: center;
 }
 
 // =======================
@@ -67,6 +88,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
+  align-items: center;
 
   .btn-animation {
     flex: 1;
@@ -81,12 +103,32 @@
       background-color: transparent;
       border: 2px solid white;
       padding: 10px 15px;
-      font-family: "Graphik";
-      font-size: 16px;
       outline: none;
       p {
+        font-family: "Graphik";
+        font-size: 16px;
         color: white;
         padding-right: 27px;
+      }
+    }
+
+    // four-k-btn has a 2x multiplier on inquire-btn
+    #four-k-btn {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      background-color: transparent;
+      border: 4px solid white;
+      padding: 20px 30px;
+      outline: none;
+      p {
+        font-family: "Graphik";
+        font-size: 32px;
+        color: white;
+        padding-right: 54px;
+      }
+      img {
+        height: 24px;
       }
     }
   }
@@ -115,9 +157,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    //keep outline: none
     outline: none;
-    // background-color: rgba(255, 255, 55, 0.5);
   }
 
   .inquire-mobile {
@@ -147,6 +187,5 @@
         margin-top: 19px;
       }
     }
-    // background-color: rgba(55, 255, 55, 0.5);
   }
 }

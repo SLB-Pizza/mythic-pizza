@@ -72,10 +72,9 @@ function LandingPage() {
             // 1st Column
             // =============================
             */}
-              <animated.div style={leftText} id="desktop-blurb">
+              <animated.div style={leftText} id="four-k-blurb">
                 <p>
-                  4k only please Attention new thinkers, subversive talents and
-                  iconoclasts
+                  Attention new thinkers, subversive talents and iconoclasts
                 </p>
                 <p>
                   Announcing Project Mercury, a joint initiative from Derris and
@@ -110,7 +109,7 @@ function LandingPage() {
               <animated.div style={inquireMove} className="landing-right">
                 <animated.div style={inquireFade} className="btn-animation">
                   <Link to="/form">
-                    <button className="inquire-btn">
+                    <button id="four-k-btn">
                       <p>INQUIRE</p>
                       <img src={inquireArrow} alt="inquire arrow" />
                     </button>
@@ -136,8 +135,7 @@ function LandingPage() {
             */}
               <animated.div style={leftText} id="desktop-blurb">
                 <p>
-                  Desktop only please Attention new thinkers, subversive talents
-                  and iconoclasts
+                  Attention new thinkers, subversive talents and iconoclasts
                 </p>
                 <p>
                   Announcing Project Mercury, a joint initiative from Derris and

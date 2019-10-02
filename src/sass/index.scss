@@ -1,48 +1,12 @@
 // ==============================================
 // Bulma imports - DO NOT TOUCH
 // ==============================================
-// The originals - the starting point
-// @import "../../node_modules/bulma/sass/utilities/_all.sass";
-// @import "../../node_modules/bulma/sass/base/_all.sass";
-// @import "../../node_modules/bulma/sass/grid/columns.sass";
-// @import "../../node_modules/bulma/sass/elements/container.sass";
-// @import "../../node_modules/bulma/sass/layout/hero.sass";
 
-@import "../sass/new-bulma/utilities/_all.sass";
-@import "../sass/new-bulma/base/_all.sass";
-@import "../sass/new-bulma/grid/columns.sass";
-@import "../sass/new-bulma/elements/container.sass";
-@import "../sass/new-bulma/layout/hero.sass";
-
-// SASS FILES AND THEIR ORIGINAL BULMA CHANGES
-
-//   base
-//     generic     - X
-//     helpers     - added visibility on 141;
-//                   hidden-quadhd on 228;
-//                   invisible-quad on 271;
-//     minireset   - X
-//   utilities
-//     animations  - X
-//     controls    - X
-//     functions   - X
-//     derived-var - X
-//     initial-var - added responsiveness on 65-69 for quadhd
-
-//     mixins      - added responsiveness on 131-139 for quadhd
-//   grid
-//     columns     - yep, this is gonna be work; focus on `is-#` and reg
-//                   added quadhd section on 429
-//                     based off +fullhd on 372
-//                   added quadhd variable columns on 562
-//                     based off +fullhd on 559
-//   elements
-//     container   - added until-quadhd section on 20
-//                     based off +until-fullhd on 17
-//                   added quadhd section on 27
-//                     based of +fullhd on 25
-//   layout
-//     hero        - X
+@import "../sass/our-bulma/utilities/_all.sass";
+@import "../sass/our-bulma/base/_all.sass";
+@import "../sass/our-bulma/grid/columns.sass";
+@import "../sass/our-bulma/elements/container.sass";
+@import "../sass/our-bulma/layout/hero.sass";
 
 // ==============================================
 // Font imports
@@ -71,11 +35,6 @@
 // ==============================================
 @import "./landing.scss";
 @import "./input.scss";
-
-// ==============================================
-// REMOVE THIS BEFORE DEPLOY
-// @import "./test.scss";
-// ==============================================
 
 // ==============================================
 // UNIVERSAL TOP LEVEL STUFF

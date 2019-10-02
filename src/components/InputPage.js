@@ -631,7 +631,6 @@ function InputPage(props) {
             // Terms & Conditions
             // =============================
             */}
-
                   <div className="terms" onClick={handleTerms}>
                     <img
                       src={termsCheckbox ? termsCheckmark : termsNoCheckmark}

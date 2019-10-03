@@ -33,7 +33,7 @@
   justify-content: center;
   height: 100%;
   p {
-    font-family: 'Graphik';
+    font-family: "Graphik";
     font-size: 32px;
     justify-self: center;
     align-self: inherit;
@@ -54,7 +54,7 @@
   height: 100%;
 
   p {
-    font-family: 'Graphik';
+    font-family: "Graphik";
     font-size: 16px;
     justify-self: center;
     align-self: inherit;
@@ -83,7 +83,6 @@
 // =======================
 // Third Column
 // =======================
-// This column is flexed manually in LandingPage
 .landing-right {
   height: 100%;
   display: flex;
@@ -105,7 +104,7 @@
       padding: 10px 15px;
       outline: none;
       p {
-        font-family: 'Graphik';
+        font-family: "Graphik";
         font-size: 16px;
         color: white;
         padding-right: 27px;
@@ -122,7 +121,7 @@
       padding: 20px 30px;
       outline: none;
       p {
-        font-family: 'Graphik';
+        font-family: "Graphik";
         font-size: 32px;
         color: white;
         padding-right: 54px;
@@ -146,40 +145,36 @@
 // =======================
 // Second Column
 // =======================
-#mobile-landing {
+// For touch - mobile and tablet
+#mobile-right {
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-content: space-between;
+  align-items: flex-start;
 
-  #mobile-inquire {
+  .btn-animation {
     flex: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
-    outline: none;
-  }
-  .btn-animation {
-    display: flex;
-  }
 
-  .inquire-mobile {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    margin-right: 120px;
-    background-color: transparent;
-    border: 2px solid white;
-    padding: 10px 15px;
-    font-family: 'Graphik';
-    font-size: 16px;
-    outline: none;
-    p {
-      color: white;
-      padding-right: 27px;
+    .inquire-mobile {
+      display: flex;
+      flex-direction: row;
+      align-items: flex;
+      margin-right: 120px;
+      background-color: transparent;
+      border: 2px solid white;
+      padding: 10px 15px;
+      font-family: "Graphik";
+      font-size: 16px;
+      outline: none;
+      p {
+        color: white;
+        padding-right: 27px;
+      }
     }
   }
-
   #mobile-blurb {
     flex: 2;
     p {

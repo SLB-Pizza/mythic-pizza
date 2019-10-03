@@ -1,55 +1,41 @@
-import React, { useRef } from 'react';
-import {
-  useSpring,
-  /*useTransition,*/ animated,
-  useChain,
-  // config,
-} from 'react-spring';
-import { Link } from 'react-router-dom';
-import logo from '../imgs/project-mercury-logo.svg';
-import inquireArrow from '../imgs/inquire-arrow.svg';
-import * as easings from 'd3-ease';
+import React, { useRef } from "react";
+import { useSpring, animated, useChain } from "react-spring";
+import { Link } from "react-router-dom";
+import logo from "../imgs/project-mercury-logo.svg";
+import inquireArrow from "../imgs/inquire-arrow.svg";
+import * as easings from "d3-ease";
 
 function LandingPage() {
-  //Left text spring
   const leftText = useSpring({
     config: { duration: 1500, easing: easings.easeCubicOut },
-    from: { opacity: 1, transform: 'translate(0, -400%)' },
-    to: { opacity: 1, transform: 'translate(0, 0)' },
-    delay: 200,
+    from: { opacity: 1, transform: "translate(0, -400%)" },
+    to: { opacity: 1, transform: "translate(0, 0)" },
+    delay: 200
   });
-  //Left text spring mobile
+
   const leftTextMobile = useSpring({
     config: { duration: 1500, easing: easings.easeCubicOut },
-    from: { opacity: 1, transform: 'translate(0, 400%)' },
-    to: { opacity: 1, transform: 'translate(0, 0)' },
-    delay: 200,
+    from: { opacity: 1, transform: "translate(0, 400%)" },
+    to: { opacity: 1, transform: "translate(0, 0)" },
+    delay: 200
   });
-  //inquire button move spring
+
   const inquireMoveRef = useRef();
   const inquireMove = useSpring({
     config: { duration: 1500, easing: easings.easeCubicOut },
-    from: { transform: 'translate(200%, 0)' },
-    to: { transform: 'translate(0, 0)' },
-    ref: inquireMoveRef,
+    from: { transform: "translate(200%, 0)" },
+    to: { transform: "translate(0, 0)" },
+    ref: inquireMoveRef
   });
-  //contact info srping
-  // const contactInfo = useSpring({
-  //   config: config.molasses,
-  //   from: { opacity: 0, transform: 'translate(200%, 0)' },
-  //   to: { opacity: 1, transform: 'translate(0, 0)' },
-  //   delay: 200,
-  // });
-  //inquire button fade spring
+
   const inquireFadeRef = useRef();
   const inquireFade = useSpring({
     config: {
-      duration: 800,
+      duration: 800
     },
     from: { opacity: 0 },
     to: { opacity: 1 },
-    // delay: 300,
-    ref: inquireFadeRef,
+    ref: inquireFadeRef
   });
 
   useChain([inquireMoveRef, inquireFadeRef]);
@@ -199,7 +185,6 @@ function LandingPage() {
                   height="65vh"
                   width="auto"
                   alt="projectMERCURY"
-                  // style={{ width: "49px", height: "auto" }}
                 />
               </div>
             </div>
@@ -209,10 +194,7 @@ function LandingPage() {
             // =============================
             */}
             <div className="column">
-              <animated.div
-                style={inquireMove}
-                className="landing-right"
-                id="mobile-landing">
+              <animated.div style={inquireMove} id="mobile-right">
                 <animated.div style={inquireFade} className="btn-animation">
                   <Link to="/form">
                     <button className="inquire-mobile">

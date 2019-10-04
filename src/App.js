@@ -8,13 +8,16 @@ import LandingPage from './components/LandingPage';
 import InputPage from './components/InputPage';
 
 import ReactGA from 'react-ga';
+import { createBrowserHistory } from 'history';
 
 ReactGA.initialize('UA-143359903-3');
 
-// history.listen(location => {
-//   ReactGA.set({ page: location.pathname });
-//   ReactGA.pageview(location.pathname);
-// });
+const history = createBrowserHistory();
+
+history.listen(location => {
+  ReactGA.set({ page: location.pathname }); // Update the user's current page
+  ReactGA.pageview(location.pathname); // Record a pageview for the given page
+});
 
 function App() {
   const { location } = useContext(__RouterContext);

@@ -77,10 +77,23 @@ function LandingPage() {
                   Attention new thinkers, subversive talents and iconoclasts.
                 </p>
                 <p>
-                  Announcing Project Mercury, a joint initiative from Derris and
-                  Mythology (formerly Partners & Spade) to find the undiscovered
-                  founders and radical ideas that will change industries, and
-                  help them build the next great brands.
+                  Announcing Project Mercury, a joint initiative from{' '}
+                  <a
+                    href="https://www.derris.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Derris
+                  </a>{' '}
+                  and{' '}
+                  <a
+                    href="https://www.mythology.com/story"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Mythology
+                  </a>{' '}
+                  (formerly Partners & Spade) to find the undiscovered founders
+                  and radical ideas that will change industries, and help them
+                  build the next great brands.
                 </p>
               </animated.div>
             </div>
@@ -138,10 +151,23 @@ function LandingPage() {
                   Attention new thinkers, subversive talents and iconoclasts.
                 </p>
                 <p>
-                  Announcing Project Mercury, a joint initiative from Derris and
-                  Mythology (formerly Partners & Spade) to find the undiscovered
-                  founders and radical ideas that will change industries, and
-                  help them build the next great brands.
+                  Announcing Project Mercury, a joint initiative from{' '}
+                  <a
+                    href="https://www.derris.com/"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Derris
+                  </a>{' '}
+                  and{' '}
+                  <a
+                    href="https://www.mythology.com/story"
+                    target="_blank"
+                    rel="noopener noreferrer">
+                    Mythology
+                  </a>{' '}
+                  (formerly Partners & Spade) to find the undiscovered founders
+                  and radical ideas that will change industries, and help them
+                  build the next great brands.
                 </p>
               </animated.div>
             </div>
@@ -224,13 +250,26 @@ function LandingPage() {
 
                 <animated.div style={leftTextMobile} id="mobile-blurb">
                   <p>
-                    Attention new thinkers, subversive talents and iconoclasts
+                    Attention new thinkers, subversive talents and iconoclasts.
                   </p>
                   <p>
-                    Announcing Project Mercury, a joint initiative from Derris
-                    and Mythology (formerly Partners & Spade) to find the
-                    undiscovered founders and radical ideas that will change
-                    industries, and help them build the next great brands.
+                    Announcing Project Mercury, a joint initiative from{' '}
+                    <a
+                      href="https://www.derris.com/"
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      Derris{' '}
+                    </a>
+                    and{' '}
+                    <a
+                      href="https://www.mythology.com/story"
+                      target="_blank"
+                      rel="noopener noreferrer">
+                      Mythology
+                    </a>{' '}
+                    (formerly Partners & Spade) to find the undiscovered
+                    founders and radical ideas that will change industries, and
+                    help them build the next great brands.
                   </p>
                 </animated.div>
               </animated.div>

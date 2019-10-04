@@ -43,6 +43,14 @@
     &:last-child {
       margin-top: 32px;
     }
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: normal;
+      font-family: 'Graphik';
+      line-height: get-line-height(32px, 44px);
+      font-size: 32px;
+    }
   }
 }
 
@@ -63,6 +71,15 @@
 
     &:last-child {
       margin-top: 16px;
+    }
+
+    a {
+      text-decoration: none;
+      color: white;
+      font-weight: normal;
+      font-family: 'Graphik';
+      line-height: 22px;
+      font-size: 16px;
     }
   }
 }
@@ -150,7 +167,7 @@
   height: 100%;
   display: flex;
   flex-direction: column;
-  align-content: space-between;
+  align-items: flex-start;
 
   #mobile-inquire {
     flex: 1;
@@ -166,7 +183,7 @@
   .inquire-mobile {
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: flex;
     margin-right: 120px;
     background-color: transparent;
     border: 2px solid white;
@@ -189,6 +206,15 @@
 
       &:last-of-type {
         margin-top: 19px;
+      }
+
+      a {
+        text-decoration: none;
+        color: white;
+        font-weight: normal;
+        font-family: 'Graphik';
+        line-height: 22px;
+        font-size: 16px;
       }
     }
   }

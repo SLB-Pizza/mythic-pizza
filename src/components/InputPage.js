@@ -202,7 +202,7 @@ function InputPage(props) {
                   <p>CLOSE</p>
                 </button>
               </Link>
-              <div id="four-k-contact">
+              {/* <div id="four-k-contact">
                 <a
                   href="mailto:office@projectmercury.com"
                   // target="_blank"
@@ -212,7 +212,7 @@ function InputPage(props) {
                 <p>T 646 861 2827</p>
                 <p>324 Lafayette Street</p>
                 <p>NY, New York 11201</p>
-              </div>
+              </div> */}
             </div>
             {/*
             // =============================
@@ -691,8 +691,8 @@ function InputPage(props) {
                       launchSelected.length > 0 &&
                       // servicesSelected.length > 0 &&
                       servicesString.length > 0
-                      //&& file.size > 0
-                        ? false
+                        ? //&& file.size > 0
+                          false
                         : true
                     }
                     value="SUBMIT"
@@ -707,8 +707,8 @@ function InputPage(props) {
                         launchSelected.length > 0 &&
                         // servicesSelected.length > 0 &&
                         servicesString.length > 0
-                        //&& file.size > 0
-                          ? 'white'
+                          ? //&& file.size > 0
+                            'white'
                           : 'grey',
                     }}
                     readOnly
@@ -801,7 +801,7 @@ function InputPage(props) {
                   <p>CLOSE</p>
                 </button>
               </Link>
-              <div className="input-contact-info">
+              {/* <div className="input-contact-info">
                 <a
                   href="mailto:office@projectmercury.com"
                   // target="_blank"
@@ -811,7 +811,7 @@ function InputPage(props) {
                 <p>T 646 861 2827</p>
                 <p>324 Lafayette Street</p>
                 <p>NY, New York 11201</p>
-              </div>
+              </div> */}
             </div>
             {/*
             // =============================
@@ -1250,8 +1250,8 @@ function InputPage(props) {
                       launchSelected.length > 0 &&
                       // servicesSelected.length > 0 &&
                       servicesString.length > 0
-                      // && file.size > 0
-                        ? false
+                        ? // && file.size > 0
+                          false
                         : true
                     }
                     value="SUBMIT"
@@ -1266,8 +1266,8 @@ function InputPage(props) {
                         launchSelected.length > 0 &&
                         // servicesSelected.length > 0 &&
                         servicesString.length > 0
-                        //&& file.size > 0
-                          ? 'white'
+                          ? //&& file.size > 0
+                            'white'
                           : 'grey',
                     }}
                     readOnly
@@ -1356,17 +1356,18 @@ function InputPage(props) {
               {submitted ? (
                 <div />
               ) : (
-                <div className="input-contact-info-mobile">
-                  <a
-                    href="mailto:office@projectmercury.com"
-                    // target="_blank"
-                    rel="noopener noreferrer">
-                    office@projectmercury.com
-                  </a>
-                  <p>T 646 861 2827</p>
-                  <p>324 Lafayette Street</p>
-                  <p>NY, New York 11201</p>
-                </div>
+                // <div className="input-contact-info-mobile">
+                //   <a
+                //     href="mailto:office@projectmercury.com"
+                //     // target="_blank"
+                //     rel="noopener noreferrer">
+                //     office@projectmercury.com
+                //   </a>
+                //   <p>T 646 861 2827</p>
+                //   <p>324 Lafayette Street</p>
+                //   <p>NY, New York 11201</p>
+                // </div>
+                <div />
               )}
               <Link to="/">
                 <button id="close-button-mobile">
@@ -1774,8 +1775,8 @@ function InputPage(props) {
                       launchSelected.length > 0 &&
                       // servicesSelected.length > 0 &&
                       servicesString.length > 0
-                      // && file.size > 0
-                        ? false
+                        ? // && file.size > 0
+                          false
                         : true
                     }
                     value="SUBMIT"
@@ -1790,8 +1791,8 @@ function InputPage(props) {
                         launchSelected.length > 0 &&
                         // servicesSelected.length > 0 &&
                         servicesString.length > 0
-                        //&& file.size > 0
-                          ? 'white'
+                          ? //&& file.size > 0
+                            'white'
                           : 'grey',
                     }}
                     readOnly

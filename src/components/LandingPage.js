@@ -9,8 +9,15 @@ import { Link } from 'react-router-dom';
 import logo from '../imgs/project-mercury-logo.svg';
 import inquireArrow from '../imgs/inquire-arrow.svg';
 import * as easings from 'd3-ease';
+import ReactGA from 'react-ga';
 
 function LandingPage() {
+  ReactGA.initialize('UA-143359903-3', {
+    name: 'Intro Page',
+    siteSpeedSampleRate: 100,
+  });
+  ReactGA.pageview(window.location.pathname + window.location.search);
+
   //Left text spring
   const leftText = useSpring({
     config: { duration: 1500, easing: easings.easeCubicOut },
@@ -33,13 +40,6 @@ function LandingPage() {
     to: { transform: 'translate(0, 0)' },
     ref: inquireMoveRef,
   });
-  //contact info srping
-  // const contactInfo = useSpring({
-  //   config: config.molasses,
-  //   from: { opacity: 0, transform: 'translate(200%, 0)' },
-  //   to: { opacity: 1, transform: 'translate(0, 0)' },
-  //   delay: 200,
-  // });
   //inquire button fade spring
   const inquireFadeRef = useRef();
   const inquireFade = useSpring({

@@ -4,7 +4,7 @@ import { BrowserRouter } from 'react-router-dom';
 import './sass/index.scss';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
-
+import ReactGA from 'react-ga';
 // FONTS
 // import "./fonts/David_temporary_03_Regular.otf";
 import './fonts/Graphik-Regular.otf';

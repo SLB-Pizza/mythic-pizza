@@ -13,6 +13,8 @@ import termsCheckmark from '../imgs/terms-checkmark.svg';
 import termsNoCheckmark from '../imgs/terms-no-checkmark.svg';
 import uploadIcon from '../imgs/uploadArrow-Sketch.svg';
 
+import ReactGA from 'react-ga';
+
 function InputPage(props) {
   const [contactName, setContactName] = useState('');
   const [contactRole, setContactRole] = useState('');
@@ -59,6 +61,12 @@ function InputPage(props) {
   //     inputFocus.current.focus();
   //   }, 3000);
   // }, []);
+
+  ReactGA.initialize('UA-143359903-3', {
+    name: 'Form Page',
+    siteSpeedSampleRate: 100,
+  });
+  ReactGA.pageview(window.location.pathname + window.location.search);
 
   const onDrop = async acceptedFiles => {
     if (acceptedFiles[0].size <= 10000000) {

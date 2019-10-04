@@ -64,18 +64,15 @@ function InputPage(props) {
   // }, []);
 
   useEffect(
-    useEffect(
-      () =>
-        history.listen(location => {
-          ReactGA.initialize('UA-143359903-3', {
-            name: 'Form Page',
-            siteSpeedSampleRate: 100,
-          });
-          ReactGA.set({ page: location.pathname });
-          ReactGA.pageview(location.pathname);
-        }),
-      []
-    ),
+    () =>
+      history.listen(location => {
+        ReactGA.initialize('UA-143359903-3', {
+          name: 'Form Page',
+          siteSpeedSampleRate: 100,
+        });
+        ReactGA.set({ page: location.pathname });
+        ReactGA.pageview(location.pathname);
+      }),
     []
   );
 

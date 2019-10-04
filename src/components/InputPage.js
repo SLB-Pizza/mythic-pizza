@@ -16,6 +16,7 @@ import uploadIcon from '../imgs/uploadArrow-Sketch.svg';
 function InputPage(props) {
   const [contactName, setContactName] = useState('');
   const [contactRole, setContactRole] = useState('');
+  const [contactEmail, setContactEmail] = useState('');
   const [companyName, setCompanyName] = useState('');
   const [companyDescription, setCompanyDescription] = useState('');
   const [based, setBased] = useState('');
@@ -83,6 +84,7 @@ function InputPage(props) {
       'form-name': 'contact',
       contactName,
       contactRole,
+      contactEmail,
       companyName,
       companyDescription,
       based,
@@ -202,17 +204,6 @@ function InputPage(props) {
                   <p>CLOSE</p>
                 </button>
               </Link>
-              {/* <div id="four-k-contact">
-                <a
-                  href="mailto:office@projectmercury.com"
-                  // target="_blank"
-                  rel="noopener noreferrer">
-                  office@projectmercury.com
-                </a>
-                <p>T 646 861 2827</p>
-                <p>324 Lafayette Street</p>
-                <p>NY, New York 11201</p>
-              </div> */}
             </div>
             {/*
             // =============================
@@ -294,8 +285,38 @@ function InputPage(props) {
                   </div>
                   {/*
             // =============================
-            // Company Name
+            // Contact Email
             // 003
+            // =============================
+            */}
+                  <label className="four-k-solo-label">
+                    <input
+                      className="four-k-solo-input"
+                      style={
+                        contactEmail.length > 0
+                          ? {
+                              borderColor: 'white',
+                              color: 'white',
+                              fontSize: '44px',
+                            }
+                          : {
+                              borderColor: 'grey',
+                              color: 'grey',
+                              fontSize: '44px',
+                            }
+                      }
+                      type="text"
+                      name="contactEmail"
+                      value={contactEmail}
+                      onChange={e => setContactEmail(e.target.value)}
+                      // required={true}
+                    />
+                    <p>004. CONTACT EMAIL*</p>
+                  </label>
+                  {/*
+            // =============================
+            // Company Name
+            // 004
             // =============================
             */}
                   <label className="four-k-solo-label">
@@ -320,12 +341,12 @@ function InputPage(props) {
                       onChange={e => setCompanyName(e.target.value)}
                       // required={true}
                     />
-                    <p>003. COMPANY NAME*</p>
+                    <p>004. COMPANY NAME*</p>
                   </label>
                   {/*
             // =============================
             // Company Description
-            // 004
+            // 005
             // =============================
             */}
                   <div className="four-k-text-area">
@@ -333,13 +354,13 @@ function InputPage(props) {
                       onChange={e => setCompanyDescription(e.target.value)}
                       value={companyDescription}
                       name="companyDescription"
-                      insideText="004. COMPANY DESCRIPTION*"
+                      insideText="005. COMPANY DESCRIPTION*"
                     />
                   </div>
                   {/*
             // =============================
             // Where are you based?
-            // 005
+            // 006
             // =============================
             */}
                   <label className="four-k-solo-label">
@@ -364,12 +385,12 @@ function InputPage(props) {
                       onChange={e => setBased(e.target.value)}
                       // required={true}
                     />
-                    <p>005. WHERE ARE YOU BASED?*</p>
+                    <p>006. WHERE ARE YOU BASED?*</p>
                   </label>
                   {/*
             // =============================
             // Market Opportunity
-            // 006
+            // 007
             // =============================
             */}
                   <div className="four-k-text-area">
@@ -377,13 +398,13 @@ function InputPage(props) {
                       onChange={e => setMarketOpportunity(e.target.value)}
                       value={marketOpportunity}
                       name="marketOpportunity"
-                      insideText="006. MARKET OPPORTUNITY*"
+                      insideText="007. MARKET OPPORTUNITY*"
                     />
                   </div>
                   {/*
             // =============================
             // Target Demo
-            // 007
+            // 008
             // =============================
             */}
                   <label className="four-k-solo-label">
@@ -408,12 +429,12 @@ function InputPage(props) {
                       onChange={e => setTargetDemo(e.target.value)}
                       // required={true}
                     />
-                    <p>007. TARGET DEMO*</p>
+                    <p>008. TARGET DEMO*</p>
                   </label>
                   {/*
             // =============================
             // Competitors
-            // 008
+            // 009
             // =============================
             */}
                   <label className="four-k-solo-label ">
@@ -438,12 +459,12 @@ function InputPage(props) {
                       onChange={e => setCompetitors(e.target.value)}
                       // required={true}
                     />
-                    <p>008. COMPETITORS*</p>
+                    <p>009. COMPETITORS*</p>
                   </label>
                   {/*
             // =============================
             // File Upload
-            // 009
+            // 010
             // =============================
             */}
                   <div
@@ -472,7 +493,7 @@ function InputPage(props) {
                           ) : (
                             <div className="upload-header">
                               <p id="instructions">
-                                009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL
+                                010. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL
                                 HERE
                               </p>
                               <p id="limit">*LIMIT: 10 MB*</p>
@@ -493,7 +514,7 @@ function InputPage(props) {
                   {/*
             // =============================
             // Current Team Structure
-            // 010
+            // 011
             // =============================
             */}
                   <div className="four-k-text-area">
@@ -501,14 +522,14 @@ function InputPage(props) {
                       onChange={e => setCurrentTeam(e.target.value)}
                       value={currentTeam}
                       name="currentTeam"
-                      insideText="010. CURRENT TEAM (INCLUDE CURRENT MANAGEMENT STRUCTURE)*"
+                      insideText="011. CURRENT TEAM (INCLUDE CURRENT MANAGEMENT STRUCTURE)*"
                     />
                   </div>
 
                   {/*
             // =============================
             // Open/Needed Positions
-            // 011
+            // 012
             // =============================
             */}
                   <div className="four-k-text-area">
@@ -516,13 +537,13 @@ function InputPage(props) {
                       onChange={e => setPositions(e.target.value)}
                       value={positions}
                       name="positions"
-                      insideText="011. OPEN/NEEDED POSITIONS*"
+                      insideText="012. OPEN/NEEDED POSITIONS*"
                     />
                   </div>
                   {/*
             // =============================
             // Capital Raised
-            // 012
+            // 013
             // =============================
             */}
                   <label id="four-k-capital-input">
@@ -573,13 +594,13 @@ function InputPage(props) {
                       style={{
                         color: capitalRaised.length > 0 ? 'white' : 'gray',
                       }}>
-                      012. CAPITAL RAISED*
+                      013. CAPITAL RAISED*
                     </p>
                   </label>
                   {/*
             // =============================
             // Capital Needed
-            // 013
+            // 014
             // =============================
             */}
                   <div className="four-k-text-area">
@@ -587,13 +608,13 @@ function InputPage(props) {
                       onChange={e => setCapitalNeeded(e.target.value)}
                       value={capitalNeeded}
                       name="capitalNeeded"
-                      insideText="013. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
+                      insideText="014. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
                     />
                   </div>
                   {/*
             // =============================
             // Anticipated Launch Schedule
-            // 014
+            // 015
             // =============================
             */}
                   <div className="four-k-text-area">
@@ -601,7 +622,7 @@ function InputPage(props) {
                       onChange={e => setLaunchSelected(e.target.value)}
                       value={launchSelected}
                       name="launchSelected"
-                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
+                      insideText="015. ANTICIPATED LAUNCH SCHEDULE*"
                     />
                   </div>
                   {/* WHat follows i the old dropdown of this that can be toggled on by uncommenting this block and
@@ -618,7 +639,7 @@ function InputPage(props) {
                   {/*
             // =============================
             // Services Needed
-            // 015
+            // 016
             // =============================
             */}
                   <label className="four-k-solo-label">
@@ -643,7 +664,7 @@ function InputPage(props) {
                       onChange={e => setServicesString(e.target.value)}
                       // required={true}
                     />
-                    <p>015. SERVICES NEEDED*</p>
+                    <p>016. SERVICES NEEDED*</p>
                   </label>
                   {/* <label
                     style={
@@ -683,6 +704,14 @@ function InputPage(props) {
                     type="SUBMIT"
                     disabled={
                       termsCheckbox &&
+                      contactName.length > 0 &&
+                      contactRole.length > 0 &&
+                      contactEmail.length > 0 &&
+                      companyName.length > 0 &&
+                      based.length > 0 &&
+                      targetDemo.length > 0 &&
+                      competitors.length > 0 &&
+                      capitalRaised.length > 0 &&
                       companyDescription.length > 0 &&
                       marketOpportunity.length > 0 &&
                       currentTeam.length > 0 &&
@@ -691,14 +720,21 @@ function InputPage(props) {
                       launchSelected.length > 0 &&
                       // servicesSelected.length > 0 &&
                       servicesString.length > 0
-                        ? //&& file.size > 0
-                          false
+                        ? false
                         : true
                     }
                     value="SUBMIT"
                     style={{
                       backgroundColor:
                         termsCheckbox &&
+                        contactName.length > 0 &&
+                        contactRole.length > 0 &&
+                        contactEmail.length > 0 &&
+                        companyName.length > 0 &&
+                        based.length > 0 &&
+                        targetDemo.length > 0 &&
+                        competitors.length > 0 &&
+                        capitalRaised.length > 0 &&
                         companyDescription.length > 0 &&
                         marketOpportunity.length > 0 &&
                         currentTeam.length > 0 &&
@@ -707,8 +743,7 @@ function InputPage(props) {
                         launchSelected.length > 0 &&
                         // servicesSelected.length > 0 &&
                         servicesString.length > 0
-                          ? //&& file.size > 0
-                            'white'
+                          ? 'white'
                           : 'grey',
                     }}
                     readOnly
@@ -801,17 +836,6 @@ function InputPage(props) {
                   <p>CLOSE</p>
                 </button>
               </Link>
-              {/* <div className="input-contact-info">
-                <a
-                  href="mailto:office@projectmercury.com"
-                  // target="_blank"
-                  rel="noopener noreferrer">
-                  office@projectmercury.com
-                </a>
-                <p>T 646 861 2827</p>
-                <p>324 Lafayette Street</p>
-                <p>NY, New York 11201</p>
-              </div> */}
             </div>
             {/*
             // =============================
@@ -891,8 +915,31 @@ function InputPage(props) {
                   </div>
                   {/*
             // =============================
-            // Company Name
+            // Contact Email
             // 003
+            // =============================
+            */}
+                  <label className="one-line-input-label">
+                    <input
+                      className="four-k-solo-label"
+                      style={
+                        companyName.length > 0
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
+                      }
+                      type="text"
+                      name="contactEmail"
+                      value={contactEmail}
+                      onChange={e => setContactEmail(e.target.value)}
+                      // required={true}
+                    />
+                    <p>003. CONTACT EMAIL*</p>
+                  </label>
+
+                  {/*
+            // =============================
+            // Company Name
+            // 004
             // =============================
             */}
                   <label className="one-line-input-label">
@@ -909,12 +956,12 @@ function InputPage(props) {
                       onChange={e => setCompanyName(e.target.value)}
                       // required={true}
                     />
-                    <p>003. COMPANY NAME*</p>
+                    <p>004. COMPANY NAME*</p>
                   </label>
                   {/*
             // =============================
             // Company Description
-            // 004
+            // 005
             // =============================
             */}
                   <div className="text-box-container">
@@ -922,13 +969,13 @@ function InputPage(props) {
                       onChange={e => setCompanyDescription(e.target.value)}
                       value={companyDescription}
                       name="companyDescription"
-                      insideText="004. COMPANY DESCRIPTION*"
+                      insideText="005. COMPANY DESCRIPTION*"
                     />
                   </div>
                   {/*
             // =============================
             // Where are you based?
-            // 005
+            // 006
             // =============================
             */}
                   <label className="one-line-input-label">
@@ -945,12 +992,12 @@ function InputPage(props) {
                       onChange={e => setBased(e.target.value)}
                       // required={true}
                     />
-                    <p>005. WHERE ARE YOU BASED?*</p>
+                    <p>006. WHERE ARE YOU BASED?*</p>
                   </label>
                   {/*
             // =============================
             // Market Opportunity
-            // 006
+            // 007
             // =============================
             */}
                   <div className="text-box-container">
@@ -958,13 +1005,13 @@ function InputPage(props) {
                       onChange={e => setMarketOpportunity(e.target.value)}
                       value={marketOpportunity}
                       name="marketOpportunity"
-                      insideText="006. MARKET OPPORTUNITY*"
+                      insideText="007. MARKET OPPORTUNITY*"
                     />
                   </div>
                   {/*
             // =============================
             // Target Demo
-            // 007
+            // 008
             // =============================
             */}
                   <label className="one-line-input-label">
@@ -981,12 +1028,12 @@ function InputPage(props) {
                       onChange={e => setTargetDemo(e.target.value)}
                       // required={true}
                     />
-                    <p>007. TARGET DEMO*</p>
+                    <p>008. TARGET DEMO*</p>
                   </label>
                   {/*
             // =============================
             // Competitors
-            // 008
+            // 009
             // =============================
             */}
                   <label className="one-line-input-label">
@@ -1003,12 +1050,12 @@ function InputPage(props) {
                       onChange={e => setCompetitors(e.target.value)}
                       // required={true}
                     />
-                    <p>008. COMPETITORS*</p>
+                    <p>009. COMPETITORS*</p>
                   </label>
                   {/*
             // =============================
             // File Upload
-            // 009
+            // 010
             // =============================
             */}
                   <div
@@ -1037,7 +1084,7 @@ function InputPage(props) {
                           ) : (
                             <div className="upload-header">
                               <p id="instructions">
-                                009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL
+                                010. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL
                                 HERE
                               </p>
                               <p id="limit">*LIMIT: 10 MB*</p>
@@ -1058,7 +1105,7 @@ function InputPage(props) {
                   {/*
             // =============================
             // Current Team Structure
-            // 010
+            // 011
             // =============================
             */}
                   <div className="text-box-container">
@@ -1066,14 +1113,14 @@ function InputPage(props) {
                       onChange={e => setCurrentTeam(e.target.value)}
                       value={currentTeam}
                       name="currentTeam"
-                      insideText="010. CURRENT TEAM (INCLUDE CURRENT MANAGEMENT STRUCTURE)*"
+                      insideText="011. CURRENT TEAM (INCLUDE CURRENT MANAGEMENT STRUCTURE)*"
                     />
                   </div>
 
                   {/*
             // =============================
             // Open/Needed Positions
-            // 011
+            // 012
             // =============================
             */}
                   <div className="text-box-container">
@@ -1081,13 +1128,13 @@ function InputPage(props) {
                       onChange={e => setPositions(e.target.value)}
                       value={positions}
                       name="positions"
-                      insideText="011. OPEN/NEEDED POSITIONS*"
+                      insideText="012. OPEN/NEEDED POSITIONS*"
                     />
                   </div>
                   {/*
             // =============================
             // Capital Raised
-            // 012
+            // 013
             // =============================
             */}
                   <label className="capital-input">
@@ -1140,13 +1187,13 @@ function InputPage(props) {
                         backgroundColor: '#292929',
                         color: capitalRaised.length > 0 ? 'white' : 'gray',
                       }}>
-                      012. CAPITAL RAISED*
+                      013. CAPITAL RAISED*
                     </p>
                   </label>
                   {/*
             // =============================
             // Capital Needed
-            // 013
+            // 014
             // =============================
             */}
                   <div className="text-box-container">
@@ -1154,13 +1201,13 @@ function InputPage(props) {
                       onChange={e => setCapitalNeeded(e.target.value)}
                       value={capitalNeeded}
                       name="capitalNeeded"
-                      insideText="013. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
+                      insideText="014. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
                     />
                   </div>
                   {/*
             // =============================
             // Anticipated Launch Schedule
-            // 014
+            // 015
             // =============================
             */}
                   <div className="text-box-container">
@@ -1168,7 +1215,7 @@ function InputPage(props) {
                       onChange={e => setLaunchSelected(e.target.value)}
                       value={launchSelected}
                       name="launchSelected"
-                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
+                      insideText="015. ANTICIPATED LAUNCH SCHEDULE*"
                     />
                   </div>
                   {/* WHat follows i the old dropdown of this that can be toggled on by uncommenting this block and
@@ -1185,7 +1232,7 @@ function InputPage(props) {
                   {/*
             // =============================
             // Services Needed
-            // 015
+            // 016
             // =============================
             */}
                   <label className="one-line-input-label">
@@ -1202,7 +1249,7 @@ function InputPage(props) {
                       onChange={e => setServicesString(e.target.value)}
                       // required={true}
                     />
-                    <p>015. SERVICES NEEDED*</p>
+                    <p>016. SERVICES NEEDED*</p>
                   </label>
                   {/* <label
                     style={
@@ -1242,6 +1289,14 @@ function InputPage(props) {
                     type="SUBMIT"
                     disabled={
                       termsCheckbox &&
+                      contactName.length > 0 &&
+                      contactRole.length > 0 &&
+                      contactEmail.length > 0 &&
+                      companyName.length > 0 &&
+                      based.length > 0 &&
+                      targetDemo.length > 0 &&
+                      competitors.length > 0 &&
+                      capitalRaised.length > 0 &&
                       companyDescription.length > 0 &&
                       marketOpportunity.length > 0 &&
                       currentTeam.length > 0 &&
@@ -1250,14 +1305,21 @@ function InputPage(props) {
                       launchSelected.length > 0 &&
                       // servicesSelected.length > 0 &&
                       servicesString.length > 0
-                        ? // && file.size > 0
-                          false
+                        ? false
                         : true
                     }
                     value="SUBMIT"
                     style={{
                       backgroundColor:
                         termsCheckbox &&
+                        contactName.length > 0 &&
+                        contactRole.length > 0 &&
+                        contactEmail.length > 0 &&
+                        companyName.length > 0 &&
+                        based.length > 0 &&
+                        targetDemo.length > 0 &&
+                        competitors.length > 0 &&
+                        capitalRaised.length > 0 &&
                         companyDescription.length > 0 &&
                         marketOpportunity.length > 0 &&
                         currentTeam.length > 0 &&
@@ -1266,8 +1328,7 @@ function InputPage(props) {
                         launchSelected.length > 0 &&
                         // servicesSelected.length > 0 &&
                         servicesString.length > 0
-                          ? //&& file.size > 0
-                            'white'
+                          ? 'white'
                           : 'grey',
                     }}
                     readOnly
@@ -1353,22 +1414,6 @@ function InputPage(props) {
             // =============================
             */}
             <div className="column" id="mobile-column-margin">
-              {submitted ? (
-                <div />
-              ) : (
-                // <div className="input-contact-info-mobile">
-                //   <a
-                //     href="mailto:office@projectmercury.com"
-                //     // target="_blank"
-                //     rel="noopener noreferrer">
-                //     office@projectmercury.com
-                //   </a>
-                //   <p>T 646 861 2827</p>
-                //   <p>324 Lafayette Street</p>
-                //   <p>NY, New York 11201</p>
-                // </div>
-                <div />
-              )}
               <Link to="/">
                 <button id="close-button-mobile">
                   <img src={closeArrow} alt="inquire arrow" />
@@ -1439,8 +1484,30 @@ function InputPage(props) {
                   </div>
                   {/*
             // =============================
-            // Company Name
+            // Contact Email
             // 003
+            // =============================
+            */}
+                  <label className="one-line-input-label">
+                    <input
+                      className="one-line-input"
+                      style={
+                        companyName.length > 0
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
+                      }
+                      type="text"
+                      name="contactEmail"
+                      value={contactEmail}
+                      onChange={e => setContactEmail(e.target.value)}
+                      // required={true}
+                    />
+                    <p>003. CONTACT EMAIL*</p>
+                  </label>
+                  {/*
+            // =============================
+            // Company Name
+            // 004
             // =============================
             */}
                   <label className="one-line-input-label">
@@ -1457,12 +1524,12 @@ function InputPage(props) {
                       onChange={e => setCompanyName(e.target.value)}
                       // required={true}
                     />
-                    <p>003. COMPANY NAME*</p>
+                    <p>004. COMPANY NAME*</p>
                   </label>
                   {/*
             // =============================
             // Company Description
-            // 004
+            // 005
             // =============================
             */}
                   <div className="text-box-container">
@@ -1470,13 +1537,13 @@ function InputPage(props) {
                       onChange={e => setCompanyDescription(e.target.value)}
                       value={companyDescription}
                       name="companyDescription"
-                      insideText="004. COMPANY DESCRIPTION*"
+                      insideText="005. COMPANY DESCRIPTION*"
                     />
                   </div>
                   {/*
             // =============================
             // Where are you based?
-            // 005
+            // 006
             // =============================
             */}
                   <label className="one-line-input-label">
@@ -1493,12 +1560,12 @@ function InputPage(props) {
                       onChange={e => setBased(e.target.value)}
                       // required={true}
                     />
-                    <p>005. WHERE ARE YOU BASED?*</p>
+                    <p>006. WHERE ARE YOU BASED?*</p>
                   </label>
                   {/*
             // =============================
             // Market Opportunity
-            // 006
+            // 007
             // =============================
             */}
                   <div className="text-box-container">
@@ -1506,13 +1573,13 @@ function InputPage(props) {
                       onChange={e => setMarketOpportunity(e.target.value)}
                       value={marketOpportunity}
                       name="marketOpportunity"
-                      insideText="006. MARKET OPPORTUNITY*"
+                      insideText="007. MARKET OPPORTUNITY*"
                     />
                   </div>
                   {/*
             // =============================
             // Target Demo
-            // 007
+            // 008
             // =============================
             */}
                   <label className="one-line-input-label">
@@ -1529,12 +1596,12 @@ function InputPage(props) {
                       onChange={e => setTargetDemo(e.target.value)}
                       // required={true}
                     />
-                    <p>007. TARGET DEMO*</p>
+                    <p>008. TARGET DEMO*</p>
                   </label>
                   {/*
             // =============================
             // Competitors
-            // 008
+            // 009
             // =============================
             */}
                   <label className="one-line-input-label">
@@ -1551,12 +1618,12 @@ function InputPage(props) {
                       onChange={e => setCompetitors(e.target.value)}
                       // required={true}
                     />
-                    <p>008. COMPETITORS*</p>
+                    <p>009. COMPETITORS*</p>
                   </label>
                   {/*
             // =============================
             // File Upload
-            // 009
+            // 010
             // =============================
             */}
                   <div
@@ -1583,7 +1650,7 @@ function InputPage(props) {
                           ) : (
                             <div className="upload-header">
                               <p id="instructions">
-                                009. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL
+                                010. UPLOAD OR DRAG YOUR DECK OR PITCH MATERIAL
                                 HERE
                               </p>
                               <p id="limit">*LIMIT: 10 MB*</p>
@@ -1605,7 +1672,7 @@ function InputPage(props) {
                   {/*
             // =============================
             // Current Team Structure
-            // 010
+            // 011
             // =============================
             */}
                   <div className="text-box-container">
@@ -1613,14 +1680,14 @@ function InputPage(props) {
                       onChange={e => setCurrentTeam(e.target.value)}
                       value={currentTeam}
                       name="currentTeam"
-                      insideText="010. CURRENT TEAM (INCLUDE CURRENT MANAGEMENT STRUCTURE)*"
+                      insideText="011. CURRENT TEAM (INCLUDE CURRENT MANAGEMENT STRUCTURE)*"
                     />
                   </div>
 
                   {/*
             // =============================
             // Open/Needed Positions
-            // 011
+            // 012
             // =============================
             */}
                   <div className="text-box-container">
@@ -1628,13 +1695,13 @@ function InputPage(props) {
                       onChange={e => setPositions(e.target.value)}
                       value={positions}
                       name="positions"
-                      insideText="011. OPEN/NEEDED POSITIONS*"
+                      insideText="012. OPEN/NEEDED POSITIONS*"
                     />
                   </div>
                   {/*
             // =============================
             // Capital Raised
-            // 012
+            // 013
             // =============================
             */}
                   <label className="one-line-input-label">
@@ -1664,12 +1731,12 @@ function InputPage(props) {
                         // required={true}
                       />
                     </div>
-                    <p>012. CAPITAL RAISED*</p>
+                    <p>013. CAPITAL RAISED*</p>
                   </label>
                   {/*
             // =============================
             // Capital Needed
-            // 013
+            // 014
             // =============================
             */}
                   <div className="text-box-container">
@@ -1677,13 +1744,13 @@ function InputPage(props) {
                       onChange={e => setCapitalNeeded(e.target.value)}
                       value={capitalNeeded}
                       name="capitalNeeded"
-                      insideText="013. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
+                      insideText="014. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
                     />
                   </div>
                   {/*
             // =============================
             // Anticipated Launch Schedule
-            // 014
+            // 015
             // =============================
             */}
                   <div className="text-box-container">
@@ -1691,7 +1758,7 @@ function InputPage(props) {
                       onChange={e => setLaunchSelected(e.target.value)}
                       value={launchSelected}
                       name="launchSelected"
-                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
+                      insideText="015. ANTICIPATED LAUNCH SCHEDULE*"
                     />
                   </div>
                   {/* Old dropdown */}
@@ -1707,7 +1774,7 @@ function InputPage(props) {
                   {/*
             // =============================
             // Services Needed
-            // 015
+            // 016
             // =============================
             */}
                   <label className="one-line-input-label">
@@ -1724,7 +1791,7 @@ function InputPage(props) {
                       onChange={e => setServicesString(e.target.value)}
                       // required={true}
                     />
-                    <p>015. SERVICES NEEDED*</p>
+                    <p>016. SERVICES NEEDED*</p>
                   </label>
                   {/* <label
                     style={
@@ -1767,6 +1834,14 @@ function InputPage(props) {
                     type="SUBMIT"
                     disabled={
                       termsCheckbox &&
+                      contactName.length > 0 &&
+                      contactRole.length > 0 &&
+                      contactEmail.length > 0 &&
+                      companyName.length > 0 &&
+                      based.length > 0 &&
+                      targetDemo.length > 0 &&
+                      competitors.length > 0 &&
+                      capitalRaised.length > 0 &&
                       companyDescription.length > 0 &&
                       marketOpportunity.length > 0 &&
                       currentTeam.length > 0 &&
@@ -1775,14 +1850,21 @@ function InputPage(props) {
                       launchSelected.length > 0 &&
                       // servicesSelected.length > 0 &&
                       servicesString.length > 0
-                        ? // && file.size > 0
-                          false
+                        ? false
                         : true
                     }
                     value="SUBMIT"
                     style={{
                       backgroundColor:
                         termsCheckbox &&
+                        contactName.length > 0 &&
+                        contactRole.length > 0 &&
+                        contactEmail.length > 0 &&
+                        companyName.length > 0 &&
+                        based.length > 0 &&
+                        targetDemo.length > 0 &&
+                        competitors.length > 0 &&
+                        capitalRaised.length > 0 &&
                         companyDescription.length > 0 &&
                         marketOpportunity.length > 0 &&
                         currentTeam.length > 0 &&
@@ -1791,8 +1873,7 @@ function InputPage(props) {
                         launchSelected.length > 0 &&
                         // servicesSelected.length > 0 &&
                         servicesString.length > 0
-                          ? //&& file.size > 0
-                            'white'
+                          ? 'white'
                           : 'grey',
                     }}
                     readOnly

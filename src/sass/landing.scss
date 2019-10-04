@@ -43,14 +43,15 @@
     &:last-child {
       margin-top: 32px;
     }
+
     a {
       text-decoration: none;
-      color: white;
+      color: rgba(255, 255, 255, 0.65);
       font-weight: normal;
       font-family: 'Graphik';
       line-height: get-line-height(32px, 44px);
       font-size: 32px;
-      opacity: 0.65;
+
       &:hover {
         -webkit-transition: color 0.5s ease-out;
         -moz-transition: color 0.5s ease-out;
@@ -83,12 +84,12 @@
 
     a {
       text-decoration: none;
-      color: white;
+      color: rgba(255, 255, 255, 0.65);
       font-weight: normal;
       font-family: 'Graphik';
       line-height: 22px;
       font-size: 16px;
-      opacity: 0.65;
+
       &:hover {
         -webkit-transition: color 0.5s ease-out;
         -moz-transition: color 0.5s ease-out;
@@ -231,6 +232,7 @@
         font-family: 'Graphik';
         line-height: 22px;
         font-size: 16px;
+        opacity: 0.65;
       }
     }
   }

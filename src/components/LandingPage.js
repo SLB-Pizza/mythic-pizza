@@ -22,19 +22,6 @@ function initializeAnalytics() {
 function LandingPage() {
   initializeAnalytics();
 
-  // useEffect(
-  //   () =>
-  //     history.listen(location => {
-  //       ReactGA.initialize('UA-143359903-3', {
-  //         name: 'Intro Page',
-  //         siteSpeedSampleRate: 100,
-  //       });
-  //       ReactGA.set({ page: location.pathname });
-  //       ReactGA.pageview(location.pathname);
-  //     }),
-  //   []
-  // );
-
   //Left text spring
   const leftText = useSpring({
     config: { duration: 1500, easing: easings.easeCubicOut },

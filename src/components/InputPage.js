@@ -38,50 +38,10 @@ function InputPage(props) {
   const [positions, setPositions] = useState('');
   const [capitalRaised, setCapitalRaised] = useState('');
   const [capitalNeeded, setCapitalNeeded] = useState('');
-  //following for use with old 014 dropdown
-  // const launchSchedule = [
-  //   { id: 1, timing: '3 months' },
-  //   { id: 2, timing: '6 months' },
-  //   { id: 3, timing: '9 months' },
-  //   { id: 4, timing: '1 year' },
-  //   { id: 5, timing: '2 years' },
-  //   { id: 6, timing: '2 years +' },
-  // ];
-  // const [oldLaunchSelected, setOldLaunchSelected] = useState('3 MONTHS');
   const [launchSelected, setLaunchSelected] = useState('');
-  //following for use with old 015 dropdown
-  // const servicesNeeded = [
-  //   { id: 1, service: 'Branding' },
-  //   { id: 2, service: 'Fundraising' },
-  //   { id: 3, service: 'Strategy' },
-  //   { id: 4, service: 'Web Design' },
-  //   { id: 5, service: 'Web Development' },
-  // ];
-  // const [oldServicesSelected, setOldServicesSelected] = useState([]);
   const [servicesString, setServicesString] = useState('');
   const [termsCheckbox, setTermsCheckbox] = useState(false);
   const [submitted, setSubmitted] = useState(false);
-
-  // const inputFocus = useRef(null);
-
-  // useEffect(() => {
-  //   setTimeout(() => {
-  //     inputFocus.current.focus();
-  //   }, 3000);
-  // }, []);
-
-  // useEffect(
-  //   () =>
-  //     history.listen(location => {
-  //       ReactGA.initialize('UA-143359903-3', {
-  //         name: 'Form Page',
-  //         siteSpeedSampleRate: 100,
-  //       });
-  //       ReactGA.set({ page: location.pathname });
-  //       ReactGA.pageview(location.pathname);
-  //     }),
-  //   []
-  // );
 
   initializeAnalytics();
 
@@ -104,7 +64,6 @@ function InputPage(props) {
 
   const handleSubmit = e => {
     e.preventDefault();
-    // const data = { 'form-name': 'contact', ...this.state };
     const data = {
       'form-name': 'contact',
       contactName,
@@ -127,11 +86,9 @@ function InputPage(props) {
 
     fetch('/', {
       method: 'POST',
-      // headers: { "Content-Type": 'multipart/form-data; boundary=random' },
       body: encode(data),
     })
       .then(
-        // () => alert('Form Submission Successful!!'),
         window.scrollTo(0, 0),
         ReactGA.event({
           category: 'Submission',
@@ -141,20 +98,6 @@ function InputPage(props) {
       )
       .catch(error => alert('Form Submission Failed!'));
   };
-  //the foloowing for use with old 014 dropdown
-  // const handleLaunchSelect = async option => {
-  //   await setOldLaunchSelected(option.timing);
-  // };
-
-  //folowing for use with old 015
-  // const handleServicesSelect = async selectedServices => {
-  //   await setOldServicesSelected(selectedServices);
-
-  //   const stringServices = await selectedServices
-  //     .reduce((acc, curr) => acc + ', ' + curr.service, '')
-  //     .slice(1);
-  //   await setServicesString(stringServices);
-  // };
 
   const handleTerms = async () => {
     await setTermsCheckbox(!termsCheckbox);
@@ -654,17 +597,6 @@ function InputPage(props) {
                       insideText="015. ANTICIPATED LAUNCH SCHEDULE*"
                     />
                   </div>
-                  {/* WHat follows i the old dropdown of this that can be toggled on by uncommenting this block and
-                  oldLaunchSelected, and launchSchedule in the state const's  and handleLaunchSelect func in methods and mobile version below and the SelectDropdown component import at top*/}
-                  {/* <label className="launch-schedule-dropdown">
-                    <SelectDropdown
-                      handleSelect={handleLaunchSelect}
-                      options={launchSchedule}
-                      name="launchSelected"
-                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
-                    />
-                    <p>014. ANTICIPATED LAUNCH SCHEDULE*</p>
-                  </label> */}
                   {/*
             // =============================
             // Services Needed
@@ -695,21 +627,6 @@ function InputPage(props) {
                     />
                     <p>016. SERVICES NEEDED*</p>
                   </label>
-                  {/* <label
-                    style={
-                      servicesSelected.length > 0
-                        ? { borderColor: 'transparent', color: 'white' }
-                        : { borderColor: 'transparent', color: 'grey' }
-                    }>
-                    <CheckboxDropdown
-                      value={servicesSelected}
-                      handleSelect={handleServicesSelect}
-                      services={servicesNeeded}
-                      name="servicesString"
-                      insideText="015. SERVICES NEEDED*"
-                    />
-                    <p>015. SERVICES NEEDED*</p>
-                  </label> */}
                   {/*
             // =============================
             // Terms & Conditions
@@ -1247,17 +1164,6 @@ function InputPage(props) {
                       insideText="015. ANTICIPATED LAUNCH SCHEDULE*"
                     />
                   </div>
-                  {/* WHat follows i the old dropdown of this that can be toggled on by uncommenting this block and
-                  oldLaunchSelected, and launchSchedule in the state const's  and handleLaunchSelect func in methods and mobile version below and the SelectDropdown component import at top*/}
-                  {/* <label className="launch-schedule-dropdown">
-                    <SelectDropdown
-                      handleSelect={handleLaunchSelect}
-                      options={launchSchedule}
-                      name="launchSelected"
-                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
-                    />
-                    <p>014. ANTICIPATED LAUNCH SCHEDULE*</p>
-                  </label> */}
                   {/*
             // =============================
             // Services Needed
@@ -1280,21 +1186,6 @@ function InputPage(props) {
                     />
                     <p>016. SERVICES NEEDED*</p>
                   </label>
-                  {/* <label
-                    style={
-                      servicesSelected.length > 0
-                        ? { borderColor: 'transparent', color: 'white' }
-                        : { borderColor: 'transparent', color: 'grey' }
-                    }>
-                    <CheckboxDropdown
-                      value={servicesSelected}
-                      handleSelect={handleServicesSelect}
-                      services={servicesNeeded}
-                      name="servicesString"
-                      insideText="015. SERVICES NEEDED*"
-                    />
-                    <p>015. SERVICES NEEDED*</p>
-                  </label> */}
                   {/*
             // =============================
             // Terms & Conditions
@@ -1790,16 +1681,6 @@ function InputPage(props) {
                       insideText="015. ANTICIPATED LAUNCH SCHEDULE*"
                     />
                   </div>
-                  {/* Old dropdown */}
-                  {/* <label className="launch-schedule-dropdown">
-                    <SelectDropdown
-                      handleSelect={handleLaunchSelect}
-                      options={launchSchedule}
-                      name="launchSelected"
-                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
-                    />
-                    <p>014. ANTICIPATED LAUNCH SCHEDULE*</p>
-                  </label> */}
                   {/*
             // =============================
             // Services Needed
@@ -1822,21 +1703,6 @@ function InputPage(props) {
                     />
                     <p>016. SERVICES NEEDED*</p>
                   </label>
-                  {/* <label
-                    style={
-                      servicesSelected.length > 0
-                        ? { borderColor: 'transparent', color: 'white' }
-                        : { borderColor: 'transparent', color: 'grey' }
-                    }>
-                    <CheckboxDropdown
-                      value={servicesSelected}
-                      handleSelect={handleServicesSelect}
-                      services={servicesNeeded}
-                      name="servicesString"
-                      insideText="015. SERVICES NEEDED*"
-                    />
-                    <p>015. SERVICES NEEDED*</p>
-                  </label> */}
                   {/*
             // =============================
             // Terms & Conditions

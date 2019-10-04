@@ -50,6 +50,14 @@
       font-family: 'Graphik';
       line-height: get-line-height(32px, 44px);
       font-size: 32px;
+      opacity: 0.65;
+      &:hover {
+        -webkit-transition: color 0.5s ease-out;
+        -moz-transition: color 0.5s ease-out;
+        -o-transition: color 0.5s ease-out;
+        transition: color 0.5s ease-out;
+        color: rgba(255, 255, 255, 1);
+      }
     }
   }
 }
@@ -80,6 +88,14 @@
       font-family: 'Graphik';
       line-height: 22px;
       font-size: 16px;
+      opacity: 0.65;
+      &:hover {
+        -webkit-transition: color 0.5s ease-out;
+        -moz-transition: color 0.5s ease-out;
+        -o-transition: color 0.5s ease-out;
+        transition: color 0.5s ease-out;
+        color: rgba(255, 255, 255, 1);
+      }
     }
   }
 }

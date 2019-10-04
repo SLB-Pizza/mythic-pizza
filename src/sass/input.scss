@@ -34,8 +34,9 @@
   color: "white";
 }
 
-#mobile-column-margin {
-  margin: 0 10px;
+#mobile-form-col-padding {
+  padding-top: 12.5vh;
+  padding-right: 2.5vh;
 }
 
 // ==============================================
@@ -106,7 +107,6 @@
   background-color: transparent;
   border: 1px solid white;
   background-color: #292929;
-  margin-top: 5vh;
   outline: none;
   padding: 10px 15px;
   font-family: "Graphik";

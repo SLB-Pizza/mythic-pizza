@@ -305,7 +305,7 @@ function InputPage(props) {
                               fontSize: '44px',
                             }
                       }
-                      type="text"
+                      type="email"
                       name="contactEmail"
                       value={contactEmail}
                       onChange={e => setContactEmail(e.target.value)}
@@ -927,7 +927,7 @@ function InputPage(props) {
                           ? { borderColor: 'white', color: 'white' }
                           : { borderColor: 'grey', color: 'grey' }
                       }
-                      type="text"
+                      type="email"
                       name="contactEmail"
                       value={contactEmail}
                       onChange={e => setContactEmail(e.target.value)}
@@ -1496,7 +1496,7 @@ function InputPage(props) {
                           ? { borderColor: 'white', color: 'white' }
                           : { borderColor: 'grey', color: 'grey' }
                       }
-                      type="text"
+                      type="email"
                       name="contactEmail"
                       value={contactEmail}
                       onChange={e => setContactEmail(e.target.value)}

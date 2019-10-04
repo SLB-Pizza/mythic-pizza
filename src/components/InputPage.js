@@ -309,7 +309,7 @@ function InputPage(props) {
                       name="contactEmail"
                       value={contactEmail}
                       onChange={e => setContactEmail(e.target.value)}
-                      // required={true}
+                      required={true}
                     />
                     <p>004. CONTACT EMAIL*</p>
                   </label>
@@ -923,7 +923,7 @@ function InputPage(props) {
                     <input
                       className="four-k-solo-label"
                       style={
-                        companyName.length > 0
+                        contactEmail.length > 0
                           ? { borderColor: 'white', color: 'white' }
                           : { borderColor: 'grey', color: 'grey' }
                       }
@@ -931,7 +931,7 @@ function InputPage(props) {
                       name="contactEmail"
                       value={contactEmail}
                       onChange={e => setContactEmail(e.target.value)}
-                      // required={true}
+                      required={true}
                     />
                     <p>003. CONTACT EMAIL*</p>
                   </label>
@@ -1492,7 +1492,7 @@ function InputPage(props) {
                     <input
                       className="one-line-input"
                       style={
-                        companyName.length > 0
+                        contactEmail.length > 0
                           ? { borderColor: 'white', color: 'white' }
                           : { borderColor: 'grey', color: 'grey' }
                       }
@@ -1500,7 +1500,7 @@ function InputPage(props) {
                       name="contactEmail"
                       value={contactEmail}
                       onChange={e => setContactEmail(e.target.value)}
-                      // required={true}
+                      required={true}
                     />
                     <p>003. CONTACT EMAIL*</p>
                   </label>

@@ -1,4 +1,4 @@
-import React, { useState /*useEffect, useRef*/ } from 'react';
+import React, { useState, useEffect /*, useRef*/ } from 'react';
 import Dropzone from 'react-dropzone';
 import { /*useTransition,*/ useSpring, animated } from 'react-spring';
 import { Link } from 'react-router-dom';
@@ -14,6 +14,7 @@ import termsNoCheckmark from '../imgs/terms-no-checkmark.svg';
 import uploadIcon from '../imgs/uploadArrow-Sketch.svg';
 
 import ReactGA from 'react-ga';
+import history from './utils/History.js';
 
 function InputPage(props) {
   const [contactName, setContactName] = useState('');
@@ -62,11 +63,21 @@ function InputPage(props) {
   //   }, 3000);
   // }, []);
 
-  ReactGA.initialize('UA-143359903-3', {
-    name: 'Form Page',
-    siteSpeedSampleRate: 100,
-  });
-  ReactGA.pageview(window.location.pathname + window.location.search);
+  useEffect(
+    useEffect(
+      () =>
+        history.listen(location => {
+          ReactGA.initialize('UA-143359903-3', {
+            name: 'Form Page',
+            siteSpeedSampleRate: 100,
+          });
+          ReactGA.set({ page: location.pathname });
+          ReactGA.pageview(location.pathname);
+        }),
+      []
+    ),
+    []
+  );
 
   const onDrop = async acceptedFiles => {
     if (acceptedFiles[0].size <= 10000000) {

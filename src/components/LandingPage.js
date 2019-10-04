@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import {
   useSpring,
   /*useTransition,*/ animated,
@@ -10,13 +10,27 @@ import logo from '../imgs/project-mercury-logo.svg';
 import inquireArrow from '../imgs/inquire-arrow.svg';
 import * as easings from 'd3-ease';
 import ReactGA from 'react-ga';
+import history from './utils/History.js';
 
 function LandingPage() {
-  ReactGA.initialize('UA-143359903-3', {
-    name: 'Intro Page',
-    siteSpeedSampleRate: 100,
-  });
-  ReactGA.pageview(window.location.pathname + window.location.search);
+  // ReactGA.initialize('UA-143359903-3', {
+  //   name: 'Intro Page',
+  //   siteSpeedSampleRate: 100,
+  // });
+  // ReactGA.pageview(window.location.pathname + window.location.search);
+
+  useEffect(
+    () =>
+      history.listen(location => {
+        ReactGA.initialize('UA-143359903-3', {
+          name: 'Intro Page',
+          siteSpeedSampleRate: 100,
+        });
+        ReactGA.set({ page: location.pathname });
+        ReactGA.pageview(location.pathname);
+      }),
+    []
+  );
 
   //Left text spring
   const leftText = useSpring({

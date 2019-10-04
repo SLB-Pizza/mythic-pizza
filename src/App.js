@@ -7,6 +7,16 @@ import * as easings from 'd3-ease';
 import LandingPage from './components/LandingPage';
 import InputPage from './components/InputPage';
 
+import ReactGA from 'react-ga';
+import history from './components/utils/History.js';
+
+ReactGA.initialize('UA-143359903-3');
+
+// history.listen(location => {
+//   ReactGA.set({ page: location.pathname });
+//   ReactGA.pageview(location.pathname);
+// });
+
 function App() {
   const { location } = useContext(__RouterContext);
   const transitions = useTransition(location, location => location.pathname, {

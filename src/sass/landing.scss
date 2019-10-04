@@ -200,7 +200,7 @@
   .inquire-mobile {
     display: flex;
     flex-direction: row;
-    align-items: flex;
+    align-items: center;
     margin-right: 120px;
     background-color: transparent;
     border: 2px solid white;
@@ -210,7 +210,10 @@
     outline: none;
     p {
       color: white;
-      padding-right: 27px;
+      padding-right: 20px;
+    }
+    img {
+      margin-right: 7px;
     }
   }
 

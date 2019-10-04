@@ -128,9 +128,7 @@ function InputPage(props) {
     <div className="hero is-fullheight" id="input-page">
       <div className="hero-body">
         <div className="container">
-
           <div className="columns is-hidden-touch is-hidden-lowres-desktop">
-
             <div className="column is-1">
               <animated.img
                 style={logoSpring}
@@ -612,7 +610,6 @@ function InputPage(props) {
           </div>
 
           <div className="columns is-hidden-touch is-hidden-four-k">
-
             <div className="column is-1">
               <animated.img
                 style={logoSpring}
@@ -670,7 +667,6 @@ function InputPage(props) {
                         name="contactName"
                         value={contactName}
                         onChange={e => setContactName(e.target.value)}
-
                       />
                       <p>001. CONTACT NAME*</p>
                     </label>
@@ -1046,7 +1042,6 @@ function InputPage(props) {
           </div>
 
           <div className="columns is-mobile is-hidden-desktop">
-
             <div className="column is-2 is-relative">
               <animated.img
                 style={logoSpring}
@@ -1263,7 +1258,6 @@ function InputPage(props) {
                     </Dropzone>
                   </div>
 
-
                   <div className="text-box-container">
                     <TextBox
                       onChange={e => setCurrentTeam(e.target.value)}
@@ -1272,7 +1266,6 @@ function InputPage(props) {
                       insideText="011. CURRENT TEAM (INCLUDE CURRENT MANAGEMENT STRUCTURE)*"
                     />
                   </div>
-
 
                   <div className="text-box-container">
                     <TextBox
@@ -1345,7 +1338,6 @@ function InputPage(props) {
                     />
                     <p>016. SERVICES NEEDED*</p>
                   </label>
-
 
                   <div className="terms" onClick={handleTerms}>
                     <img

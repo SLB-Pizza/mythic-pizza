@@ -1,28 +1,6 @@
-/*
-███████╗ ██████╗ ██████╗ ███╗   ███╗
-██╔════╝██╔═══██╗██╔══██╗████╗ ████║
-█████╗  ██║   ██║██████╔╝██╔████╔██║
-██╔══╝  ██║   ██║██╔══██╗██║╚██╔╝██║
-██║     ╚██████╔╝██║  ██║██║ ╚═╝ ██║
-╚═╝      ╚═════╝ ╚═╝  ╚═╝╚═╝     ╚═╝
-*/
-
-// - vertical-logo-input: 1
-// - button/address: 2
-// - required-stuff-warning: 1
-// - inquire-form: 8
-// 12 columns total - something we may replicate when bulma is added
-
-// ==============================================
-// ENTIRE PAGE
-// ==============================================
 #input-page {
   background-color: #292929;
 }
-
-// ==============================================
-// UTILITY CLASSES - switch inline CSS styles
-// ==============================================
 
 .inactive-grey {
   border-color: "grey";
@@ -38,9 +16,6 @@
   margin: 0 10px;
 }
 
-// ==============================================
-// 1ST COLUMN - SVG logo
-// ==============================================
 .logo-size {
   position: -webkit-sticky;
   position: sticky;
@@ -54,10 +29,6 @@
   top: 20vh;
 }
 
-// ==============================================
-// 2ND COLUMN - close button & address
-// ==============================================
-// four-k-blurb has a 2x multiplier on desktop-blurb
 #four-k-close-btn {
   position: -webkit-sticky;
   position: sticky;
@@ -117,7 +88,6 @@
   }
 }
 
-// four-k-contact has a 2x multiplier
 #four-k-contact {
   top: 75vh;
   position: -webkit-sticky;
@@ -182,10 +152,6 @@
   }
 }
 
-// ==============================================
-// 3RD COLUMN - required text notice
-// ==============================================
-// four-k-required has a 2x multiplier
 #four-k-required {
   padding-top: 15vh;
   p {
@@ -206,10 +172,6 @@
   }
 }
 
-// ==============================================
-// 4TH COLUMN - the form itself
-// ==============================================
-//SUCCESS MESSAGE
 .success {
   display: flex;
   flex-direction: column;
@@ -228,7 +190,6 @@
   margin-top: 5vh;
 }
 
-// 2x multiplier
 .copyrightSuccess {
   display: flex;
   flex-direction: row;
@@ -252,7 +213,6 @@
   }
 }
 
-// regular
 .copyrightSuccess {
   display: flex;
   flex-direction: row;
@@ -300,10 +260,6 @@
   }
 }
 
-// =============================
-// THE FORM
-// =============================
-// 4k has a 2x multiplier
 #four-k-start-text {
   font-size: 32px;
   margin-top: 10vh;
@@ -340,7 +296,6 @@ label {
   }
 }
 
-//#four-k-form has a 2x multiplier
 #four-k-form {
   label {
     font-family: "Graphik";
@@ -361,11 +316,6 @@ label {
   }
 }
 
-// =============================
-// Adjacent inputs
-// 001, 002
-// =============================
-// 2x multiplier on .adjacent-inputs
 .adjacent-inputs#four-k-adj-inputs {
   flex-direction: row;
   justify-content: space-between;
@@ -402,11 +352,6 @@ label {
   }
 }
 
-// =============================
-// One line inputs
-// 003, 005, 007, 008, 015
-// =============================
-// 2x multipliers
 .four-k-solo-label {
   width: 100%;
   p {
@@ -426,7 +371,6 @@ label {
   font-family: "Graphik";
 }
 
-// regular
 .one-line-input-label {
   width: 100%;
   p {
@@ -446,11 +390,6 @@ label {
   font-family: "Graphik";
 }
 
-// =============================
-// <TextBox /> inputs
-// 004, 006, 010, 011, 013
-// =============================
-//2x multiplier
 .four-k-text-area {
   margin-bottom: 168px;
   .text-box {
@@ -494,7 +433,6 @@ label {
   }
 }
 
-// regular
 .text-box-container {
   margin-bottom: 84px;
   .text-box {
@@ -538,11 +476,6 @@ label {
   }
 }
 
-// =============================
-// File Upload
-// 009
-// =============================
-// 2x multiplier
 .file-upload-four-k {
   height: 440px;
   border-width: 2px;
@@ -605,7 +538,6 @@ label {
   }
 }
 
-// regular
 .file-upload-box {
   height: 220px;
   border-width: 1px;
@@ -667,11 +599,6 @@ label {
   }
 }
 
-// =============================
-// Capital Raised
-// 012
-// =============================
-
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
   -webkit-appearance: none;
@@ -680,7 +607,6 @@ input[type="number"]::-webkit-outer-spin-button {
   margin: 0;
 }
 
-// 2x multiplier
 #four-k-capital-input {
   width: 100%;
   p {
@@ -709,7 +635,6 @@ input[type="number"]::-webkit-outer-spin-button {
   background-color: "#292929";
 }
 
-// regulars
 .capital-input {
   width: 100%;
   p {
@@ -742,11 +667,6 @@ input[type="number"]::-webkit-outer-spin-button {
     font-family: "Graphik";
   }
 }
-
-// =============================
-// Anticipated Launch Schedule
-// 014
-// =============================
 
 .launch-schedule-dropdown {
   width: 100%;
@@ -816,10 +736,6 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 
-// =============================
-// Services Needed
-// 015
-// =============================
 .checkboxDropdownWrapper {
   display: flex;
   flex-direction: row;
@@ -854,8 +770,6 @@ input[type="number"]::-webkit-outer-spin-button {
   height: 2vh;
   width: 2vh;
   border: 1px groove #292929;
-  /* border-style: groove; */
-
   align-self: center;
 }
 
@@ -864,7 +778,6 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 2vh;
   border: 1px outset grey;
   align-self: center;
-  /* color: grey; */
   background: white;
 }
 
@@ -883,10 +796,6 @@ input[type="number"]::-webkit-outer-spin-button {
   width: 95%;
 }
 
-// =============================
-// Terms & Conditions
-// =============================
-// 2x multiplier
 #four-k-terms {
   display: flex;
   flex-direction: row;
@@ -900,7 +809,6 @@ input[type="number"]::-webkit-outer-spin-button {
     font-size: 24px;
   }
 }
-// regular
 .terms {
   display: flex;
   flex-direction: row;
@@ -912,10 +820,6 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 
-// =============================
-// Submit Button
-// =============================
-//2x multiplier
 #four-k-submit {
   color: #292929;
   border: none;
@@ -927,7 +831,6 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 32px;
 }
 
-//regular
 .submit-btn {
   color: #292929;
   border: none;
@@ -939,10 +842,6 @@ input[type="number"]::-webkit-outer-spin-button {
   font-size: 16px;
 }
 
-// =============================
-// Legalese
-// =============================
-// 2x multiplier
 #four-k-legal {
   font-family: "Graphik";
   font-family: 24px;
@@ -957,7 +856,6 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 
-// regular
 .legal-stuff {
   font-family: "Graphik";
   font-family: 12px;
@@ -972,10 +870,6 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 
-// =============================
-// Copyright
-// =============================
-// 2x multiplier
 #four-k-copyright {
   display: flex;
   flex-direction: row;
@@ -997,7 +891,6 @@ input[type="number"]::-webkit-outer-spin-button {
   }
 }
 
-//regular
 .copyright {
   display: flex;
   flex-direction: row;

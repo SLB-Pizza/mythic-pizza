@@ -1,16 +1,12 @@
-// ==============================================
-// Bulma imports - DO NOT TOUCH
-// ==============================================
-
 @import "../sass/our-bulma/utilities/_all.sass";
 @import "../sass/our-bulma/base/_all.sass";
 @import "../sass/our-bulma/grid/columns.sass";
 @import "../sass/our-bulma/elements/container.sass";
 @import "../sass/our-bulma/layout/hero.sass";
 
-// ==============================================
-// Font imports
-// ==============================================
+@import "./landing.scss";
+@import "./input.scss";
+
 @font-face {
   font-family: "David_Reg";
   src: local("David_temporary_03_Regular"),
@@ -23,22 +19,10 @@
     url(../fonts/Graphik-Regular.otf) format("opentype");
 }
 
-// ==============================================
-// SASS functions for the project
-// ==============================================
 @function get-line-height($font-size, $line-height) {
   @return $line-height / $font-size;
 }
 
-// ==============================================
-// SCSS files for each page
-// ==============================================
-@import "./landing.scss";
-@import "./input.scss";
-
-// ==============================================
-// UNIVERSAL TOP LEVEL STUFF
-// ==============================================
 * {
   color: white;
   -webkit-font-smoothing: antialiased;

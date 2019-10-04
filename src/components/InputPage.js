@@ -1,4 +1,4 @@
-import React, { useState, useEffect /*, useRef*/ } from 'react';
+import React, { useState /*, useEffect, useRef*/ } from 'react';
 import Dropzone from 'react-dropzone';
 import { /*useTransition,*/ useSpring, animated } from 'react-spring';
 import { Link } from 'react-router-dom';
@@ -14,7 +14,14 @@ import termsNoCheckmark from '../imgs/terms-no-checkmark.svg';
 import uploadIcon from '../imgs/uploadArrow-Sketch.svg';
 
 import ReactGA from 'react-ga';
-import history from './utils/History.js';
+
+function initializeAnalytics() {
+  ReactGA.initialize('UA-143359903-3', {
+    name: 'Form Page',
+    siteSpeedSampleRate: 100,
+  });
+  ReactGA.pageview('Form Page');
+}
 
 function InputPage(props) {
   const [contactName, setContactName] = useState('');
@@ -63,18 +70,20 @@ function InputPage(props) {
   //   }, 3000);
   // }, []);
 
-  useEffect(
-    () =>
-      history.listen(location => {
-        ReactGA.initialize('UA-143359903-3', {
-          name: 'Form Page',
-          siteSpeedSampleRate: 100,
-        });
-        ReactGA.set({ page: location.pathname });
-        ReactGA.pageview(location.pathname);
-      }),
-    []
-  );
+  // useEffect(
+  //   () =>
+  //     history.listen(location => {
+  //       ReactGA.initialize('UA-143359903-3', {
+  //         name: 'Form Page',
+  //         siteSpeedSampleRate: 100,
+  //       });
+  //       ReactGA.set({ page: location.pathname });
+  //       ReactGA.pageview(location.pathname);
+  //     }),
+  //   []
+  // );
+
+  initializeAnalytics();
 
   const onDrop = async acceptedFiles => {
     if (acceptedFiles[0].size <= 10000000) {
@@ -124,6 +133,10 @@ function InputPage(props) {
       .then(
         // () => alert('Form Submission Successful!!'),
         window.scrollTo(0, 0),
+        ReactGA.event({
+          category: 'Submission',
+          action: 'Form Submission Received',
+        }),
         setSubmitted(true)
       )
       .catch(error => alert('Form Submission Failed!'));

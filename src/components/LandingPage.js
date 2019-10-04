@@ -1,4 +1,4 @@
-import React, { useRef, useEffect } from 'react';
+import React, { useRef } from 'react';
 import {
   useSpring,
   /*useTransition,*/ animated,
@@ -10,27 +10,30 @@ import logo from '../imgs/project-mercury-logo.svg';
 import inquireArrow from '../imgs/inquire-arrow.svg';
 import * as easings from 'd3-ease';
 import ReactGA from 'react-ga';
-import history from './utils/History.js';
+
+function initializeAnalytics() {
+  ReactGA.initialize('UA-143359903-3', {
+    name: 'Landing Page',
+    siteSpeedSampleRate: 100,
+  });
+  ReactGA.pageview('Intro Page');
+}
 
 function LandingPage() {
-  // ReactGA.initialize('UA-143359903-3', {
-  //   name: 'Intro Page',
-  //   siteSpeedSampleRate: 100,
-  // });
-  // ReactGA.pageview(window.location.pathname + window.location.search);
+  initializeAnalytics();
 
-  useEffect(
-    () =>
-      history.listen(location => {
-        ReactGA.initialize('UA-143359903-3', {
-          name: 'Intro Page',
-          siteSpeedSampleRate: 100,
-        });
-        ReactGA.set({ page: location.pathname });
-        ReactGA.pageview(location.pathname);
-      }),
-    []
-  );
+  // useEffect(
+  //   () =>
+  //     history.listen(location => {
+  //       ReactGA.initialize('UA-143359903-3', {
+  //         name: 'Intro Page',
+  //         siteSpeedSampleRate: 100,
+  //       });
+  //       ReactGA.set({ page: location.pathname });
+  //       ReactGA.pageview(location.pathname);
+  //     }),
+  //   []
+  // );
 
   //Left text spring
   const leftText = useSpring({
@@ -100,7 +103,7 @@ function LandingPage() {
                   </a>{' '}
                   and{' '}
                   <a
-                    href="https://www.mythology.com/story"
+                    href="https://www.mythology.com"
                     target="_blank"
                     rel="noopener noreferrer">
                     Mythology
@@ -174,7 +177,7 @@ function LandingPage() {
                   </a>{' '}
                   and{' '}
                   <a
-                    href="https://www.mythology.com/story"
+                    href="https://www.mythology.com"
                     target="_blank"
                     rel="noopener noreferrer">
                     Mythology
@@ -276,7 +279,7 @@ function LandingPage() {
                     </a>
                     and{' '}
                     <a
-                      href="https://www.mythology.com/story"
+                      href="https://www.mythology.com"
                       target="_blank"
                       rel="noopener noreferrer">
                       Mythology

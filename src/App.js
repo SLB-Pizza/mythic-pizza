@@ -8,7 +8,6 @@ import LandingPage from './components/LandingPage';
 import InputPage from './components/InputPage';
 
 import ReactGA from 'react-ga';
-import history from './components/utils/History.js';
 
 ReactGA.initialize('UA-143359903-3');
 

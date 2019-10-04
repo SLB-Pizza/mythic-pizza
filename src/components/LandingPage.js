@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-no-target-blank */
 import React, { useRef } from 'react';
 import {
   useSpring,
@@ -92,7 +93,7 @@ function LandingPage() {
                   <a
                     href="https://www.mythology.com"
                     target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noopener">
                     Mythology
                   </a>{' '}
                   (formerly Partners & Spade) to find the undiscovered founders
@@ -159,7 +160,7 @@ function LandingPage() {
                   <a
                     href="https://www.derris.com/"
                     target="_blank"
-                    rel="noopener noreferrer">
+                    rel="noopener">
                     Derris
                   </a>{' '}
                   and{' '}
@@ -261,7 +262,7 @@ function LandingPage() {
                     <a
                       href="https://www.derris.com/"
                       target="_blank"
-                      rel="noopener noreferrer">
+                      rel="noopener">
                       Derris{' '}
                     </a>
                     and{' '}

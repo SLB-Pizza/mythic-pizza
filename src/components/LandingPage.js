@@ -1,5 +1,5 @@
 /* eslint-disable react/jsx-no-target-blank */
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { useSpring, animated, useChain } from 'react-spring';
 import { Link } from 'react-router-dom';
 import logo from '../imgs/project-mercury-logo.svg';
@@ -52,24 +52,26 @@ function LandingPage() {
 
   useChain([inquireMoveRef, inquireFadeRef]);
 
-  console.log(
-    '\n////////////////',
-    '\nSITE DESIGN',
-    '\n////////////////',
-    '\n',
-    '\nGarrett DeRossett',
-    '\nAlright.studio',
-    '\n',
-    '\n////////////////',
-    '\nSITE DEVELOPMENT',
-    '\n////////////////',
-    '\n',
-    '\nRichard Dominguez',
-    '\nricharddominguez.dev',
-    '\n',
-    '\nChristian Mejia',
-    '\nchristianmejia.dev'
-  );
+  useEffect(() => {
+    console.log(
+      '\n////////////////',
+      '\nSITE DESIGN',
+      '\n////////////////',
+      '\n',
+      '\nGarrett DeRossett',
+      '\nAlright.studio',
+      '\n',
+      '\n////////////////',
+      '\nSITE DEVELOPMENT',
+      '\n////////////////',
+      '\n',
+      '\nRichard Dominguez',
+      '\nricharddominguez.dev',
+      '\n',
+      '\nChristian Mejia',
+      '\nchristianmejia.dev'
+    );
+  }, []);
   return (
     <div className="hero is-fullheight" id="landing-bg">
       <div className="hero-body">

@@ -1,17 +1,17 @@
-import React, { useRef } from "react";
-import { useSpring, animated, useChain } from "react-spring";
-import { Link } from "react-router-dom";
-import logo from "../imgs/project-mercury-logo.svg";
-import inquireArrow from "../imgs/inquire-arrow.svg";
-import * as easings from "d3-ease";
-import ReactGA from "react-ga";
+import React, { useRef } from 'react';
+import { useSpring, animated, useChain } from 'react-spring';
+import { Link } from 'react-router-dom';
+import logo from '../imgs/project-mercury-logo.svg';
+import inquireArrow from '../imgs/inquire-arrow.svg';
+import * as easings from 'd3-ease';
+import ReactGA from 'react-ga';
 
 function initializeAnalytics() {
-  ReactGA.initialize("UA-143359903-3", {
-    name: "Landing Page",
-    siteSpeedSampleRate: 100
+  ReactGA.initialize('UA-143359903-3', {
+    name: 'Landing Page',
+    siteSpeedSampleRate: 100,
   });
-  ReactGA.pageview("Intro Page");
+  ReactGA.pageview('Intro Page');
 }
 
 function LandingPage() {
@@ -19,34 +19,34 @@ function LandingPage() {
 
   const leftText = useSpring({
     config: { duration: 1500, easing: easings.easeCubicOut },
-    from: { opacity: 1, transform: "translate(0, -400%)" },
-    to: { opacity: 1, transform: "translate(0, 0)" },
-    delay: 200
+    from: { opacity: 1, transform: 'translate(0, -400%)' },
+    to: { opacity: 1, transform: 'translate(0, 0)' },
+    delay: 200,
   });
 
   const leftTextMobile = useSpring({
     config: { duration: 1500, easing: easings.easeCubicOut },
-    from: { opacity: 1, transform: "translate(0, 400%)" },
-    to: { opacity: 1, transform: "translate(0, 0)" },
-    delay: 200
+    from: { opacity: 1, transform: 'translate(0, 400%)' },
+    to: { opacity: 1, transform: 'translate(0, 0)' },
+    delay: 200,
   });
 
   const inquireMoveRef = useRef();
   const inquireMove = useSpring({
     config: { duration: 1500, easing: easings.easeCubicOut },
-    from: { transform: "translate(200%, 0)" },
-    to: { transform: "translate(0, 0)" },
-    ref: inquireMoveRef
+    from: { transform: 'translate(200%, 0)' },
+    to: { transform: 'translate(0, 0)' },
+    ref: inquireMoveRef,
   });
 
   const inquireFadeRef = useRef();
   const inquireFade = useSpring({
     config: {
-      duration: 800
+      duration: 800,
     },
     from: { opacity: 0 },
     to: { opacity: 1 },
-    ref: inquireFadeRef
+    ref: inquireFadeRef,
   });
 
   useChain([inquireMoveRef, inquireFadeRef]);
@@ -66,16 +66,14 @@ function LandingPage() {
                   <a
                     href="https://www.derris.com/"
                     target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                    rel="noopener noreferrer">
                     Derris
                   </a>
                   and
                   <a
                     href="https://www.mythology.com"
                     target="_blank"
-                    rel="noopener"
-                  >
+                    rel="noopener">
                     Mythology
                   </a>
                   (formerly Partners & Spade) to find the undiscovered founders
@@ -118,22 +116,20 @@ function LandingPage() {
                   Attention new thinkers, subversive talents and iconoclasts.
                 </p>
                 <p>
-                  Announcing Project Mercury, a joint initiative from{" "}
+                  Announcing Project Mercury, a joint initiative from{' '}
                   <a
                     href="https://www.derris.com/"
                     target="_blank"
-                    rel="noopener"
-                  >
+                    rel="noopener">
                     Derris
-                  </a>{" "}
-                  and{" "}
+                  </a>{' '}
+                  and{' '}
                   <a
                     href="https://www.mythology.com"
                     target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                    rel="noopener noreferrer">
                     Mythology
-                  </a>{" "}
+                  </a>{' '}
                   (formerly Partners & Spade) to find the undiscovered founders
                   and radical ideas that will change industries, and help them
                   build the next great brands.
@@ -183,8 +179,7 @@ function LandingPage() {
               <animated.div
                 style={inquireMove}
                 className="landing-right"
-                id="mobile-landing"
-              >
+                id="mobile-landing">
                 <animated.div style={inquireFade} className="btn-animation">
                   <Link to="/form">
                     <button className="inquire-mobile">
@@ -203,16 +198,14 @@ function LandingPage() {
                     <a
                       href="https://www.derris.com/"
                       target="_blank"
-                      rel="noopener"
-                    >
+                      rel="noopener">
                       Derris
                     </a>
                     and
                     <a
                       href="https://www.mythology.com"
                       target="_blank"
-                      rel="noopener noreferrer"
-                    >
+                      rel="noopener noreferrer">
                       Mythology
                     </a>
                     (formerly Partners & Spade) to find the undiscovered

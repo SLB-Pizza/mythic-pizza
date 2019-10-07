@@ -83,20 +83,20 @@ function LandingPage() {
                   Attention new thinkers, subversive talents and iconoclasts.
                 </p>
                 <p>
-                  Announcing Project Mercury, a joint initiative from
+                  Announcing Project Mercury, a joint initiative from{' '}
                   <a
                     href="https://www.derris.com/"
                     target="_blank"
                     rel="noopener noreferrer">
                     Derris
-                  </a>
-                  and
+                  </a>{' '}
+                  and{' '}
                   <a
                     href="https://www.mythology.com"
                     target="_blank"
                     rel="noopener">
                     Mythology
-                  </a>
+                  </a>{' '}
                   (formerly Partners & Spade) to find the undiscovered founders
                   and radical ideas that will change industries, and help them
                   build the next great brands.
@@ -215,20 +215,20 @@ function LandingPage() {
                     Attention new thinkers, subversive talents and iconoclasts.
                   </p>
                   <p>
-                    Announcing Project Mercury, a joint initiative from
+                    Announcing Project Mercury, a joint initiative from{' '}
                     <a
                       href="https://www.derris.com/"
                       target="_blank"
                       rel="noopener">
                       Derris
-                    </a>
-                    and
+                    </a>{' '}
+                    and{' '}
                     <a
                       href="https://www.mythology.com"
                       target="_blank"
                       rel="noopener noreferrer">
                       Mythology
-                    </a>
+                    </a>{' '}
                     (formerly Partners & Spade) to find the undiscovered
                     founders and radical ideas that will change industries, and
                     help them build the next great brands.

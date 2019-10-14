@@ -1,43 +1,66 @@
-import React, { useState } from "react";
-import Dropzone from "react-dropzone";
-import { useSpring, animated } from "react-spring";
-import { Link } from "react-router-dom";
+import React, { useState } from 'react';
+import Dropzone from 'react-dropzone';
+import { useSpring, animated } from 'react-spring';
+import { Link } from 'react-router-dom';
 
-import TextBox from "./TextBox.js";
+import TextBox from './TextBox.js';
+import SelectDropdown from './SelectDropdown';
+import CheckboxDropdown from './CheckboxDropdown';
 
-import logo from "../imgs/project-mercury-logo.svg";
-import closeArrow from "../imgs/close-arrow.svg";
-import termsCheckmark from "../imgs/terms-checkmark.svg";
-import termsNoCheckmark from "../imgs/terms-no-checkmark.svg";
-import uploadIcon from "../imgs/uploadArrow-Sketch.svg";
+import logo from '../imgs/project-mercury-logo.svg';
+import closeArrow from '../imgs/close-arrow.svg';
+import termsCheckmark from '../imgs/terms-checkmark.svg';
+import termsNoCheckmark from '../imgs/terms-no-checkmark.svg';
+import uploadIcon from '../imgs/uploadArrow-Sketch.svg';
 
-import ReactGA from "react-ga";
+import ReactGA from 'react-ga';
 
 function initializeAnalytics() {
-  ReactGA.initialize("UA-143359903-3", {
-    name: "Form Page",
-    siteSpeedSampleRate: 100
+  ReactGA.initialize('UA-143359903-3', {
+    name: 'Form Page',
+    siteSpeedSampleRate: 100,
   });
-  ReactGA.pageview("Form Page");
+  ReactGA.pageview('Form Page');
 }
 
 function InputPage(props) {
-  const [contactName, setContactName] = useState("");
-  const [contactRole, setContactRole] = useState("");
-  const [contactEmail, setContactEmail] = useState("");
-  const [companyName, setCompanyName] = useState("");
-  const [companyDescription, setCompanyDescription] = useState("");
-  const [based, setBased] = useState("");
-  const [marketOpportunity, setMarketOpportunity] = useState("");
-  const [targetDemo, setTargetDemo] = useState("");
-  const [competitors, setCompetitors] = useState("");
+  const [contactName, setContactName] = useState('');
+  const [contactRole, setContactRole] = useState('');
+  const [contactEmail, setContactEmail] = useState('');
+  const [companyName, setCompanyName] = useState('');
+  const [companyDescription, setCompanyDescription] = useState('');
+  const [based, setBased] = useState('');
+  const [marketOpportunity, setMarketOpportunity] = useState('');
+  const [targetDemo, setTargetDemo] = useState('');
+  const [competitors, setCompetitors] = useState('');
   const [file, setFile] = useState({});
-  const [currentTeam, setCurrentTeam] = useState("");
-  const [positions, setPositions] = useState("");
-  const [capitalRaised, setCapitalRaised] = useState("");
-  const [capitalNeeded, setCapitalNeeded] = useState("");
-  const [launchSelected, setLaunchSelected] = useState("");
-  const [servicesString, setServicesString] = useState("");
+  const [currentTeam, setCurrentTeam] = useState('');
+  const [positions, setPositions] = useState('');
+  const [capitalRaised, setCapitalRaised] = useState('');
+  const [capitalNeeded, setCapitalNeeded] = useState('');
+  //release 014:
+  // const [launchSelected, setLaunchSelected] = useState("");
+  //old 014:
+  const launchSchedule = [
+    { id: 1, timing: '3 months' },
+    { id: 2, timing: '6 months' },
+    { id: 3, timing: '9 months' },
+    { id: 4, timing: '1 year' },
+    { id: 5, timing: '2 years' },
+    { id: 6, timing: '2 years +' },
+  ];
+  const [oldLaunchSelected, setOldLaunchSelected] = useState('3 MONTHS');
+  //following is old 015:
+  const servicesNeeded = [
+    { id: 1, service: 'Branding' },
+    { id: 2, service: 'Fundraising' },
+    { id: 3, service: 'Strategy' },
+    { id: 4, service: 'Web Design' },
+    { id: 5, service: 'Web Development' },
+  ];
+  const [oldServicesSelected, setOldServicesSelected] = useState([]);
+
+  const [servicesString, setServicesString] = useState('');
   const [termsCheckbox, setTermsCheckbox] = useState(false);
   const [submitted, setSubmitted] = useState(false);
 
@@ -47,7 +70,7 @@ function InputPage(props) {
     if (acceptedFiles[0].size <= 10000000) {
       await setFile(acceptedFiles[0]);
     } else {
-      alert("FILE SIZE TOO LARGE\nPLEASE LIMIT ATTACHMENTS TO 10MB");
+      alert('FILE SIZE TOO LARGE\nPLEASE LIMIT ATTACHMENTS TO 10MB');
     }
   };
 
@@ -62,7 +85,7 @@ function InputPage(props) {
   const handleSubmit = e => {
     e.preventDefault();
     const data = {
-      "form-name": "contact",
+      'form-name': 'contact',
       contactName,
       contactRole,
       contactEmail,
@@ -77,23 +100,38 @@ function InputPage(props) {
       positions,
       capitalRaised,
       capitalNeeded,
-      launchSelected,
-      servicesString
+      oldLaunchSelected,
+      servicesString,
     };
 
-    fetch("/", {
-      method: "POST",
-      body: encode(data)
+    fetch('/', {
+      method: 'POST',
+      body: encode(data),
     })
       .then(
         window.scrollTo(0, 0),
         ReactGA.event({
-          category: "Submission",
-          action: "Form Submission Received"
+          category: 'Submission',
+          action: 'Form Submission Received',
         }),
         setSubmitted(true)
       )
-      .catch(error => alert("Form Submission Failed!"));
+      .catch(error => alert('Form Submission Failed!'));
+  };
+
+  //the foloowing for use with old 014 dropdown
+  const handleLaunchSelect = async option => {
+    await setOldLaunchSelected(option.timing);
+  };
+
+  //folowing for use with old 015
+  const handleServicesSelect = async selectedServices => {
+    await setOldServicesSelected(selectedServices);
+
+    const stringServices = await selectedServices
+      .reduce((acc, curr) => acc + ', ' + curr.service, '')
+      .slice(1);
+    await setServicesString(stringServices);
   };
 
   const handleTerms = async () => {
@@ -102,26 +140,26 @@ function InputPage(props) {
 
   const logoSpring = useSpring({
     config: {
-      duration: 2000
+      duration: 2000,
     },
     from: { opacity: 0 },
-    to: { opacity: 1 }
+    to: { opacity: 1 },
   });
 
   const formSpring = useSpring({
     config: {
-      duration: 4000
+      duration: 4000,
     },
     from: { opacity: 0 },
     to: { opacity: 1 },
-    delay: 1000
+    delay: 1000,
   });
 
   const successSpring = useSpring({
     config: { duration: 2000 },
     from: { opacity: submitted ? 0 : 1 },
     to: { opacity: submitted ? 1 : 0 },
-    delay: 1000
+    delay: 1000,
   });
 
   return (
@@ -170,20 +208,18 @@ function InputPage(props) {
                   name="contact"
                   onSubmit={handleSubmit}
                   netlify="true"
-                  style={formSpring}
-                >
+                  style={formSpring}>
                   <p id="four-k-start-text">LET'S GET STARTED.</p>
 
                   <div
                     className="adjacent-inputs is-flex-desktop"
-                    id="four-k-adj-inputs"
-                  >
+                    id="four-k-adj-inputs">
                     <label>
                       <input
                         style={
                           contactName.length > 0
-                            ? { borderColor: "white", color: "white" }
-                            : { borderColor: "grey", color: "grey" }
+                            ? { borderColor: 'white', color: 'white' }
+                            : { borderColor: 'grey', color: 'grey' }
                         }
                         type="text"
                         name="contactName"
@@ -196,8 +232,8 @@ function InputPage(props) {
                       <input
                         style={
                           contactRole.length > 0
-                            ? { borderColor: "white", color: "white" }
-                            : { borderColor: "grey", color: "grey" }
+                            ? { borderColor: 'white', color: 'white' }
+                            : { borderColor: 'grey', color: 'grey' }
                         }
                         type="text"
                         name="contactRole"
@@ -214,14 +250,14 @@ function InputPage(props) {
                       style={
                         contactEmail.length > 0
                           ? {
-                              borderColor: "white",
-                              color: "white",
-                              fontSize: "44px"
+                              borderColor: 'white',
+                              color: 'white',
+                              fontSize: '44px',
                             }
                           : {
-                              borderColor: "grey",
-                              color: "grey",
-                              fontSize: "44px"
+                              borderColor: 'grey',
+                              color: 'grey',
+                              fontSize: '44px',
                             }
                       }
                       type="email"
@@ -239,14 +275,14 @@ function InputPage(props) {
                       style={
                         companyName.length > 0
                           ? {
-                              borderColor: "white",
-                              color: "white",
-                              fontSize: "44px"
+                              borderColor: 'white',
+                              color: 'white',
+                              fontSize: '44px',
                             }
                           : {
-                              borderColor: "grey",
-                              color: "grey",
-                              fontSize: "44px"
+                              borderColor: 'grey',
+                              color: 'grey',
+                              fontSize: '44px',
                             }
                       }
                       type="text"
@@ -272,14 +308,14 @@ function InputPage(props) {
                       style={
                         based.length > 0
                           ? {
-                              borderColor: "white",
-                              color: "white",
-                              fontSize: "44px"
+                              borderColor: 'white',
+                              color: 'white',
+                              fontSize: '44px',
                             }
                           : {
-                              borderColor: "grey",
-                              color: "grey",
-                              fontSize: "44px"
+                              borderColor: 'grey',
+                              color: 'grey',
+                              fontSize: '44px',
                             }
                       }
                       type="text"
@@ -305,14 +341,14 @@ function InputPage(props) {
                       style={
                         targetDemo.length > 0
                           ? {
-                              borderColor: "white",
-                              color: "white",
-                              fontSize: "44px"
+                              borderColor: 'white',
+                              color: 'white',
+                              fontSize: '44px',
                             }
                           : {
-                              borderColor: "grey",
-                              color: "grey",
-                              fontSize: "44px"
+                              borderColor: 'grey',
+                              color: 'grey',
+                              fontSize: '44px',
                             }
                       }
                       type="text"
@@ -329,14 +365,14 @@ function InputPage(props) {
                       style={
                         competitors.length > 0
                           ? {
-                              borderColor: "white",
-                              color: "white",
-                              fontSize: "44px"
+                              borderColor: 'white',
+                              color: 'white',
+                              fontSize: '44px',
                             }
                           : {
-                              borderColor: "grey",
-                              color: "grey",
-                              fontSize: "44px"
+                              borderColor: 'grey',
+                              color: 'grey',
+                              fontSize: '44px',
                             }
                       }
                       type="text"
@@ -351,10 +387,9 @@ function InputPage(props) {
                     className="file-upload-four-k"
                     style={{
                       borderColor:
-                        file && file.name && file.size > 0 ? "white" : "grey",
-                      outline: "none"
-                    }}
-                  >
+                        file && file.name && file.size > 0 ? 'white' : 'grey',
+                      outline: 'none',
+                    }}>
                     <Dropzone onDrop={onDrop}>
                       {({ getRootProps, getInputProps, isDragActive }) => (
                         <div
@@ -362,11 +397,10 @@ function InputPage(props) {
                           className="upload"
                           style={{
                             borderColor:
-                              file && file.size > 0 ? "white" : "grey",
-                            color: file && file.size > 0 ? "white" : "grey",
-                            outline: "none"
-                          }}
-                        >
+                              file && file.size > 0 ? 'white' : 'grey',
+                            color: file && file.size > 0 ? 'white' : 'grey',
+                            outline: 'none',
+                          }}>
                           <input {...getInputProps()} />
                           {isDragActive ? (
                             <div className="upload-header">
@@ -418,13 +452,12 @@ function InputPage(props) {
                         style={
                           capitalRaised.length > 0
                             ? {
-                                color: "white"
+                                color: 'white',
                               }
                             : {
-                                color: "grey"
+                                color: 'grey',
                               }
-                        }
-                      >
+                        }>
                         $
                       </p>
                       <input
@@ -436,20 +469,20 @@ function InputPage(props) {
                         style={
                           capitalRaised.length > 0
                             ? {
-                                borderColor: "white",
-                                color: "white",
-                                backgroundColor: "#292929",
-                                outline: "none",
-                                fontSize: "44px",
-                                fontFamily: "Graphik"
+                                borderColor: 'white',
+                                color: 'white',
+                                backgroundColor: '#292929',
+                                outline: 'none',
+                                fontSize: '44px',
+                                fontFamily: 'Graphik',
                               }
                             : {
-                                borderColor: "grey",
-                                color: "grey",
-                                backgroundColor: "#292929",
-                                outline: "none",
-                                fontSize: "44px",
-                                fontFamily: "Graphik"
+                                borderColor: 'grey',
+                                color: 'grey',
+                                backgroundColor: '#292929',
+                                outline: 'none',
+                                fontSize: '44px',
+                                fontFamily: 'Graphik',
                               }
                         }
                       />
@@ -457,14 +490,13 @@ function InputPage(props) {
                     <p
                       id="four-k-capital-label"
                       style={{
-                        color: capitalRaised.length > 0 ? "white" : "gray"
-                      }}
-                    >
+                        color: capitalRaised.length > 0 ? 'white' : 'gray',
+                      }}>
                       013. CAPITAL RAISED*
                     </p>
                   </label>
 
-                  <div className="four-k-text-area">
+                  {/* <div className="four-k-text-area">
                     <TextBox
                       onChange={e => setCapitalNeeded(e.target.value)}
                       value={capitalNeeded}
@@ -480,22 +512,45 @@ function InputPage(props) {
                       name="launchSelected"
                       insideText="015. ANTICIPATED LAUNCH SCHEDULE*"
                     />
-                  </div>
-
+                  </div> */}
+                  <label className="launch-schedule-dropdown">
+                    <SelectDropdown
+                      handleSelect={handleLaunchSelect}
+                      options={launchSchedule}
+                      name="launchSelected"
+                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
+                    />
+                    <p>014. ANTICIPATED LAUNCH SCHEDULE*</p>
+                  </label>
+                  <label
+                    style={
+                      oldServicesSelected.length > 0
+                        ? { borderColor: 'transparent', color: 'white' }
+                        : { borderColor: 'transparent', color: 'grey' }
+                    }>
+                    <CheckboxDropdown
+                      value={oldServicesSelected}
+                      handleSelect={handleServicesSelect}
+                      services={servicesNeeded}
+                      name="servicesString"
+                      insideText="015. SERVICES NEEDED*"
+                    />
+                    <p>015. SERVICES NEEDED*</p>
+                  </label>
                   <label className="four-k-solo-label">
                     <input
                       className="four-k-solo-input"
                       style={
                         servicesString.length > 0
                           ? {
-                              borderColor: "white",
-                              color: "white",
-                              fontSize: "44px"
+                              borderColor: 'white',
+                              color: 'white',
+                              fontSize: '44px',
                             }
                           : {
-                              borderColor: "grey",
-                              color: "grey",
-                              fontSize: "44px"
+                              borderColor: 'grey',
+                              color: 'grey',
+                              fontSize: '44px',
                             }
                       }
                       type="text"
@@ -533,7 +588,8 @@ function InputPage(props) {
                       currentTeam.length > 0 &&
                       positions.length > 0 &&
                       capitalNeeded.length > 0 &&
-                      launchSelected.length > 0 &&
+                      // launchSelected.length > 0 &&
+                      oldLaunchSelected.length > 0 &&
                       servicesString.length > 0
                         ? false
                         : true
@@ -555,10 +611,11 @@ function InputPage(props) {
                         currentTeam.length > 0 &&
                         positions.length > 0 &&
                         capitalNeeded.length > 0 &&
-                        launchSelected.length > 0 &&
+                        // launchSelected.length > 0 &&
+                        oldLaunchSelected.length > 0 &&
                         servicesString.length > 0
-                          ? "white"
-                          : "grey"
+                          ? 'white'
+                          : 'grey',
                     }}
                     readOnly
                   />
@@ -651,8 +708,7 @@ function InputPage(props) {
                   name="contact"
                   onSubmit={handleSubmit}
                   netlify="true"
-                  style={formSpring}
-                >
+                  style={formSpring}>
                   <p id="form-header-text">LET'S GET STARTED.</p>
 
                   <div className="adjacent-inputs is-flex-desktop">
@@ -660,8 +716,8 @@ function InputPage(props) {
                       <input
                         style={
                           contactName.length > 0
-                            ? { borderColor: "white", color: "white" }
-                            : { borderColor: "grey", color: "grey" }
+                            ? { borderColor: 'white', color: 'white' }
+                            : { borderColor: 'grey', color: 'grey' }
                         }
                         type="text"
                         name="contactName"
@@ -674,8 +730,8 @@ function InputPage(props) {
                       <input
                         style={
                           contactRole.length > 0
-                            ? { borderColor: "white", color: "white" }
-                            : { borderColor: "grey", color: "grey" }
+                            ? { borderColor: 'white', color: 'white' }
+                            : { borderColor: 'grey', color: 'grey' }
                         }
                         type="text"
                         name="contactRole"
@@ -691,8 +747,8 @@ function InputPage(props) {
                       className="four-k-solo-label"
                       style={
                         contactEmail.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="email"
                       name="contactEmail"
@@ -708,8 +764,8 @@ function InputPage(props) {
                       className="four-k-solo-label"
                       style={
                         companyName.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="companyName"
@@ -733,8 +789,8 @@ function InputPage(props) {
                       className="four-k-solo-label"
                       style={
                         based.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="based"
@@ -758,8 +814,8 @@ function InputPage(props) {
                       className="four-k-solo-label"
                       style={
                         targetDemo.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="targetDemo"
@@ -774,8 +830,8 @@ function InputPage(props) {
                       className="four-k-solo-label"
                       style={
                         competitors.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="competitors"
@@ -789,10 +845,9 @@ function InputPage(props) {
                     className="file-upload-box"
                     style={{
                       borderColor:
-                        file && file.name && file.size > 0 ? "white" : "grey",
-                      outline: "none"
-                    }}
-                  >
+                        file && file.name && file.size > 0 ? 'white' : 'grey',
+                      outline: 'none',
+                    }}>
                     <Dropzone onDrop={onDrop}>
                       {({ getRootProps, getInputProps, isDragActive }) => (
                         <div
@@ -800,11 +855,10 @@ function InputPage(props) {
                           className="upload"
                           style={{
                             borderColor:
-                              file && file.size > 0 ? "white" : "grey",
-                            color: file && file.size > 0 ? "white" : "grey",
-                            outline: "none"
-                          }}
-                        >
+                              file && file.size > 0 ? 'white' : 'grey',
+                            color: file && file.size > 0 ? 'white' : 'grey',
+                            outline: 'none',
+                          }}>
                           <input {...getInputProps()} />
                           {isDragActive ? (
                             <div className="upload-header">
@@ -856,13 +910,12 @@ function InputPage(props) {
                         style={
                           capitalRaised.length > 0
                             ? {
-                                color: "white"
+                                color: 'white',
                               }
                             : {
-                                color: "grey"
+                                color: 'grey',
                               }
-                        }
-                      >
+                        }>
                         $
                       </p>
                       <input
@@ -874,37 +927,36 @@ function InputPage(props) {
                         style={
                           capitalRaised.length > 0
                             ? {
-                                borderColor: "white",
-                                color: "white",
-                                backgroundColor: "#292929",
-                                outline: "none",
-                                fontSize: "22px",
-                                fontFamily: "Graphik"
+                                borderColor: 'white',
+                                color: 'white',
+                                backgroundColor: '#292929',
+                                outline: 'none',
+                                fontSize: '22px',
+                                fontFamily: 'Graphik',
                               }
                             : {
-                                borderColor: "grey",
-                                color: "grey",
-                                backgroundColor: "#292929",
-                                outline: "none",
-                                fontSize: "22px",
-                                fontFamily: "Graphik"
+                                borderColor: 'grey',
+                                color: 'grey',
+                                backgroundColor: '#292929',
+                                outline: 'none',
+                                fontSize: '22px',
+                                fontFamily: 'Graphik',
                               }
                         }
                       />
                     </div>
                     <p
                       style={{
-                        fontFamily: "Graphik",
-                        fontSize: "12px",
-                        backgroundColor: "#292929",
-                        color: capitalRaised.length > 0 ? "white" : "gray"
-                      }}
-                    >
+                        fontFamily: 'Graphik',
+                        fontSize: '12px',
+                        backgroundColor: '#292929',
+                        color: capitalRaised.length > 0 ? 'white' : 'gray',
+                      }}>
                       013. CAPITAL RAISED*
                     </p>
                   </label>
 
-                  <div className="text-box-container">
+                  {/* <div className="text-box-container">
                     <TextBox
                       onChange={e => setCapitalNeeded(e.target.value)}
                       value={capitalNeeded}
@@ -920,15 +972,39 @@ function InputPage(props) {
                       name="launchSelected"
                       insideText="015. ANTICIPATED LAUNCH SCHEDULE*"
                     />
-                  </div>
+                  </div> */}
+                  <label className="launch-schedule-dropdown">
+                    <SelectDropdown
+                      handleSelect={handleLaunchSelect}
+                      options={launchSchedule}
+                      name="launchSelected"
+                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
+                    />
+                    <p>014. ANTICIPATED LAUNCH SCHEDULE*</p>
+                  </label>
+                  <label
+                    style={
+                      oldServicesSelected.length > 0
+                        ? { borderColor: 'transparent', color: 'white' }
+                        : { borderColor: 'transparent', color: 'grey' }
+                    }>
+                    <CheckboxDropdown
+                      value={oldServicesSelected}
+                      handleSelect={handleServicesSelect}
+                      services={servicesNeeded}
+                      name="servicesString"
+                      insideText="015. SERVICES NEEDED*"
+                    />
+                    <p>015. SERVICES NEEDED*</p>
+                  </label>
 
                   <label className="one-line-input-label">
                     <input
                       className="four-k-solo-label"
                       style={
                         servicesString.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="servicesString"
@@ -965,7 +1041,8 @@ function InputPage(props) {
                       currentTeam.length > 0 &&
                       positions.length > 0 &&
                       capitalNeeded.length > 0 &&
-                      launchSelected.length > 0 &&
+                      // launchSelected.length > 0 &&
+                      oldLaunchSelected.length > 0 &&
                       servicesString.length > 0
                         ? false
                         : true
@@ -987,16 +1064,17 @@ function InputPage(props) {
                         currentTeam.length > 0 &&
                         positions.length > 0 &&
                         capitalNeeded.length > 0 &&
-                        launchSelected.length > 0 &&
+                        // launchSelected.length > 0 &&
+                        oldLaunchSelected.length > 0 &&
                         servicesString.length > 0
-                          ? "white"
-                          : "grey"
+                          ? 'white'
+                          : 'grey',
                     }}
                     readOnly
                   />
 
                   <div className="legal-stuff">
-                    <p style={{ color: "white" }}>LEGAL:</p>
+                    <p style={{ color: 'white' }}>LEGAL:</p>
                     <p className="grey-legal">
                       Any nonpublic information provided hereunder is
                       confidential, and Project Mercury will not disclose the
@@ -1076,8 +1154,7 @@ function InputPage(props) {
                   onSubmit={handleSubmit}
                   netlify="true"
                   action="/success"
-                  style={formSpring}
-                >
+                  style={formSpring}>
                   <p id="form-header-text">LET'S GET STARTED.</p>
                   <p id="form-header-required-text-mobile">
                     * denotes required field
@@ -1088,8 +1165,8 @@ function InputPage(props) {
                       <input
                         style={
                           contactName.length > 0
-                            ? { borderColor: "white", color: "white" }
-                            : { borderColor: "grey", color: "grey" }
+                            ? { borderColor: 'white', color: 'white' }
+                            : { borderColor: 'grey', color: 'grey' }
                         }
                         type="text"
                         name="contactName"
@@ -1102,8 +1179,8 @@ function InputPage(props) {
                       <input
                         style={
                           contactRole.length > 0
-                            ? { borderColor: "white", color: "white" }
-                            : { borderColor: "grey", color: "grey" }
+                            ? { borderColor: 'white', color: 'white' }
+                            : { borderColor: 'grey', color: 'grey' }
                         }
                         type="text"
                         name="contactRole"
@@ -1119,8 +1196,8 @@ function InputPage(props) {
                       className="one-line-input"
                       style={
                         contactEmail.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="email"
                       name="contactEmail"
@@ -1136,8 +1213,8 @@ function InputPage(props) {
                       className="one-line-input"
                       style={
                         companyName.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="companyName"
@@ -1161,8 +1238,8 @@ function InputPage(props) {
                       className="one-line-input"
                       style={
                         based.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="based"
@@ -1186,8 +1263,8 @@ function InputPage(props) {
                       className="one-line-input"
                       style={
                         targetDemo.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="targetDemo"
@@ -1202,8 +1279,8 @@ function InputPage(props) {
                       className="one-line-input"
                       style={
                         competitors.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="competitors"
@@ -1217,9 +1294,8 @@ function InputPage(props) {
                     className="file-upload-box"
                     style={{
                       borderColor:
-                        file && file.name && file.size > 0 ? "white" : "grey"
-                    }}
-                  >
+                        file && file.name && file.size > 0 ? 'white' : 'grey',
+                    }}>
                     <Dropzone onDrop={onDrop}>
                       {({ getRootProps, getInputProps, isDragActive }) => (
                         <div
@@ -1227,10 +1303,9 @@ function InputPage(props) {
                           className="upload"
                           style={{
                             borderColor:
-                              file && file.size > 0 ? "white" : "grey",
-                            color: file && file.size > 0 ? "white" : "grey"
-                          }}
-                        >
+                              file && file.size > 0 ? 'white' : 'grey',
+                            color: file && file.size > 0 ? 'white' : 'grey',
+                          }}>
                           <input {...getInputProps()} />
                           {isDragActive ? (
                             <div className="upload-header">
@@ -1283,16 +1358,16 @@ function InputPage(props) {
                         style={
                           capitalRaised.length > 0
                             ? {
-                                borderColor: "white",
-                                color: "white",
-                                backgroundColor: "transparent",
-                                outline: "none"
+                                borderColor: 'white',
+                                color: 'white',
+                                backgroundColor: 'transparent',
+                                outline: 'none',
                               }
                             : {
-                                borderColor: "grey",
-                                color: "grey",
-                                backgroundColor: "transparent",
-                                outline: "none"
+                                borderColor: 'grey',
+                                color: 'grey',
+                                backgroundColor: 'transparent',
+                                outline: 'none',
                               }
                         }
                         type="number"
@@ -1305,7 +1380,7 @@ function InputPage(props) {
                     <p>013. CAPITAL RAISED*</p>
                   </label>
 
-                  <div className="text-box-container">
+                  {/* <div className="text-box-container">
                     <TextBox
                       onChange={e => setCapitalNeeded(e.target.value)}
                       value={capitalNeeded}
@@ -1321,15 +1396,38 @@ function InputPage(props) {
                       name="launchSelected"
                       insideText="015. ANTICIPATED LAUNCH SCHEDULE*"
                     />
-                  </div>
-
+                  </div> */}
+                  <label className="launch-schedule-dropdown">
+                    <SelectDropdown
+                      handleSelect={handleLaunchSelect}
+                      options={launchSchedule}
+                      name="launchSelected"
+                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
+                    />
+                    <p>014. ANTICIPATED LAUNCH SCHEDULE*</p>
+                  </label>
+                  <label
+                    style={
+                      oldServicesSelected.length > 0
+                        ? { borderColor: 'transparent', color: 'white' }
+                        : { borderColor: 'transparent', color: 'grey' }
+                    }>
+                    <CheckboxDropdown
+                      value={oldServicesSelected}
+                      handleSelect={handleServicesSelect}
+                      services={servicesNeeded}
+                      name="servicesString"
+                      insideText="015. SERVICES NEEDED*"
+                    />
+                    <p>015. SERVICES NEEDED*</p>
+                  </label>
                   <label className="one-line-input-label">
                     <input
                       className="one-line-input"
                       style={
                         servicesString.length > 0
-                          ? { borderColor: "white", color: "white" }
-                          : { borderColor: "grey", color: "grey" }
+                          ? { borderColor: 'white', color: 'white' }
+                          : { borderColor: 'grey', color: 'grey' }
                       }
                       type="text"
                       name="servicesString"
@@ -1368,7 +1466,8 @@ function InputPage(props) {
                       currentTeam.length > 0 &&
                       positions.length > 0 &&
                       capitalNeeded.length > 0 &&
-                      launchSelected.length > 0 &&
+                      // launchSelected.length > 0 &&
+                      oldLaunchSelected.length > 0 &&
                       servicesString.length > 0
                         ? false
                         : true
@@ -1390,16 +1489,17 @@ function InputPage(props) {
                         currentTeam.length > 0 &&
                         positions.length > 0 &&
                         capitalNeeded.length > 0 &&
-                        launchSelected.length > 0 &&
+                        // launchSelected.length > 0 &&
+                        oldLaunchSelected.length > 0 &&
                         servicesString.length > 0
-                          ? "white"
-                          : "grey"
+                          ? 'white'
+                          : 'grey',
                     }}
                     readOnly
                   />
 
                   <div className="legal-stuff">
-                    <p style={{ color: "white" }}>LEGAL:</p>
+                    <p style={{ color: 'white' }}>LEGAL:</p>
                     <p className="grey-legal">
                       Any nonpublic information provided hereunder is
                       confidential, and Project Mercury will not disclose the

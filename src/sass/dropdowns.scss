@@ -1,0 +1,139 @@
+// =============================
+// Anticipated Launch Schedule
+// 014
+// =============================
+
+.launch-schedule-dropdown {
+  width: 100%;
+  font-size: 16px;
+  font-family: 'Graphik';
+  color: white;
+  background-color: #292929;
+  border-style: hidden hidden hidden hidden;
+  .dropdown-wrapper {
+    border-bottom: 1px solid white;
+    .selected-option {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      .dropdown-arrow {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .dropdown-options {
+      font-family: 'Graphik';
+      font-size: 16px;
+      .selected-option {
+        border-bottom: 1px #292929 solid;
+        padding: 8px 0 8px 10px;
+        background: #292929;
+      }
+      .unselected-option {
+        border-bottom: 1px #292929 solid;
+        padding: 8px 0 8px 10px;
+        color: #292929;
+        background-color: white;
+      }
+    }
+  }
+  .dropdown-wrapper-no-border {
+    border-bottom: 1px solid #292929;
+    .selected-option {
+      display: flex;
+      font-size: 16px;
+      font-family: 'Graphik';
+      flex-direction: row;
+      justify-content: space-between;
+      .dropdown-arrow {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .dropdown-options {
+      font-family: 'Graphik';
+      font-size: 12pt;
+      .selected-option {
+        border-bottom: 1px #292929 solid;
+        padding: 8px 0 8px 10px;
+        background: #292929;
+      }
+      .unselected-option {
+        border-bottom: 1px #292929 solid;
+        padding: 8px 0 8px 10px;
+        color: #292929;
+        background-color: white;
+      }
+    }
+  }
+  p {
+    font-size: 12pt;
+  }
+}
+
+// =============================
+// Services Needed
+// 015
+// =============================
+.checkboxDropdownWrapper {
+  display: flex;
+  flex-direction: row;
+  font-size: 16px;
+  font-family: 'Graphik';
+  justify-content: space-between;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  width: 100%;
+}
+
+.checkboxDropdown-no-border {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  border-bottom: none;
+}
+
+.selectedService {
+  color: #292929;
+  background-color: white;
+  width: 100%;
+}
+
+.hoverService {
+  color: white;
+  background-color: #292929;
+  width: 100%;
+}
+
+.servicesCheckboxActive {
+  height: 2vh;
+  width: 2vh;
+  border: 1px groove #292929;
+  /* border-style: groove; */
+
+  align-self: center;
+}
+
+.servicesCheckboxInactive {
+  height: 2vh;
+  width: 2vh;
+  border: 1px outset grey;
+  align-self: center;
+  /* color: grey; */
+  background: white;
+}
+
+.servicesCheckboxHover {
+  height: 2vh;
+  width: 2vh;
+  border: 1px outset white;
+  align-self: center;
+  background: #292929;
+}
+
+.checkmark {
+  justify-self: center;
+  align-self: center;
+  height: 95%;
+  width: 95%;
+}

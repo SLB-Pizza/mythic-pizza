@@ -2,6 +2,9 @@ import React from 'react';
 import downArrow from '../imgs/dropdownArrow-Sketch.svg';
 import upArrow from '../imgs/dropdownUpArrow-Sketch.svg';
 
+import downArrow4k from '../imgs/dropdownArrow-Sketch-4k.svg';
+import upArrow4k from '../imgs/dropdownUpArrow-Sketch-4k.svg';
+
 // props (options, handleSelect, name, insidetext)
 export default class SelectDropdown extends React.Component {
   constructor(props) {
@@ -63,9 +66,12 @@ export default class SelectDropdown extends React.Component {
           {this.state.selectedOption.timing || ''}
           <div className="dropdown-arrow" onClick={this.dropdown}>
             {this.state.showOptions ? (
-              <img src={upArrow} alt={upArrow} />
+              <img src={this.props.fourk ? upArrow4k : upArrow} alt={upArrow} />
             ) : (
-              <img src={downArrow} alt={downArrow} />
+              <img
+                src={this.props.fourk ? downArrow4k : downArrow}
+                alt={downArrow}
+              />
             )}
           </div>
         </div>

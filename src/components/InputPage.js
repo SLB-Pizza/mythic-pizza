@@ -448,18 +448,7 @@ function InputPage(props) {
 
                   <label id="four-k-capital-input">
                     <div id="four-k-dollar-input">
-                      <p
-                        style={
-                          capitalRaised.length > 0
-                            ? {
-                                color: 'white',
-                              }
-                            : {
-                                color: 'grey',
-                              }
-                        }>
-                        $
-                      </p>
+                      <p style={{ color: 'white' }}>$</p>
                       <input
                         type="number"
                         name="capitalRaised"
@@ -490,13 +479,13 @@ function InputPage(props) {
                     <p
                       id="four-k-capital-label"
                       style={{
-                        color: capitalRaised.length > 0 ? 'white' : 'gray',
+                        color: 'white',
                       }}>
                       013. CAPITAL RAISED*
                     </p>
                   </label>
 
-                  {/* <div className="four-k-text-area">
+                  <div className="four-k-text-area">
                     <TextBox
                       onChange={e => setCapitalNeeded(e.target.value)}
                       value={capitalNeeded}
@@ -504,7 +493,7 @@ function InputPage(props) {
                       insideText="014. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
                     />
                   </div>
-
+                  {/*
                   <div className="four-k-text-area">
                     <TextBox
                       onChange={e => setLaunchSelected(e.target.value)}
@@ -513,16 +502,19 @@ function InputPage(props) {
                       insideText="015. ANTICIPATED LAUNCH SCHEDULE*"
                     />
                   </div> */}
-                  <label className="launch-schedule-dropdown">
+                  <label className="launch-schedule-dropdown-four-k">
                     <SelectDropdown
                       handleSelect={handleLaunchSelect}
                       options={launchSchedule}
                       name="launchSelected"
-                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
+                      insideText="015. ANTICIPATED LAUNCH SCHEDULE*"
+                      fourk={true}
+                      touch={false}
                     />
-                    <p>014. ANTICIPATED LAUNCH SCHEDULE*</p>
+                    <p>015. ANTICIPATED LAUNCH SCHEDULE*</p>
                   </label>
                   <label
+                    className="checkbox-dropdown-wrapper-four-k"
                     style={
                       oldServicesSelected.length > 0
                         ? { borderColor: 'transparent', color: 'white' }
@@ -533,11 +525,13 @@ function InputPage(props) {
                       handleSelect={handleServicesSelect}
                       services={servicesNeeded}
                       name="servicesString"
-                      insideText="015. SERVICES NEEDED*"
+                      insideText="016. SERVICES NEEDED*"
+                      fourk={true}
+                      touch={false}
                     />
-                    <p>015. SERVICES NEEDED*</p>
+                    <p>016. SERVICES NEEDED*</p>
                   </label>
-                  <label className="four-k-solo-label">
+                  {/* <label className="four-k-solo-label">
                     <input
                       className="four-k-solo-input"
                       style={
@@ -559,7 +553,7 @@ function InputPage(props) {
                       onChange={e => setServicesString(e.target.value)}
                     />
                     <p>016. SERVICES NEEDED*</p>
-                  </label>
+                  </label> */}
 
                   <div id="four-k-terms" onClick={handleTerms}>
                     <img
@@ -907,15 +901,9 @@ function InputPage(props) {
                   <label className="capital-input">
                     <div className="dollar-and-input">
                       <p
-                        style={
-                          capitalRaised.length > 0
-                            ? {
-                                color: 'white',
-                              }
-                            : {
-                                color: 'grey',
-                              }
-                        }>
+                        style={{
+                          color: 'white',
+                        }}>
                         $
                       </p>
                       <input
@@ -950,13 +938,13 @@ function InputPage(props) {
                         fontFamily: 'Graphik',
                         fontSize: '12px',
                         backgroundColor: '#292929',
-                        color: capitalRaised.length > 0 ? 'white' : 'gray',
+                        color: 'white',
                       }}>
                       013. CAPITAL RAISED*
                     </p>
                   </label>
 
-                  {/* <div className="text-box-container">
+                  <div className="text-box-container">
                     <TextBox
                       onChange={e => setCapitalNeeded(e.target.value)}
                       value={capitalNeeded}
@@ -964,7 +952,7 @@ function InputPage(props) {
                       insideText="014. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
                     />
                   </div>
-
+                  {/*
                   <div className="text-box-container">
                     <TextBox
                       onChange={e => setLaunchSelected(e.target.value)}
@@ -978,11 +966,14 @@ function InputPage(props) {
                       handleSelect={handleLaunchSelect}
                       options={launchSchedule}
                       name="launchSelected"
-                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
+                      insideText="015. ANTICIPATED LAUNCH SCHEDULE*"
+                      fourk={false}
+                      touch={false}
                     />
-                    <p>014. ANTICIPATED LAUNCH SCHEDULE*</p>
+                    <p>015. ANTICIPATED LAUNCH SCHEDULE*</p>
                   </label>
                   <label
+                    className="checkbox-dropdown-wrapper"
                     style={
                       oldServicesSelected.length > 0
                         ? { borderColor: 'transparent', color: 'white' }
@@ -993,12 +984,14 @@ function InputPage(props) {
                       handleSelect={handleServicesSelect}
                       services={servicesNeeded}
                       name="servicesString"
-                      insideText="015. SERVICES NEEDED*"
+                      insideText="016. SERVICES NEEDED*"
+                      fourk={false}
+                      touch={false}
                     />
-                    <p>015. SERVICES NEEDED*</p>
+                    <p>016. SERVICES NEEDED*</p>
                   </label>
 
-                  <label className="one-line-input-label">
+                  {/* <label className="one-line-input-label">
                     <input
                       className="four-k-solo-label"
                       style={
@@ -1012,7 +1005,7 @@ function InputPage(props) {
                       onChange={e => setServicesString(e.target.value)}
                     />
                     <p>016. SERVICES NEEDED*</p>
-                  </label>
+                  </label> */}
 
                   <div className="terms" onClick={handleTerms}>
                     <img
@@ -1380,7 +1373,7 @@ function InputPage(props) {
                     <p>013. CAPITAL RAISED*</p>
                   </label>
 
-                  {/* <div className="text-box-container">
+                  <div className="text-box-container">
                     <TextBox
                       onChange={e => setCapitalNeeded(e.target.value)}
                       value={capitalNeeded}
@@ -1388,7 +1381,7 @@ function InputPage(props) {
                       insideText="014. CAPITAL NEEDED (INCLUDE CURRENT AND PROSPECTIVE INVESTORS*"
                     />
                   </div>
-
+                  {/*
                   <div className="text-box-container">
                     <TextBox
                       onChange={e => setLaunchSelected(e.target.value)}
@@ -1402,11 +1395,14 @@ function InputPage(props) {
                       handleSelect={handleLaunchSelect}
                       options={launchSchedule}
                       name="launchSelected"
-                      insideText="014. ANTICIPATED LAUNCH SCHEDULE*"
+                      insideText="015. ANTICIPATED LAUNCH SCHEDULE*"
+                      fourk={false}
+                      touch={true}
                     />
-                    <p>014. ANTICIPATED LAUNCH SCHEDULE*</p>
+                    <p>015. ANTICIPATED LAUNCH SCHEDULE*</p>
                   </label>
                   <label
+                    className="checkbox-dropdown-wrapper-touch"
                     style={
                       oldServicesSelected.length > 0
                         ? { borderColor: 'transparent', color: 'white' }
@@ -1417,11 +1413,13 @@ function InputPage(props) {
                       handleSelect={handleServicesSelect}
                       services={servicesNeeded}
                       name="servicesString"
-                      insideText="015. SERVICES NEEDED*"
+                      insideText="016. SERVICES NEEDED*"
+                      fourk={false}
+                      touch={true}
                     />
-                    <p>015. SERVICES NEEDED*</p>
+                    <p>016. SERVICES NEEDED*</p>
                   </label>
-                  <label className="one-line-input-label">
+                  {/* <label className="one-line-input-label">
                     <input
                       className="one-line-input"
                       style={
@@ -1435,7 +1433,7 @@ function InputPage(props) {
                       onChange={e => setServicesString(e.target.value)}
                     />
                     <p>016. SERVICES NEEDED*</p>
-                  </label>
+                  </label> */}
 
                   <div className="terms" onClick={handleTerms}>
                     <img

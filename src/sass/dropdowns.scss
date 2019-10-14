@@ -16,6 +16,7 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+      font-size: 22px;
       .dropdown-arrow {
         width: 30px;
         height: 30px;
@@ -23,11 +24,82 @@
     }
     .dropdown-options {
       font-family: 'Graphik';
-      font-size: 16px;
+      font-size: 22px;
       .selected-option {
         border-bottom: 1px #292929 solid;
         padding: 8px 0 8px 10px;
         background: #292929;
+        font-size: 22px;
+      }
+      .unselected-option {
+        border-bottom: 1px #292929 solid;
+        padding: 8px 0 8px 10px;
+        color: #292929;
+        background-color: white;
+        font-size: 22px;
+      }
+    }
+  }
+  .dropdown-wrapper-no-border {
+    border-bottom: 1px solid #292929;
+    .selected-option {
+      display: flex;
+      font-size: 22px;
+      font-family: 'Graphik';
+      flex-direction: row;
+      justify-content: space-between;
+      .dropdown-arrow {
+        width: 30px;
+        height: 30px;
+      }
+    }
+    .dropdown-options {
+      font-family: 'Graphik';
+      font-size: 22px;
+      .selected-option {
+        border-bottom: 1px #292929 solid;
+        padding: 8px 0 8px 10px;
+        background-color: #292929;
+      }
+      .unselected-option {
+        border-bottom: 1px #292929 solid;
+        padding: 8px 0 8px 10px;
+        color: #292929;
+        background-color: white;
+      }
+    }
+  }
+  p {
+    font-size: 12px;
+  }
+}
+
+.launch-schedule-dropdown-four-k {
+  width: 100%;
+  font-size: 44px;
+  font-family: 'Graphik';
+  color: white;
+  background-color: #292929;
+  border-style: hidden hidden hidden hidden;
+  .dropdown-wrapper {
+    border-bottom: 1px solid white;
+    .selected-option {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 44px;
+      .dropdown-arrow {
+        width: 60px;
+        height: 60px;
+      }
+    }
+    .dropdown-options {
+      font-family: 'Graphik';
+      font-size: 44px;
+      .selected-option {
+        border-bottom: 1px #292929 solid;
+        padding: 8px 0 8px 10px;
+        background-color: #292929;
       }
       .unselected-option {
         border-bottom: 1px #292929 solid;
@@ -41,18 +113,18 @@
     border-bottom: 1px solid #292929;
     .selected-option {
       display: flex;
-      font-size: 16px;
+      font-size: 44px;
       font-family: 'Graphik';
       flex-direction: row;
       justify-content: space-between;
       .dropdown-arrow {
-        width: 30px;
-        height: 30px;
+        width: 60px;
+        height: 60px;
       }
     }
     .dropdown-options {
       font-family: 'Graphik';
-      font-size: 12pt;
+      font-size: 24px;
       .selected-option {
         border-bottom: 1px #292929 solid;
         padding: 8px 0 8px 10px;
@@ -61,13 +133,14 @@
       .unselected-option {
         border-bottom: 1px #292929 solid;
         padding: 8px 0 8px 10px;
+        font-size: 44px;
         color: #292929;
         background-color: white;
       }
     }
   }
   p {
-    font-size: 12pt;
+    font-size: 24px;
   }
 }
 
@@ -75,65 +148,300 @@
 // Services Needed
 // 015
 // =============================
-.checkboxDropdownWrapper {
-  display: flex;
-  flex-direction: row;
+
+.checkbox-dropdown-wrapper {
   font-size: 16px;
   font-family: 'Graphik';
   justify-content: space-between;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  width: 100%;
-}
-
-.checkboxDropdown-no-border {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  border-bottom: none;
-}
-
-.selectedService {
-  color: #292929;
-  background-color: white;
-  width: 100%;
-}
-
-.hoverService {
   color: white;
-  background-color: #292929;
   width: 100%;
+
+  //when not showing options
+  .checkboxDropdown {
+    display: flex;
+    flex-direction: column;
+    font-size: 22px;
+    border-bottom: 1px solid white;
+    .checkbox-inner-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 22px;
+      .dropDownArrow {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
+
+  //when showing options
+  .checkboxDropdown-no-border {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: none;
+
+    .checkbox-inner-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 22px;
+      .dropDownArrow {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .map-wrapper {
+      padding: 8px 0 8px 0px;
+
+      .servicesCheckboxHover {
+        height: 2vh;
+        width: 2vh;
+        border: 1px outset white;
+        align-self: center;
+        background: #292929;
+      }
+
+      .servicesCheckboxActive {
+        height: 2vh;
+        width: 2vh;
+        border: 1px groove #292929;
+        /* border-style: groove; */
+
+        align-self: center;
+      }
+
+      .servicesCheckboxInactive {
+        height: 2vh;
+        width: 2vh;
+        border: 1px outset grey;
+        align-self: center;
+        /* color: grey; */
+        background: white;
+      }
+
+      .checkmark {
+        justify-self: center;
+        align-self: center;
+        height: 95%;
+        width: 95%;
+      }
+      .selectedService {
+        color: #292929;
+        background-color: white;
+        width: 100%;
+        font-size: 22px;
+      }
+
+      .hoverService {
+        color: white;
+        background-color: #292929;
+        width: 100%;
+        font-size: 22px;
+      }
+    }
+  }
+
+  p {
+    font-size: 12px;
+  }
 }
 
-.servicesCheckboxActive {
-  height: 2vh;
-  width: 2vh;
-  border: 1px groove #292929;
-  /* border-style: groove; */
+.checkbox-dropdown-wrapper-four-k {
+  font-size: 32px;
+  font-family: 'Graphik';
+  justify-content: space-between;
+  color: white;
+  width: 100%;
 
-  align-self: center;
+  //when not showing options
+  .checkboxDropdown {
+    display: flex;
+    flex-direction: column;
+    font-size: 44px;
+    border-bottom: 1px solid white;
+    .checkbox-inner-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 44px;
+      .dropDownArrow {
+        width: 60px;
+        height: 60px;
+      }
+    }
+  }
+
+  //when showing options
+  .checkboxDropdown-no-border {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: none;
+
+    .checkbox-inner-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 44px;
+      .dropDownArrow {
+        width: 60px;
+        height: 60px;
+      }
+    }
+
+    .map-wrapper {
+      padding: 16px 0 16px 0px;
+
+      .servicesCheckboxHover {
+        height: 3vh;
+        width: 3vh;
+        border: 2px outset white;
+        align-self: center;
+        background: #292929;
+      }
+
+      .servicesCheckboxActive {
+        height: 3vh;
+        width: 3vh;
+        border: 2px outset #292929;
+        /* border-style: groove; */
+
+        align-self: center;
+      }
+
+      .servicesCheckboxInactive {
+        height: 3vh;
+        width: 3vh;
+        border: 2px outset #292929;
+        align-self: center;
+        /* color: grey; */
+        background: white;
+      }
+
+      .checkmark {
+        justify-self: center;
+        align-self: center;
+        height: 95%;
+        width: 95%;
+      }
+      .selectedService {
+        color: #292929;
+        background-color: white;
+        width: 100%;
+        font-size: 44px;
+      }
+
+      .hoverService {
+        color: white;
+        background-color: #292929;
+        width: 100%;
+        font-size: 44px;
+      }
+    }
+  }
+
+  p {
+    font-size: 24px;
+  }
 }
 
-.servicesCheckboxInactive {
-  height: 2vh;
-  width: 2vh;
-  border: 1px outset grey;
-  align-self: center;
-  /* color: grey; */
-  background: white;
-}
+.checkbox-dropdown-wrapper-touch {
+  font-size: 16px;
+  font-family: 'Graphik';
+  justify-content: space-between;
+  color: white;
+  width: 100%;
 
-.servicesCheckboxHover {
-  height: 2vh;
-  width: 2vh;
-  border: 1px outset white;
-  align-self: center;
-  background: #292929;
-}
+  //when not showing options
+  .checkboxDropdown {
+    display: flex;
+    flex-direction: column;
+    font-size: 22px;
+    border-bottom: 1px solid white;
+    .checkbox-inner-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 22px;
+      .dropDownArrow {
+        width: 30px;
+        height: 30px;
+      }
+    }
+  }
 
-.checkmark {
-  justify-self: center;
-  align-self: center;
-  height: 95%;
-  width: 95%;
+  //when showing options
+  .checkboxDropdown-no-border {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-bottom: none;
+
+    .checkbox-inner-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      font-size: 22px;
+      .dropDownArrow {
+        width: 30px;
+        height: 30px;
+      }
+    }
+
+    .map-wrapper {
+      padding: 8px 0 8px 0px;
+
+      .servicesCheckboxHover {
+        height: 3vh;
+        width: 3vh;
+        border: 1px outset #292929;
+        align-self: center;
+        background: white;
+      }
+
+      .servicesCheckboxActive {
+        height: 3vh;
+        width: 3vh;
+        border: 1px groove #292929;
+        /* border-style: groove; */
+
+        align-self: center;
+      }
+
+      .servicesCheckboxInactive {
+        height: 3vh;
+        width: 3vh;
+        border: 1px outset grey;
+        align-self: center;
+        /* color: grey; */
+        background: white;
+      }
+
+      .checkmark {
+        justify-self: center;
+        align-self: center;
+        height: 95%;
+        width: 95%;
+      }
+      .selectedService {
+        color: #292929;
+        background-color: white;
+        width: 100%;
+        font-size: 22px;
+      }
+
+      .hoverService {
+        color: #292929;
+        background-color: white;
+        width: 100%;
+        font-size: 22px;
+      }
+    }
+  }
+
+  p {
+    font-size: 12px;
+  }
 }
